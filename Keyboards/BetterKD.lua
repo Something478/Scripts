@@ -119,14 +119,14 @@ end
 
 -- Line 1 
 local ESC = createKey(Line1, "ESC", "ESC", UDim2.new(0, 4, 0, 30))
-local F1 = createKey(Line1, "F1", "F1", UDim2.new(0, 42, 0, 30))
-local F2 = createKey(Line1, "F2", "F2", UDim2.new(0, 80, 0, 30))
-local F3 = createKey(Line1, "F3", "F3", UDim2.new(0, 118, 0, 30))
-local F4 = createKey(Line1, "F4", "F4", UDim2.new(0, 156, 0, 30))
-local F5 = createKey(Line1, "F5", "F5", UDim2.new(0, 194, 0, 30))
-local F6 = createKey(Line1, "F6", "F6", UDim2.new(0, 232, 0, 30))
-local F7 = createKey(Line1, "F7", "F7", UDim2.new(0, 270, 0, 30))
-local F8 = createKey(Line1, "F8", "F8", UDim2.new(0, 308, 0, 30))
+local 1 = createKey(Line1, "1", "1", UDim2.new(0, 42, 0, 30))
+local 2 = createKey(Line1, "2", "2", UDim2.new(0, 80, 0, 30))
+local 3 = createKey(Line1, "3", "3", UDim2.new(0, 118, 0, 30))
+local 4 = createKey(Line1, "4", "4", UDim2.new(0, 156, 0, 30))
+local 5 = createKey(Line1, "5", "5", UDim2.new(0, 194, 0, 30))
+local 6 = createKey(Line1, "6", "6", UDim2.new(0, 232, 0, 30))
+local 7 = createKey(Line1, "7", "7", UDim2.new(0, 270, 0, 30))
+local 8 = createKey(Line1, "8", "8", UDim2.new(0, 308, 0, 30))
 local F9 = createKey(Line1, "F9", "F9", UDim2.new(0, 346, 0, 30))
 
 -- Line 2 
@@ -219,8 +219,8 @@ dragify(MainFrame)
 
 local keyNameToEnum = {
     ["ESC"] = "Escape",
-    ["F1"] = "F1", ["F2"] = "F2", ["F3"] = "F3", ["F4"] = "F4",
-    ["F5"] = "F5", ["F6"] = "F6", ["F7"] = "F7", ["F8"] = "F8",
+    ["F1"] = "F1", ["2"] = "2", ["3"] = "3", ["4"] = "4",
+    ["5"] = "5", ["6"] = "6", ["7"] = "7", ["8"] = "8",
     ["F9"] = "F9",
     ["Q"] = "Q", ["W"] = "W", ["E"] = "E", ["R"] = "R", ["T"] = "T",
     ["Y"] = "Y", ["U"] = "U", ["I"] = "I", ["O"] = "O", ["P"] = "P",
@@ -268,7 +268,7 @@ local function makePressGlow(btn)
 end
 
 local keyButtons = {
-    ESC, F1, F2, F3, F4, F5, F6, F7, F8, F9,
+    ESC, F1, 2, 3, 4, 5, 6, 7, 8, F9,
     Q, W, E, R, T, Y, U, I, O, P,
     A, S, D, F, G, H, J, K, L, Semicolon,
     Z, X, C, V, B, N, M, Comma, Period, Slash,
