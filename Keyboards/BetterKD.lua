@@ -219,7 +219,7 @@ dragify(MainFrame)
 
 local keyNameToEnum = {
     ["ESC"] = "Escape",
-    ["F1"] = "F1", ["2"] = "2", ["3"] = "3", ["4"] = "4",
+    ["1"] = "1", ["2"] = "2", ["3"] = "3", ["4"] = "4",
     ["5"] = "5", ["6"] = "6", ["7"] = "7", ["8"] = "8",
     ["F9"] = "F9",
     ["Q"] = "Q", ["W"] = "W", ["E"] = "E", ["R"] = "R", ["T"] = "T",
@@ -268,7 +268,7 @@ local function makePressGlow(btn)
 end
 
 local keyButtons = {
-    ESC, F1, 2, 3, 4, 5, 6, 7, 8, F9,
+    ESC, 1, 2, 3, 4, 5, 6, 7, 8, F9,
     Q, W, E, R, T, Y, U, I, O, P,
     A, S, D, F, G, H, J, K, L, Semicolon,
     Z, X, C, V, B, N, M, Comma, Period, Slash,
