@@ -12,7 +12,7 @@ G2L["Frame_2"] = Instance.new("Frame", G2L["ScreenGui_1"])
 G2L["Frame_2"]["BorderSizePixel"] = 0
 G2L["Frame_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 G2L["Frame_2"]["Size"] = UDim2.new(0.14914, 0, 0.11884, 0)
-G2L["Frame_2"]["Position"] = UDim2.new(0.45223, 0, -0.13015, 0)
+G2L["Frame_2"]["Position"] = UDim2.new(0.42543, 0, -0.13015, 0) -- Centered X
 G2L["Frame_2"]["BorderColor3"] = Color3.fromRGB(28, 42, 54)
 G2L["Frame_2"].BackgroundTransparency = 1
 
@@ -40,7 +40,11 @@ G2L["UIAspectRatioConstraint_7"]["AspectRatio"] = 2.95238
 
 local notify = {}
 
-function notify:Show()
+function notify:Show(text)
+    if text then
+        G2L["TextLabel_3"].Text = text
+    end
+    
     G2L["ScreenGui_1"].Enabled = true
     
     local originalPosition = G2L["Frame_2"].Position
