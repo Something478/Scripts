@@ -39,17 +39,9 @@ G2L["UIAspectRatioConstraint_7"] = Instance.new("UIAspectRatioConstraint", G2L["
 G2L["UIAspectRatioConstraint_7"]["AspectRatio"] = 2.95238
 
 local notify = {}
-notify.text = "Welcome"
-notify.textcolor = Color3.fromRGB(178, 0, 255)
-notify.bgcolor = Color3.fromRGB(0, 0, 0)
-notify.strokecolor = Color3.fromRGB(178, 0, 255)
 
 function notify:Show()
     G2L["ScreenGui_1"].Enabled = true
-    G2L["TextLabel_3"].Text = self.text
-    G2L["TextLabel_3"].TextColor3 = self.textcolor
-    G2L["Frame_2"].BackgroundColor3 = self.bgcolor
-    G2L["UIStroke_6"].Color = self.strokecolor
     
     local originalPosition = G2L["Frame_2"].Position
     G2L["Frame_2"].Position = UDim2.new(1.2, 0, -0.13015, 0)
