@@ -500,7 +500,7 @@ local function performKill()
                     killInProgress = false
                 end)
             else
-                notify("You need a Tool to use this.")
+                notify("You need a Tool to use this")
                 killInProgress = false
             end
         else
