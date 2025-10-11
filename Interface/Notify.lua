@@ -1,3 +1,8 @@
+--[[--------------------------------------
+Put this in your Auto-Execute:
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Interface/Notify.lua"))()
+-----------------------------------------]]
+
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 
