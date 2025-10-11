@@ -498,7 +498,7 @@ PdTab:CreateSection("Tool Related")
 PdTab:CreateButton({
     Name = "Overkill",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/GUIs/Kill.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/GUIs/Overkill.lua"))()
     end
 })
 
