@@ -144,7 +144,7 @@ ReadTab:CreateParagraph({
     Content = "Theme made by Theo."
 })
 
-local HomeTab = Window:CreateTab("(🔗) Home")
+local HomeTab = Window:CreateTab("Home")
 
 if Place == 17574618959 or Place == 88308889239232 then
     HomeTab:CreateButton({
@@ -386,7 +386,7 @@ HomeTab:CreateButton({
     end,
 })
 
-local MainTab = Window:CreateTab("(🔗) Main")
+local MainTab = Window:CreateTab("Main")
 MainTab:CreateButton({
     Name = "Nameless Admin",
     Callback = function()
@@ -439,32 +439,7 @@ MainTab:CreateButton({
     end,
 })
 
-local MyTab = Window:CreateTab("(🔗) By Owner")
-
-MyTab:CreateSection("Item-Related")
-
-MyTab:CreateButton({
-    Name = "(🎮) Kill GUI",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/GUIs/Kill.lua"))()
-    end
-})
-
-MyTab:CreateButton({
-    Name = "(🎮) Dupe GUI",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/GUIs/Dupe.lua"))()
-    end
-})
-
-MyTab:CreateSection("Reanimation")
-
-MyTab:CreateButton({
-    Name = "(🎮) Giant Dance",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Dance.lua"))()
-    end
-})
+local MyTab = Window:CreateTab("By StarFlow")
 
 MyTab:CreateSection("Visuals")
 
@@ -475,7 +450,7 @@ MyTab:CreateButton({
     end
 })
 
-local KeyTab = Window:CreateTab("(🔗) Keyboards")
+local KeyTab = Window:CreateTab("Keyboards")
 
 KeyTab:CreateSection("By StarFlow:")
 KeyTab:CreateButton({
@@ -516,21 +491,39 @@ KeyTab:CreateButton({
 
 if Place == 88308889239232 or Place == 17574618959 then
 
-local PdTab = Window:CreateTab("(🎮) PermaDeath")
+local PdTab = Window:CreateTab("Only Just A Baseplate")
+
+PdTab:CreateSection("Tool Related")
 
 PdTab:CreateButton({
-    Name = "KDV3 By Theo",
+    Name = "Overkill",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/GUIs/Kill.lua"))()
+    end
+})
+
+PdTab:CreateButton({
+    Name = "Dupe Gui",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/GUIs/Dupe.lua"))()
+    end
+})
+
+PdTab:CreateSection("Reanimation")
+
+PdTab:CreateButton({
+    Name = "Giant Dance",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Dance.lua"))()
+    end
+})
+
+PdTab:CreateButton({
+    Name = "KDV3 (Modded By Theo)",
     Callback = function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Solary-3/Scripts/refs/heads/main/Choose.lua"))()
         end
     })
-
-PdTab:CreateParagraph({
-    Title = "Credits",
-    Content = "To the owners of the scripts :D"
-    })
-  
-PdTab:CreateSection("Reanimation")
   
   PdTab:CreateButton({
     Name = "Just a Baseplate reanimation",
@@ -553,7 +546,7 @@ PdTab:CreateSection("Reanimation")
         end
     })
 
-local GenTab = Window:CreateTab("(🎮) Genesis")
+local GenTab = Window:CreateTab("Genesis")
 
 GenTab:CreateButton({
     Name = "Krystal Dance",
@@ -651,7 +644,7 @@ GenTab:CreateParagraph({
     Content = "Z (While driving)"
 })
 
-local HatsTab = Window:CreateTab("(🎮) Genesis rigs")
+local HatsTab = Window:CreateTab("Genesis rigs")
 
 HatsTab:CreateParagraph({
     Title = "IMPORTANT",
