@@ -526,6 +526,13 @@ PdTab:CreateButton({
     })
   
   PdTab:CreateButton({
+    Name = "Gelatek Reanimation",
+    Callback = function()
+           loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/DevTools/refs/heads/main/Reanimate"))()
+        end
+    })
+  
+  PdTab:CreateButton({
     Name = "Just a Baseplate reanimation",
     Callback = function()
             loadstring(game:HttpGet("https://rawscripts.net/raw/Just-a-baseplate.-Just-A-Baseplate-Working-Reanimation-39126"))()
@@ -536,13 +543,6 @@ PdTab:CreateButton({
     Name = "Currentangle V2",
     Callback = function()
             loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-CurrentAngle-V2-Old-46018"))()
-        end
-    })
-  
-  PdTab:CreateButton({
-    Name = "Gelatek Reanimation",
-    Callback = function()
-           loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/DevTools/refs/heads/main/Reanimate"))()
         end
     })
 
