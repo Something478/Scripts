@@ -1,5 +1,4 @@
 --[[--------------------------------------
-Put this in your Auto-Execute:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Interface/Notify.lua"))()
 -----------------------------------------]]
 
