@@ -11,5 +11,4 @@ You are **strictly prohibited** from:
 
 Any unauthorized use, reproduction, modification, or distribution may be subject to legal action. Access to this repository does **not** grant any license or rights to use, modify, or distribute its contents.
 
-For permissions or inquiries, contact StarFlow directly.
-Discord username: st4rfl0w
+For permissions or inquiries, contact StarFlow directly.\Discord username: st4rfl0w
