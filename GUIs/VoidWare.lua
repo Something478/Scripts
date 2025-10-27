@@ -57,7 +57,6 @@ TextButton_8.Position = UDim2.new(0, 352, 0, 2)
 TextButton_8.ZIndex = 2
 
 local UICorner_9 = Instance.new("UICorner", TextButton_8)
-UICorner_9.ZIndex = 2
 
 local UIStroke_a = Instance.new("UIStroke", VoidWare_2)
 
