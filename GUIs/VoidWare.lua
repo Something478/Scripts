@@ -6,6 +6,41 @@ local RunService = game:GetService("RunService")
 
 local G2L = {}
 
+local function dragify(Frame)
+    local dragToggle = nil
+    local dragSpeed = .25
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+        game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
+    end
+    Frame.InputBegan:Connect(function(input)
+        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Frame.Position
+            input.Changed:Connect(function()
+                if (input.UserInputState == Enum.UserInputState.End) then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+    Frame.InputChanged:Connect(function(input)
+        if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+            dragInput = input
+        end
+    end)
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if (input == dragInput and dragToggle) then
+            updateInput(input)
+        end
+    end)
+end
+
 local scanningGUI = Instance.new("ScreenGui", Players.LocalPlayer:WaitForChild("PlayerGui"))
 scanningGUI.Name = "VoidWareScanner"
 scanningGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -212,6 +247,9 @@ TextLabel2_c.Size = UDim2.new(0.15625, 0, 0.12931, 0)
 TextLabel2_c.Text = "Made by StarFlow"
 TextLabel2_c.Name = "TextLabel2"
 TextLabel2_c.Position = UDim2.new(0, 320, 0, 198)
+
+dragify(VoidWare_2)
+dragify(VoidWareExecutor_2)
 
 local backdoor = nil
 local alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}
