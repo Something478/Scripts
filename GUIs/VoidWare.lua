@@ -11,7 +11,8 @@ local VoidWare_2 = Instance.new("Frame", scanningGUI)
 VoidWare_2.BorderSizePixel = 0
 VoidWare_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 VoidWare_2.Size = UDim2.new(0.46186, 0, 0.65643, 0)
-VoidWare_2.Position = UDim2.new(0, 184, 0, -36)
+VoidWare_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+VoidWare_2.AnchorPoint = Vector2.new(0.5, 0.5)
 VoidWare_2.Name = "VoidWare"
 
 local UICorner_3 = Instance.new("UICorner", VoidWare_2)
@@ -53,8 +54,10 @@ TextButton_8.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
 TextButton_8.Size = UDim2.new(0.07813, 0, 0.12931, 0)
 TextButton_8.Text = "×"
 TextButton_8.Position = UDim2.new(0, 352, 0, 2)
+TextButton_8.ZIndex = 2
 
 local UICorner_9 = Instance.new("UICorner", TextButton_8)
+UICorner_9.ZIndex = 2
 
 local UIStroke_a = Instance.new("UIStroke", VoidWare_2)
 
@@ -69,7 +72,8 @@ local VoidWareExecutor_2 = Instance.new("Frame", executorGUI)
 VoidWareExecutor_2.BorderSizePixel = 0
 VoidWareExecutor_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 VoidWareExecutor_2.Size = UDim2.new(0.46186, 0, 0.65643, 0)
-VoidWareExecutor_2.Position = UDim2.new(0, 184, 0, -36)
+VoidWareExecutor_2.Position = UDim2.new(0.5, 0, 0.5, 0) 
+VoidWareExecutor_2.AnchorPoint = Vector2.new(0.5, 0.5)
 VoidWareExecutor_2.Name = "VoidWare"
 
 local Clear_3 = Instance.new("TextButton", VoidWareExecutor_2)
