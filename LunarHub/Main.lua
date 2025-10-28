@@ -20,7 +20,8 @@ local function Chat(message)
 end
 
 pcall(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/DevTools/main/Tag"))()
+local DevTools = loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Developer%20tools.lua"))()
+DevTools("GetTag")
 end)
 
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
