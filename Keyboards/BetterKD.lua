@@ -26,7 +26,13 @@ MainFrame.Selectable = true
 MainFrame.Parent = Keyboard
 
 local MainCorner = Instance.new("UICorner")
+MainCorner.CornerRadius = UDim.new(0, 8)
 MainCorner.Parent = MainFrame
+
+local MainStroke = Instance.new("UIStroke")
+MainStroke.Color = Color3.fromRGB(80, 80, 80)
+MainStroke.Thickness = 2
+MainStroke.Parent = MainFrame
 
 local TitleBar = Instance.new("TextLabel")
 TitleBar.TextWrapped = true
@@ -42,21 +48,31 @@ TitleBar.Position = UDim2.new(0, 0, 0, 0)
 TitleBar.Parent = MainFrame
 
 local TitleCorner = Instance.new("UICorner")
+TitleCorner.CornerRadius = UDim.new(0, 8)
 TitleCorner.Parent = TitleBar
 
-local Minimizer = Instance.new("TextButton")
-Minimizer.BorderSizePixel = 0
-Minimizer.TextSize = 20
-Minimizer.TextColor3 = Color3.fromRGB(255, 255, 255)
-Minimizer.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
-Minimizer.BackgroundTransparency = 0.5
-Minimizer.Size = UDim2.new(0.08854, 0, 0.13333, 0)
-Minimizer.Text = "-"
-Minimizer.Position = UDim2.new(0.80208, 0, 0, 0)
-Minimizer.Parent = MainFrame
+local function createControlButton(name, text, position, size)
+    local button = Instance.new("TextButton")
+    button.BorderSizePixel = 0
+    button.TextSize = 16
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+    button.BackgroundTransparency = 0.5
+    button.Size = size or UDim2.new(0.08854, 0, 0.13333, 0)
+    button.Text = text
+    button.Position = position
+    button.Name = name
+    button.Parent = MainFrame
+    
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 6)
+    corner.Parent = button
+    
+    return button
+end
 
-local MinimizerCorner = Instance.new("UICorner")
-MinimizerCorner.Parent = Minimizer
+local Minimizer = createControlButton("Minimizer", "-", UDim2.new(0.80208, 0, 0, 0))
+local Close = createControlButton("Close", "×", UDim2.new(0.90104, 0, 0, 0))
 
 local Show = Instance.new("TextButton")
 Show.BorderSizePixel = 0
@@ -64,85 +80,49 @@ Show.TextSize = 20
 Show.TextColor3 = Color3.fromRGB(255, 255, 255)
 Show.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
 Show.BackgroundTransparency = 0.5
-Show.Size = UDim2.new(0, 30, 0, 30)
+Show.Size = UDim2.new(0, 40, 0, 40)
 Show.Position = UDim2.new(0, 10, 0, 10)
 Show.Text = "+"
 Show.Visible = false
 Show.Parent = Keyboard
 
 local ShowCorner = Instance.new("UICorner")
+ShowCorner.CornerRadius = UDim.new(0, 8)
 ShowCorner.Parent = Show
 
-local Close = Instance.new("TextButton")
-Close.BorderSizePixel = 0
-Close.TextSize = 20
-Close.TextColor3 = Color3.fromRGB(255, 255, 255)
-Close.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
-Close.BackgroundTransparency = 0.5
-Close.Size = UDim2.new(0.08854, 0, 0.13333, 0)
-Close.Text = "×"
-Close.Position = UDim2.new(0.90104, 0, 0, 0)
-Close.Parent = MainFrame
+local Line1 = Instance.new("Folder"); Line1.Name = "Line1"; Line1.Parent = MainFrame
+local Line2 = Instance.new("Folder"); Line2.Name = "Line2"; Line2.Parent = MainFrame
+local Line3 = Instance.new("Folder"); Line3.Name = "Line3"; Line3.Parent = MainFrame
+local Line4 = Instance.new("Folder"); Line4.Name = "Line4"; Line4.Parent = MainFrame
+local Line5 = Instance.new("Folder"); Line5.Name = "Line5"; Line5.Parent = MainFrame
 
-local CloseCorner = Instance.new("UICorner")
-CloseCorner.Parent = Close
-
-local Line1 = Instance.new("Folder")
-Line1.Name = "Line1"
-Line1.Parent = MainFrame
-
-local Line2 = Instance.new("Folder")
-Line2.Name = "Line2"
-Line2.Parent = MainFrame
-
-local Line3 = Instance.new("Folder")
-Line3.Name = "Line3"
-Line3.Parent = MainFrame
-
-local Line4 = Instance.new("Folder")
-Line4.Name = "Line4"
-Line4.Parent = MainFrame
-
-local Line5 = Instance.new("Folder")
-Line5.Name = "Line5"
-Line5.Parent = MainFrame
-
-local function createKey(parent, name, text, position)
+local function createKey(parent, name, text, position, size)
     local key = Instance.new("TextButton")
     key.BorderSizePixel = 0
     key.TextSize = 12
     key.TextColor3 = Color3.fromRGB(255, 255, 255)
     key.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     key.BackgroundTransparency = 0.5
-    key.Size = UDim2.new(0.08854, 0, 0.15238, 0)
+    key.Size = size or UDim2.new(0.08854, 0, 0.15238, 0)
     key.Text = text
     key.Position = position
     key.Name = name
     key.Parent = parent
     
     local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 6)
     corner.Parent = key
+    
+    local stroke = Instance.new("UIStroke")
+    stroke.Color = Color3.fromRGB(60, 60, 60)
+    stroke.Thickness = 1
+    stroke.Parent = key
     
     return key
 end
 
 local function createSpecialKey(parent, name, text, position, size)
-    local key = Instance.new("TextButton")
-    key.BorderSizePixel = 0
-    key.TextSize = 12
-    key.TextColor3 = Color3.fromRGB(255, 255, 255)
-    key.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    key.BackgroundTransparency = 0.5
-    key.Size = size
-    key.Text = text
-    key.Position = position
-    key.Name = name
-    key.Parent = parent
-    
-    local corner = Instance.new("UICorner")
-    corner.Parent = key
-    
-    return key
+    return createKey(parent, name, text, position, size)
 end
 
 local ESC = createKey(Line1, "ESC", "ESC", UDim2.new(0, 4, 0, 30))
@@ -195,24 +175,26 @@ local Space = createSpecialKey(Line5, "Space", "SPACE", UDim2.new(0, 142, 0, 174
 local RightAlt = createSpecialKey(Line5, "RightAlt", "ALT", UDim2.new(0, 248, 0, 174), UDim2.new(0.14583, 0, 0.15238, 0))
 local RightCtrl = createSpecialKey(Line5, "RightCtrl", "CTRL", UDim2.new(0, 308, 0, 174), UDim2.new(0.1875, 0, 0.15238, 0))
 
-local MainStroke = Instance.new("UIStroke")
-MainStroke.Parent = MainFrame
-
 local AspectRatio = Instance.new("UIAspectRatioConstraint")
 AspectRatio.AspectRatio = 1.82857
 AspectRatio.Parent = MainFrame
 
 local function dragify(Frame)
     local dragToggle = nil
-    local dragSpeed = .25
+    local dragSpeed = 0.3
     local dragInput = nil
     local dragStart = nil
     local startPos = nil
 
     local function updateInput(input)
         local Delta = input.Position - dragStart
-        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-        game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
+        local Position = UDim2.new(
+            startPos.X.Scale, 
+            startPos.X.Offset + Delta.X, 
+            startPos.Y.Scale, 
+            startPos.Y.Offset + Delta.Y
+        )
+        TweenService:Create(Frame, TweenInfo.new(0.15), {Position = Position}):Play()
     end
 
     Frame.InputBegan:Connect(function(input)
@@ -220,9 +202,13 @@ local function dragify(Frame)
             dragToggle = true
             dragStart = input.Position
             startPos = Frame.Position
+            
+            TweenService:Create(Frame, TweenInfo.new(0.1), {BackgroundTransparency = 0.3}):Play()
+            
             input.Changed:Connect(function()
-                if (input.UserInputState == Enum.UserInputState.End) then
+                if input.UserInputState == Enum.UserInputState.End then
                     dragToggle = false
+                    TweenService:Create(Frame, TweenInfo.new(0.1), {BackgroundTransparency = 0.4}):Play()
                 end
             end)
         end
@@ -234,8 +220,8 @@ local function dragify(Frame)
         end
     end)
 
-    game:GetService("UserInputService").InputChanged:Connect(function(input)
-        if (input == dragInput and dragToggle) then
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
             updateInput(input)
         end
     end)
@@ -261,6 +247,43 @@ local keyNameToEnum = {
 }
 
 local activeKeys = {}
+local keyStates = {}
+
+local function makeHover(btn, normal, hover)
+    btn.MouseEnter:Connect(function() 
+        local tweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        TweenService:Create(btn, tweenInfo, {BackgroundColor3 = hover}):Play()
+    end)
+    
+    btn.MouseLeave:Connect(function()
+        if not keyStates[btn] then
+            local tweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+            TweenService:Create(btn, tweenInfo, {BackgroundColor3 = normal}):Play()
+        end
+    end)
+end
+
+local function makePressGlow(btn)
+    local originalColor = btn.BackgroundColor3
+    
+    btn.MouseButton1Down:Connect(function()
+        keyStates[btn] = true
+        local tweenInfo = TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        TweenService:Create(btn, tweenInfo, {
+            BackgroundColor3 = Color3.fromRGB(100, 150, 255),
+            BackgroundTransparency = 0.3
+        }):Play()
+    end)
+    
+    btn.MouseButton1Up:Connect(function()
+        keyStates[btn] = false
+        local tweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        TweenService:Create(btn, tweenInfo, {
+            BackgroundColor3 = originalColor,
+            BackgroundTransparency = 0.5
+        }):Play()
+    end)
+end
 
 local function pressKey(keyName, state)
     local enumName = keyNameToEnum[keyName]
@@ -268,31 +291,6 @@ local function pressKey(keyName, state)
         local keyCode = Enum.KeyCode[enumName]
         VirtualInputManager:SendKeyEvent(state, keyCode, false, game)
     end
-end
-
-local function makeHover(btn, normal, hover)
-    btn.MouseEnter:Connect(function() 
-        local tweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-        local tween = TweenService:Create(btn, tweenInfo, {BackgroundColor3 = hover})
-        tween:Play()
-    end)
-    
-    btn.MouseLeave:Connect(function()
-        local tweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-        local tween = TweenService:Create(btn, tweenInfo, {BackgroundColor3 = normal})
-        tween:Play()
-    end)
-end
-
-local function makePressGlow(btn)
-    btn.MouseButton1Down:Connect(function()
-        local originalColor = btn.BackgroundColor3
-        btn.BackgroundColor3 = Color3.fromRGB(180, 180, 255)
-    end)
-    
-    btn.MouseButton1Up:Connect(function()
-        btn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    end)
 end
 
 local keyButtons = {
@@ -304,7 +302,7 @@ local keyButtons = {
 }
 
 for _, button in ipairs(keyButtons) do
-    makeHover(button, button.BackgroundColor3, Color3.fromRGB(20, 20, 20))
+    makeHover(button, button.BackgroundColor3, Color3.fromRGB(30, 30, 30))
     makePressGlow(button)
     
     local isMovementKey = button.Name == "W" or button.Name == "A" or button.Name == "S" or button.Name == "D" or button.Name == "Space"
@@ -313,20 +311,17 @@ for _, button in ipairs(keyButtons) do
         button.MouseButton1Down:Connect(function()
             activeKeys[button.Name] = true
             pressKey(button.Name, true)
-            button.BackgroundColor3 = Color3.fromRGB(180, 180, 255)
         end)
         
         button.MouseButton1Up:Connect(function()
             activeKeys[button.Name] = false
             pressKey(button.Name, false)
-            button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         end)
         
         button.MouseLeave:Connect(function()
             if activeKeys[button.Name] then
                 activeKeys[button.Name] = false
                 pressKey(button.Name, false)
-                button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
             end
         end)
     else
@@ -347,16 +342,27 @@ makePressGlow(Show)
 makePressGlow(Close)
 
 Minimizer.MouseButton1Click:Connect(function()
+    local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In)
+    TweenService:Create(MainFrame, tweenInfo, {Size = UDim2.new(0, 0, 0, 0)}):Play()
+    task.wait(0.3)
     MainFrame.Visible = false
     Show.Visible = true
 end)
 
 Show.MouseButton1Click:Connect(function()
-    MainFrame.Visible = true
     Show.Visible = false
+    MainFrame.Visible = true
+    local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+    TweenService:Create(MainFrame, tweenInfo, {Size = UDim2.new(0.46186, 0, 0.59418, 0)}):Play()
 end)
 
 Close.MouseButton1Click:Connect(function()
+    local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In)
+    TweenService:Create(MainFrame, tweenInfo, {
+        Size = UDim2.new(0, 0, 0, 0),
+        BackgroundTransparency = 1
+    }):Play()
+    task.wait(0.3)
     Keyboard:Destroy()
 end)
 
