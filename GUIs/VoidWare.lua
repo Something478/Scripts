@@ -90,7 +90,7 @@ G2L["TextLabel_6"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.j
 G2L["TextLabel_6"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["TextLabel_6"]["BackgroundTransparency"] = 1;
 G2L["TextLabel_6"]["Size"] = UDim2.new(0, 444, 0, 144);
-G2L["TextLabel_6"]["Text"] = "About VoidWare:\nVoidWare is a free to use backdoor scanner with fast backdoor scanning.\nNot like something about VoidWare? (e.g UI, functioning, etc)\nContact St4rFl0w on discord to request some changes! :";
+G2L["TextLabel_6"]["Text"] = "About VoidWare:\nVoidWare is a free to use backdoor scanner with fast backdoor scanning.\nDon't like something about VoidWare?\nContact St4rFl0w on discord to request some changes! :";
 G2L["TextLabel_6"]["Position"] = UDim2.new(0, 6, 0, 124);
 
 
