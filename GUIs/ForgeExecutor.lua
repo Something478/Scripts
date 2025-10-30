@@ -9,9 +9,7 @@ local VirtualInputManager = game:GetService("VirtualInputManager")
 local player = Players.LocalPlayer
 local Forge = {}
 
-
 local Gui_Pos = UDim2.new(0, 212, 0, 26)
-
 
 Forge["ScreenGui_1"] = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 Forge["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
@@ -289,17 +287,30 @@ Forge["Favorites_22"]["Position"] = UDim2.new(0, 4, 0, 62)
 
 Forge["UICorner_23"] = Instance.new("UICorner", Forge["Favorites_22"])
 
-Forge["UIGradient_24"] = Instance.new("UIGradient", Forge["Sidebar_1a"])
-Forge["UIGradient_24"]["Color"] = ColorSequence.new{
+Forge["Search_24"] = Instance.new("TextButton", Forge["Sidebar_1a"])
+Forge["Search_24"]["TextWrapped"] = true
+Forge["Search_24"]["BorderSizePixel"] = 0
+Forge["Search_24"]["TextScaled"] = true
+Forge["Search_24"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+Forge["Search_24"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+Forge["Search_24"]["Size"] = UDim2.new(0, 54, 0, 54)
+Forge["Search_24"]["Text"] = "🔍"
+Forge["Search_24"]["Name"] = "Search"
+Forge["Search_24"]["Position"] = UDim2.new(0, 4, 0, 120)
+
+Forge["UICorner_25"] = Instance.new("UICorner", Forge["Search_24"])
+
+Forge["UIGradient_26"] = Instance.new("UIGradient", Forge["Sidebar_1a"])
+Forge["UIGradient_26"]["Color"] = ColorSequence.new{
     ColorSequenceKeypoint.new(0.000, Color3.fromRGB(45, 45, 45)),
     ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))
 }
 
-Forge["UIStroke_25"] = Instance.new("UIStroke", Forge["Sidebar_1a"])
-Forge["UIStroke_25"]["Color"] = Color3.fromRGB(0, 15, 255)
+Forge["UIStroke_27"] = Instance.new("UIStroke", Forge["Sidebar_1a"])
+Forge["UIStroke_27"]["Color"] = Color3.fromRGB(0, 15, 255)
 
-Forge["UIGradient_26"] = Instance.new("UIGradient", Forge["UIStroke_25"])
-Forge["UIGradient_26"]["Color"] = ColorSequence.new{
+Forge["UIGradient_28"] = Instance.new("UIGradient", Forge["UIStroke_27"])
+Forge["UIGradient_28"]["Color"] = ColorSequence.new{
     ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
     ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
 }
@@ -317,6 +328,13 @@ Forge["FavoritesContent"]["Size"] = UDim2.new(1, 0, 1, 0)
 Forge["FavoritesContent"]["Name"] = "FavoritesContent"
 Forge["FavoritesContent"]["Visible"] = false
 
+Forge["SearchContent"] = Instance.new("Frame", Forge["MainFrame_2"])
+Forge["SearchContent"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+Forge["SearchContent"]["BackgroundTransparency"] = 1
+Forge["SearchContent"]["Size"] = UDim2.new(1, 0, 1, 0)
+Forge["SearchContent"]["Name"] = "SearchContent"
+Forge["SearchContent"]["Visible"] = false
+
 Forge["FavoritesList"] = Instance.new("ScrollingFrame", Forge["FavoritesContent"])
 Forge["FavoritesList"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 Forge["FavoritesList"]["BackgroundTransparency"] = 1
@@ -325,6 +343,30 @@ Forge["FavoritesList"]["Position"] = UDim2.new(0, 6, 0, 6)
 Forge["FavoritesList"]["CanvasSize"] = UDim2.new(0, 0, 0, 0)
 Forge["FavoritesList"]["ScrollBarThickness"] = 8
 Forge["FavoritesList"]["Name"] = "FavoritesList"
+
+Forge["SearchBox"] = Instance.new("TextBox", Forge["SearchContent"])
+Forge["SearchBox"]["CursorPosition"] = -1
+Forge["SearchBox"]["TextXAlignment"] = Enum.TextXAlignment.Left
+Forge["SearchBox"]["BorderSizePixel"] = 0
+Forge["SearchBox"]["TextSize"] = 10
+Forge["SearchBox"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+Forge["SearchBox"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+Forge["SearchBox"]["PlaceholderText"] = "Search scripts (powered by scriptblox.com)"
+Forge["SearchBox"]["Size"] = UDim2.new(0, 454, 0, 30)
+Forge["SearchBox"]["Position"] = UDim2.new(0, 6, 0, 6)
+Forge["SearchBox"]["Text"] = ""
+Forge["SearchBox"]["BackgroundTransparency"] = 0.7
+
+Forge["UICorner_29"] = Instance.new("UICorner", Forge["SearchBox"])
+
+Forge["SearchList"] = Instance.new("ScrollingFrame", Forge["SearchContent"])
+Forge["SearchList"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+Forge["SearchList"]["BackgroundTransparency"] = 1
+Forge["SearchList"]["Size"] = UDim2.new(1, -12, 1, -42)
+Forge["SearchList"]["Position"] = UDim2.new(0, 6, 0, 42)
+Forge["SearchList"]["CanvasSize"] = UDim2.new(0, 0, 0, 0)
+Forge["SearchList"]["ScrollBarThickness"] = 8
+Forge["SearchList"]["Name"] = "SearchList"
 
 local FavoritesData = {scripts = {}}
 local DATA_STORE_KEY = "ForgeExecutorFavorites"
@@ -348,12 +390,10 @@ local function saveFavorites()
     end
 end
 
-
 local statsConnections = {}
 local fpsCounter = 0
 local lastTime = tick()
 local frameCount = 0
-
 
 local function getPing()
     local ping = player:GetNetworkPing()
@@ -395,6 +435,7 @@ local function switchTab(tabName)
     
     Forge["ExecutorContent"].Visible = (tabName == "executor")
     Forge["FavoritesContent"].Visible = (tabName == "favorites")
+    Forge["SearchContent"].Visible = (tabName == "search")
     Forge["TextBox_19"].Visible = (tabName == "executor")
     Forge["Exe_16"].Visible = (tabName == "executor")
     Forge["Clr_13"].Visible = (tabName == "executor")
@@ -402,12 +443,16 @@ local function switchTab(tabName)
     
     local executorBtn = Forge["Executor_1e"]
     local favoritesBtn = Forge["Favorites_22"]
+    local searchBtn = Forge["Search_24"]
     
     if executorBtn then
         executorBtn.BackgroundColor3 = (tabName == "executor") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
     end
     if favoritesBtn then
         favoritesBtn.BackgroundColor3 = (tabName == "favorites") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
+    end
+    if searchBtn then
+        searchBtn.BackgroundColor3 = (tabName == "search") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
     end
 end
 
@@ -577,6 +622,151 @@ local function updateFavoritesList()
     favoritesList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
 end
 
+local function searchScripts(query)
+    local searchList = Forge["SearchList"]
+    if not searchList then return end
+    
+    for _, child in pairs(searchList:GetChildren()) do
+        if child:IsA("Frame") then
+            child:Destroy()
+        end
+    end
+    
+    searchList.CanvasSize = UDim2.new(0, 0, 0, 0)
+    
+    local loadingText = Instance.new("TextLabel")
+    loadingText.Size = UDim2.new(1, 0, 0, 30)
+    loadingText.Position = UDim2.new(0, 0, 0, 0)
+    loadingText.BackgroundTransparency = 1
+    loadingText.Text = "Searching..."
+    loadingText.TextColor3 = Color3.fromRGB(0, 15, 255)
+    loadingText.TextSize = 14
+    loadingText.Parent = searchList
+    
+    local url = "https://scriptblox.com/api/script/search?q=" .. HttpService:UrlEncode(query) .. "&max=10"
+    
+    local success, result = pcall(function()
+        return game:HttpGetAsync(url)
+    end)
+    
+    loadingText:Destroy()
+    
+    if not success then
+        local errorText = Instance.new("TextLabel")
+        errorText.Size = UDim2.new(1, 0, 0, 30)
+        errorText.Position = UDim2.new(0, 0, 0, 0)
+        errorText.BackgroundTransparency = 1
+        errorText.Text = "Failed to search scripts"
+        errorText.TextColor3 = Color3.fromRGB(255, 0, 0)
+        errorText.TextSize = 14
+        errorText.Parent = searchList
+        return
+    end
+    
+    local data
+    success, data = pcall(function()
+        return HttpService:JSONDecode(result)
+    end)
+    
+    if not success or not data.result or not data.result.scripts then
+        local errorText = Instance.new("TextLabel")
+        errorText.Size = UDim2.new(1, 0, 0, 30)
+        errorText.Position = UDim2.new(0, 0, 0, 0)
+        errorText.BackgroundTransparency = 1
+        errorText.Text = "No scripts found"
+        errorText.TextColor3 = Color3.fromRGB(255, 255, 255)
+        errorText.TextSize = 14
+        errorText.Parent = searchList
+        return
+    end
+    
+    local yPosition = 0
+    for _, scriptData in pairs(data.result.scripts) do
+        local scriptFrame = Instance.new("Frame")
+        scriptFrame.Size = UDim2.new(1, -10, 0, 32)
+        scriptFrame.Position = UDim2.new(0, 5, 0, yPosition)
+        scriptFrame.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+        
+        local corner = Instance.new("UICorner")
+        corner.Parent = scriptFrame
+        
+        local nameLabel = Instance.new("TextLabel")
+        nameLabel.Size = UDim2.new(0, 350, 1, 0)
+        nameLabel.Position = UDim2.new(0, 6, 0, 0)
+        nameLabel.BackgroundTransparency = 1
+        nameLabel.Text = scriptData.title .. " [👁️" .. scriptData.views .. "] [👍" .. (scriptData.likeCount or 0) .. "]"
+        nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+        nameLabel.TextSize = 12
+        nameLabel.TextTruncate = Enum.TextTruncate.AtEnd
+        nameLabel.Parent = scriptFrame
+        
+        local loadButton = Instance.new("TextButton")
+        loadButton.Name = "Load"
+        loadButton.Size = UDim2.new(0, 24, 0, 24)
+        loadButton.Position = UDim2.new(1, -56, 0, 4)
+        loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        loadButton.Text = "<>"
+        loadButton.TextSize = 12
+        loadButton.Parent = scriptFrame
+        
+        local loadCorner = Instance.new("UICorner")
+        loadCorner.Parent = loadButton
+        
+        local favoriteButton = Instance.new("TextButton")
+        favoriteButton.Name = "Favorite"
+        favoriteButton.Size = UDim2.new(0, 24, 0, 24)
+        favoriteButton.Position = UDim2.new(1, -28, 0, 4)
+        favoriteButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        favoriteButton.TextColor3 = Color3.fromRGB(191, 191, 191)
+        favoriteButton.Text = "★"
+        favoriteButton.TextSize = 12
+        favoriteButton.Parent = scriptFrame
+        
+        local favoriteCorner = Instance.new("UICorner")
+        favoriteCorner.Parent = favoriteButton
+        
+        loadButton.MouseButton1Click:Connect(function()
+            local scriptUrl = "https://scriptblox.com/api/script/raw/" .. scriptData.slug
+            
+            local success, scriptContent = pcall(function()
+                return game:HttpGetAsync(scriptUrl)
+            end)
+            
+            if success then
+                Forge["TextBox_19"].Text = scriptContent
+                switchTab("executor")
+            else
+                warn("Failed to load script: " .. scriptData.title)
+            end
+        end)
+        
+        favoriteButton.MouseButton1Click:Connect(function()
+            local scriptUrl = "https://scriptblox.com/api/script/raw/" .. scriptData.slug
+            
+            local success, scriptContent = pcall(function()
+                return game:HttpGetAsync(scriptUrl)
+            end)
+            
+            if success then
+                FavoritesData.scripts[scriptData.title] = {
+                    code = scriptContent,
+                    timestamp = os.time()
+                }
+                saveFavorites()
+                updateFavoritesList()
+                favoriteButton.TextColor3 = Color3.fromRGB(255, 215, 0)
+            end
+        end)
+        
+        scriptFrame.Parent = searchList
+        yPosition = yPosition + 37
+    end
+    
+    searchList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
+end
+
 Forge["Exe_16"].MouseButton1Click:Connect(function()
     local scriptText = Forge["TextBox_19"].Text
     if scriptText and scriptText ~= "" then
@@ -607,6 +797,19 @@ end)
 Forge["Favorites_22"].MouseButton1Click:Connect(function()
     switchTab("favorites")
     updateFavoritesList()
+end)
+
+Forge["Search_24"].MouseButton1Click:Connect(function()
+    switchTab("search")
+end)
+
+Forge["SearchBox"].FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        local query = Forge["SearchBox"].Text
+        if query and query ~= "" then
+            searchScripts(query)
+        end
+    end
 end)
 
 local consoleOpen = false
@@ -709,7 +912,6 @@ UserInputService.InputChanged:Connect(function(input)
         update2(input)
     end
 end)
-
 
 updateStats()
 table.insert(statsConnections, RunService.RenderStepped:Connect(updateStats))
