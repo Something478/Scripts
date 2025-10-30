@@ -46,8 +46,6 @@ local function isJumbled(name)
 end
 
 local function scanCoreGuiAndDestroy()
-    print("--- Starting CoreGui Security Scan ---")
-    local destroyedCount = 0
     local descendants = CoreGui:GetDescendants()
     
     for _, object in ipairs(descendants) do
@@ -59,21 +57,8 @@ local function scanCoreGuiAndDestroy()
         end
         
         if isJumbled(name) then
-            print(string.format(
-                "Removing suspicious object: '%s' (Class: %s)",
-                name,
-                object.ClassName
-            ))
-            
             object:Destroy()
-            destroyedCount = destroyedCount + 1
         end
-    end
-    
-    if destroyedCount > 0 then
-        print(string.format("--- Scan Complete: Removed %d suspicious objects ---", destroyedCount))
-    else
-        print("--- Scan Complete: No suspicious objects found ---")
     end
 end
 
