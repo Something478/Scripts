@@ -142,7 +142,7 @@ Forge["Clr_e"]["TextColor3"] = Color3.fromRGB(0, 15, 255)
 Forge["Clr_e"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 Forge["Clr_e"]["BackgroundTransparency"] = 0.7
 Forge["Clr_e"]["Size"] = UDim2.new(0.17167, 0, 0.08844, 0)
-Forge["Clr_e"]["Text"] = "Save"
+Forge["Clr_e"]["Text"] = "★"
 Forge["Clr_e"]["Name"] = "SaveBtn"
 Forge["Clr_e"]["Position"] = UDim2.new(0.37768, 0, 0.89796, 0)
 
@@ -167,7 +167,7 @@ Forge["Clr_13"]["TextColor3"] = Color3.fromRGB(0, 15, 255)
 Forge["Clr_13"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 Forge["Clr_13"]["BackgroundTransparency"] = 0.7
 Forge["Clr_13"]["Size"] = UDim2.new(0.17167, 0, 0.08844, 0)
-Forge["Clr_13"]["Text"] = "⌫"
+Forge["Clr_13"]["Text"] = "⌦"
 Forge["Clr_13"]["Name"] = "ClearBtn"
 Forge["Clr_13"]["Position"] = UDim2.new(0.19742, 0, 0.89796, 0)
 
