@@ -253,7 +253,7 @@ Forge["Executor_1e"]["TextScaled"] = true
 Forge["Executor_1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 Forge["Executor_1e"]["BackgroundColor3"] = Color3.fromRGB(80, 80, 80)
 Forge["Executor_1e"]["Size"] = UDim2.new(0, 54, 0, 54)
-Forge["Executor_1e"]["Text"] = "<>"
+Forge["Executor_1e"]["Text"] = "▷"
 Forge["Executor_1e"]["Name"] = "Executor"
 Forge["Executor_1e"]["Position"] = UDim2.new(0, 4, 0, 4)
 
