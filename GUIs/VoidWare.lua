@@ -4,6 +4,8 @@ local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 
+function ignore(text) end
+
 local G2L = {}
 
 local function dragify(Frame)
