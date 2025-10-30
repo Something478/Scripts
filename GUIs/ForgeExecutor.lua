@@ -584,7 +584,7 @@ local function updateFavoritesList()
         loadButton.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
         loadButton.BackgroundTransparency = 0.5
         loadButton.TextColor3 = Color3.fromRGB(0, 15, 255)
-        loadButton.Text = ">_"
+        loadButton.Text = "<>"
         loadButton.TextSize = 12
         loadButton.Parent = favoriteFrame
         
