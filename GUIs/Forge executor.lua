@@ -167,7 +167,7 @@ Forge["Clr_13"]["TextColor3"] = Color3.fromRGB(0, 15, 255)
 Forge["Clr_13"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 Forge["Clr_13"]["BackgroundTransparency"] = 0.7
 Forge["Clr_13"]["Size"] = UDim2.new(0.17167, 0, 0.08844, 0)
-Forge["Clr_13"]["Text"] = "Clear"
+Forge["Clr_13"]["Text"] = "⌫"
 Forge["Clr_13"]["Name"] = "ClearBtn"
 Forge["Clr_13"]["Position"] = UDim2.new(0.19742, 0, 0.89796, 0)
 
@@ -187,7 +187,7 @@ Forge["Exe_16"]["TextColor3"] = Color3.fromRGB(0, 15, 255)
 Forge["Exe_16"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 Forge["Exe_16"]["BackgroundTransparency"] = 0.7
 Forge["Exe_16"]["Size"] = UDim2.new(0.17167, 0, 0.08844, 0)
-Forge["Exe_16"]["Text"] = "Execute"
+Forge["Exe_16"]["Text"] = "▷"
 Forge["Exe_16"]["Name"] = "ExecuteBtn"
 Forge["Exe_16"]["Position"] = UDim2.new(0.02146, 0, 0.89796, 0)
 
@@ -251,7 +251,7 @@ Forge["Executor_1e"]["TextScaled"] = true
 Forge["Executor_1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 Forge["Executor_1e"]["BackgroundColor3"] = Color3.fromRGB(80, 80, 80)
 Forge["Executor_1e"]["Size"] = UDim2.new(0.87097, 0, 0.18243, 0)
-Forge["Executor_1e"]["Text"] = "<>"
+Forge["Executor_1e"]["Text"] = "▷"
 Forge["Executor_1e"]["Name"] = "Executor"
 Forge["Executor_1e"]["Position"] = UDim2.new(0.06452, 0, 0.01351, 0)
 
@@ -503,7 +503,7 @@ local function createSavePopup()
     saveBtn.Position = UDim2.new(0, 30, 0, 100)
     saveBtn.BackgroundColor3 = Color3.fromRGB(0, 100, 0)
     saveBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    saveBtn.Text = "Save"
+    saveBtn.Text = "☆"
     saveBtn.Parent = popup
     
     local saveCorner = Instance.new("UICorner")
@@ -582,7 +582,7 @@ local function updateFavoritesList()
         loadButton.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
         loadButton.BackgroundTransparency = 0.5
         loadButton.TextColor3 = Color3.fromRGB(0, 15, 255)
-        loadButton.Text = "<>"
+        loadButton.Text = "▷"
         loadButton.TextSize = 12
         loadButton.Parent = favoriteFrame
         
@@ -705,7 +705,7 @@ local function searchScripts(query)
         loadButton.Position = UDim2.new(1, -56, 0, 4)
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        loadButton.Text = "<>"
+        loadButton.Text = "▷"
         loadButton.TextSize = 12
         loadButton.Parent = scriptFrame
         
