@@ -134,19 +134,19 @@ Forge["UIGradient_d"]["Color"] = ColorSequence.new{
     ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
 }
 
-Forge["Clr_e"] = Instance.new("TextButton", Forge["MainFrame_2"])
-Forge["Clr_e"]["TextWrapped"] = true
-Forge["Clr_e"]["BorderSizePixel"] = 0
-Forge["Clr_e"]["TextSize"] = 12
-Forge["Clr_e"]["TextColor3"] = Color3.fromRGB(0, 15, 255)
-Forge["Clr_e"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
-Forge["Clr_e"]["BackgroundTransparency"] = 0.7
-Forge["Clr_e"]["Size"] = UDim2.new(0.17167, 0, 0.08844, 0)
-Forge["Clr_e"]["Text"] = "★"
-Forge["Clr_e"]["Name"] = "SaveBtn"
-Forge["Clr_e"]["Position"] = UDim2.new(0.37768, 0, 0.89796, 0)
+Forge["Save"] = Instance.new("TextButton", Forge["MainFrame_2"])
+Forge["Save"]["TextWrapped"] = true
+Forge["Save"]["BorderSizePixel"] = 0
+Forge["Save"]["TextSize"] = 12
+Forge["Save"]["TextColor3"] = Color3.fromRGB(0, 15, 255)
+Forge["Save"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+Forge["Save"]["BackgroundTransparency"] = 0.7
+Forge["Save"]["Size"] = UDim2.new(0.17167, 0, 0.08844, 0)
+Forge["Save"]["Text"] = "★"
+Forge["Save"]["Name"] = "SaveBtn"
+Forge["Save"]["Position"] = UDim2.new(0.37768, 0, 0.89796, 0)
 
-Forge["UICorner_f"] = Instance.new("UICorner", Forge["Clr_e"])
+Forge["UICorner_f"] = Instance.new("UICorner", Forge["Save"])
 
 Forge["UIStroke_10"] = Instance.new("UIStroke", Forge["MainFrame_2"])
 Forge["UIStroke_10"]["Color"] = Color3.fromRGB(0, 15, 255)
@@ -167,7 +167,7 @@ Forge["Clr_13"]["TextColor3"] = Color3.fromRGB(0, 15, 255)
 Forge["Clr_13"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 Forge["Clr_13"]["BackgroundTransparency"] = 0.7
 Forge["Clr_13"]["Size"] = UDim2.new(0.17167, 0, 0.08844, 0)
-Forge["Clr_13"]["Text"] = "⌦"
+Forge["Clr_13"]["Text"] = "⌧"
 Forge["Clr_13"]["Name"] = "ClearBtn"
 Forge["Clr_13"]["Position"] = UDim2.new(0.19742, 0, 0.89796, 0)
 
@@ -437,7 +437,7 @@ local function switchTab(tabName)
     Forge["TextBox_19"].Visible = (tabName == "executor")
     Forge["Exe_16"].Visible = (tabName == "executor")
     Forge["Clr_13"].Visible = (tabName == "executor")
-    Forge["Clr_e"].Visible = (tabName == "executor")
+    Forge["Save"].Visible = (tabName == "executor")
     
     local executorBtn = Forge["Executor_1e"]
     local favoritesBtn = Forge["Favorites_22"]
@@ -781,7 +781,7 @@ Forge["Clr_13"].MouseButton1Click:Connect(function()
     Forge["TextBox_19"].Text = ""
 end)
 
-Forge["Clr_e"].MouseButton1Click:Connect(function()
+Forge["Save"].MouseButton1Click:Connect(function()
     local scriptText = Forge["TextBox_19"].Text
     if scriptText and scriptText ~= "" then
         createSavePopup()
