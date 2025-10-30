@@ -4,7 +4,7 @@ local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 
-function ignore(text) end
+getgenv().ignore = setmetatable({}, {__newindex = function() end})
 
 local G2L = {}
 
