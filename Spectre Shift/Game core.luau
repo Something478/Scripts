@@ -12,6 +12,7 @@ local CurrentDimension = "Material"
 local GameActive = true
 local Checkpoints = {}
 local CurrentCheckpoint = 1
+local MessagesSent = false
 
 for _, obj in pairs(workspace:GetChildren()) do
     if obj.Name == "SpectreGame" then
@@ -37,7 +38,7 @@ SpectralMusic.Parent = SoundService
 
 local function CreateMaterialMap()
     local startPlatform = Instance.new("Part")
-    startPlatform.Name = "StartPlatform"
+    startPlatform.Name = "MaterialStart"
     startPlatform.Size = Vector3.new(20, 2, 20)
     startPlatform.Position = Vector3.new(0, 10, 0)
     startPlatform.Anchored = true
@@ -67,7 +68,7 @@ local function CreateMaterialMap()
     materialPlatform2.Parent = SpectreGame
     
     local jumpPad = Instance.new("Part")
-    jumpPad.Name = "JumpPad1"
+    jumpPad.Name = "MaterialJumpPad"
     jumpPad.Size = Vector3.new(4, 1, 4)
     jumpPad.Position = Vector3.new(80, 20, 0)
     jumpPad.Anchored = true
@@ -81,7 +82,7 @@ local function CreateMaterialMap()
     jumpBoost.Parent = jumpPad
     
     local finishPlatform = Instance.new("Part")
-    finishPlatform.Name = "FinishPlatform"
+    finishPlatform.Name = "MaterialFinish"
     finishPlatform.Size = Vector3.new(20, 2, 20)
     finishPlatform.Position = Vector3.new(120, 25, 0)
     finishPlatform.Anchored = true
@@ -99,6 +100,16 @@ local function CreateMaterialMap()
 end
 
 local function CreateSpectralMap()
+    local startPlatform = Instance.new("Part")
+    startPlatform.Name = "SpectralStart"
+    startPlatform.Size = Vector3.new(20, 2, 20)
+    startPlatform.Position = Vector3.new(0, 10, 0)
+    startPlatform.Anchored = true
+    startPlatform.CanCollide = true
+    startPlatform.BrickColor = BrickColor.new("Bright green")
+    startPlatform.Material = Enum.Material.Neon
+    startPlatform.Parent = SpectreGame
+    
     local spectralPlatform1 = Instance.new("Part")
     spectralPlatform1.Name = "SpectralPlatform1"
     spectralPlatform1.Size = Vector3.new(12, 1, 12)
@@ -107,7 +118,6 @@ local function CreateSpectralMap()
     spectralPlatform1.CanCollide = true
     spectralPlatform1.BrickColor = BrickColor.new("Bright violet")
     spectralPlatform1.Material = Enum.Material.Neon
-    spectralPlatform1.Transparency = 0
     spectralPlatform1.Parent = SpectreGame
     
     local spectralPlatform2 = Instance.new("Part")
@@ -118,7 +128,6 @@ local function CreateSpectralMap()
     spectralPlatform2.CanCollide = true
     spectralPlatform2.BrickColor = BrickColor.new("Bright violet")
     spectralPlatform2.Material = Enum.Material.Neon
-    spectralPlatform2.Transparency = 0
     spectralPlatform2.Parent = SpectreGame
     
     local spectralPlatform3 = Instance.new("Part")
@@ -129,8 +138,21 @@ local function CreateSpectralMap()
     spectralPlatform3.CanCollide = true
     spectralPlatform3.BrickColor = BrickColor.new("Bright violet")
     spectralPlatform3.Material = Enum.Material.Neon
-    spectralPlatform3.Transparency = 0
     spectralPlatform3.Parent = SpectreGame
+    
+    local spectralJumpPad = Instance.new("Part")
+    spectralJumpPad.Name = "SpectralJumpPad"
+    spectralJumpPad.Size = Vector3.new(4, 1, 4)
+    spectralJumpPad.Position = Vector3.new(90, 38, 0)
+    spectralJumpPad.Anchored = true
+    spectralJumpPad.CanCollide = true
+    spectralJumpPad.BrickColor = BrickColor.new("Bright yellow")
+    spectralJumpPad.Material = Enum.Material.Neon
+    spectralJumpPad.Parent = SpectreGame
+    
+    local jumpBoost = Instance.new("BodyVelocity")
+    jumpBoost.Velocity = Vector3.new(0, 100, 0)
+    jumpBoost.Parent = spectralJumpPad
     
     local spectralFinish = Instance.new("Part")
     spectralFinish.Name = "SpectralFinish"
@@ -140,7 +162,6 @@ local function CreateSpectralMap()
     spectralFinish.CanCollide = true
     spectralFinish.BrickColor = BrickColor.new("Hot pink")
     spectralFinish.Material = Enum.Material.Neon
-    spectralFinish.Transparency = 0
     spectralFinish.Parent = SpectreGame
 end
 
@@ -167,8 +188,8 @@ local function SwitchDimension()
             if obj.Name:find("Spectral") then
                 obj.Transparency = 0
                 obj.CanCollide = true
-            elseif obj.Name:find("Material") or obj.Name == "StartPlatform" or obj.Name == "FinishPlatform" or obj.Name == "JumpPad1" then
-                obj.Transparency = 0.8
+            else
+                obj.Transparency = 1
                 obj.CanCollide = false
             end
         end
@@ -191,11 +212,11 @@ local function SwitchDimension()
         MaterialMusic:Play()
         
         for _, obj in pairs(SpectreGame:GetChildren()) do
-            if obj.Name:find("Material") or obj.Name == "StartPlatform" or obj.Name == "FinishPlatform" or obj.Name == "JumpPad1" then
+            if obj.Name:find("Material") then
                 obj.Transparency = 0
                 obj.CanCollide = true
-            elseif obj.Name:find("Spectral") then
-                obj.Transparency = 0.8
+            else
+                obj.Transparency = 1
                 obj.CanCollide = false
             end
         end
@@ -278,24 +299,34 @@ local function AddGameUI()
     screenGui.Name = "GameUI"
     
     local tpButton = Instance.new("TextButton")
-    tpButton.Text = "TP"
+    tpButton.Text = "Switch Dim"
     tpButton.BackgroundColor3 = Color3.fromRGB(138, 43, 226)
     tpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    tpButton.Size = UDim2.new(0, 80, 0, 40)
+    tpButton.Size = UDim2.new(0, 100, 0, 40)
     tpButton.Position = UDim2.new(0, 10, 0, 60)
     tpButton.ZIndex = 100
     tpButton.Parent = screenGui
+    
+    local checkpointButton = Instance.new("TextButton")
+    checkpointButton.Text = "To Checkpoint"
+    checkpointButton.BackgroundColor3 = Color3.fromRGB(138, 43, 226)
+    checkpointButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    checkpointButton.Size = UDim2.new(0, 100, 0, 40)
+    checkpointButton.Position = UDim2.new(0, 10, 0, 110)
+    checkpointButton.ZIndex = 100
+    checkpointButton.Parent = screenGui
     
     local menuButton = Instance.new("TextButton")
     menuButton.Text = "Menu"
     menuButton.BackgroundColor3 = Color3.fromRGB(138, 43, 226)
     menuButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    menuButton.Size = UDim2.new(0, 80, 0, 40)
-    menuButton.Position = UDim2.new(0, 10, 0, 110)
+    menuButton.Size = UDim2.new(0, 100, 0, 40)
+    menuButton.Position = UDim2.new(0, 10, 0, 160)
     menuButton.ZIndex = 100
     menuButton.Parent = screenGui
     
-    tpButton.MouseButton1Click:Connect(TeleportToCheckpoint)
+    tpButton.MouseButton1Click:Connect(SwitchDimension)
+    checkpointButton.MouseButton1Click:Connect(TeleportToCheckpoint)
     
     menuButton.MouseButton1Click:Connect(function()
         for _, obj in pairs(workspace:GetChildren()) do
@@ -319,24 +350,24 @@ SetupCheckpoints()
 AddGameUI()
 MaterialMusic:Play()
 
+for _, obj in pairs(SpectreGame:GetChildren()) do
+    if not obj.Name:find("Material") then
+        obj.Transparency = 1
+        obj.CanCollide = false
+    end
+end
+
 local heartbeatConnection
 heartbeatConnection = RunService.Heartbeat:Connect(function()
     if not GameActive then
         heartbeatConnection:Disconnect()
         return
     end
-    
-    for _, obj in pairs(SpectreGame:GetChildren()) do
-        if obj.Name:find("Spectral") and CurrentDimension == "Material" then
-            local pulse = math.sin(tick() * 3) * 0.3 + 0.7
-            obj.Transparency = pulse
-        elseif (obj.Name:find("Material") or obj.Name == "StartPlatform" or obj.Name == "FinishPlatform") and CurrentDimension == "Spectral" then
-            local pulse = math.sin(tick() * 3) * 0.3 + 0.7
-            obj.Transparency = pulse
-        end
-    end
 end)
 
-task.wait(1)
-SendMessage("Welcome to Spectre Shift")
-SendMessage("Use the 'TP' button to teleport between dimensions")
+if not MessagesSent then
+    task.wait(1)
+    SendMessage("Welcome to Spectre Shift")
+    SendMessage("Use the 'Switch Dim' button to teleport between dimensions")
+    MessagesSent = true
+end
