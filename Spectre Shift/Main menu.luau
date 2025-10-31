@@ -164,7 +164,15 @@ FreezePlayer()
 G2L["Play_3"].MouseButton1Click:Connect(function()
     G2L["ScreenGui_1"].Enabled = false
     UnfreezePlayer()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Spectre%20Shift/Game%20core.luau"))()
+    
+    if not GameLoaded then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Spectre%20Shift/Game%20core.luau"))()
+        GameLoaded = true
+        G2L["Play_3"].Text = "Resume"
+    else
+        G2L["ScreenGui_1"].Enabled = false
+        UnfreezePlayer()
+    end
 end)
 
 G2L["Settings_6"].MouseButton1Click:Connect(function()
