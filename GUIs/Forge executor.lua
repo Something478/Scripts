@@ -79,6 +79,7 @@ Forge["StatsLabel_5"]["TextWrapped"] = true
 Forge["StatsLabel_5"]["BorderSizePixel"] = 0
 Forge["StatsLabel_5"]["TextSize"] = 14
 Forge["StatsLabel_5"]["TextXAlignment"] = Enum.TextXAlignment.Left
+Forge["StatsLabel_5"]["TextScaled"] = true
 Forge["StatsLabel_5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 Forge["StatsLabel_5"]["TextColor3"] = Color3.fromRGB(0, 33, 255)
 Forge["StatsLabel_5"]["BackgroundTransparency"] = 1
