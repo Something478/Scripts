@@ -507,7 +507,7 @@ local function createSavePopup()
     saveBtn.Position = UDim2.new(0, 30, 0, 100)
     saveBtn.BackgroundColor3 = Color3.fromRGB(0, 100, 0)
     saveBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    saveBtn.Text = "☆"
+    saveBtn.Text = "Confirm"
     saveBtn.Parent = popup
     
     local saveCorner = Instance.new("UICorner")
