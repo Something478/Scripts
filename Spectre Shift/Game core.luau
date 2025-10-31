@@ -213,7 +213,15 @@ end
 local function TeleportToCheckpoint()
     local character = LocalPlayer.Character
     if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+        character.HumanoidRootPart.RotVelocity = Vector3.new(0, 0, 0)
         character.HumanoidRootPart.Position = Checkpoints[CurrentCheckpoint]
+        local humanoid = character:FindFirstChild("Humanoid")
+        if humanoid then
+            humanoid.Sit = true
+            task.wait(0.1)
+            humanoid.Sit = false
+        end
     end
 end
 
