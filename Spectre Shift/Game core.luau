@@ -11,21 +11,16 @@ local Workspace = game:GetService("Workspace")
 
 local CurrentDimension = "Material"
 local GameActive = true
-local Checkpoints = {}
-local CurrentCheckpoint = 1
+local BossHealth = 1000
+local PlayerHealth = 100
 local MessagesSent = false
-local OriginalMapParts = {}
-local SpawnLocation = workspace:FindFirstChild("SpawnLocation") or Instance.new("Part")
+local Boss = nil
+local PlayerPatterns = {}
+local LastPlayerPosition = nil
 
 for _, obj in pairs(workspace:GetChildren()) do
-    if obj.Name == "SpectreGame" then
+    if obj.Name == "SpectreGame" or obj.Name == "Aetherius" then
         obj:Destroy()
-    end
-end
-
-for _, obj in pairs(workspace:GetDescendants()) do
-    if obj:IsA("Part") and obj.Parent ~= workspace.Terrain and obj.Parent.Name ~= "SpectreGame" and obj.Name ~= "SpawnLocation" then
-        table.insert(OriginalMapParts, obj)
     end
 end
 
@@ -45,212 +40,321 @@ SpectralMusic.Looped = true
 SpectralMusic.Volume = 1
 SpectralMusic.Parent = workspace
 
-local function HideOriginalMap()
-    for _, part in pairs(OriginalMapParts) do
-        part.Transparency = 1
-        part.CanCollide = false
+local function CreateArena()
+    local arena = Instance.new("Part")
+    arena.Name = "Arena"
+    arena.Size = Vector3.new(100, 5, 100)
+    arena.Position = Vector3.new(0, 50, 0)
+    arena.Anchored = true
+    arena.CanCollide = true
+    arena.BrickColor = BrickColor.new("Dark stone grey")
+    arena.Material = Enum.Material.Neon
+    arena.Parent = SpectreGame
+    
+    local wall1 = Instance.new("Part")
+    wall1.Name = "Wall1"
+    wall1.Size = Vector3.new(100, 30, 5)
+    wall1.Position = Vector3.new(0, 65, -50)
+    wall1.Anchored = true
+    wall1.CanCollide = true
+    wall1.BrickColor = BrickColor.new("Dark stone grey")
+    wall1.Parent = SpectreGame
+    
+    local wall2 = Instance.new("Part")
+    wall2.Name = "Wall2"
+    wall2.Size = Vector3.new(100, 30, 5)
+    wall2.Position = Vector3.new(0, 65, 50)
+    wall2.Anchored = true
+    wall2.CanCollide = true
+    wall2.BrickColor = BrickColor.new("Dark stone grey")
+    wall2.Parent = SpectreGame
+    
+    local wall3 = Instance.new("Part")
+    wall3.Name = "Wall3"
+    wall3.Size = Vector3.new(5, 30, 100)
+    wall3.Position = Vector3.new(-50, 65, 0)
+    wall3.Anchored = true
+    wall3.CanCollide = true
+    wall3.BrickColor = BrickColor.new("Dark stone grey")
+    wall3.Parent = SpectreGame
+    
+    local wall4 = Instance.new("Part")
+    wall4.Name = "Wall4"
+    wall4.Size = Vector3.new(5, 30, 100)
+    wall4.Position = Vector3.new(50, 65, 0)
+    wall4.Anchored = true
+    wall4.CanCollide = true
+    wall4.BrickColor = BrickColor.new("Dark stone grey")
+    wall4.Parent = SpectreGame
+end
+
+local function CreateBoss()
+    local aetherius = Instance.new("Model")
+    aetherius.Name = "Aetherius"
+    aetherius.Parent = workspace
+    
+    local humanoid = Instance.new("Humanoid")
+    humanoid.WalkSpeed = 16
+    humanoid.JumpPower = 50
+    humanoid.MaxHealth = BossHealth
+    humanoid.Health = BossHealth
+    humanoid.Parent = aetherius
+    
+    local rootPart = Instance.new("Part")
+    rootPart.Name = "Torso"
+    rootPart.Size = Vector3.new(3, 5, 2)
+    rootPart.Position = Vector3.new(0, 55, 0)
+    rootPart.Anchored = false
+    rootPart.CanCollide = true
+    rootPart.BrickColor = BrickColor.new("Bright violet")
+    rootPart.Material = Enum.Material.Neon
+    rootPart.Parent = aetherius
+    
+    local head = Instance.new("Part")
+    head.Name = "Head"
+    head.Size = Vector3.new(2, 2, 2)
+    head.Position = Vector3.new(0, 60, 0)
+    head.Anchored = false
+    head.CanCollide = true
+    head.BrickColor = BrickColor.new("Bright violet")
+    head.Material = Enum.Material.Neon
+    head.Parent = aetherius
+    
+    local leftArm = Instance.new("Part")
+    leftArm.Name = "LeftArm"
+    leftArm.Size = Vector3.new(1, 3, 1)
+    leftArm.Position = Vector3.new(-2, 57, 0)
+    leftArm.Anchored = false
+    leftArm.CanCollide = true
+    leftArm.BrickColor = BrickColor.new("Bright violet")
+    leftArm.Material = Enum.Material.Neon
+    leftArm.Parent = aetherius
+    
+    local rightArm = Instance.new("Part")
+    rightArm.Name = "RightArm"
+    rightArm.Size = Vector3.new(1, 3, 1)
+    rightArm.Position = Vector3.new(2, 57, 0)
+    rightArm.Anchored = false
+    rightArm.CanCollide = true
+    rightArm.BrickColor = BrickColor.new("Bright violet")
+    rightArm.Material = Enum.Material.Neon
+    rightArm.Parent = aetherius
+    
+    local leftLeg = Instance.new("Part")
+    leftLeg.Name = "LeftLeg"
+    leftLeg.Size = Vector3.new(1, 3, 1)
+    leftLeg.Position = Vector3.new(-1, 52, 0)
+    leftLeg.Anchored = false
+    leftLeg.CanCollide = true
+    leftLeg.BrickColor = BrickColor.new("Bright violet")
+    leftLeg.Material = Enum.Material.Neon
+    leftLeg.Parent = aetherius
+    
+    local rightLeg = Instance.new("Part")
+    rightLeg.Name = "RightLeg"
+    rightLeg.Size = Vector3.new(1, 3, 1)
+    rightLeg.Position = Vector3.new(1, 52, 0)
+    rightLeg.Anchored = false
+    rightLeg.CanCollide = true
+    rightLeg.BrickColor = BrickColor.new("Bright violet")
+    rightLeg.Material = Enum.Material.Neon
+    rightLeg.Parent = aetherius
+    
+    local sword = Instance.new("Part")
+    sword.Name = "Sword"
+    sword.Size = Vector3.new(1, 5, 0.5)
+    sword.Position = Vector3.new(3, 57, 0)
+    sword.Anchored = false
+    sword.CanCollide = true
+    sword.BrickColor = BrickColor.new("Bright orange")
+    sword.Material = Enum.Material.Neon
+    sword.Parent = aetherius
+    
+    local weld = Instance.new("Weld")
+    weld.Part0 = rightArm
+    weld.Part1 = sword
+    weld.C0 = CFrame.new(0, -1.5, 0)
+    weld.Parent = sword
+    
+    Boss = aetherius
+    return aetherius
+end
+
+local function CreatePlayerSword()
+    local character = LocalPlayer.Character
+    if character then
+        local rightArm = character:FindFirstChild("RightArm") or character:FindFirstChild("RightHand")
+        if rightArm then
+            local sword = Instance.new("Part")
+            sword.Name = "PlayerSword"
+            sword.Size = Vector3.new(0.8, 4, 0.4)
+            sword.BrickColor = BrickColor.new("Bright blue")
+            sword.Material = Enum.Material.Neon
+            sword.Parent = character
+            
+            local weld = Instance.new("Weld")
+            weld.Part0 = rightArm
+            weld.Part1 = sword
+            weld.C0 = CFrame.new(0, -1, 0)
+            weld.Parent = sword
+        end
     end
 end
 
-local function ShowOriginalMap()
-    for _, part in pairs(OriginalMapParts) do
-        part.Transparency = 0
-        part.CanCollide = true
-    end
-end
-
-local function CreateMaterialMap()
-    local startPlatform = Instance.new("Part")
-    startPlatform.Name = "MaterialStart"
-    startPlatform.Size = Vector3.new(20, 2, 20)
-    startPlatform.Position = Vector3.new(0, 50, 0)
-    startPlatform.Anchored = true
-    startPlatform.CanCollide = true
-    startPlatform.BrickColor = BrickColor.new("Bright green")
-    startPlatform.Material = Enum.Material.Neon
-    startPlatform.Parent = SpectreGame
-    
-    local movingPlatform1 = Instance.new("Part")
-    movingPlatform1.Name = "MaterialMoving1"
-    movingPlatform1.Size = Vector3.new(10, 1, 4)
-    movingPlatform1.Position = Vector3.new(30, 52, 0)
-    movingPlatform1.Anchored = true
-    movingPlatform1.CanCollide = true
-    movingPlatform1.BrickColor = BrickColor.new("Bright blue")
-    movingPlatform1.Material = Enum.Material.Neon
-    movingPlatform1.Parent = SpectreGame
-    
-    local materialPlatform1 = Instance.new("Part")
-    materialPlatform1.Name = "MaterialPlatform1"
-    materialPlatform1.Size = Vector3.new(8, 1, 20)
-    materialPlatform1.Position = Vector3.new(60, 55, 0)
-    materialPlatform1.Anchored = true
-    materialPlatform1.CanCollide = true
-    materialPlatform1.BrickColor = BrickColor.new("Bright blue")
-    materialPlatform1.Material = Enum.Material.Neon
-    materialPlatform1.Parent = SpectreGame
-    
-    local laserWall1 = Instance.new("Part")
-    laserWall1.Name = "MaterialLaser1"
-    laserWall1.Size = Vector3.new(1, 20, 10)
-    laserWall1.Position = Vector3.new(75, 60, 0)
-    laserWall1.Anchored = true
-    laserWall1.CanCollide = true
-    laserWall1.BrickColor = BrickColor.new("Bright red")
-    laserWall1.Material = Enum.Material.Neon
-    laserWall1.Parent = SpectreGame
-    
-    local jumpPad = Instance.new("Part")
-    jumpPad.Name = "MaterialJumpPad"
-    jumpPad.Size = Vector3.new(6, 1, 6)
-    jumpPad.Position = Vector3.new(90, 58, 0)
-    jumpPad.Anchored = true
-    jumpPad.CanCollide = true
-    jumpPad.BrickColor = BrickColor.new("Bright yellow")
-    jumpPad.Material = Enum.Material.Neon
-    jumpPad.Parent = SpectreGame
-    
-    local jumpBoost = Instance.new("BodyVelocity")
-    jumpBoost.Velocity = Vector3.new(0, 120, 0)
-    jumpBoost.Parent = jumpPad
-    
-    local finishPlatform = Instance.new("Part")
-    finishPlatform.Name = "MaterialFinish"
-    finishPlatform.Size = Vector3.new(15, 2, 15)
-    finishPlatform.Position = Vector3.new(120, 65, 0)
-    finishPlatform.Anchored = true
-    finishPlatform.CanCollide = true
-    finishPlatform.BrickColor = BrickColor.new("Bright red")
-    finishPlatform.Material = Enum.Material.Neon
-    finishPlatform.Parent = SpectreGame
-    
-    Checkpoints = {
-        Vector3.new(0, 52, 0),
-        Vector3.new(60, 56, 0),
-        Vector3.new(90, 59, 0),
-        Vector3.new(120, 67, 0)
-    }
+local function BossWalkAnimation()
+    if not Boss then return end
     
     coroutine.wrap(function()
-        while GameActive do
-            for i = 1, 20 do
-                if movingPlatform1 and movingPlatform1.Parent then
-                    movingPlatform1.Position = Vector3.new(30 + math.sin(tick()) * 10, 52, 0)
+        while Boss and Boss.Parent and GameActive do
+            local leftLeg = Boss:FindFirstChild("LeftLeg")
+            local rightLeg = Boss:FindFirstChild("RightLeg")
+            
+            if leftLeg and rightLeg then
+                for i = 1, 20 do
+                    leftLeg.CFrame = leftLeg.CFrame * CFrame.Angles(0.1, 0, 0)
+                    rightLeg.CFrame = rightLeg.CFrame * CFrame.Angles(-0.1, 0, 0)
+                    task.wait(0.05)
                 end
-                task.wait(0.1)
+                for i = 1, 20 do
+                    leftLeg.CFrame = leftLeg.CFrame * CFrame.Angles(-0.1, 0, 0)
+                    rightLeg.CFrame = rightLeg.CFrame * CFrame.Angles(0.1, 0, 0)
+                    task.wait(0.05)
+                end
             end
         end
     end)()
 end
 
-local function CreateSpectralMap()
-    local startPlatform = Instance.new("Part")
-    startPlatform.Name = "SpectralStart"
-    startPlatform.Size = Vector3.new(15, 1, 15)
-    startPlatform.Position = Vector3.new(0, 80, 0)
-    startPlatform.Anchored = true
-    startPlatform.CanCollide = true
-    startPlatform.BrickColor = BrickColor.new("Bright violet")
-    startPlatform.Material = Enum.Material.Neon
-    startPlatform.Parent = SpectreGame
+local function BossSwordAttack()
+    if not Boss then return end
     
-    local spectralPlatform1 = Instance.new("Part")
-    spectralPlatform1.Name = "SpectralPlatform1"
-    spectralPlatform1.Size = Vector3.new(6, 1, 6)
-    spectralPlatform1.Position = Vector3.new(25, 85, 0)
-    spectralPlatform1.Anchored = true
-    spectralPlatform1.CanCollide = true
-    spectralPlatform1.BrickColor = BrickColor.new("Bright violet")
-    spectralPlatform1.Material = Enum.Material.Neon
-    spectralPlatform1.Parent = SpectreGame
+    local sword = Boss:FindFirstChild("Sword")
+    local rightArm = Boss:FindFirstChild("RightArm")
     
-    local disappearingPlatform = Instance.new("Part")
-    disappearingPlatform.Name = "SpectralDisappearing"
-    disappearingPlatform.Size = Vector3.new(8, 1, 3)
-    disappearingPlatform.Position = Vector3.new(45, 88, 0)
-    disappearingPlatform.Anchored = true
-    disappearingPlatform.CanCollide = true
-    disappearingPlatform.BrickColor = BrickColor.new("Hot pink")
-    disappearingPlatform.Material = Enum.Material.Neon
-    disappearingPlatform.Parent = SpectreGame
-    
-    local spectralPlatform2 = Instance.new("Part")
-    spectralPlatform2.Name = "SpectralPlatform2"
-    spectralPlatform2.Size = Vector3.new(4, 1, 12)
-    spectralPlatform2.Position = Vector3.new(65, 92, 5)
-    spectralPlatform2.Anchored = true
-    spectralPlatform2.CanCollide = true
-    spectralPlatform2.BrickColor = BrickColor.new("Bright violet")
-    spectralPlatform2.Material = Enum.Material.Neon
-    spectralPlatform2.Parent = SpectreGame
-    
-    local spectralJumpPad = Instance.new("Part")
-    spectralJumpPad.Name = "SpectralJumpPad"
-    spectralJumpPad.Size = Vector3.new(5, 1, 5)
-    spectralJumpPad.Position = Vector3.new(85, 95, 0)
-    spectralJumpPad.Anchored = true
-    spectralJumpPad.CanCollide = true
-    spectralJumpPad.BrickColor = BrickColor.new("Bright yellow")
-    spectralJumpPad.Material = Enum.Material.Neon
-    spectralJumpPad.Parent = SpectreGame
-    
-    local jumpBoost = Instance.new("BodyVelocity")
-    jumpBoost.Velocity = Vector3.new(0, 150, 0)
-    jumpBoost.Parent = spectralJumpPad
-    
-    local spectralFinish = Instance.new("Part")
-    spectralFinish.Name = "SpectralFinish"
-    spectralFinish.Size = Vector3.new(12, 2, 12)
-    spectralFinish.Position = Vector3.new(110, 105, 0)
-    spectralFinish.Anchored = true
-    spectralFinish.CanCollide = true
-    spectralFinish.BrickColor = BrickColor.new("Hot pink")
-    spectralFinish.Material = Enum.Material.Neon
-    spectralFinish.Parent = SpectreGame
-    
-    coroutine.wrap(function()
-        while GameActive do
-            if disappearingPlatform and disappearingPlatform.Parent then
-                disappearingPlatform.Transparency = 0
-                disappearingPlatform.CanCollide = true
-                task.wait(1.5)
-                disappearingPlatform.Transparency = 0.8
-                disappearingPlatform.CanCollide = false
-                task.wait(1)
+    if sword and rightArm then
+        local originalPosition = sword.CFrame
+        
+        for i = 1, 10 do
+            sword.CFrame = sword.CFrame * CFrame.Angles(0.3, 0, 0)
+            task.wait(0.03)
+        end
+        
+        local character = LocalPlayer.Character
+        if character and character:FindFirstChild("HumanoidRootPart") then
+            local distance = (character.HumanoidRootPart.Position - Boss.Torso.Position).Magnitude
+            if distance < 10 then
+                character.Humanoid.Health = character.Humanoid.Health - 30
             end
         end
-    end)()
-end
-
-local function SwitchToOriginal()
-    CurrentDimension = "Original"
-    Lighting.Ambient = Color3.fromRGB(150, 150, 150)
-    Lighting.Brightness = 1
-    workspace.Gravity = 196.2
-    
-    local sky = Instance.new("Sky")
-    sky.SkyboxBk = "rbxassetid://8139676635"
-    sky.SkyboxDn = "rbxassetid://8139677123"
-    sky.SkyboxFt = "rbxassetid://8139677457"
-    sky.SkyboxLf = "rbxassetid://8139677769"
-    sky.SkyboxRt = "rbxassetid://8139678067"
-    sky.SkyboxUp = "rbxassetid://8139678358"
-    sky.Parent = Lighting
-    
-    MaterialMusic:Stop()
-    SpectralMusic:Stop()
-    
-    ShowOriginalMap()
-    
-    for _, obj in pairs(SpectreGame:GetChildren()) do
-        obj.Transparency = 1
-        obj.CanCollide = false
+        
+        for i = 1, 10 do
+            sword.CFrame = sword.CFrame * CFrame.Angles(-0.3, 0, 0)
+            task.wait(0.03)
+        end
     end
+end
+
+local function BossShootBow()
+    if not Boss then return end
     
     local character = LocalPlayer.Character
-    if character and character:FindFirstChild("HumanoidRootPart") then
-        character.HumanoidRootPart.CFrame = CFrame.new(SpawnLocation.Position + Vector3.new(0, 5, 0))
-    end
+    if not character or not character:FindFirstChild("HumanoidRootPart") then return end
+    
+    local arrow = Instance.new("Part")
+    arrow.Name = "BossArrow"
+    arrow.Size = Vector3.new(0.2, 0.2, 3)
+    arrow.Position = Boss.Torso.Position + Vector3.new(0, 3, 0)
+    arrow.BrickColor = BrickColor.new("Bright red")
+    arrow.Material = Enum.Material.Neon
+    arrow.Velocity = (character.HumanoidRootPart.Position - arrow.Position).Unit * 50
+    arrow.Parent = workspace
+    
+    game.Debris:AddItem(arrow, 5)
+    
+    arrow.Touched:Connect(function(hit)
+        if hit.Parent == LocalPlayer.Character then
+            local humanoid = hit.Parent:FindFirstChild("Humanoid")
+            if humanoid then
+                humanoid.Health = humanoid.Health - 15
+            end
+            arrow:Destroy()
+        end
+    end)
+end
+
+local function BossAI()
+    coroutine.wrap(function()
+        while Boss and Boss.Parent and GameActive do
+            local character = LocalPlayer.Character
+            if character and character:FindFirstChild("HumanoidRootPart") then
+                local bossTorso = Boss:FindFirstChild("Torso")
+                if bossTorso then
+                    local distance = (character.HumanoidRootPart.Position - bossTorso.Position).Magnitude
+                    
+                    if LastPlayerPosition then
+                        local movement = (character.HumanoidRootPart.Position - LastPlayerPosition).Magnitude
+                        table.insert(PlayerPatterns, {position = character.HumanoidRootPart.Position, speed = movement})
+                        
+                        if #PlayerPatterns > 10 then
+                            table.remove(PlayerPatterns, 1)
+                        end
+                    end
+                    LastPlayerPosition = character.HumanoidRootPart.Position
+                    
+                    if distance < 8 then
+                        BossSwordAttack()
+                        task.wait(1)
+                    elseif distance < 25 then
+                        local moveDirection = (character.HumanoidRootPart.Position - bossTorso.Position).Unit
+                        bossTorso.Velocity = moveDirection * 16
+                        BossWalkAnimation()
+                        
+                        if math.random(1, 3) == 1 then
+                            BossShootBow()
+                        end
+                        task.wait(0.5)
+                    else
+                        local moveDirection = (character.HumanoidRootPart.Position - bossTorso.Position).Unit
+                        bossTorso.Velocity = moveDirection * 16
+                        BossWalkAnimation()
+                        task.wait(0.3)
+                    end
+                    
+                    if distance > 5 and distance < 15 then
+                        local playerSpeed = 0
+                        for _, pattern in pairs(PlayerPatterns) do
+                            playerSpeed = playerSpeed + pattern.speed
+                        end
+                        playerSpeed = playerSpeed / #PlayerPatterns
+                        
+                        if playerSpeed > 20 then
+                            local leftLeg = Boss:FindFirstChild("LeftLeg")
+                            if leftLeg then
+                                for i = 1, 15 do
+                                    leftLeg.CFrame = leftLeg.CFrame * CFrame.Angles(0.2, 0, 0)
+                                    task.wait(0.02)
+                                end
+                                
+                                local character = LocalPlayer.Character
+                                if character and character:FindFirstChild("HumanoidRootPart") then
+                                    local distance = (character.HumanoidRootPart.Position - Boss.Torso.Position).Magnitude
+                                    if distance < 8 then
+                                        character.Humanoid.Health = character.Humanoid.Health - 20
+                                    end
+                                end
+                                
+                                for i = 1, 15 do
+                                    leftLeg.CFrame = leftLeg.CFrame * CFrame.Angles(-0.2, 0, 0)
+                                    task.wait(0.02)
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+            task.wait(0.1)
+        end
+    end)()
 end
 
 local function SwitchDimension()
@@ -258,7 +362,6 @@ local function SwitchDimension()
         CurrentDimension = "Spectral"
         Lighting.Ambient = Color3.fromRGB(50, 0, 100)
         Lighting.Brightness = 0.3
-        workspace.Gravity = 30
         
         local sky = Instance.new("Sky")
         sky.SkyboxBk = "rbxassetid://323494035"
@@ -271,22 +374,10 @@ local function SwitchDimension()
         
         MaterialMusic:Stop()
         SpectralMusic:Play()
-        
-        HideOriginalMap()
-        for _, obj in pairs(SpectreGame:GetChildren()) do
-            if obj.Name:find("Spectral") then
-                obj.Transparency = 0
-                obj.CanCollide = true
-            else
-                obj.Transparency = 1
-                obj.CanCollide = false
-            end
-        end
-    elseif CurrentDimension == "Spectral" then
+    else
         CurrentDimension = "Material"
         Lighting.Ambient = Color3.fromRGB(100, 100, 100)
         Lighting.Brightness = 1
-        workspace.Gravity = 196.2
         
         local sky = Instance.new("Sky")
         sky.SkyboxBk = "rbxassetid://6237790466"
@@ -299,96 +390,34 @@ local function SwitchDimension()
         
         SpectralMusic:Stop()
         MaterialMusic:Play()
-        
-        HideOriginalMap()
-        for _, obj in pairs(SpectreGame:GetChildren()) do
-            if obj.Name:find("Material") then
-                obj.Transparency = 0
-                obj.CanCollide = true
-            else
-                obj.Transparency = 1
-                obj.CanCollide = false
-            end
-        end
-    else
-        SwitchDimension()
     end
-    
+end
+
+local function PlayerAttack()
     local character = LocalPlayer.Character
-    if character then
-        local humanoid = character:FindFirstChild("Humanoid")
-        if humanoid then
-            humanoid.WalkSpeed = CurrentDimension == "Spectral" and 24 or 16
-        end
-    end
-end
-
-local function TeleportToCheckpoint()
-    local character = LocalPlayer.Character
-    if character and character:FindFirstChild("HumanoidRootPart") then
-        if CurrentDimension == "Original" then
-            character.HumanoidRootPart.CFrame = CFrame.new(SpawnLocation.Position + Vector3.new(0, 5, 0))
-        else
-            character.HumanoidRootPart.CFrame = CFrame.new(Checkpoints[CurrentCheckpoint])
-        end
-    end
-end
-
-local function AddSmoothControls()
-    local doubleJumpAvailable = true
+    if not character then return end
     
-    UserInputService.InputBegan:Connect(function(input, gameProcessed)
-        if gameProcessed then return end
+    local sword = character:FindFirstChild("PlayerSword")
+    if sword then
+        local originalPosition = sword.CFrame
         
-        if input.KeyCode == Enum.KeyCode.Q then
-            SwitchDimension()
-        elseif input.KeyCode == Enum.KeyCode.Space and CurrentDimension == "Spectral" and doubleJumpAvailable then
-            local character = LocalPlayer.Character
-            if character then
-                local humanoid = character:FindFirstChild("Humanoid")
-                if humanoid then
-                    humanoid.Jump = true
-                    doubleJumpAvailable = false
-                    task.delay(1, function()
-                        doubleJumpAvailable = true
-                    end)
-                end
+        for i = 1, 8 do
+            sword.CFrame = sword.CFrame * CFrame.Angles(0.4, 0, 0)
+            task.wait(0.02)
+        end
+        
+        if Boss and Boss.Parent then
+            local distance = (Boss.Torso.Position - character.HumanoidRootPart.Position).Magnitude
+            if distance < 10 then
+                Boss.Humanoid.Health = Boss.Humanoid.Health - 25
             end
         end
-    end)
-end
-
-local function SetupCheckpoints()
-    RunService.Heartbeat:Connect(function()
-        if not GameActive then return end
         
-        local character = LocalPlayer.Character
-        if character and character:FindFirstChild("HumanoidRootPart") then
-            local hrp = character.HumanoidRootPart
-            
-            if hrp.Position.Y < 20 then
-                TeleportToCheckpoint()
-            end
-            
-            if CurrentDimension ~= "Original" then
-                for i, checkpoint in ipairs(Checkpoints) do
-                    if (hrp.Position - checkpoint).Magnitude < 10 and i > CurrentCheckpoint then
-                        CurrentCheckpoint = i
-                    end
-                end
-                
-                local finishPos = CurrentDimension == "Material" and Checkpoints[#Checkpoints] or Vector3.new(110, 107, 0)
-                if (hrp.Position - finishPos).Magnitude < 10 then
-                    local message = TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("<font color='#00FF00'>[Spectre Shift]</font> 🎉 YOU WIN! 🎉")
-                    GameActive = false
-                end
-            end
+        for i = 1, 8 do
+            sword.CFrame = sword.CFrame * CFrame.Angles(-0.4, 0, 0)
+            task.wait(0.02)
         end
-    end)
-end
-
-local function SendMessage(message)
-    local chatCmd = TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("<font color='#00FF00'>[Spectre Shift]</font> " .. message)
+    end
 end
 
 local function AddGameUI()
@@ -396,53 +425,45 @@ local function AddGameUI()
     screenGui.Parent = LocalPlayer.PlayerGui
     screenGui.Name = "GameUI"
     
+    local attackButton = Instance.new("TextButton")
+    attackButton.Text = "ATTACK"
+    attackButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    attackButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    attackButton.Size = UDim2.new(0, 100, 0, 40)
+    attackButton.Position = UDim2.new(1, -110, 1, -50)
+    attackButton.ZIndex = 100
+    attackButton.Parent = screenGui
+    
     local switchButton = Instance.new("TextButton")
     switchButton.Text = "Switch Dim"
     switchButton.BackgroundColor3 = Color3.fromRGB(138, 43, 226)
     switchButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     switchButton.Size = UDim2.new(0, 100, 0, 40)
-    switchButton.Position = UDim2.new(0, 10, 0, 60)
+    switchButton.Position = UDim2.new(1, -110, 1, -100)
     switchButton.ZIndex = 100
     switchButton.Parent = screenGui
-    
-    local checkpointButton = Instance.new("TextButton")
-    checkpointButton.Text = "To Checkpoint"
-    checkpointButton.BackgroundColor3 = Color3.fromRGB(138, 43, 226)
-    checkpointButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    checkpointButton.Size = UDim2.new(0, 100, 0, 40)
-    checkpointButton.Position = UDim2.new(0, 10, 0, 110)
-    checkpointButton.ZIndex = 100
-    checkpointButton.Parent = screenGui
-    
-    local originalButton = Instance.new("TextButton")
-    originalButton.Text = "To Original"
-    originalButton.BackgroundColor3 = Color3.fromRGB(138, 43, 226)
-    originalButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    originalButton.Size = UDim2.new(0, 100, 0, 40)
-    originalButton.Position = UDim2.new(0, 10, 0, 160)
-    originalButton.ZIndex = 100
-    originalButton.Parent = screenGui
     
     local menuButton = Instance.new("TextButton")
     menuButton.Text = "Menu"
     menuButton.BackgroundColor3 = Color3.fromRGB(138, 43, 226)
     menuButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     menuButton.Size = UDim2.new(0, 100, 0, 40)
-    menuButton.Position = UDim2.new(0, 10, 0, 210)
+    menuButton.Position = UDim2.new(0, 10, 0, 10)
     menuButton.ZIndex = 100
     menuButton.Parent = screenGui
     
+    attackButton.MouseButton1Click:Connect(PlayerAttack)
     switchButton.MouseButton1Click:Connect(SwitchDimension)
-    checkpointButton.MouseButton1Click:Connect(TeleportToCheckpoint)
-    originalButton.MouseButton1Click:Connect(SwitchToOriginal)
     
     menuButton.MouseButton1Click:Connect(function()
+        if Boss then
+            Boss:Destroy()
+        end
         for _, obj in pairs(workspace:GetChildren()) do
             if obj.Name == "SpectreGame" then
                 obj:Destroy()
             end
         end
-        ShowOriginalMap()
         screenGui:Destroy()
         MaterialMusic:Stop()
         SpectralMusic:Stop()
@@ -452,24 +473,45 @@ local function AddGameUI()
     return screenGui
 end
 
-HideOriginalMap()
-CreateMaterialMap()
-CreateSpectralMap()
-AddSmoothControls()
-SetupCheckpoints()
-AddGameUI()
-MaterialMusic:Play()
-
-for _, obj in pairs(SpectreGame:GetChildren()) do
-    if not obj.Name:find("Material") then
-        obj.Transparency = 1
-        obj.CanCollide = false
+local function SetupGame()
+    CreateArena()
+    CreateBoss()
+    CreatePlayerSword()
+    BossAI()
+    BossWalkAnimation()
+    
+    local character = LocalPlayer.Character
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.Position = Vector3.new(0, 55, 20)
     end
 end
 
+SetupGame()
+AddGameUI()
+MaterialMusic:Play()
+
 if not MessagesSent then
     task.wait(2)
-    SendMessage("Welcome to Spectre Shift")
-    SendMessage("Use buttons to switch dimensions and teleport!")
+    SendMessage("Survive Aetherius, The Dimension Warden!")
+    SendMessage("Use ATTACK button and Switch Dimensions to fight!")
     MessagesSent = true
 end
+
+RunService.Heartbeat:Connect(function()
+    if not GameActive then return end
+    
+    if Boss and Boss.Parent then
+        if Boss.Humanoid.Health <= 0 then
+            SendMessage("🎉 VICTORY! You defeated Aetherius! 🎉")
+            GameActive = false
+        end
+    end
+    
+    local character = LocalPlayer.Character
+    if character and character:FindFirstChild("Humanoid") then
+        if character.Humanoid.Health <= 0 then
+            SendMessage("💀 DEFEAT! Aetherius has won...")
+            GameActive = false
+        end
+    end
+end)
