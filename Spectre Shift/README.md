@@ -7,4 +7,4 @@ UI by: StarFlow;
 Idea by: StarFlow;
 ---
 Loader:  
-```GAME_NOT_FINISHED```
+```loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Spectre%20Shift/Loader.luau"))()```
