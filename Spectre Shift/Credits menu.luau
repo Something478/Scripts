@@ -1,14 +1,25 @@
 local CollectionService = game:GetService("CollectionService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
 local G2L = {}
 
 G2L["ScreenGui_1"] = Instance.new("ScreenGui")
 G2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-G2L["ScreenGui_1"].Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+G2L["ScreenGui_1"].Parent = LocalPlayer:WaitForChild("PlayerGui")
 G2L["ScreenGui_1"].Name = "SpectreShiftCredits"
 
 CollectionService:AddTag(G2L["ScreenGui_1"], "main")
 
-G2L["Frame_2"] = Instance.new("Frame", G2L["ScreenGui_1"])
+G2L["StarterMenu_2"] = Instance.new("Frame", G2L["ScreenGui_1"])
+G2L["StarterMenu_2"]["BorderSizePixel"] = 0
+G2L["StarterMenu_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+G2L["StarterMenu_2"]["Size"] = UDim2.new(1.05361, 0, 1.21665, 0)
+G2L["StarterMenu_2"]["Position"] = UDim2.new(-0.02165, 0, -0.18108, 0)
+G2L["StarterMenu_2"]["Name"] = "StarterMenu"
+G2L["StarterMenu_2"]["BackgroundTransparency"] = 0.5
+
+G2L["Frame_2"] = Instance.new("Frame", G2L["StarterMenu_2"])
 G2L["Frame_2"]["BorderSizePixel"] = 0
 G2L["Frame_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 G2L["Frame_2"]["Size"] = UDim2.new(0.35361, 0, 0.61681, 0)
