@@ -1,10 +1,13 @@
 local CollectionService = game:GetService("CollectionService")
 local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
 local G2L = {}
 
 G2L["ScreenGui_1"] = Instance.new("ScreenGui")
 G2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-G2L["ScreenGui_1"].Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+G2L["ScreenGui_1"].Parent = LocalPlayer:WaitForChild("PlayerGui")
 G2L["ScreenGui_1"].Name = "SpectreShiftMainMenu"
 
 CollectionService:AddTag(G2L["ScreenGui_1"], "main")
@@ -133,8 +136,33 @@ for _, button in pairs(buttons) do
     end)
 end
 
+local function FreezePlayer()
+    local character = LocalPlayer.Character
+    if character then
+        local humanoid = character:FindFirstChild("Humanoid")
+        if humanoid then
+            humanoid.WalkSpeed = 0
+            humanoid.JumpPower = 0
+        end
+    end
+end
+
+local function UnfreezePlayer()
+    local character = LocalPlayer.Character
+    if character then
+        local humanoid = character:FindFirstChild("Humanoid")
+        if humanoid then
+            humanoid.WalkSpeed = 16
+            humanoid.JumpPower = 50
+        end
+    end
+end
+
+FreezePlayer()
+
 G2L["Play_3"].MouseButton1Click:Connect(function()
     G2L["ScreenGui_1"].Enabled = false
+    UnfreezePlayer()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Spectre%20Shift/Game%20core.luau"))()
 end)
 
