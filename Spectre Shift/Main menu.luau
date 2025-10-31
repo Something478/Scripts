@@ -2,6 +2,7 @@ local CollectionService = game:GetService("CollectionService")
 local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+local GameLoaded = false
 
 local G2L = {}
 
