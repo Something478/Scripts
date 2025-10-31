@@ -7,4 +7,6 @@ UI by: StarFlow;
 Idea by: StarFlow;
 ---
 Loader:  
-```loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Spectre%20Shift/Loader.luau"))()```
+```
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Spectre%20Shift/Loader.luau"))()
+```
