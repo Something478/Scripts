@@ -13,6 +13,7 @@ local Forge = {}
 
 Forge["ScreenGui_1"] = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 Forge["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+Forge["ScreenGui_1"]["ResetOnSpawn"] = false
 CollectionService:AddTag(Forge["ScreenGui_1"], "main")
 
 Forge["Show_2"] = Instance.new("Frame", Forge["ScreenGui_1"])
