@@ -2,9 +2,9 @@ local CollectionService = game:GetService("CollectionService")
 local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
-local GameLoaded = false
 
 local G2L = {}
+local GameLoaded = false
 
 G2L["ScreenGui_1"] = Instance.new("ScreenGui")
 G2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
@@ -168,11 +168,9 @@ G2L["Play_3"].MouseButton1Click:Connect(function()
     if not GameLoaded then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Spectre%20Shift/Game%20core.luau"))()
         GameLoaded = true
-        G2L["Play_3"].Text = "Resume"
-    else
-        G2L["ScreenGui_1"].Enabled = false
-        UnfreezePlayer()
     end
+    
+    G2L["Play_3"].Text = "Resume"
 end)
 
 G2L["Settings_6"].MouseButton1Click:Connect(function()
