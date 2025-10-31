@@ -6,6 +6,8 @@ local HttpService = game:GetService("HttpService")
 local TweenService = game:GetService("TweenService")
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
+getgenv().ignore = setmetatable({}, {__newindex = function() end})
+
 local player = Players.LocalPlayer
 local Forge = {}
 
