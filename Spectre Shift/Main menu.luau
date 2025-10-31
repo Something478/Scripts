@@ -135,17 +135,17 @@ end
 
 G2L["Play_3"].MouseButton1Click:Connect(function()
     G2L["ScreenGui_1"].Enabled = false
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/spectreshift/main/GameCore.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Spectre%20Shift/Game%20core.luau"))()
 end)
 
 G2L["Settings_6"].MouseButton1Click:Connect(function()
     G2L["ScreenGui_1"].Enabled = false
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/spectreshift/main/SettingsMenu.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Spectre%20Shift/Settings%20menu.luau"))()
 end)
 
 G2L["Creds_8"].MouseButton1Click:Connect(function()
     G2L["ScreenGui_1"].Enabled = false
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/spectreshift/main/CreditsMenu.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/main/Spectre%20Shift/Credits%20menu.luau"))()
 end)
 
 return G2L["ScreenGui_1"]
