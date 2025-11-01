@@ -996,7 +996,7 @@ Forge["Save_f"].MouseButton1Click:Connect(function()
 end)
 
 Forge["Paste_3a"].MouseButton1Click:Connect(function()
-    Forge["TextBox_37"].Text = Forge["TextBox_37"].Text .. "\n-- Pasted content would go here (beta, may not work)"
+    Forge["TextBox_37"].Text = Forge["TextBox_37"].Text .. " "
 end)
 
 Forge["Exe_Tab_27"].MouseButton1Click:Connect(function()
