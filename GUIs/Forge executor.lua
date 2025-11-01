@@ -723,7 +723,7 @@ local function updateFavoritesList()
         loadButton.Position = UDim2.new(1, -56, 0, 3)
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        loadButton.Text = "<>"
+        loadButton.Text = "‣"
         loadButton.TextSize = 12
         loadButton.Parent = favoriteFrame
         
@@ -847,7 +847,7 @@ local function searchScripts(query)
         loadButton.Position = UDim2.new(1, -56, 0, 4)
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        loadButton.Text = "<>"
+        loadButton.Text = "‣"
         loadButton.TextSize = 12
         loadButton.Parent = scriptFrame
         
