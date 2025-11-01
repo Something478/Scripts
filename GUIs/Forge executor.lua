@@ -427,6 +427,7 @@ Forge["SearchBox"]["PlaceholderText"] = "Search scripts (powered by scriptblox.c
 Forge["SearchBox"]["Size"] = UDim2.new(0.9916, 0, 0.08571, 0)
 Forge["SearchBox"]["Position"] = UDim2.new(0, 2, 0, 68)
 Forge["SearchBox"]["Text"] = ""
+Forge["SearchBox"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 
 Forge["UICorner_3d"] = Instance.new("UICorner", Forge["SearchBox"])
 
