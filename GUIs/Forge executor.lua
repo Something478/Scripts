@@ -400,6 +400,11 @@ Forge["UIListLayout_fav"] = Instance.new("UIListLayout", Forge["FavoritesList"])
 Forge["UIListLayout_fav"]["Padding"] = UDim.new(0, 5)
 Forge["UIListLayout_fav"]["SortOrder"] = Enum.SortOrder.LayoutOrder
 
+Forge["UIPadding_fav"] = Instance.new("UIPadding", Forge["FavoritesList"])
+Forge["UIPadding_fav"]["PaddingTop"] = UDim.new(0, 10)
+Forge["UIPadding_fav"]["PaddingLeft"] = UDim.new(0, 5)
+Forge["UIPadding_fav"]["PaddingRight"] = UDim.new(0, 5)
+
 Forge["Show_2"] = Instance.new("Frame", Forge["ScreenGui_1"])
 Forge["Show_2"]["BorderSizePixel"] = 0
 Forge["Show_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
@@ -620,13 +625,14 @@ local function updateFavoritesList()
         end
     end
     
+    local yPosition = 0
     for name, scriptData in pairs(FavoritesData.scripts) do
         local favoriteFrame = Instance.new("Frame")
         favoriteFrame.Name = "Saved_" .. name
         favoriteFrame.Size = UDim2.new(1, -10, 0, 30)
+        favoriteFrame.Position = UDim2.new(0, 5, 0, yPosition)
         favoriteFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
         favoriteFrame.BorderSizePixel = 0
-        favoriteFrame.LayoutOrder = #favoritesList:GetChildren()
         
         local corner = Instance.new("UICorner")
         corner.Parent = favoriteFrame
@@ -679,9 +685,10 @@ local function updateFavoritesList()
         end)
         
         favoriteFrame.Parent = favoritesList
+        yPosition = yPosition + 35
     end
     
-    favoritesList.CanvasSize = UDim2.new(0, 0, 0, Forge["UIListLayout_fav"].AbsoluteContentSize.Y)
+    favoritesList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
 end
 
 local function searchScripts(query)
