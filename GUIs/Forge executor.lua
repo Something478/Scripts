@@ -512,17 +512,9 @@ local function switchTab(tabName)
     Forge["FavoritesContent"].Visible = (tabName == "favorites")
     Forge["SearchContent"].Visible = (tabName == "search")
     
-    local tabs = {
-        executor = Forge["Exe_Tab_27"],
-        search = Forge["Search_Tab_1a"],
-        favorites = Forge["Fav_Tab_1f"]
-    }
-    
-    for name, button in pairs(tabs) do
-        if button then
-            button.BackgroundColor3 = (tabName == name) and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
-        end
-    end
+    Forge["Exe_Tab_27"].BackgroundColor3 = (tabName == "executor") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
+    Forge["Search_Tab_1a"].BackgroundColor3 = (tabName == "search") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
+    Forge["Fav_Tab_1f"].BackgroundColor3 = (tabName == "favorites") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
     
     if tabName == "favorites" then
         updateFavoritesList()
