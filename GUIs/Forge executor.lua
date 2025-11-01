@@ -678,7 +678,7 @@ local function createSavePopup()
             }
             saveFavorites()
             updateFavoritesList()
-            closePopup()
+            closePopup() 
         end
     end)
     
@@ -696,10 +696,13 @@ local function updateFavoritesList()
     end
     
     local yPosition = 0
+    local itemHeight = 30
+    local itemSpacing = 5
+    
     for name, scriptData in pairs(FavoritesData.scripts) do
         local favoriteFrame = Instance.new("Frame")
         favoriteFrame.Name = "Saved_" .. name
-        favoriteFrame.Size = UDim2.new(1, -10, 0, 30)
+        favoriteFrame.Size = UDim2.new(1, -10, 0, itemHeight)
         favoriteFrame.Position = UDim2.new(0, 5, 0, yPosition)
         favoriteFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
         favoriteFrame.BorderSizePixel = 0
@@ -708,13 +711,14 @@ local function updateFavoritesList()
         corner.Parent = favoriteFrame
         
         local nameLabel = Instance.new("TextLabel")
-        nameLabel.Size = UDim2.new(0, 320, 1, 0)
+        nameLabel.Size = UDim2.new(0.7, 0, 1, 0)
         nameLabel.Position = UDim2.new(0, 6, 0, 0)
         nameLabel.BackgroundTransparency = 1
         nameLabel.Text = name
         nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         nameLabel.TextXAlignment = Enum.TextXAlignment.Left
         nameLabel.TextSize = 12
+        nameLabel.TextTruncate = Enum.TextTruncate.AtEnd
         nameLabel.Parent = favoriteFrame
         
         local loadButton = Instance.new("TextButton")
@@ -755,7 +759,7 @@ local function updateFavoritesList()
         end)
         
         favoriteFrame.Parent = favoritesList
-        yPosition = yPosition + 35
+        yPosition = yPosition + itemHeight + itemSpacing
     end
     
     favoritesList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
@@ -820,9 +824,12 @@ local function searchScripts(query)
     end
     
     local yPosition = 0
+    local itemHeight = 32
+    local itemSpacing = 5
+    
     for _, scriptData in pairs(data.result.scripts) do
         local scriptFrame = Instance.new("Frame")
-        scriptFrame.Size = UDim2.new(1, -10, 0, 32)
+        scriptFrame.Size = UDim2.new(1, -10, 0, itemHeight)
         scriptFrame.Position = UDim2.new(0, 5, 0, yPosition)
         scriptFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
         scriptFrame.BorderSizePixel = 0
@@ -831,7 +838,7 @@ local function searchScripts(query)
         corner.Parent = scriptFrame
         
         local nameLabel = Instance.new("TextLabel")
-        nameLabel.Size = UDim2.new(0, 350, 1, 0)
+        nameLabel.Size = UDim2.new(0.7, 0, 1, 0)
         nameLabel.Position = UDim2.new(0, 6, 0, 0)
         nameLabel.BackgroundTransparency = 1
         nameLabel.Text = scriptData.title .. " [👁️" .. scriptData.views .. "] [👍" .. (scriptData.likeCount or 0) .. "]"
@@ -901,7 +908,7 @@ local function searchScripts(query)
         end)
         
         scriptFrame.Parent = searchList
-        yPosition = yPosition + 37
+        yPosition = yPosition + itemHeight + itemSpacing
     end
     
     searchList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
@@ -1114,8 +1121,5 @@ updateStats()
 table.insert(statsConnections, RunService.RenderStepped:Connect(updateStats))
 updateFavoritesList()
 switchTab("executor")
-
-addConsoleMessage("Forge Executor initialized successfully!", Enum.MessageType.MessageOutput)
-addConsoleMessage("Ready to execute scripts!", Enum.MessageType.MessageOutput)
 
 return Forge["ScreenGui_1"], require
