@@ -325,6 +325,7 @@ Forge["TextBox_37"]["PlaceholderText"] = "Script here..."
 Forge["TextBox_37"]["Size"] = UDim2.new(0.98718, 0, 0.984, 0)
 Forge["TextBox_37"]["Position"] = UDim2.new(0, 2, 0, 2)
 Forge["TextBox_37"]["Text"] = ""
+Forge["TextBox_37"]["MultiLine"] = true
 
 Forge["Exe_2d"] = Instance.new("TextButton", Forge["ExecutorContent"])
 Forge["Exe_2d"]["TextWrapped"] = true
