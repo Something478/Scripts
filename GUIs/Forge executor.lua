@@ -225,37 +225,6 @@ Forge["UIGradient_23"]["Color"] = ColorSequence.new{
     ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
 }
 
-Forge["F9_Tab_15"] = Instance.new("TextButton", Forge["TopBar_14"])
-Forge["F9_Tab_15"]["TextWrapped"] = true
-Forge["F9_Tab_15"]["BorderSizePixel"] = 0
-Forge["F9_Tab_15"]["TextScaled"] = true
-Forge["F9_Tab_15"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-Forge["F9_Tab_15"]["BackgroundColor3"] = Color3.fromRGB(15, 15, 15)
-Forge["F9_Tab_15"]["Size"] = UDim2.new(0.17521, 0, 0.78947, 0)
-Forge["F9_Tab_15"]["Text"] = "Console"
-Forge["F9_Tab_15"]["Name"] = "F9_Tab"
-Forge["F9_Tab_15"]["Position"] = UDim2.new(0, 260, 0, 4)
-
-Forge["UICorner_16"] = Instance.new("UICorner", Forge["F9_Tab_15"])
-
-Forge["UIGradient_17"] = Instance.new("UIGradient", Forge["F9_Tab_15"])
-Forge["UIGradient_17"]["Color"] = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-
-Forge["Frame_18"] = Instance.new("Frame", Forge["F9_Tab_15"])
-Forge["Frame_18"]["BorderSizePixel"] = 0
-Forge["Frame_18"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-Forge["Frame_18"]["Size"] = UDim2.new(0.02439, 0, 1.26667, 0)
-Forge["Frame_18"]["Position"] = UDim2.new(0, 84, 0, -4)
-
-Forge["UIGradient_19"] = Instance.new("UIGradient", Forge["Frame_18"])
-Forge["UIGradient_19"]["Color"] = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-
 Forge["Title_31"] = Instance.new("TextLabel", Forge["MainFrame_2"])
 Forge["Title_31"]["TextWrapped"] = true
 Forge["Title_31"]["ZIndex"] = 2
@@ -328,13 +297,6 @@ Forge["SearchContent"]["BackgroundTransparency"] = 1
 Forge["SearchContent"]["Size"] = UDim2.new(1, 0, 1, 0)
 Forge["SearchContent"]["Name"] = "SearchContent"
 Forge["SearchContent"]["Visible"] = false
-
-Forge["ConsoleContent"] = Instance.new("Frame", Forge["MainFrame_2"])
-Forge["ConsoleContent"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-Forge["ConsoleContent"]["BackgroundTransparency"] = 1
-Forge["ConsoleContent"]["Size"] = UDim2.new(1, 0, 1, 0)
-Forge["ConsoleContent"]["Name"] = "ConsoleContent"
-Forge["ConsoleContent"]["Visible"] = false
 
 Forge["InputTextbox_35"] = Instance.new("Frame", Forge["ExecutorContent"])
 Forge["InputTextbox_35"]["ZIndex"] = 0
@@ -450,17 +412,6 @@ Forge["FavoritesList"]["CanvasSize"] = UDim2.new(0, 0, 0, 0)
 Forge["FavoritesList"]["ScrollBarThickness"] = 8
 Forge["FavoritesList"]["Name"] = "FavoritesList"
 
-Forge["ScrollingFrame_10"] = Instance.new("ScrollingFrame", Forge["ConsoleContent"])
-Forge["ScrollingFrame_10"]["BorderSizePixel"] = 0
-Forge["ScrollingFrame_10"]["BackgroundColor3"] = Color3.fromRGB(32, 32, 32)
-Forge["ScrollingFrame_10"]["Size"] = UDim2.new(0.9916, 0, 0.80286, 0)
-Forge["ScrollingFrame_10"]["Position"] = UDim2.new(0, 2, 0, 66)
-Forge["ScrollingFrame_10"]["CanvasSize"] = UDim2.new(0, 0, 0, 0)
-Forge["ScrollingFrame_10"]["ScrollBarThickness"] = 8
-Forge["ScrollingFrame_10"]["Name"] = "ConsoleOutput"
-
-Forge["UICorner_11"] = Instance.new("UICorner", Forge["ScrollingFrame_10"])
-
 Forge["Show_2"] = Instance.new("Frame", Forge["ScreenGui_1"])
 Forge["Show_2"]["BorderSizePixel"] = 0
 Forge["Show_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
@@ -574,13 +525,11 @@ local function switchTab(tabName)
     Forge["ExecutorContent"].Visible = (tabName == "executor")
     Forge["FavoritesContent"].Visible = (tabName == "favorites")
     Forge["SearchContent"].Visible = (tabName == "search")
-    Forge["ConsoleContent"].Visible = (tabName == "console")
     
     local tabs = {
         executor = Forge["Exe_Tab_27"],
         search = Forge["Search_Tab_1a"],
-        favorites = Forge["Fav_Tab_1f"],
-        console = Forge["F9_Tab_15"]
+        favorites = Forge["Fav_Tab_1f"]
     }
     
     for name, button in pairs(tabs) do
@@ -591,8 +540,6 @@ local function switchTab(tabName)
     
     if tabName == "favorites" then
         updateFavoritesList()
-    elseif tabName == "console" then
-        updateConsoleOutput()
     end
 end
 
@@ -914,73 +861,6 @@ local function searchScripts(query)
     searchList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
 end
 
-local function addConsoleMessage(message, messageType)
-    local color
-    if messageType == Enum.MessageType.MessageOutput then
-        color = Color3.fromRGB(255, 255, 255) 
-    elseif messageType == Enum.MessageType.MessageWarning then
-        color = Color3.fromRGB(255, 255, 0) 
-    elseif messageType == Enum.MessageType.MessageError then
-        color = Color3.fromRGB(255, 0, 0)
-    else
-        color = Color3.fromRGB(255, 255, 255) 
-    end
-    
-    table.insert(consoleMessages, {
-        text = message,
-        color = color,
-        timestamp = os.time()
-    })
-    
-    if #consoleMessages > MAX_CONSOLE_MESSAGES then
-        table.remove(consoleMessages, 1)
-    end
-    
-    if currentTab == "console" then
-        updateConsoleOutput()
-    end
-end
-
-local function updateConsoleOutput()
-    local consoleOutput = Forge["ScrollingFrame_10"]
-    if not consoleOutput then return end
-    
-    for _, child in pairs(consoleOutput:GetChildren()) do
-        if child:IsA("TextLabel") then
-            child:Destroy()
-        end
-    end
-    
-    local yPosition = 0
-    for i, messageData in ipairs(consoleMessages) do
-        local messageLabel = Instance.new("TextLabel")
-        messageLabel.Size = UDim2.new(1, -12, 0, 0)
-        messageLabel.Position = UDim2.new(0, 6, 0, yPosition)
-        messageLabel.BackgroundTransparency = 1
-        messageLabel.Text = messageData.text
-        messageLabel.TextColor3 = messageData.color
-        messageLabel.TextSize = 12
-        messageLabel.TextXAlignment = Enum.TextXAlignment.Left
-        messageLabel.TextYAlignment = Enum.TextYAlignment.Top
-        messageLabel.TextWrapped = true
-        messageLabel.AutomaticSize = Enum.AutomaticSize.Y
-        
-        local textService = game:GetService("TextService")
-        local textSize = textService:GetTextSize(messageData.text, 12, Enum.Font.Code, Vector2.new(consoleOutput.AbsoluteSize.X - 20, math.huge))
-        messageLabel.Size = UDim2.new(1, -12, 0, textSize.Y + 4)
-        
-        messageLabel.Parent = consoleOutput
-        yPosition = yPosition + textSize.Y + 8
-    end
-    
-    consoleOutput.CanvasSize = UDim2.new(0, 0, 0, yPosition)
-    consoleOutput.CanvasPosition = Vector2.new(0, consoleOutput.CanvasSize.Y.Offset)
-end
-
-LogService.MessageOut:Connect(function(message, messageType)
-    addConsoleMessage(message, messageType)
-end)
-
 Forge["Exe_2d"].MouseButton1Click:Connect(function()
     local scriptText = Forge["TextBox_37"].Text
     if scriptText and scriptText ~= "" then
@@ -1018,10 +898,6 @@ end)
 
 Forge["Fav_Tab_1f"].MouseButton1Click:Connect(function()
     switchTab("favorites")
-end)
-
-Forge["F9_Tab_15"].MouseButton1Click:Connect(function()
-    switchTab("console")
 end)
 
 Forge["SearchBox"].FocusLost:Connect(function(enterPressed)
@@ -1114,6 +990,16 @@ end)
 UserInputService.InputChanged:Connect(function(input)
     if input == dragInput2 and dragging then
         update2(input)
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    
+    if input.KeyCode == Enum.KeyCode.F9 then
+        minimized = not minimized
+        Forge["MainFrame_2"].Visible = not minimized
+        Forge["Show_2"].Visible = minimized
     end
 end)
 
