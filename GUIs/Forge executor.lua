@@ -724,7 +724,7 @@ local function updateFavoritesList()
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         loadButton.Text = "‣"
-        loadButton.TextSize = 12
+        loadButton.TextSize = 13
         loadButton.Parent = favoriteFrame
         
         local loadCorner = Instance.new("UICorner")
@@ -848,7 +848,7 @@ local function searchScripts(query)
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         loadButton.Text = "‣"
-        loadButton.TextSize = 12
+        loadButton.TextSize = 13
         loadButton.Parent = scriptFrame
         
         local loadCorner = Instance.new("UICorner")
