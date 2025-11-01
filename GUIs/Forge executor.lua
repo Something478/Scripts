@@ -5,7 +5,6 @@ local UserInputService = game:GetService("UserInputService")
 local HttpService = game:GetService("HttpService")
 local TweenService = game:GetService("TweenService")
 local VirtualInputManager = game:GetService("VirtualInputManager")
-local LogService = game:GetService("LogService")
 
 getgenv().ignore = setmetatable({}, {__newindex = function() end})
 
@@ -366,19 +365,6 @@ Forge["Save_f"]["Position"] = UDim2.new(0, 170, 0, 320)
 
 Forge["UICorner_10"] = Instance.new("UICorner", Forge["Save_f"])
 
-Forge["Paste_3a"] = Instance.new("TextButton", Forge["ExecutorContent"])
-Forge["Paste_3a"]["TextWrapped"] = true
-Forge["Paste_3a"]["BorderSizePixel"] = 0
-Forge["Paste_3a"]["TextSize"] = 12
-Forge["Paste_3a"]["TextColor3"] = Color3.fromRGB(0, 15, 255)
-Forge["Paste_3a"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
-Forge["Paste_3a"]["Size"] = UDim2.new(0.16807, 0, 0.07429, 0)
-Forge["Paste_3a"]["Text"] = "Paste"
-Forge["Paste_3a"]["Name"] = "Paste"
-Forge["Paste_3a"]["Position"] = UDim2.new(0, 252, 0, 322)
-
-Forge["UICorner_3b"] = Instance.new("UICorner", Forge["Paste_3a"])
-
 Forge["SearchBox"] = Instance.new("TextBox", Forge["SearchContent"])
 Forge["SearchBox"]["CursorPosition"] = -1
 Forge["SearchBox"]["TextXAlignment"] = Enum.TextXAlignment.Left
@@ -389,8 +375,6 @@ Forge["SearchBox"]["PlaceholderText"] = "Search scripts (powered by scriptblox.c
 Forge["SearchBox"]["Size"] = UDim2.new(0.9916, 0, 0.08571, 0)
 Forge["SearchBox"]["Position"] = UDim2.new(0, 2, 0, 68)
 Forge["SearchBox"]["Text"] = ""
-Forge["SearchBox"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-Forge["SearchBox"]["TextWrapped"] = true
 
 Forge["UICorner_3d"] = Instance.new("UICorner", Forge["SearchBox"])
 
@@ -411,6 +395,10 @@ Forge["FavoritesList"]["Position"] = UDim2.new(0, 6, 0, 60)
 Forge["FavoritesList"]["CanvasSize"] = UDim2.new(0, 0, 0, 0)
 Forge["FavoritesList"]["ScrollBarThickness"] = 8
 Forge["FavoritesList"]["Name"] = "FavoritesList"
+
+Forge["UIListLayout_fav"] = Instance.new("UIListLayout", Forge["FavoritesList"])
+Forge["UIListLayout_fav"]["Padding"] = UDim.new(0, 5)
+Forge["UIListLayout_fav"]["SortOrder"] = Enum.SortOrder.LayoutOrder
 
 Forge["Show_2"] = Instance.new("Frame", Forge["ScreenGui_1"])
 Forge["Show_2"]["BorderSizePixel"] = 0
@@ -456,9 +444,7 @@ Forge["UIGradient_8"]["Color"] = ColorSequence.new{
 }
 
 local FavoritesData = {scripts = {}}
-local DATA_STORE_KEY = "ForgeExecutor_Saved"
-local consoleMessages = {}
-local MAX_CONSOLE_MESSAGES = 100
+local DATA_STORE_KEY = "ForgeExecutorFavorites"
 
 pcall(function()
     if readfile then
@@ -625,7 +611,7 @@ local function createSavePopup()
             }
             saveFavorites()
             updateFavoritesList()
-            closePopup() 
+            closePopup()
         end
     end)
     
@@ -642,30 +628,25 @@ local function updateFavoritesList()
         end
     end
     
-    local yPosition = 0
-    local itemHeight = 30
-    local itemSpacing = 5
-    
     for name, scriptData in pairs(FavoritesData.scripts) do
         local favoriteFrame = Instance.new("Frame")
         favoriteFrame.Name = "Saved_" .. name
-        favoriteFrame.Size = UDim2.new(1, -10, 0, itemHeight)
-        favoriteFrame.Position = UDim2.new(0, 5, 0, yPosition)
+        favoriteFrame.Size = UDim2.new(1, -10, 0, 30)
         favoriteFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
         favoriteFrame.BorderSizePixel = 0
+        favoriteFrame.LayoutOrder = #favoritesList:GetChildren()
         
         local corner = Instance.new("UICorner")
         corner.Parent = favoriteFrame
         
         local nameLabel = Instance.new("TextLabel")
-        nameLabel.Size = UDim2.new(0.7, 0, 1, 0)
+        nameLabel.Size = UDim2.new(0, 320, 1, 0)
         nameLabel.Position = UDim2.new(0, 6, 0, 0)
         nameLabel.BackgroundTransparency = 1
         nameLabel.Text = name
         nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         nameLabel.TextXAlignment = Enum.TextXAlignment.Left
         nameLabel.TextSize = 12
-        nameLabel.TextTruncate = Enum.TextTruncate.AtEnd
         nameLabel.Parent = favoriteFrame
         
         local loadButton = Instance.new("TextButton")
@@ -675,7 +656,7 @@ local function updateFavoritesList()
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         loadButton.Text = "‣"
-        loadButton.TextSize = 13
+        loadButton.TextSize = 12
         loadButton.Parent = favoriteFrame
         
         local loadCorner = Instance.new("UICorner")
@@ -706,10 +687,9 @@ local function updateFavoritesList()
         end)
         
         favoriteFrame.Parent = favoritesList
-        yPosition = yPosition + itemHeight + itemSpacing
     end
     
-    favoritesList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
+    favoritesList.CanvasSize = UDim2.new(0, 0, 0, Forge["UIListLayout_fav"].AbsoluteContentSize.Y)
 end
 
 local function searchScripts(query)
@@ -771,12 +751,9 @@ local function searchScripts(query)
     end
     
     local yPosition = 0
-    local itemHeight = 32
-    local itemSpacing = 5
-    
     for _, scriptData in pairs(data.result.scripts) do
         local scriptFrame = Instance.new("Frame")
-        scriptFrame.Size = UDim2.new(1, -10, 0, itemHeight)
+        scriptFrame.Size = UDim2.new(1, -10, 0, 32)
         scriptFrame.Position = UDim2.new(0, 5, 0, yPosition)
         scriptFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
         scriptFrame.BorderSizePixel = 0
@@ -785,7 +762,7 @@ local function searchScripts(query)
         corner.Parent = scriptFrame
         
         local nameLabel = Instance.new("TextLabel")
-        nameLabel.Size = UDim2.new(0.7, 0, 1, 0)
+        nameLabel.Size = UDim2.new(0, 350, 1, 0)
         nameLabel.Position = UDim2.new(0, 6, 0, 0)
         nameLabel.BackgroundTransparency = 1
         nameLabel.Text = scriptData.title .. " [👁️" .. scriptData.views .. "] [👍" .. (scriptData.likeCount or 0) .. "]"
@@ -802,7 +779,7 @@ local function searchScripts(query)
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         loadButton.Text = "‣"
-        loadButton.TextSize = 13
+        loadButton.TextSize = 12
         loadButton.Parent = scriptFrame
         
         local loadCorner = Instance.new("UICorner")
@@ -855,7 +832,7 @@ local function searchScripts(query)
         end)
         
         scriptFrame.Parent = searchList
-        yPosition = yPosition + itemHeight + itemSpacing
+        yPosition = yPosition + 37
     end
     
     searchList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
@@ -882,10 +859,6 @@ Forge["Save_f"].MouseButton1Click:Connect(function()
     if scriptText and scriptText ~= "" then
         createSavePopup()
     end
-end)
-
-Forge["Paste_3a"].MouseButton1Click:Connect(function()
-    Forge["TextBox_37"].Text = Forge["TextBox_37"].Text .. " "
 end)
 
 Forge["Exe_Tab_27"].MouseButton1Click:Connect(function()
@@ -990,16 +963,6 @@ end)
 UserInputService.InputChanged:Connect(function(input)
     if input == dragInput2 and dragging then
         update2(input)
-    end
-end)
-
-UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end
-    
-    if input.KeyCode == Enum.KeyCode.F9 then
-        minimized = not minimized
-        Forge["MainFrame_2"].Visible = not minimized
-        Forge["Show_2"].Visible = minimized
     end
 end)
 
