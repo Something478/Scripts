@@ -345,11 +345,11 @@ G2L["Title_39"]["TextSize"] = 48;
 G2L["Title_39"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["Title_39"]["TextScaled"] = true;
 G2L["Title_39"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["Title_39"]["FontFace"] = Font.new([[rbxasset://fonts/families/ComicNeueAngular.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["Title_39"]["TextColor3"] = Color3.fromRGB(0, 15, 255);
 G2L["Title_39"]["BackgroundTransparency"] = 1;
 G2L["Title_39"]["Size"] = UDim2.new(0.9916, 0, 0.06286, 0);
-G2L["Title_39"]["Text"] = [[Forge Executor]];
+G2L["Title_39"]["Text"] = [[Forge]];
+G2L["Title_39"]["FontFace"] = Font.new([[rbxasset://fonts/families/Balthazar.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["Title_39"]["Name"] = [[Title]];
 G2L["Title_39"]["Position"] = UDim2.new(0, 2, 0, 0);
 
