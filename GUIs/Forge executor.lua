@@ -353,19 +353,6 @@ G2L["Title_39"]["Text"] = [[Forge Executor]];
 G2L["Title_39"]["Name"] = [[Title]];
 G2L["Title_39"]["Position"] = UDim2.new(0, 2, 0, 0);
 
-G2L["Paste_3a"] = Instance.new("TextButton", G2L["MainFrame_2"]);
-G2L["Paste_3a"]["TextWrapped"] = true;
-G2L["Paste_3a"]["BorderSizePixel"] = 0;
-G2L["Paste_3a"]["TextSize"] = 12;
-G2L["Paste_3a"]["TextColor3"] = Color3.fromRGB(0, 15, 255);
-G2L["Paste_3a"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["Paste_3a"]["Size"] = UDim2.new(0.16807, 0, 0.07429, 0);
-G2L["Paste_3a"]["Text"] = [[Paste]];
-G2L["Paste_3a"]["Name"] = [[Paste]];
-G2L["Paste_3a"]["Position"] = UDim2.new(0, 252, 0, 322);
-
-G2L["UICorner_3b"] = Instance.new("UICorner", G2L["Paste_3a"]);
-
 G2L["ExecutorContent"] = Instance.new("Frame", G2L["MainFrame_2"])
 G2L["ExecutorContent"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 G2L["ExecutorContent"]["BackgroundTransparency"] = 1
@@ -492,7 +479,6 @@ local function switchTab(tabName)
     Forge["Exe_2d"].Visible = (tabName == "executor")
     Forge["Clr_33"].Visible = (tabName == "executor")
     Forge["Save_f"].Visible = (tabName == "executor")
-    Forge["Paste_3a"].Visible = (tabName == "executor")
     
     local executorBtn = Forge["Exe_Tab_24"]
     local favoritesBtn = Forge["Fav_Tab_1c"]
@@ -644,7 +630,7 @@ local function updateFavoritesList()
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.BackgroundTransparency = 0
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        loadButton.Text = "<>"
+        loadButton.Text = "►"
         loadButton.TextSize = 12
         loadButton.Parent = favoriteFrame
         
@@ -770,7 +756,7 @@ local function searchScripts(query)
         loadButton.Position = UDim2.new(1, -56, 0, 4)
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        loadButton.Text = "<>"
+        loadButton.Text = "►"
         loadButton.TextSize = 12
         loadButton.Parent = scriptFrame
         
@@ -850,12 +836,6 @@ Forge["Save_f"].MouseButton1Click:Connect(function()
     local scriptText = Forge["TextBox_37"].Text
     if scriptText and scriptText ~= "" then
         createSavePopup()
-    end
-end)
-
-Forge["Paste_3a"].MouseButton1Click:Connect(function()
-    if setclipboard then
-        setclipboard(Forge["TextBox_37"].Text)
     end
 end)
 
