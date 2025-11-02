@@ -11,12 +11,12 @@ getgenv().ignore = setmetatable({}, {__newindex = function() end})
 local player = Players.LocalPlayer
 local Forge = {}
 
-Forge["ScreenGui_1"] = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
-Forge["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-Forge["ScreenGui_1"]["ResetOnSpawn"] = false
-CollectionService:AddTag(Forge["ScreenGui_1"], "main")
+Forge["FG_old"] = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+Forge["FG_old"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+Forge["FG_old"]["ResetOnSpawn"] = false
+CollectionService:AddTag(Forge["FG_old"], "main")
 
-Forge["Show_2"] = Instance.new("Frame", Forge["ScreenGui_1"])
+Forge["Show_2"] = Instance.new("Frame", Forge["FG_old"])
 Forge["Show_2"]["BorderSizePixel"] = 0
 Forge["Show_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 Forge["Show_2"]["Size"] = UDim2.new(0, 50, 0, 50)
@@ -59,7 +59,7 @@ Forge["UIGradient_8"]["Color"] = ColorSequence.new{
     ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
 }
 
-Forge["MainFrame_2"] = Instance.new("Frame", Forge["ScreenGui_1"])
+Forge["MainFrame_2"] = Instance.new("Frame", Forge["FG_old"])
 Forge["MainFrame_2"]["BorderSizePixel"] = 0
 Forge["MainFrame_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 Forge["MainFrame_2"]["Size"] = UDim2.new(0.56048, 0, 0.83185, 0)
@@ -919,4 +919,4 @@ table.insert(statsConnections, RunService.RenderStepped:Connect(updateStats))
 updateFavoritesList()
 switchTab("executor")
 
-return Forge["ScreenGui_1"], require
+return Forge["FG_old"], require
