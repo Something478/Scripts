@@ -689,7 +689,7 @@ local function searchScripts(query)
     loadingText.TextSize = 14
     loadingText.Parent = searchList
     
-    local url = "https://scriptblox.com/api/script/search?q=" .. HttpService:UrlEncode(query) .. "&max=15"
+    local url = "https://scriptblox.com/api/script/search?q=" .. HttpService:UrlEncode(query) .. "&max=15&strict=true"
     
     local success, result = pcall(function()
         return game:HttpGetAsync(url)
