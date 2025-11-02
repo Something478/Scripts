@@ -14,7 +14,7 @@ local Forge = {}
 Forge["FG_old"] = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 Forge["FG_old"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 Forge["FG_old"]["ResetOnSpawn"] = false
-CollectionService:AddTag(Forge["FG_old"], "main")
+CollectionService:AddTag(Forge["FG_old"], "old")
 
 Forge["Show_2"] = Instance.new("Frame", Forge["FG_old"])
 Forge["Show_2"]["BorderSizePixel"] = 0
