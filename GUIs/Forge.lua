@@ -748,6 +748,8 @@ local function searchScripts(query)
         nameLabel.TextXAlignment = Enum.TextXAlignment.Left
         nameLabel.TextSize = 12
         nameLabel.TextTruncate = Enum.TextTruncate.AtEnd
+        nameLabel.TextWrapped = true
+        nameLabel.RichText = true
         nameLabel.Parent = scriptFrame
         
         local loadButton = Instance.new("TextButton")
