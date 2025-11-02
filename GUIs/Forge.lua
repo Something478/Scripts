@@ -614,10 +614,12 @@ local function updateFavoritesList()
         corner.Parent = favoriteFrame
         
         local nameLabel = Instance.new("TextLabel")
-        nameLabel.Size = UDim2.new(0, 320, 1, 0)
+        nameLabel.Size = UDim2.new(0, 300, 1, 0)
         nameLabel.Position = UDim2.new(0, 6, 0, 0)
         nameLabel.BackgroundTransparency = 1
         nameLabel.Text = name
+        nameLabel.TextWrapped = true
+        nameLabel.RichText = true
         nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         nameLabel.TextXAlignment = Enum.TextXAlignment.Left
         nameLabel.TextSize = 12
