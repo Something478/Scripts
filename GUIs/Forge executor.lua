@@ -11,501 +11,414 @@ getgenv().ignore = setmetatable({}, {__newindex = function() end})
 local player = Players.LocalPlayer
 local Forge = {}
 
-Forge.ScreenGui = Instance.new("ScreenGui")
-Forge.ScreenGui.Name = "ForgeExecutor"
-Forge.ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Forge.ScreenGui.ResetOnSpawn = false
-Forge.ScreenGui.Parent = player:WaitForChild("PlayerGui")
-CollectionService:AddTag(Forge.ScreenGui, "main")
-
-Forge.MainFrame = Instance.new("Frame")
-Forge.MainFrame.Name = "MainFrame"
-Forge.MainFrame.BorderSizePixel = 0
-Forge.MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.MainFrame.Size = UDim2.new(0.57251, 0, 0.9903, 0)
-Forge.MainFrame.Position = UDim2.new(0, 96, 0, 0)
-Forge.MainFrame.Parent = Forge.ScreenGui
-
-Forge.Stats = Instance.new("Frame")
-Forge.Stats.Name = "Stats"
-Forge.Stats.BorderSizePixel = 0
-Forge.Stats.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.Stats.Size = UDim2.new(0.34034, 0, 1, 0)
-Forge.Stats.Position = UDim2.new(0, 480, 0, 0)
-Forge.Stats.Parent = Forge.MainFrame
-
-Forge.StatsUICorner = Instance.new("UICorner")
-Forge.StatsUICorner.Parent = Forge.Stats
-
-Forge.StatsLabel = Instance.new("TextLabel")
-Forge.StatsLabel.Name = "StatsLabel"
-Forge.StatsLabel.TextWrapped = true
-Forge.StatsLabel.BorderSizePixel = 0
-Forge.StatsLabel.TextSize = 14
-Forge.StatsLabel.TextXAlignment = Enum.TextXAlignment.Left
-Forge.StatsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.StatsLabel.TextColor3 = Color3.fromRGB(0, 33, 255)
-Forge.StatsLabel.BackgroundTransparency = 1
-Forge.StatsLabel.RichText = true
-Forge.StatsLabel.Size = UDim2.new(0.97531, 0, 0.89143, 0)
-Forge.StatsLabel.Text = "FPS: Calculating...\nPing: Calculating...\nUsername: Loading...\nUserID: Loading...\nGame: Loading...\nGameID: Loading..."
-Forge.StatsLabel.Position = UDim2.new(0, 2, 0, 36)
-Forge.StatsLabel.Parent = Forge.Stats
-
-Forge.StatsLabelUICorner = Instance.new("UICorner")
-Forge.StatsLabelUICorner.Parent = Forge.StatsLabel
-
-Forge.StatsLabelUIGradient = Instance.new("UIGradient")
-Forge.StatsLabelUIGradient.Name = "UIGradient2"
-Forge.StatsLabelUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.StatsLabelUIGradient.Parent = Forge.StatsLabel
-
-Forge.StatsUIGradient = Instance.new("UIGradient")
-Forge.StatsUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(28, 28, 28)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))
-}
-Forge.StatsUIGradient.Parent = Forge.Stats
-
-Forge.StatsTitle = Instance.new("TextLabel")
-Forge.StatsTitle.Name = "StatsTitle"
-Forge.StatsTitle.BorderSizePixel = 0
-Forge.StatsTitle.TextSize = 40
-Forge.StatsTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.StatsTitle.FontFace = Font.new("rbxasset://fonts/families/ComicNeueAngular.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Forge.StatsTitle.TextColor3 = Color3.fromRGB(0, 15, 255)
-Forge.StatsTitle.BackgroundTransparency = 1
-Forge.StatsTitle.Size = UDim2.new(1, 0, 0.10286, 0)
-Forge.StatsTitle.Text = "Statistics"
-Forge.StatsTitle.Position = UDim2.new(0, 0, 0, -2)
-Forge.StatsTitle.Parent = Forge.Stats
-
-Forge.StatsTitleUIGradient = Instance.new("UIGradient")
-Forge.StatsTitleUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.StatsTitleUIGradient.Parent = Forge.StatsTitle
-
-Forge.StatsTitleFrame = Instance.new("Frame")
-Forge.StatsTitleFrame.BorderSizePixel = 0
-Forge.StatsTitleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.StatsTitleFrame.Size = UDim2.new(1, 0, 0.05556, 0)
-Forge.StatsTitleFrame.Position = UDim2.new(0, 0, 0, 34)
-Forge.StatsTitleFrame.Parent = Forge.StatsTitle
-
-Forge.StatsTitleFrameUIGradient = Instance.new("UIGradient")
-Forge.StatsTitleFrameUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.StatsTitleFrameUIGradient.Parent = Forge.StatsTitleFrame
-
-Forge.StatsUIStroke = Instance.new("UIStroke")
-Forge.StatsUIStroke.Color = Color3.fromRGB(0, 15, 255)
-Forge.StatsUIStroke.Parent = Forge.Stats
-
-Forge.StatsUIStrokeUIGradient = Instance.new("UIGradient")
-Forge.StatsUIStrokeUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.StatsUIStrokeUIGradient.Parent = Forge.StatsUIStroke
-
-Forge.TopBar = Instance.new("Frame")
-Forge.TopBar.Name = "TopBar"
-Forge.TopBar.BorderSizePixel = 0
-Forge.TopBar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Forge.TopBar.Size = UDim2.new(0.98319, 0, 0.10857, 0)
-Forge.TopBar.Position = UDim2.new(0, 4, 0, 24)
-Forge.TopBar.Parent = Forge.MainFrame
-
-Forge.TopBarUICorner = Instance.new("UICorner")
-Forge.TopBarUICorner.Parent = Forge.TopBar
-
-Forge.TopBarUIGradient = Instance.new("UIGradient")
-Forge.TopBarUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(39, 39, 39)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(23, 23, 23))
-}
-Forge.TopBarUIGradient.Parent = Forge.TopBar
-
-Forge.TopBarUIGradient2 = Instance.new("UIGradient")
-Forge.TopBarUIGradient2.Name = "UIGradient2"
-Forge.TopBarUIGradient2.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(28, 28, 28)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))
-}
-Forge.TopBarUIGradient2.Parent = Forge.TopBar
-
-Forge.TopBarUIStroke = Instance.new("UIStroke")
-Forge.TopBarUIStroke.Color = Color3.fromRGB(0, 15, 255)
-Forge.TopBarUIStroke.Parent = Forge.TopBar
-
-Forge.TopBarUIStrokeUIGradient = Instance.new("UIGradient")
-Forge.TopBarUIStrokeUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.TopBarUIStrokeUIGradient.Parent = Forge.TopBarUIStroke
-
-Forge.ExeTab = Instance.new("TextButton")
-Forge.ExeTab.Name = "Exe_Tab"
-Forge.ExeTab.TextWrapped = true
-Forge.ExeTab.BorderSizePixel = 0
-Forge.ExeTab.TextScaled = true
-Forge.ExeTab.TextColor3 = Color3.fromRGB(255, 255, 255)
-Forge.ExeTab.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-Forge.ExeTab.Size = UDim2.new(0.17521, 0, 0.78947, 0)
-Forge.ExeTab.Text = "Executor"
-Forge.ExeTab.Position = UDim2.new(0, 2, 0, 4)
-Forge.ExeTab.Parent = Forge.TopBar
-
-Forge.ExeTabUICorner = Instance.new("UICorner")
-Forge.ExeTabUICorner.Parent = Forge.ExeTab
-
-Forge.ExeTabUIGradient = Instance.new("UIGradient")
-Forge.ExeTabUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.ExeTabUIGradient.Parent = Forge.ExeTab
-
-Forge.ExeTabFrame = Instance.new("Frame")
-Forge.ExeTabFrame.BorderSizePixel = 0
-Forge.ExeTabFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.ExeTabFrame.Size = UDim2.new(0.02439, 0, 1.26667, 0)
-Forge.ExeTabFrame.Position = UDim2.new(0, 84, 0, -4)
-Forge.ExeTabFrame.Parent = Forge.ExeTab
-
-Forge.ExeTabFrameUIGradient = Instance.new("UIGradient")
-Forge.ExeTabFrameUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.ExeTabFrameUIGradient.Parent = Forge.ExeTabFrame
-
-Forge.SearchTab = Instance.new("TextButton")
-Forge.SearchTab.Name = "Search_Tab"
-Forge.SearchTab.TextWrapped = true
-Forge.SearchTab.BorderSizePixel = 0
-Forge.SearchTab.TextScaled = true
-Forge.SearchTab.TextColor3 = Color3.fromRGB(255, 255, 255)
-Forge.SearchTab.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-Forge.SearchTab.Size = UDim2.new(0.17521, 0, 0.78947, 0)
-Forge.SearchTab.Text = "Search"
-Forge.SearchTab.Position = UDim2.new(0, 88, 0, 4)
-Forge.SearchTab.Parent = Forge.TopBar
-
-Forge.SearchTabUICorner = Instance.new("UICorner")
-Forge.SearchTabUICorner.Parent = Forge.SearchTab
-
-Forge.SearchTabUIGradient = Instance.new("UIGradient")
-Forge.SearchTabUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.SearchTabUIGradient.Parent = Forge.SearchTab
-
-Forge.SearchTabFrame = Instance.new("Frame")
-Forge.SearchTabFrame.BorderSizePixel = 0
-Forge.SearchTabFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.SearchTabFrame.Size = UDim2.new(0.02439, 0, 1.26667, 0)
-Forge.SearchTabFrame.Position = UDim2.new(0, 84, 0, -4)
-Forge.SearchTabFrame.Parent = Forge.SearchTab
-
-Forge.SearchTabFrameUIGradient = Instance.new("UIGradient")
-Forge.SearchTabFrameUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.SearchTabFrameUIGradient.Parent = Forge.SearchTabFrame
-
-Forge.FavTab = Instance.new("TextButton")
-Forge.FavTab.Name = "Fav_Tab"
-Forge.FavTab.TextWrapped = true
-Forge.FavTab.BorderSizePixel = 0
-Forge.FavTab.TextScaled = true
-Forge.FavTab.TextColor3 = Color3.fromRGB(255, 255, 255)
-Forge.FavTab.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-Forge.FavTab.Size = UDim2.new(0.17521, 0, 0.78947, 0)
-Forge.FavTab.Text = "Favorites"
-Forge.FavTab.Position = UDim2.new(0, 174, 0, 4)
-Forge.FavTab.Parent = Forge.TopBar
-
-Forge.FavTabUICorner = Instance.new("UICorner")
-Forge.FavTabUICorner.Parent = Forge.FavTab
-
-Forge.FavTabUIGradient = Instance.new("UIGradient")
-Forge.FavTabUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.FavTabUIGradient.Parent = Forge.FavTab
-
-Forge.FavTabFrame = Instance.new("Frame")
-Forge.FavTabFrame.BorderSizePixel = 0
-Forge.FavTabFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.FavTabFrame.Size = UDim2.new(0.02439, 0, 1.26667, 0)
-Forge.FavTabFrame.Position = UDim2.new(0, 84, 0, -4)
-Forge.FavTabFrame.Parent = Forge.FavTab
-
-Forge.FavTabFrameUIGradient = Instance.new("UIGradient")
-Forge.FavTabFrameUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.FavTabFrameUIGradient.Parent = Forge.FavTabFrame
-
-Forge.Title = Instance.new("TextLabel")
-Forge.Title.Name = "Title"
-Forge.Title.TextWrapped = true
-Forge.Title.ZIndex = 2
-Forge.Title.BorderSizePixel = 0
-Forge.Title.TextSize = 48
-Forge.Title.TextXAlignment = Enum.TextXAlignment.Left
-Forge.Title.TextScaled = true
-Forge.Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.Title.FontFace = Font.new("rbxasset://fonts/families/ComicNeueAngular.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Forge.Title.TextColor3 = Color3.fromRGB(0, 15, 255)
-Forge.Title.BackgroundTransparency = 1
-Forge.Title.Size = UDim2.new(0.9916, 0, 0.06286, 0)
-Forge.Title.Text = "Forge Executor"
-Forge.Title.Position = UDim2.new(0, 2, 0, 0)
-Forge.Title.Parent = Forge.MainFrame
-
-Forge.Hide = Instance.new("TextButton")
-Forge.Hide.Name = "Hide"
-Forge.Hide.TextWrapped = true
-Forge.Hide.BorderSizePixel = 0
-Forge.Hide.TextScaled = true
-Forge.Hide.TextColor3 = Color3.fromRGB(255, 255, 255)
-Forge.Hide.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Forge.Hide.Size = UDim2.new(0.05882, 0, 0.05143, 0)
-Forge.Hide.Text = "—"
-Forge.Hide.Position = UDim2.new(0, 446, 0, 2)
-Forge.Hide.Parent = Forge.MainFrame
-
-Forge.HideUICorner = Instance.new("UICorner")
-Forge.HideUICorner.Parent = Forge.Hide
-
-Forge.HideUIGradient = Instance.new("UIGradient")
-Forge.HideUIGradient.Name = "UIGradient2"
-Forge.HideUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.HideUIGradient.Parent = Forge.Hide
-
-Forge.MainFrameUICorner = Instance.new("UICorner")
-Forge.MainFrameUICorner.Parent = Forge.MainFrame
-
-Forge.MainFrameUIGradient = Instance.new("UIGradient")
-Forge.MainFrameUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(28, 28, 28)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))
-}
-Forge.MainFrameUIGradient.Parent = Forge.MainFrame
-
-Forge.MainFrameUIStroke = Instance.new("UIStroke")
-Forge.MainFrameUIStroke.Color = Color3.fromRGB(0, 15, 255)
-Forge.MainFrameUIStroke.Parent = Forge.MainFrame
-
-Forge.MainFrameUIStrokeUIGradient = Instance.new("UIGradient")
-Forge.MainFrameUIStrokeUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.MainFrameUIStrokeUIGradient.Parent = Forge.MainFrameUIStroke
-
-Forge.ExecutorContent = Instance.new("Frame")
-Forge.ExecutorContent.Name = "ExecutorContent"
-Forge.ExecutorContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.ExecutorContent.BackgroundTransparency = 1
-Forge.ExecutorContent.Size = UDim2.new(1, 0, 1, 0)
-Forge.ExecutorContent.Parent = Forge.MainFrame
-
-Forge.FavoritesContent = Instance.new("Frame")
-Forge.FavoritesContent.Name = "FavoritesContent"
-Forge.FavoritesContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.FavoritesContent.BackgroundTransparency = 1
-Forge.FavoritesContent.Size = UDim2.new(1, 0, 1, 0)
-Forge.FavoritesContent.Visible = false
-Forge.FavoritesContent.Parent = Forge.MainFrame
-
-Forge.SearchContent = Instance.new("Frame")
-Forge.SearchContent.Name = "SearchContent"
-Forge.SearchContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.SearchContent.BackgroundTransparency = 1
-Forge.SearchContent.Size = UDim2.new(1, 0, 1, 0)
-Forge.SearchContent.Visible = false
-Forge.SearchContent.Parent = Forge.MainFrame
-
-Forge.InputTextbox = Instance.new("Frame")
-Forge.InputTextbox.Name = "InputTextbox"
-Forge.InputTextbox.ZIndex = 0
-Forge.InputTextbox.BorderSizePixel = 0
-Forge.InputTextbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.InputTextbox.Size = UDim2.new(0.98319, 0, 0.71429, 0)
-Forge.InputTextbox.Position = UDim2.new(0, 4, 0, 66)
-Forge.InputTextbox.Parent = Forge.ExecutorContent
-
-Forge.InputTextboxUIGradient = Instance.new("UIGradient")
-Forge.InputTextboxUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.InputTextboxUIGradient.Parent = Forge.InputTextbox
-
-Forge.TextBox = Instance.new("TextBox")
-Forge.TextBox.CursorPosition = -1
-Forge.TextBox.TextXAlignment = Enum.TextXAlignment.Left
-Forge.TextBox.BorderSizePixel = 0
-Forge.TextBox.TextWrapped = true
-Forge.TextBox.TextSize = 18
-Forge.TextBox.TextColor3 = Color3.fromRGB(104, 255, 0)
-Forge.TextBox.TextYAlignment = Enum.TextYAlignment.Top
-Forge.TextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Forge.TextBox.FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Forge.TextBox.PlaceholderText = "Script here..."
-Forge.TextBox.Size = UDim2.new(0.98718, 0, 0.984, 0)
-Forge.TextBox.Position = UDim2.new(0, 2, 0, 2)
-Forge.TextBox.Text = ""
-Forge.TextBox.MultiLine = true
-Forge.TextBox.Parent = Forge.InputTextbox
-
-Forge.Execute = Instance.new("TextButton")
-Forge.Execute.Name = "Exe"
-Forge.Execute.TextWrapped = true
-Forge.Execute.BorderSizePixel = 0
-Forge.Execute.TextSize = 12
-Forge.Execute.TextColor3 = Color3.fromRGB(0, 15, 255)
-Forge.Execute.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Forge.Execute.Size = UDim2.new(0.16807, 0, 0.07429, 0)
-Forge.Execute.Text = "Execute"
-Forge.Execute.Position = UDim2.new(0, 4, 0, 320)
-Forge.Execute.Parent = Forge.ExecutorContent
-
-Forge.ExecuteUICorner = Instance.new("UICorner")
-Forge.ExecuteUICorner.Parent = Forge.Execute
-
-Forge.Clear = Instance.new("TextButton")
-Forge.Clear.Name = "Clr"
-Forge.Clear.TextWrapped = true
-Forge.Clear.BorderSizePixel = 0
-Forge.Clear.TextSize = 12
-Forge.Clear.TextColor3 = Color3.fromRGB(0, 15, 255)
-Forge.Clear.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Forge.Clear.Size = UDim2.new(0.16807, 0, 0.07429, 0)
-Forge.Clear.Text = "Clear"
-Forge.Clear.Position = UDim2.new(0, 86, 0, 320)
-Forge.Clear.Parent = Forge.ExecutorContent
-
-Forge.ClearUICorner = Instance.new("UICorner")
-Forge.ClearUICorner.Parent = Forge.Clear
-
-Forge.Save = Instance.new("TextButton")
-Forge.Save.Name = "Save"
-Forge.Save.TextWrapped = true
-Forge.Save.BorderSizePixel = 0
-Forge.Save.TextSize = 12
-Forge.Save.TextColor3 = Color3.fromRGB(0, 15, 255)
-Forge.Save.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Forge.Save.Size = UDim2.new(0.16807, 0, 0.07429, 0)
-Forge.Save.Text = "Save"
-Forge.Save.Position = UDim2.new(0, 170, 0, 320)
-Forge.Save.Parent = Forge.ExecutorContent
-
-Forge.SaveUICorner = Instance.new("UICorner")
-Forge.SaveUICorner.Parent = Forge.Save
-
-Forge.SearchBox = Instance.new("TextBox")
-Forge.SearchBox.CursorPosition = -1
-Forge.SearchBox.TextXAlignment = Enum.TextXAlignment.Left
-Forge.SearchBox.BorderSizePixel = 0
-Forge.SearchBox.TextSize = 10
-Forge.SearchBox.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-Forge.SearchBox.PlaceholderText = "Search scripts (powered by scriptblox.com)"
-Forge.SearchBox.Size = UDim2.new(0.9916, 0, 0.08571, 0)
-Forge.SearchBox.Position = UDim2.new(0, 2, 0, 68)
-Forge.SearchBox.Text = ""
-Forge.SearchBox.Parent = Forge.SearchContent
-
-Forge.SearchBoxUICorner = Instance.new("UICorner")
-Forge.SearchBoxUICorner.Parent = Forge.SearchBox
-
-Forge.SearchList = Instance.new("ScrollingFrame")
-Forge.SearchList.Name = "SearchList"
-Forge.SearchList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.SearchList.BackgroundTransparency = 1
-Forge.SearchList.Size = UDim2.new(1, -12, 1, -90)
-Forge.SearchList.Position = UDim2.new(0, 6, 0, 90)
-Forge.SearchList.CanvasSize = UDim2.new(0, 0, 0, 0)
-Forge.SearchList.ScrollBarThickness = 8
-Forge.SearchList.Parent = Forge.SearchContent
-
-Forge.FavoritesList = Instance.new("ScrollingFrame")
-Forge.FavoritesList.Name = "FavoritesList"
-Forge.FavoritesList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.FavoritesList.BackgroundTransparency = 1
-Forge.FavoritesList.Size = UDim2.new(1, -12, 1, -60)
-Forge.FavoritesList.Position = UDim2.new(0, 6, 0, 60)
-Forge.FavoritesList.CanvasSize = UDim2.new(0, 0, 0, 0)
-Forge.FavoritesList.ScrollBarThickness = 8
-Forge.FavoritesList.Parent = Forge.FavoritesContent
-
-Forge.Show = Instance.new("Frame")
-Forge.Show.Name = "Show"
-Forge.Show.BorderSizePixel = 0
-Forge.Show.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.Show.Size = UDim2.new(0, 50, 0, 50)
-Forge.Show.Position = UDim2.new(0, 778, 0, 104)
-Forge.Show.Visible = false
-Forge.Show.Parent = Forge.ScreenGui
-
-Forge.ShowUICorner = Instance.new("UICorner")
-Forge.ShowUICorner.Parent = Forge.Show
-
-Forge.ShowUIGradient = Instance.new("UIGradient")
-Forge.ShowUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(45, 45, 45)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))
-}
-Forge.ShowUIGradient.Parent = Forge.Show
-
-Forge.ShowUIStroke = Instance.new("UIStroke")
-Forge.ShowUIStroke.Color = Color3.fromRGB(0, 24, 255)
-Forge.ShowUIStroke.Parent = Forge.Show
-
-Forge.ShowUIStrokeUIGradient = Instance.new("UIGradient")
-Forge.ShowUIStrokeUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.ShowUIStrokeUIGradient.Parent = Forge.ShowUIStroke
-
-Forge.ShowButton = Instance.new("TextButton")
-Forge.ShowButton.TextWrapped = true
-Forge.ShowButton.BorderSizePixel = 0
-Forge.ShowButton.TextSize = 12
-Forge.ShowButton.TextScaled = true
-Forge.ShowButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Forge.ShowButton.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium, Enum.FontStyle.Normal)
-Forge.ShowButton.TextColor3 = Color3.fromRGB(0, 21, 255)
-Forge.ShowButton.BackgroundTransparency = 1
-Forge.ShowButton.Size = UDim2.new(0, 50, 0, 50)
-Forge.ShowButton.Text = "F"
-Forge.ShowButton.Parent = Forge.Show
-
-Forge.ShowButtonUIGradient = Instance.new("UIGradient")
-Forge.ShowButtonUIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),
-    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))
-}
-Forge.ShowButtonUIGradient.Parent = Forge.ShowButton
+local CollectionService = game:GetService("CollectionService");
+local G2L = {};
+
+G2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+CollectionService:AddTag(G2L["ScreenGui_1"], [[main]]);
+
+G2L["Show_2"] = Instance.new("Frame", G2L["ScreenGui_1"]);
+G2L["Show_2"]["BorderSizePixel"] = 0;
+G2L["Show_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Show_2"]["Size"] = UDim2.new(0.05292, 0, 0.12449, 0);
+G2L["Show_2"]["Position"] = UDim2.new(0, 16, 0, 0);
+G2L["Show_2"]["Name"] = [[Show]];
+G2L["Show_2"]["Visible"] = false
+
+G2L["UICorner_3"] = Instance.new("UICorner", G2L["Show_2"]);
+G2L["UICorner_3"]["CornerRadius"] = UDim.new(1, 0);
+
+G2L["TextButton_4"] = Instance.new("TextButton", G2L["Show_2"]);
+G2L["TextButton_4"]["TextWrapped"] = true;
+G2L["TextButton_4"]["BorderSizePixel"] = 0;
+G2L["TextButton_4"]["TextScaled"] = true;
+G2L["TextButton_4"]["TextColor3"] = Color3.fromRGB(23, 0, 255);
+G2L["TextButton_4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["TextButton_4"]["FontFace"] = Font.new([[rbxasset://fonts/families/Balthazar.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["TextButton_4"]["BackgroundTransparency"] = 1;
+G2L["TextButton_4"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["TextButton_4"]["Text"] = [[F]];
+
+G2L["UICorner_5"] = Instance.new("UICorner", G2L["TextButton_4"]);
+G2L["UICorner_5"]["CornerRadius"] = UDim.new(1, 0);
+
+G2L["UIGradient_6"] = Instance.new("UIGradient", G2L["TextButton_4"]);
+G2L["UIGradient_6"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["UIStroke_7"] = Instance.new("UIStroke", G2L["Show_2"]);
+G2L["UIStroke_7"]["Color"] = Color3.fromRGB(255, 255, 255);
+
+G2L["UIGradient_8"] = Instance.new("UIGradient", G2L["UIStroke_7"]);
+G2L["UIGradient_8"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["MainFrame_2"] = Instance.new("Frame", G2L["ScreenGui_1"]);
+G2L["MainFrame_2"]["BorderSizePixel"] = 0;
+G2L["MainFrame_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["MainFrame_2"]["Size"] = UDim2.new(0.57251, 0, 0.9903, 0);
+G2L["MainFrame_2"]["Position"] = UDim2.new(0, 96, 0, 0);
+G2L["MainFrame_2"]["Name"] = [[MainFrame]];
+
+G2L["Stats_3"] = Instance.new("Frame", G2L["MainFrame_2"]);
+G2L["Stats_3"]["BorderSizePixel"] = 0;
+G2L["Stats_3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Stats_3"]["Size"] = UDim2.new(0.34034, 0, 1, 0);
+G2L["Stats_3"]["Position"] = UDim2.new(0, 480, 0, 0);
+G2L["Stats_3"]["Name"] = [[Stats]];
+
+G2L["UICorner_4"] = Instance.new("UICorner", G2L["Stats_3"]);
+
+G2L["StatsLabel_5"] = Instance.new("TextLabel", G2L["Stats_3"]);
+G2L["StatsLabel_5"]["TextWrapped"] = true;
+G2L["StatsLabel_5"]["BorderSizePixel"] = 0;
+G2L["StatsLabel_5"]["TextSize"] = 14;
+G2L["StatsLabel_5"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["StatsLabel_5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["StatsLabel_5"]["TextColor3"] = Color3.fromRGB(0, 33, 255);
+G2L["StatsLabel_5"]["BackgroundTransparency"] = 1;
+G2L["StatsLabel_5"]["RichText"] = true;
+G2L["StatsLabel_5"]["Size"] = UDim2.new(0.97531, 0, 0.89143, 0);
+G2L["StatsLabel_5"]["Text"] = [[FPS: Calculating...\nPing: Calculating...\nUsername: Loading...\nUserID: Loading...\nGame: Loading...\nGameID: Loading...]];
+G2L["StatsLabel_5"]["Name"] = [[StatsLabel]];
+G2L["StatsLabel_5"]["Position"] = UDim2.new(0, 2, 0, 36);
+
+G2L["UICorner_6"] = Instance.new("UICorner", G2L["StatsLabel_5"]);
+
+G2L["UIGradient2_7"] = Instance.new("UIGradient", G2L["StatsLabel_5"]);
+G2L["UIGradient2_7"]["Name"] = [[UIGradient2]];
+G2L["UIGradient2_7"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["UIGradient_8"] = Instance.new("UIGradient", G2L["Stats_3"]);
+G2L["UIGradient_8"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(28, 28, 28)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
+
+G2L["StatsTitle_9"] = Instance.new("TextLabel", G2L["Stats_3"]);
+G2L["StatsTitle_9"]["BorderSizePixel"] = 0;
+G2L["StatsTitle_9"]["TextSize"] = 40;
+G2L["StatsTitle_9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["StatsTitle_9"]["FontFace"] = Font.new([[rbxasset://fonts/families/ComicNeueAngular.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["StatsTitle_9"]["TextColor3"] = Color3.fromRGB(0, 15, 255);
+G2L["StatsTitle_9"]["BackgroundTransparency"] = 1;
+G2L["StatsTitle_9"]["Size"] = UDim2.new(1, 0, 0.10286, 0);
+G2L["StatsTitle_9"]["Text"] = [[Statistics]];
+G2L["StatsTitle_9"]["Name"] = [[StatsTitle]];
+G2L["StatsTitle_9"]["Position"] = UDim2.new(0, 0, 0, -2);
+
+G2L["UIGradient_a"] = Instance.new("UIGradient", G2L["StatsTitle_9"]);
+G2L["UIGradient_a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Frame_b"] = Instance.new("Frame", G2L["StatsTitle_9"]);
+G2L["Frame_b"]["BorderSizePixel"] = 0;
+G2L["Frame_b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Frame_b"]["Size"] = UDim2.new(1, 0, 0.05556, 0);
+G2L["Frame_b"]["Position"] = UDim2.new(0, 0, 0, 34);
+
+G2L["UIGradient_c"] = Instance.new("UIGradient", G2L["Frame_b"]);
+G2L["UIGradient_c"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["UIStroke_d"] = Instance.new("UIStroke", G2L["Stats_3"]);
+G2L["UIStroke_d"]["Color"] = Color3.fromRGB(0, 15, 255);
+
+G2L["UIGradient_e"] = Instance.new("UIGradient", G2L["UIStroke_d"]);
+G2L["UIGradient_e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Save_f"] = Instance.new("TextButton", G2L["MainFrame_2"]);
+G2L["Save_f"]["TextWrapped"] = true;
+G2L["Save_f"]["BorderSizePixel"] = 0;
+G2L["Save_f"]["TextSize"] = 12;
+G2L["Save_f"]["TextColor3"] = Color3.fromRGB(0, 15, 255);
+G2L["Save_f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Save_f"]["Size"] = UDim2.new(0.16807, 0, 0.07429, 0);
+G2L["Save_f"]["Text"] = [[Save]];
+G2L["Save_f"]["Name"] = [[Save]];
+G2L["Save_f"]["Position"] = UDim2.new(0, 170, 0, 320);
+
+G2L["UICorner_10"] = Instance.new("UICorner", G2L["Save_f"]);
+
+G2L["TopBar_11"] = Instance.new("Frame", G2L["MainFrame_2"]);
+G2L["TopBar_11"]["BorderSizePixel"] = 0;
+G2L["TopBar_11"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["TopBar_11"]["Size"] = UDim2.new(0.98319, 0, 0.10857, 0);
+G2L["TopBar_11"]["Position"] = UDim2.new(0, 4, 0, 24);
+G2L["TopBar_11"]["Name"] = [[TopBar]];
+
+G2L["F9_Tab_12"] = Instance.new("TextButton", G2L["TopBar_11"]);
+G2L["F9_Tab_12"]["TextWrapped"] = true;
+G2L["F9_Tab_12"]["BorderSizePixel"] = 0;
+G2L["F9_Tab_12"]["TextScaled"] = true;
+G2L["F9_Tab_12"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["F9_Tab_12"]["BackgroundColor3"] = Color3.fromRGB(15, 15, 15);
+G2L["F9_Tab_12"]["Size"] = UDim2.new(0.17521, 0, 0.78947, 0);
+G2L["F9_Tab_12"]["Text"] = [[Console]];
+G2L["F9_Tab_12"]["Name"] = [[F9_Tab]];
+G2L["F9_Tab_12"]["Position"] = UDim2.new(0, 260, 0, 4);
+
+G2L["UICorner_13"] = Instance.new("UICorner", G2L["F9_Tab_12"]);
+
+G2L["UIGradient_14"] = Instance.new("UIGradient", G2L["F9_Tab_12"]);
+G2L["UIGradient_14"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Frame_15"] = Instance.new("Frame", G2L["F9_Tab_12"]);
+G2L["Frame_15"]["BorderSizePixel"] = 0;
+G2L["Frame_15"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Frame_15"]["Size"] = UDim2.new(0.02439, 0, 1.26667, 0);
+G2L["Frame_15"]["Position"] = UDim2.new(0, 84, 0, -4);
+
+G2L["UIGradient_16"] = Instance.new("UIGradient", G2L["Frame_15"]);
+G2L["UIGradient_16"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Search_Tab_17"] = Instance.new("TextButton", G2L["TopBar_11"]);
+G2L["Search_Tab_17"]["TextWrapped"] = true;
+G2L["Search_Tab_17"]["BorderSizePixel"] = 0;
+G2L["Search_Tab_17"]["TextScaled"] = true;
+G2L["Search_Tab_17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Search_Tab_17"]["BackgroundColor3"] = Color3.fromRGB(15, 15, 15);
+G2L["Search_Tab_17"]["Size"] = UDim2.new(0.17521, 0, 0.78947, 0);
+G2L["Search_Tab_17"]["Text"] = [[Search]];
+G2L["Search_Tab_17"]["Name"] = [[Search_Tab]];
+G2L["Search_Tab_17"]["Position"] = UDim2.new(0, 88, 0, 4);
+
+G2L["UICorner_18"] = Instance.new("UICorner", G2L["Search_Tab_17"]);
+
+G2L["UIGradient_19"] = Instance.new("UIGradient", G2L["Search_Tab_17"]);
+G2L["UIGradient_19"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Frame_1a"] = Instance.new("Frame", G2L["Search_Tab_17"]);
+G2L["Frame_1a"]["BorderSizePixel"] = 0;
+G2L["Frame_1a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Frame_1a"]["Size"] = UDim2.new(0.02439, 0, 1.26667, 0);
+G2L["Frame_1a"]["Position"] = UDim2.new(0, 84, 0, -4);
+
+G2L["UIGradient_1b"] = Instance.new("UIGradient", G2L["Frame_1a"]);
+G2L["UIGradient_1b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Fav_Tab_1c"] = Instance.new("TextButton", G2L["TopBar_11"]);
+G2L["Fav_Tab_1c"]["TextWrapped"] = true;
+G2L["Fav_Tab_1c"]["BorderSizePixel"] = 0;
+G2L["Fav_Tab_1c"]["TextScaled"] = true;
+G2L["Fav_Tab_1c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Fav_Tab_1c"]["BackgroundColor3"] = Color3.fromRGB(15, 15, 15);
+G2L["Fav_Tab_1c"]["Size"] = UDim2.new(0.17521, 0, 0.78947, 0);
+G2L["Fav_Tab_1c"]["Text"] = [[Favorites]];
+G2L["Fav_Tab_1c"]["Name"] = [[Fav_Tab]];
+G2L["Fav_Tab_1c"]["Position"] = UDim2.new(0, 174, 0, 4);
+
+G2L["UICorner_1d"] = Instance.new("UICorner", G2L["Fav_Tab_1c"]);
+
+G2L["UIGradient_1e"] = Instance.new("UIGradient", G2L["Fav_Tab_1c"]);
+G2L["UIGradient_1e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Frame_1f"] = Instance.new("Frame", G2L["Fav_Tab_1c"]);
+G2L["Frame_1f"]["BorderSizePixel"] = 0;
+G2L["Frame_1f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Frame_1f"]["Size"] = UDim2.new(0.02439, 0, 1.26667, 0);
+G2L["Frame_1f"]["Position"] = UDim2.new(0, 84, 0, -4);
+
+G2L["UIGradient_20"] = Instance.new("UIGradient", G2L["Frame_1f"]);
+G2L["UIGradient_20"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["UICorner_21"] = Instance.new("UICorner", G2L["TopBar_11"]);
+
+G2L["UIGradient_22"] = Instance.new("UIGradient", G2L["TopBar_11"]);
+G2L["UIGradient_22"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(39, 39, 39)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(23, 23, 23))};
+
+G2L["UIGradient2_23"] = Instance.new("UIGradient", G2L["TopBar_11"]);
+G2L["UIGradient2_23"]["Name"] = [[UIGradient2]];
+G2L["UIGradient2_23"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(28, 28, 28)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
+
+G2L["Exe_Tab_24"] = Instance.new("TextButton", G2L["TopBar_11"]);
+G2L["Exe_Tab_24"]["TextWrapped"] = true;
+G2L["Exe_Tab_24"]["BorderSizePixel"] = 0;
+G2L["Exe_Tab_24"]["TextScaled"] = true;
+G2L["Exe_Tab_24"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Exe_Tab_24"]["BackgroundColor3"] = Color3.fromRGB(15, 15, 15);
+G2L["Exe_Tab_24"]["Size"] = UDim2.new(0.17521, 0, 0.78947, 0);
+G2L["Exe_Tab_24"]["Text"] = [[Executor]];
+G2L["Exe_Tab_24"]["Name"] = [[Exe_Tab]];
+G2L["Exe_Tab_24"]["Position"] = UDim2.new(0, 2, 0, 4);
+
+G2L["UICorner_25"] = Instance.new("UICorner", G2L["Exe_Tab_24"]);
+
+G2L["UIGradient_26"] = Instance.new("UIGradient", G2L["Exe_Tab_24"]);
+G2L["UIGradient_26"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Frame_27"] = Instance.new("Frame", G2L["Exe_Tab_24"]);
+G2L["Frame_27"]["BorderSizePixel"] = 0;
+G2L["Frame_27"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Frame_27"]["Size"] = UDim2.new(0.02439, 0, 1.26667, 0);
+G2L["Frame_27"]["Position"] = UDim2.new(0, 84, 0, -4);
+
+G2L["UIGradient_28"] = Instance.new("UIGradient", G2L["Frame_27"]);
+G2L["UIGradient_28"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["UIStroke_29"] = Instance.new("UIStroke", G2L["TopBar_11"]);
+G2L["UIStroke_29"]["Color"] = Color3.fromRGB(0, 15, 255);
+
+G2L["UIGradient_2a"] = Instance.new("UIGradient", G2L["UIStroke_29"]);
+G2L["UIGradient_2a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["UIStroke_2b"] = Instance.new("UIStroke", G2L["MainFrame_2"]);
+G2L["UIStroke_2b"]["Color"] = Color3.fromRGB(0, 15, 255);
+
+G2L["UIGradient_2c"] = Instance.new("UIGradient", G2L["UIStroke_2b"]);
+G2L["UIGradient_2c"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Exe_2d"] = Instance.new("TextButton", G2L["MainFrame_2"]);
+G2L["Exe_2d"]["TextWrapped"] = true;
+G2L["Exe_2d"]["BorderSizePixel"] = 0;
+G2L["Exe_2d"]["TextSize"] = 12;
+G2L["Exe_2d"]["TextColor3"] = Color3.fromRGB(0, 15, 255);
+G2L["Exe_2d"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Exe_2d"]["Size"] = UDim2.new(0.16807, 0, 0.07429, 0);
+G2L["Exe_2d"]["Text"] = [[Execute]];
+G2L["Exe_2d"]["Name"] = [[Exe]];
+G2L["Exe_2d"]["Position"] = UDim2.new(0, 4, 0, 320);
+
+G2L["UICorner_2e"] = Instance.new("UICorner", G2L["Exe_2d"]);
+
+G2L["UICorner_2f"] = Instance.new("UICorner", G2L["MainFrame_2"]);
+
+G2L["Hide_30"] = Instance.new("TextButton", G2L["MainFrame_2"]);
+G2L["Hide_30"]["TextWrapped"] = true;
+G2L["Hide_30"]["BorderSizePixel"] = 0;
+G2L["Hide_30"]["TextScaled"] = true;
+G2L["Hide_30"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Hide_30"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Hide_30"]["Size"] = UDim2.new(0.05882, 0, 0.05143, 0);
+G2L["Hide_30"]["Text"] = [[—]];
+G2L["Hide_30"]["Name"] = [[Hide]];
+G2L["Hide_30"]["Position"] = UDim2.new(0, 446, 0, 2);
+
+G2L["UICorner_31"] = Instance.new("UICorner", G2L["Hide_30"]);
+
+G2L["UIGradient2_32"] = Instance.new("UIGradient", G2L["Hide_30"]);
+G2L["UIGradient2_32"]["Name"] = [[UIGradient2]];
+G2L["UIGradient2_32"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["Clr_33"] = Instance.new("TextButton", G2L["MainFrame_2"]);
+G2L["Clr_33"]["TextWrapped"] = true;
+G2L["Clr_33"]["BorderSizePixel"] = 0;
+G2L["Clr_33"]["TextSize"] = 12;
+G2L["Clr_33"]["TextColor3"] = Color3.fromRGB(0, 15, 255);
+G2L["Clr_33"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Clr_33"]["Size"] = UDim2.new(0.16807, 0, 0.07429, 0);
+G2L["Clr_33"]["Text"] = [[Clear]];
+G2L["Clr_33"]["Name"] = [[Clr]];
+G2L["Clr_33"]["Position"] = UDim2.new(0, 86, 0, 320);
+
+G2L["UICorner_34"] = Instance.new("UICorner", G2L["Clr_33"]);
+
+G2L["InputTextbox_35"] = Instance.new("Frame", G2L["MainFrame_2"]);
+G2L["InputTextbox_35"]["ZIndex"] = 0;
+G2L["InputTextbox_35"]["BorderSizePixel"] = 0;
+G2L["InputTextbox_35"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["InputTextbox_35"]["Size"] = UDim2.new(0.98319, 0, 0.71429, 0);
+G2L["InputTextbox_35"]["Position"] = UDim2.new(0, 4, 0, 66);
+G2L["InputTextbox_35"]["Name"] = [[InputTextbox]];
+
+G2L["UIGradient_36"] = Instance.new("UIGradient", G2L["InputTextbox_35"]);
+G2L["UIGradient_36"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
+
+G2L["TextBox_37"] = Instance.new("TextBox", G2L["InputTextbox_35"]);
+G2L["TextBox_37"]["CursorPosition"] = -1;
+G2L["TextBox_37"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["TextBox_37"]["BorderSizePixel"] = 0;
+G2L["TextBox_37"]["TextWrapped"] = true;
+G2L["TextBox_37"]["TextSize"] = 18;
+G2L["TextBox_37"]["TextColor3"] = Color3.fromRGB(104, 255, 0);
+G2L["TextBox_37"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+G2L["TextBox_37"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["TextBox_37"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["TextBox_37"]["PlaceholderText"] = [[Script here...]];
+G2L["TextBox_37"]["Size"] = UDim2.new(0.98718, 0, 0.984, 0);
+G2L["TextBox_37"]["Position"] = UDim2.new(0, 2, 0, 2);
+G2L["TextBox_37"]["Text"] = [[]];
+
+G2L["UIGradient_38"] = Instance.new("UIGradient", G2L["MainFrame_2"]);
+G2L["UIGradient_38"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(28, 28, 28)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
+
+G2L["Title_39"] = Instance.new("TextLabel", G2L["MainFrame_2"]);
+G2L["Title_39"]["TextWrapped"] = true;
+G2L["Title_39"]["ZIndex"] = 2;
+G2L["Title_39"]["BorderSizePixel"] = 0;
+G2L["Title_39"]["TextSize"] = 48;
+G2L["Title_39"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["Title_39"]["TextScaled"] = true;
+G2L["Title_39"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["Title_39"]["FontFace"] = Font.new([[rbxasset://fonts/families/ComicNeueAngular.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["Title_39"]["TextColor3"] = Color3.fromRGB(0, 15, 255);
+G2L["Title_39"]["BackgroundTransparency"] = 1;
+G2L["Title_39"]["Size"] = UDim2.new(0.9916, 0, 0.06286, 0);
+G2L["Title_39"]["Text"] = [[Forge Executor]];
+G2L["Title_39"]["Name"] = [[Title]];
+G2L["Title_39"]["Position"] = UDim2.new(0, 2, 0, 0);
+
+G2L["Paste_3a"] = Instance.new("TextButton", G2L["MainFrame_2"]);
+G2L["Paste_3a"]["TextWrapped"] = true;
+G2L["Paste_3a"]["BorderSizePixel"] = 0;
+G2L["Paste_3a"]["TextSize"] = 12;
+G2L["Paste_3a"]["TextColor3"] = Color3.fromRGB(0, 15, 255);
+G2L["Paste_3a"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["Paste_3a"]["Size"] = UDim2.new(0.16807, 0, 0.07429, 0);
+G2L["Paste_3a"]["Text"] = [[Paste]];
+G2L["Paste_3a"]["Name"] = [[Paste]];
+G2L["Paste_3a"]["Position"] = UDim2.new(0, 252, 0, 322);
+
+G2L["UICorner_3b"] = Instance.new("UICorner", G2L["Paste_3a"]);
+
+G2L["ExecutorContent"] = Instance.new("Frame", G2L["MainFrame_2"])
+G2L["ExecutorContent"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+G2L["ExecutorContent"]["BackgroundTransparency"] = 1
+G2L["ExecutorContent"]["Size"] = UDim2.new(1, 0, 1, 0)
+G2L["ExecutorContent"]["Name"] = "ExecutorContent"
+
+G2L["FavoritesContent"] = Instance.new("Frame", G2L["MainFrame_2"])
+G2L["FavoritesContent"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+G2L["FavoritesContent"]["BackgroundTransparency"] = 1
+G2L["FavoritesContent"]["Size"] = UDim2.new(1, 0, 1, 0)
+G2L["FavoritesContent"]["Name"] = "FavoritesContent"
+G2L["FavoritesContent"]["Visible"] = false
+
+G2L["SearchContent"] = Instance.new("Frame", G2L["MainFrame_2"])
+G2L["SearchContent"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+G2L["SearchContent"]["BackgroundTransparency"] = 1
+G2L["SearchContent"]["Size"] = UDim2.new(1, 0, 1, 0)
+G2L["SearchContent"]["Name"] = "SearchContent"
+G2L["SearchContent"]["Visible"] = false
+
+G2L["SearchBox"] = Instance.new("TextBox", G2L["SearchContent"])
+G2L["SearchBox"]["CursorPosition"] = -1
+G2L["SearchBox"]["TextXAlignment"] = Enum.TextXAlignment.Left
+G2L["SearchBox"]["BorderSizePixel"] = 0
+G2L["SearchBox"]["TextSize"] = 10
+G2L["SearchBox"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+G2L["SearchBox"]["BackgroundColor3"] = Color3.fromRGB(23, 23, 23)
+G2L["SearchBox"]["PlaceholderText"] = "Search scripts (powered by scriptblox.com)"
+G2L["SearchBox"]["Size"] = UDim2.new(0.9916, 0, 0.08571, 0)
+G2L["SearchBox"]["Position"] = UDim2.new(0, 2, 0, 68)
+G2L["SearchBox"]["Text"] = ""
+
+G2L["UICorner_3d"] = Instance.new("UICorner", G2L["SearchBox"])
+
+G2L["SearchList"] = Instance.new("ScrollingFrame", G2L["SearchContent"])
+G2L["SearchList"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+G2L["SearchList"]["BackgroundTransparency"] = 1
+G2L["SearchList"]["Size"] = UDim2.new(1, -12, 1, -100)
+G2L["SearchList"]["Position"] = UDim2.new(0, 6, 0, 100)
+G2L["SearchList"]["CanvasSize"] = UDim2.new(0, 0, 0, 0)
+G2L["SearchList"]["ScrollBarThickness"] = 8
+G2L["SearchList"]["Name"] = "SearchList"
+
+G2L["FavoritesList"] = Instance.new("ScrollingFrame", G2L["FavoritesContent"])
+G2L["FavoritesList"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+G2L["FavoritesList"]["BackgroundTransparency"] = 1
+G2L["FavoritesList"]["Size"] = UDim2.new(1, -12, 1, -80)
+G2L["FavoritesList"]["Position"] = UDim2.new(0, 6, 0, 80)
+G2L["FavoritesList"]["CanvasSize"] = UDim2.new(0, 0, 0, 0)
+G2L["FavoritesList"]["ScrollBarThickness"] = 8
+G2L["FavoritesList"]["Name"] = "FavoritesList"
+
+Forge = G2L
 
 local FavoritesData = {scripts = {}}
 local DATA_STORE_KEY = "ForgeExecutorFavorites"
@@ -540,7 +453,7 @@ local function getPing()
 end
 
 local function updateStats()
-    local statsLabel = Forge.StatsLabel
+    local statsLabel = Forge["StatsLabel_5"]
     if statsLabel then
         frameCount = frameCount + 1
         local currentTime = tick()
@@ -572,16 +485,31 @@ local currentTab = "executor"
 local function switchTab(tabName)
     currentTab = tabName
     
-    Forge.ExecutorContent.Visible = (tabName == "executor")
-    Forge.FavoritesContent.Visible = (tabName == "favorites")
-    Forge.SearchContent.Visible = (tabName == "search")
+    Forge["ExecutorContent"].Visible = (tabName == "executor")
+    Forge["FavoritesContent"].Visible = (tabName == "favorites")
+    Forge["SearchContent"].Visible = (tabName == "search")
+    Forge["InputTextbox_35"].Visible = (tabName == "executor")
+    Forge["Exe_2d"].Visible = (tabName == "executor")
+    Forge["Clr_33"].Visible = (tabName == "executor")
+    Forge["Save_f"].Visible = (tabName == "executor")
+    Forge["Paste_3a"].Visible = (tabName == "executor")
     
-    Forge.ExeTab.BackgroundColor3 = (tabName == "executor") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
-    Forge.SearchTab.BackgroundColor3 = (tabName == "search") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
-    Forge.FavTab.BackgroundColor3 = (tabName == "favorites") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
+    local executorBtn = Forge["Exe_Tab_24"]
+    local favoritesBtn = Forge["Fav_Tab_1c"]
+    local searchBtn = Forge["Search_Tab_17"]
+    local consoleBtn = Forge["F9_Tab_12"]
     
-    if tabName == "favorites" then
-        updateFavoritesList()
+    if executorBtn then
+        executorBtn.BackgroundColor3 = (tabName == "executor") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
+    end
+    if favoritesBtn then
+        favoritesBtn.BackgroundColor3 = (tabName == "favorites") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
+    end
+    if searchBtn then
+        searchBtn.BackgroundColor3 = (tabName == "search") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
+    end
+    if consoleBtn then
+        consoleBtn.BackgroundColor3 = (tabName == "console") and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(15, 15, 15)
     end
 end
 
@@ -651,7 +579,7 @@ local function createSavePopup()
     local cancelCorner = Instance.new("UICorner")
     cancelCorner.Parent = cancelBtn
     
-    popup.Parent = Forge.MainFrame
+    popup.Parent = Forge["MainFrame_2"]
     
     local function closePopup()
         popup:Destroy()
@@ -660,7 +588,7 @@ local function createSavePopup()
     saveBtn.MouseButton1Click:Connect(function()
         local scriptName = nameBox.Text
         if scriptName and scriptName ~= "" then
-            local scriptText = Forge.TextBox.Text
+            local scriptText = Forge["TextBox_37"].Text
             FavoritesData.scripts[scriptName] = {
                 code = scriptText,
                 timestamp = os.time()
@@ -675,7 +603,7 @@ local function createSavePopup()
 end
 
 local function updateFavoritesList()
-    local favoritesList = Forge.FavoritesList
+    local favoritesList = Forge["FavoritesList"]
     if not favoritesList then return end
     
     for _, child in pairs(favoritesList:GetChildren()) do
@@ -684,24 +612,17 @@ local function updateFavoritesList()
         end
     end
     
-    local UIListLayout = Instance.new("UIListLayout")
-    UIListLayout.Padding = UDim.new(0, 5)
-    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    UIListLayout.Parent = favoritesList
-    
-    local UIPadding = Instance.new("UIPadding")
-    UIPadding.PaddingTop = UDim.new(0, 10)
-    UIPadding.PaddingLeft = UDim.new(0, 5)
-    UIPadding.PaddingRight = UDim.new(0, 5)
-    UIPadding.Parent = favoritesList
+    local yPosition = 0
+    local itemHeight = 35
+    local spacing = 5
     
     for name, scriptData in pairs(FavoritesData.scripts) do
         local favoriteFrame = Instance.new("Frame")
         favoriteFrame.Name = "Saved_" .. name
         favoriteFrame.Size = UDim2.new(1, -10, 0, 30)
+        favoriteFrame.Position = UDim2.new(0, 5, 0, yPosition)
         favoriteFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-        favoriteFrame.BorderSizePixel = 0
-        favoriteFrame.LayoutOrder = #favoritesList:GetChildren()
+        favoriteFrame.BackgroundTransparency = 0
         
         local corner = Instance.new("UICorner")
         corner.Parent = favoriteFrame
@@ -717,12 +638,13 @@ local function updateFavoritesList()
         nameLabel.Parent = favoriteFrame
         
         local loadButton = Instance.new("TextButton")
-        loadButton.Name = "Load"
-        loadButton.Size = UDim2.new(0, 24, 0, 24)
-        loadButton.Position = UDim2.new(1, -56, 0, 3)
+        loadButton.Name = "LoadFav"
+        loadButton.Size = UDim2.new(0, 26, 0, 26)
+        loadButton.Position = UDim2.new(1, -60, 0, 2)
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        loadButton.BackgroundTransparency = 0
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        loadButton.Text = "‣"
+        loadButton.Text = "<>"
         loadButton.TextSize = 12
         loadButton.Parent = favoriteFrame
         
@@ -730,9 +652,9 @@ local function updateFavoritesList()
         loadCorner.Parent = loadButton
         
         local deleteButton = Instance.new("TextButton")
-        deleteButton.Name = "Delete"
-        deleteButton.Size = UDim2.new(0, 24, 0, 24)
-        deleteButton.Position = UDim2.new(1, -28, 0, 3)
+        deleteButton.Name = "DeleteFav"
+        deleteButton.Size = UDim2.new(0, 26, 0, 26)
+        deleteButton.Position = UDim2.new(1, -30, 0, 2)
         deleteButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
         deleteButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         deleteButton.Text = "🗑️"
@@ -743,7 +665,7 @@ local function updateFavoritesList()
         deleteCorner.Parent = deleteButton
         
         loadButton.MouseButton1Click:Connect(function()
-            Forge.TextBox.Text = scriptData.code
+            Forge["TextBox_37"].Text = scriptData.code
             switchTab("executor")
         end)
         
@@ -754,13 +676,14 @@ local function updateFavoritesList()
         end)
         
         favoriteFrame.Parent = favoritesList
+        yPosition = yPosition + itemHeight + spacing
     end
     
-    favoritesList.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 10)
+    favoritesList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
 end
 
 local function searchScripts(query)
-    local searchList = Forge.SearchList
+    local searchList = Forge["SearchList"]
     if not searchList then return end
     
     for _, child in pairs(searchList:GetChildren()) do
@@ -818,12 +741,14 @@ local function searchScripts(query)
     end
     
     local yPosition = 0
+    local itemHeight = 37
+    local spacing = 5
+    
     for _, scriptData in pairs(data.result.scripts) do
         local scriptFrame = Instance.new("Frame")
         scriptFrame.Size = UDim2.new(1, -10, 0, 32)
         scriptFrame.Position = UDim2.new(0, 5, 0, yPosition)
         scriptFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-        scriptFrame.BorderSizePixel = 0
         
         local corner = Instance.new("UICorner")
         corner.Parent = scriptFrame
@@ -845,7 +770,7 @@ local function searchScripts(query)
         loadButton.Position = UDim2.new(1, -56, 0, 4)
         loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        loadButton.Text = "‣"
+        loadButton.Text = "<>"
         loadButton.TextSize = 12
         loadButton.Parent = scriptFrame
         
@@ -873,7 +798,7 @@ local function searchScripts(query)
             end)
             
             if success then
-                Forge.TextBox.Text = scriptContent
+                Forge["TextBox_37"].Text = scriptContent
                 switchTab("executor")
             else
                 warn("Failed to load script: " .. scriptData.title)
@@ -899,14 +824,14 @@ local function searchScripts(query)
         end)
         
         scriptFrame.Parent = searchList
-        yPosition = yPosition + 37
+        yPosition = yPosition + itemHeight + spacing
     end
     
     searchList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
 end
 
-Forge.Execute.MouseButton1Click:Connect(function()
-    local scriptText = Forge.TextBox.Text
+Forge["Exe_2d"].MouseButton1Click:Connect(function()
+    local scriptText = Forge["TextBox_37"].Text
     if scriptText and scriptText ~= "" then
         local success, error = pcall(function()
             loadstring(scriptText)()
@@ -917,49 +842,72 @@ Forge.Execute.MouseButton1Click:Connect(function()
     end
 end)
 
-Forge.Clear.MouseButton1Click:Connect(function()
-    Forge.TextBox.Text = ""
+Forge["Clr_33"].MouseButton1Click:Connect(function()
+    Forge["TextBox_37"].Text = ""
 end)
 
-Forge.Save.MouseButton1Click:Connect(function()
-    local scriptText = Forge.TextBox.Text
+Forge["Save_f"].MouseButton1Click:Connect(function()
+    local scriptText = Forge["TextBox_37"].Text
     if scriptText and scriptText ~= "" then
         createSavePopup()
     end
 end)
 
-Forge.ExeTab.MouseButton1Click:Connect(function()
+Forge["Paste_3a"].MouseButton1Click:Connect(function()
+    if setclipboard then
+        setclipboard(Forge["TextBox_37"].Text)
+    end
+end)
+
+Forge["Exe_Tab_24"].MouseButton1Click:Connect(function()
     switchTab("executor")
 end)
 
-Forge.SearchTab.MouseButton1Click:Connect(function()
+Forge["Fav_Tab_1c"].MouseButton1Click:Connect(function()
+    switchTab("favorites")
+    updateFavoritesList()
+end)
+
+Forge["Search_Tab_17"].MouseButton1Click:Connect(function()
     switchTab("search")
 end)
 
-Forge.FavTab.MouseButton1Click:Connect(function()
-    switchTab("favorites")
+Forge["F9_Tab_12"].MouseButton1Click:Connect(function()
+    VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F9, false, game)
+    task.wait()
+    VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F9, false, game)
 end)
 
-Forge.SearchBox.FocusLost:Connect(function(enterPressed)
+Forge["SearchBox"].FocusLost:Connect(function(enterPressed)
     if enterPressed then
-        local query = Forge.SearchBox.Text
+        local query = Forge["SearchBox"].Text
         if query and query ~= "" then
             searchScripts(query)
         end
     end
 end)
 
-local minimized = false
-Forge.Hide.MouseButton1Click:Connect(function()
-    minimized = true
-    Forge.MainFrame.Visible = false
-    Forge.Show.Visible = true
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    
+    if input.KeyCode == Enum.KeyCode.F9 then
+        VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F9, false, game)
+        task.wait()
+        VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F9, false, game)
+    end
 end)
 
-Forge.ShowButton.MouseButton1Click:Connect(function()
+local minimized = false
+Forge["Hide_30"].MouseButton1Click:Connect(function()
+    minimized = true
+    Forge["MainFrame_2"].Visible = false
+    Forge["Show_2"].Visible = true
+end)
+
+Forge["TextButton_4"].MouseButton1Click:Connect(function()
     minimized = false
-    Forge.MainFrame.Visible = true
-    Forge.Show.Visible = false
+    Forge["MainFrame_2"].Visible = true
+    Forge["Show_2"].Visible = false
 end)
 
 local function dragify(Frame)
@@ -997,21 +945,21 @@ local function dragify(Frame)
     end)
 end
 
-dragify(Forge.Show)
+dragify(Forge["Show_2"])
 
 local dragging = false
 local dragInput2, dragStart2, startPos2
 
 local function update2(input)
     local delta = input.Position - dragStart2
-    Forge.MainFrame.Position = UDim2.new(startPos2.X.Scale, startPos2.X.Offset + delta.X, startPos2.Y.Scale, startPos2.Y.Offset + delta.Y)
+    Forge["MainFrame_2"].Position = UDim2.new(startPos2.X.Scale, startPos2.X.Offset + delta.X, startPos2.Y.Scale, startPos2.Y.Offset + delta.Y)
 end
 
-Forge.Title.InputBegan:Connect(function(input)
+Forge["Title_39"].InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 then
         dragging = true
         dragStart2 = input.Position
-        startPos2 = Forge.MainFrame.Position
+        startPos2 = Forge["MainFrame_2"].Position
         
         input.Changed:Connect(function()
             if input.UserInputState == Enum.UserInputState.End then
@@ -1021,7 +969,7 @@ Forge.Title.InputBegan:Connect(function(input)
     end
 end)
 
-Forge.Title.InputChanged:Connect(function(input)
+Forge["Title_39"].InputChanged:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseMovement then
         dragInput2 = input
     end
@@ -1038,4 +986,4 @@ table.insert(statsConnections, RunService.RenderStepped:Connect(updateStats))
 updateFavoritesList()
 switchTab("executor")
 
-return Forge.ScreenGui, require
+return Forge["ScreenGui_1"], require
