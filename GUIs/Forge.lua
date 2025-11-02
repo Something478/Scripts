@@ -601,57 +601,63 @@ local function updateFavoritesList()
     
     local yPosition = 0
     local itemHeight = 35
-    local spacing = 5
     
     for name, scriptData in pairs(FavoritesData.scripts) do
         local favoriteFrame = Instance.new("Frame")
         favoriteFrame.Name = "Saved_" .. name
-        favoriteFrame.Size = UDim2.new(1, -10, 0, 30)
-        favoriteFrame.Position = UDim2.new(0, 5, 0, yPosition)
+        favoriteFrame.ZIndex = 0
+        favoriteFrame.BorderSizePixel = 0
         favoriteFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-        favoriteFrame.BackgroundTransparency = 0
+        favoriteFrame.Size = UDim2.new(0.98319, 0, 0.08571, 0)
+        favoriteFrame.Position = UDim2.new(0, 4, 0, yPosition)
+        favoriteFrame.Parent = favoritesList
         
         local corner = Instance.new("UICorner")
         corner.Parent = favoriteFrame
         
         local nameLabel = Instance.new("TextLabel")
-        nameLabel.Size = UDim2.new(0, 300, 1, 0)
-        nameLabel.Position = UDim2.new(0, 6, 0, 0)
-        nameLabel.BackgroundTransparency = 1
-        nameLabel.Text = name
-        nameLabel.TextWrapped = true
-        nameLabel.RichText = true
-        nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nameLabel.BorderSizePixel = 0
         nameLabel.TextXAlignment = Enum.TextXAlignment.Left
-        nameLabel.TextSize = 12
+        nameLabel.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+        nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nameLabel.BackgroundTransparency = 1
+        nameLabel.Size = UDim2.new(0.88462, 0, 1, 0)
+        nameLabel.Text = name
+        nameLabel.Position = UDim2.new(0, 2, 0, 0)
         nameLabel.Parent = favoriteFrame
         
+        local deleteButton = Instance.new("TextButton")
+        deleteButton.TextWrapped = true
+        deleteButton.BorderSizePixel = 0
+        deleteButton.TextSize = 10
+        deleteButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+        deleteButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+        deleteButton.Size = UDim2.new(0.05314, 0, 0.73333, 0)
+        deleteButton.Text = "🗑️"
+        deleteButton.Name = "Delete"
+        deleteButton.Position = UDim2.new(0, 442, 0, 4)
+        deleteButton.Parent = nameLabel
+        
+        local deleteCorner = Instance.new("UICorner")
+        deleteCorner.Parent = deleteButton
+        
         local loadButton = Instance.new("TextButton")
-        loadButton.Name = "LoadFav"
-        loadButton.Size = UDim2.new(0, 26, 0, 26)
-        loadButton.Position = UDim2.new(1, -60, 0, 2)
-        loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-        loadButton.BackgroundTransparency = 0
+        loadButton.TextWrapped = true
+        loadButton.BorderSizePixel = 0
+        loadButton.TextScaled = true
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        loadButton.Size = UDim2.new(0.05314, 0, 0.73333, 0)
         loadButton.Text = "►"
-        loadButton.TextSize = 12
-        loadButton.Parent = favoriteFrame
+        loadButton.Name = "Load"
+        loadButton.Position = UDim2.new(0, 416, 0, 4)
+        loadButton.Parent = nameLabel
         
         local loadCorner = Instance.new("UICorner")
         loadCorner.Parent = loadButton
         
-        local deleteButton = Instance.new("TextButton")
-        deleteButton.Name = "DeleteFav"
-        deleteButton.Size = UDim2.new(0, 26, 0, 26)
-        deleteButton.Position = UDim2.new(1, -30, 0, 2)
-        deleteButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-        deleteButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        deleteButton.Text = "🗑️"
-        deleteButton.TextSize = 10
-        deleteButton.Parent = favoriteFrame
-        
-        local deleteCorner = Instance.new("UICorner")
-        deleteCorner.Parent = deleteButton
+        local labelCorner = Instance.new("UICorner")
+        labelCorner.Parent = nameLabel
         
         loadButton.MouseButton1Click:Connect(function()
             Forge["TextBox_37"].Text = scriptData.code
@@ -664,8 +670,7 @@ local function updateFavoritesList()
             updateFavoritesList()
         end)
         
-        favoriteFrame.Parent = favoritesList
-        yPosition = yPosition + itemHeight + spacing
+        yPosition = yPosition + itemHeight
     end
     
     favoritesList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
@@ -735,51 +740,59 @@ local function searchScripts(query)
     
     for _, scriptData in pairs(data.result.scripts) do
         local scriptFrame = Instance.new("Frame")
-        scriptFrame.Size = UDim2.new(1, -10, 0, 32)
-        scriptFrame.Position = UDim2.new(0, 5, 0, yPosition)
+        scriptFrame.ZIndex = 0
+        scriptFrame.BorderSizePixel = 0
         scriptFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-        
+        scriptFrame.Size = UDim2.new(0.98319, 0, 0.08571, 0)
+        scriptFrame.Position = UDim2.new(0, 4, 0, yPosition)
+        scriptFrame.Parent = searchList
+
         local corner = Instance.new("UICorner")
         corner.Parent = scriptFrame
-        
+
         local nameLabel = Instance.new("TextLabel")
-        nameLabel.Size = UDim2.new(0, 350, 1, 0)
-        nameLabel.Position = UDim2.new(0, 6, 0, 0)
-        nameLabel.BackgroundTransparency = 1
-        nameLabel.Text = scriptData.title .. " [👁️" .. scriptData.views .. "] [👍" .. (scriptData.likeCount or 0) .. "]"
-        nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nameLabel.BorderSizePixel = 0
         nameLabel.TextXAlignment = Enum.TextXAlignment.Left
-        nameLabel.TextSize = 12
-        nameLabel.TextTruncate = Enum.TextTruncate.AtEnd
-        nameLabel.TextWrapped = true
-        nameLabel.RichText = true
+        nameLabel.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+        nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nameLabel.BackgroundTransparency = 1
+        nameLabel.Size = UDim2.new(0.88462, 0, 1, 0)
+        nameLabel.Text = scriptData.title .. " [👁️" .. scriptData.views .. "] [👍" .. (scriptData.likeCount or 0) .. "]"
+        nameLabel.Position = UDim2.new(0, 2, 0, 0)
         nameLabel.Parent = scriptFrame
-        
+
         local loadButton = Instance.new("TextButton")
-        loadButton.Name = "Load"
-        loadButton.Size = UDim2.new(0, 24, 0, 24)
-        loadButton.Position = UDim2.new(1, -56, 0, 4)
-        loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        loadButton.TextWrapped = true
+        loadButton.BorderSizePixel = 0
+        loadButton.TextScaled = true
         loadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        loadButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        loadButton.Size = UDim2.new(0.05314, 0, 0.73333, 0)
         loadButton.Text = "►"
-        loadButton.TextSize = 12
-        loadButton.Parent = scriptFrame
-        
+        loadButton.Name = "Load"
+        loadButton.Position = UDim2.new(0, 416, 0, 4)
+        loadButton.Parent = nameLabel
+
         local loadCorner = Instance.new("UICorner")
         loadCorner.Parent = loadButton
-        
+
         local favoriteButton = Instance.new("TextButton")
-        favoriteButton.Name = "Favorite"
-        favoriteButton.Size = UDim2.new(0, 24, 0, 24)
-        favoriteButton.Position = UDim2.new(1, -28, 0, 4)
-        favoriteButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        favoriteButton.TextWrapped = true
+        favoriteButton.BorderSizePixel = 0
+        favoriteButton.TextSize = 10
         favoriteButton.TextColor3 = Color3.fromRGB(191, 191, 191)
+        favoriteButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        favoriteButton.Size = UDim2.new(0.05314, 0, 0.73333, 0)
         favoriteButton.Text = "★"
-        favoriteButton.TextSize = 12
-        favoriteButton.Parent = scriptFrame
-        
+        favoriteButton.Name = "Favorite"
+        favoriteButton.Position = UDim2.new(0, 442, 0, 4)
+        favoriteButton.Parent = nameLabel
+
         local favoriteCorner = Instance.new("UICorner")
         favoriteCorner.Parent = favoriteButton
+
+        local labelCorner = Instance.new("UICorner")
+        labelCorner.Parent = nameLabel
         
         loadButton.MouseButton1Click:Connect(function()
             local scriptUrl = "https://scriptblox.com/api/script/raw/" .. scriptData.slug
