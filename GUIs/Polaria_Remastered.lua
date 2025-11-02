@@ -652,7 +652,7 @@ local function initialize()
     
     spawn(function()
         if not findBackdoor() then
-            Notify("Polaria Remastered", "Backdoor not found! :(", 4)
+            notify("Polaria Remastered", "Backdoor not found! :(", 4)
         end
     end)
     
