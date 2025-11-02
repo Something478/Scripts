@@ -684,14 +684,24 @@ local function updateFavoritesList()
         end
     end
     
-    local yPosition = 10
+    local UIListLayout = Instance.new("UIListLayout")
+    UIListLayout.Padding = UDim.new(0, 5)
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Parent = favoritesList
+    
+    local UIPadding = Instance.new("UIPadding")
+    UIPadding.PaddingTop = UDim.new(0, 10)
+    UIPadding.PaddingLeft = UDim.new(0, 5)
+    UIPadding.PaddingRight = UDim.new(0, 5)
+    UIPadding.Parent = favoritesList
+    
     for name, scriptData in pairs(FavoritesData.scripts) do
         local favoriteFrame = Instance.new("Frame")
         favoriteFrame.Name = "Saved_" .. name
         favoriteFrame.Size = UDim2.new(1, -10, 0, 30)
-        favoriteFrame.Position = UDim2.new(0, 5, 0, yPosition)
         favoriteFrame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
         favoriteFrame.BorderSizePixel = 0
+        favoriteFrame.LayoutOrder = #favoritesList:GetChildren()
         
         local corner = Instance.new("UICorner")
         corner.Parent = favoriteFrame
@@ -744,10 +754,9 @@ local function updateFavoritesList()
         end)
         
         favoriteFrame.Parent = favoritesList
-        yPosition = yPosition + 35
     end
     
-    favoritesList.CanvasSize = UDim2.new(0, 0, 0, yPosition)
+    favoritesList.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 10)
 end
 
 local function searchScripts(query)
