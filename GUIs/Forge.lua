@@ -18,7 +18,7 @@ G2L["FG"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:Wai
 G2L["FG"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 G2L["FG"]["ResetOnSpawn"] = false
 
-CollectionService:AddTag(G2L["FG"], [[main]]);
+CollectionService:AddTag(G2L["FG"], [[new]]);
 
 G2L["Show_2"] = Instance.new("Frame", G2L["FG"]);
 G2L["Show_2"]["BorderSizePixel"] = 0;
