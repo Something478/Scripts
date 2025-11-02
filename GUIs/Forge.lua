@@ -14,12 +14,13 @@ local Forge = {}
 local CollectionService = game:GetService("CollectionService");
 local G2L = {};
 
-G2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
-G2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["FG"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["FG"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["FG"]["ResetOnSpawn"] = false
 
-CollectionService:AddTag(G2L["ScreenGui_1"], [[main]]);
+CollectionService:AddTag(G2L["FG"], [[main]]);
 
-G2L["Show_2"] = Instance.new("Frame", G2L["ScreenGui_1"]);
+G2L["Show_2"] = Instance.new("Frame", G2L["FG"]);
 G2L["Show_2"]["BorderSizePixel"] = 0;
 G2L["Show_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["Show_2"]["Size"] = UDim2.new(0.05292, 0, 0.12449, 0);
@@ -53,7 +54,7 @@ G2L["UIStroke_7"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["UIGradient_8"] = Instance.new("UIGradient", G2L["UIStroke_7"]);
 G2L["UIGradient_8"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(17, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(11, 0, 166))};
 
-G2L["MainFrame_2"] = Instance.new("Frame", G2L["ScreenGui_1"]);
+G2L["MainFrame_2"] = Instance.new("Frame", G2L["FG"]);
 G2L["MainFrame_2"]["BorderSizePixel"] = 0;
 G2L["MainFrame_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["MainFrame_2"]["Size"] = UDim2.new(0.57251, 0, 0.9903, 0);
@@ -970,4 +971,4 @@ table.insert(statsConnections, RunService.RenderStepped:Connect(updateStats))
 updateFavoritesList()
 switchTab("executor")
 
-return Forge["ScreenGui_1"], require
+return Forge["FG"], require
