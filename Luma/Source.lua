@@ -1,6 +1,6 @@
 getgenv().Luma = {}
 
-Luma.Title = "Luma GUI"
+Luma.Title = "Untitled Hub - Luma Library"
 Luma.Theme = {
     Background = Color3.fromRGB(30, 30, 40),
     Header = Color3.fromRGB(45, 45, 55),
@@ -15,11 +15,13 @@ Luma.Theme = {
     CloseButton = Color3.fromRGB(255, 80, 80),
     CloseButtonHover = Color3.fromRGB(255, 100, 100),
     MinimizeButton = Color3.fromRGB(255, 180, 60),
-    MinimizeButtonHover = Color3.fromRGB(255, 200, 80)
+    MinimizeButtonHover = Color3.fromRGB(255, 200, 80),
+    ShowButton = Color3.fromRGB(0, 0, 0)
 }
 
 function Luma:CreateMainWindow(Name)
     local ScreenGui = Instance.new("ScreenGui")
+    local ShowButton = Instance.new("TextButton")
     local MainFrame = Instance.new("Frame")
     local Header = Instance.new("Frame")
     local TitleLabel = Instance.new("TextLabel")
@@ -33,10 +35,31 @@ function Luma:CreateMainWindow(Name)
     ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     
+    ShowButton.Name = "ShowButton"
+    ShowButton.Size = UDim2.new(0, 120, 0, 40)
+    ShowButton.Position = UDim2.new(0, 10, 0, 10)
+    ShowButton.BackgroundColor3 = Luma.Theme.ShowButton
+    ShowButton.BackgroundTransparency = 0.3
+    ShowButton.Text = "Luma Library"
+    ShowButton.TextColor3 = Luma.Theme.Text
+    ShowButton.TextSize = 14
+    ShowButton.Font = Enum.Font.GothamSemibold
+    ShowButton.Parent = ScreenGui
+    
+    local ShowCorner = Instance.new("UICorner")
+    ShowCorner.CornerRadius = UDim.new(0, 6)
+    ShowCorner.Parent = ShowButton
+    
+    local ShowStroke = Instance.new("UIStroke")
+    ShowStroke.Color = Color3.fromRGB(100, 100, 120)
+    ShowStroke.Thickness = 1
+    ShowStroke.Parent = ShowButton
+    
     MainFrame.Name = "MainFrame"
-    MainFrame.Size = UDim2.new(0, 400, 0, 350)
-    MainFrame.Position = UDim2.new(0.5, -200, 0.5, -175)
+    MainFrame.Size = UDim2.new(0, 500, 0, 400)
+    MainFrame.Position = UDim2.new(0.5, -250, 0.5, -200)
     MainFrame.BackgroundColor3 = Luma.Theme.Background
+    MainFrame.Visible = false
     MainFrame.Parent = ScreenGui
     
     local MainCorner = Instance.new("UICorner")
@@ -49,7 +72,7 @@ function Luma:CreateMainWindow(Name)
     MainStroke.Parent = MainFrame
     
     Header.Name = "Header"
-    Header.Size = UDim2.new(1, 0, 0, 30)
+    Header.Size = UDim2.new(1, 0, 0, 35)
     Header.BackgroundColor3 = Luma.Theme.Header
     Header.Parent = MainFrame
     
@@ -63,27 +86,28 @@ function Luma:CreateMainWindow(Name)
     TitleLabel.BackgroundTransparency = 1
     TitleLabel.Text = Luma.Title
     TitleLabel.TextColor3 = Luma.Theme.Text
-    TitleLabel.TextSize = 14
-    TitleLabel.Font = Enum.Font.GothamSemibold
+    TitleLabel.TextSize = 16
+    TitleLabel.Font = Enum.Font.GothamBold
     TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
     TitleLabel.Parent = Header
     
     CloseButton.Name = "CloseButton"
-    CloseButton.Size = UDim2.new(0, 25, 0, 20)
-    CloseButton.Position = UDim2.new(1, -30, 0.5, -10)
+    CloseButton.Size = UDim2.new(0, 30, 0, 25)
+    CloseButton.Position = UDim2.new(1, -35, 0.5, -12.5)
     CloseButton.BackgroundColor3 = Luma.Theme.CloseButton
     CloseButton.Text = "×"
     CloseButton.TextColor3 = Luma.Theme.Text
-    CloseButton.TextSize = 16
+    CloseButton.TextSize = 18
     CloseButton.Font = Enum.Font.GothamBold
     CloseButton.Parent = Header
     
     local CloseCorner = Instance.new("UICorner")
-    CloseCorner.CornerRadius = UDim.new(0, 4)
+    CloseCorner.CornerRadius = UDim.new(0, 5)
     CloseCorner.Parent = CloseButton
     
     CloseButton.MouseButton1Click:Connect(function()
-        ScreenGui:Destroy()
+        MainFrame.Visible = false
+        ShowButton.Visible = true
     end)
     
     CloseButton.MouseEnter:Connect(function()
@@ -95,27 +119,27 @@ function Luma:CreateMainWindow(Name)
     end)
     
     MinimizeButton.Name = "MinimizeButton"
-    MinimizeButton.Size = UDim2.new(0, 25, 0, 20)
-    MinimizeButton.Position = UDim2.new(1, -60, 0.5, -10)
+    MinimizeButton.Size = UDim2.new(0, 30, 0, 25)
+    MinimizeButton.Position = UDim2.new(1, -70, 0.5, -12.5)
     MinimizeButton.BackgroundColor3 = Luma.Theme.MinimizeButton
     MinimizeButton.Text = "-"
     MinimizeButton.TextColor3 = Luma.Theme.Text
-    MinimizeButton.TextSize = 16
+    MinimizeButton.TextSize = 18
     MinimizeButton.Font = Enum.Font.GothamBold
     MinimizeButton.Parent = Header
     
     local MinimizeCorner = Instance.new("UICorner")
-    MinimizeCorner.CornerRadius = UDim.new(0, 4)
+    MinimizeCorner.CornerRadius = UDim.new(0, 5)
     MinimizeCorner.Parent = MinimizeButton
     
     local IsMinimized = false
     MinimizeButton.MouseButton1Click:Connect(function()
         IsMinimized = not IsMinimized
         if IsMinimized then
-            MainFrame.Size = UDim2.new(0, 400, 0, 30)
+            MainFrame.Size = UDim2.new(0, 500, 0, 35)
             MinimizeButton.Text = "+"
         else
-            MainFrame.Size = UDim2.new(0, 400, 0, 350)
+            MainFrame.Size = UDim2.new(0, 500, 0, 400)
             MinimizeButton.Text = "-"
         end
     end)
@@ -129,24 +153,29 @@ function Luma:CreateMainWindow(Name)
     end)
     
     TabButtonsFrame.Name = "TabButtons"
-    TabButtonsFrame.Size = UDim2.new(1, -20, 0, 30)
-    TabButtonsFrame.Position = UDim2.new(0, 10, 0, 35)
+    TabButtonsFrame.Size = UDim2.new(1, -20, 0, 35)
+    TabButtonsFrame.Position = UDim2.new(0, 10, 0, 40)
     TabButtonsFrame.BackgroundTransparency = 1
     TabButtonsFrame.Parent = MainFrame
     
     TabListLayout = Instance.new("UIListLayout")
     TabListLayout.FillDirection = Enum.FillDirection.Horizontal
-    TabListLayout.Padding = UDim.new(0, 5)
+    TabListLayout.Padding = UDim.new(0, 8)
     TabListLayout.Parent = TabButtonsFrame
     
+    local TabPadding = Instance.new("UIPadding")
+    TabPadding.PaddingLeft = UDim.new(0, 5)
+    TabPadding.PaddingRight = UDim.new(0, 5)
+    TabPadding.Parent = TabButtonsFrame
+    
     ContentFrame.Name = "Content"
-    ContentFrame.Size = UDim2.new(1, -20, 1, -70)
-    ContentFrame.Position = UDim2.new(0, 10, 0, 70)
+    ContentFrame.Size = UDim2.new(1, -20, 1, -85)
+    ContentFrame.Position = UDim2.new(0, 10, 0, 80)
     ContentFrame.BackgroundColor3 = Luma.Theme.Background
     ContentFrame.BackgroundTransparency = 1
     ContentFrame.Parent = MainFrame
     
-    ContentCorner = Instance.new("UICorner")
+    local ContentCorner = Instance.new("UICorner")
     ContentCorner.CornerRadius = UDim.new(0, 6)
     ContentCorner.Parent = ContentFrame
     
@@ -154,13 +183,22 @@ function Luma:CreateMainWindow(Name)
     ContentScrolling.Size = UDim2.new(1, 0, 1, 0)
     ContentScrolling.BackgroundTransparency = 1
     ContentScrolling.BorderSizePixel = 0
-    ContentScrolling.ScrollBarThickness = 4
+    ContentScrolling.ScrollBarThickness = 6
     ContentScrolling.ScrollBarImageColor3 = Luma.Theme.TabButton
     ContentScrolling.Parent = ContentFrame
     
     local ContentList = Instance.new("UIListLayout")
-    ContentList.Padding = UDim.new(0, 5)
+    ContentList.Padding = UDim.new(0, 8)
     ContentList.Parent = ContentScrolling
+    
+    ContentList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        ContentScrolling.CanvasSize = UDim2.new(0, 0, 0, ContentList.AbsoluteContentSize.Y)
+    end)
+    
+    ShowButton.MouseButton1Click:Connect(function()
+        MainFrame.Visible = true
+        ShowButton.Visible = false
+    end)
     
     local Dragging = false
     local DragInput, DragStart, StartPos
@@ -199,17 +237,22 @@ function Luma:CreateMainWindow(Name)
         local TabContent = Instance.new("Frame")
         
         TabButton.Name = TabName .. "Tab"
-        TabButton.Size = UDim2.new(0, 80, 1, 0)
+        TabButton.Size = UDim2.new(0, 90, 1, 0)
         TabButton.BackgroundColor3 = Luma.Theme.TabButton
         TabButton.Text = TabName
         TabButton.TextColor3 = Luma.Theme.Text
-        TabButton.TextSize = 12
-        TabButton.Font = Enum.Font.Gotham
+        TabButton.TextSize = 13
+        TabButton.Font = Enum.Font.GothamSemibold
         TabButton.Parent = TabButtonsFrame
         
         local TabCorner = Instance.new("UICorner")
-        TabCorner.CornerRadius = UDim.new(0, 4)
+        TabCorner.CornerRadius = UDim.new(0, 5)
         TabCorner.Parent = TabButton
+        
+        local TabStroke = Instance.new("UIStroke")
+        TabStroke.Color = Color3.fromRGB(70, 70, 80)
+        TabStroke.Thickness = 1
+        TabStroke.Parent = TabButton
         
         TabContent.Name = TabName .. "Content"
         TabContent.Size = UDim2.new(1, 0, 1, 0)
@@ -218,10 +261,14 @@ function Luma:CreateMainWindow(Name)
         TabContent.Parent = ContentScrolling
         
         local TabContentList = Instance.new("UIListLayout")
-        TabContentList.Padding = UDim.new(0, 8)
+        TabContentList.Padding = UDim.new(0, 10)
         TabContentList.Parent = TabContent
         
-        if #TabButtonsFrame:GetChildren() == 2 then
+        TabContentList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+            TabContent.Size = UDim2.new(1, 0, 0, TabContentList.AbsoluteContentSize.Y)
+        end)
+        
+        if #TabButtonsFrame:GetChildren() == 3 then
             TabButton.BackgroundColor3 = Luma.Theme.TabButtonSelected
             TabContent.Visible = true
         end
@@ -249,20 +296,20 @@ function Luma:CreateMainWindow(Name)
             local Button = Instance.new("TextButton")
             
             Button.Name = Text .. "Button"
-            Button.Size = UDim2.new(1, 0, 0, 30)
+            Button.Size = UDim2.new(1, 0, 0, 35)
             Button.BackgroundColor3 = Luma.Theme.Button
             Button.Text = Text
             Button.TextColor3 = Luma.Theme.Text
-            Button.TextSize = 13
-            Button.Font = Enum.Font.Gotham
+            Button.TextSize = 14
+            Button.Font = Enum.Font.GothamSemibold
             Button.Parent = TabContent
             
             local ButtonCorner = Instance.new("UICorner")
-            ButtonCorner.CornerRadius = UDim.new(0, 4)
+            ButtonCorner.CornerRadius = UDim.new(0, 5)
             ButtonCorner.Parent = Button
             
             local ButtonStroke = Instance.new("UIStroke")
-            ButtonStroke.Color = Color3.fromRGB(70, 70, 80)
+            ButtonStroke.Color = Color3.fromRGB(80, 80, 90)
             ButtonStroke.Thickness = 1
             ButtonStroke.Parent = Button
             
@@ -288,7 +335,7 @@ function Luma:CreateMainWindow(Name)
             local ToggleState = Instance.new("Frame")
             
             ToggleFrame.Name = Text .. "Toggle"
-            ToggleFrame.Size = UDim2.new(1, 0, 0, 25)
+            ToggleFrame.Size = UDim2.new(1, 0, 0, 30)
             ToggleFrame.BackgroundTransparency = 1
             ToggleFrame.Parent = TabContent
             
@@ -298,41 +345,51 @@ function Luma:CreateMainWindow(Name)
             ToggleLabel.BackgroundTransparency = 1
             ToggleLabel.Text = Text
             ToggleLabel.TextColor3 = Luma.Theme.Text
-            ToggleLabel.TextSize = 13
+            ToggleLabel.TextSize = 14
             ToggleLabel.Font = Enum.Font.Gotham
             ToggleLabel.TextXAlignment = Enum.TextXAlignment.Left
             ToggleLabel.Parent = ToggleFrame
             
             ToggleButton.Name = "Toggle"
-            ToggleButton.Size = UDim2.new(0, 40, 0, 20)
-            ToggleButton.Position = UDim2.new(1, -40, 0.5, -10)
+            ToggleButton.Size = UDim2.new(0, 45, 0, 22)
+            ToggleButton.Position = UDim2.new(1, -45, 0.5, -11)
             ToggleButton.BackgroundColor3 = Luma.Theme.ToggleOff
             ToggleButton.Text = ""
             ToggleButton.Parent = ToggleFrame
             
             local ToggleCorner = Instance.new("UICorner")
-            ToggleCorner.CornerRadius = UDim.new(0, 10)
+            ToggleCorner.CornerRadius = UDim.new(0, 11)
             ToggleCorner.Parent = ToggleButton
             
+            local ToggleStroke = Instance.new("UIStroke")
+            ToggleStroke.Color = Color3.fromRGB(90, 90, 100)
+            ToggleStroke.Thickness = 1
+            ToggleStroke.Parent = ToggleButton
+            
             ToggleState.Name = "State"
-            ToggleState.Size = UDim2.new(0, 16, 0, 16)
-            ToggleState.Position = UDim2.new(0, 2, 0.5, -8)
+            ToggleState.Size = UDim2.new(0, 18, 0, 18)
+            ToggleState.Position = UDim2.new(0, 2, 0.5, -9)
             ToggleState.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             ToggleState.Parent = ToggleButton
             
             local StateCorner = Instance.new("UICorner")
-            StateCorner.CornerRadius = UDim.new(0, 8)
+            StateCorner.CornerRadius = UDim.new(0, 9)
             StateCorner.Parent = ToggleState
+            
+            local StateStroke = Instance.new("UIStroke")
+            StateStroke.Color = Color3.fromRGB(200, 200, 200)
+            StateStroke.Thickness = 1
+            StateStroke.Parent = ToggleState
             
             local IsToggled = false
             
             local function UpdateToggle()
                 if IsToggled then
                     ToggleButton.BackgroundColor3 = Luma.Theme.ToggleOn
-                    ToggleState.Position = UDim2.new(1, -18, 0.5, -8)
+                    ToggleState.Position = UDim2.new(1, -20, 0.5, -9)
                 else
                     ToggleButton.BackgroundColor3 = Luma.Theme.ToggleOff
-                    ToggleState.Position = UDim2.new(0, 2, 0.5, -8)
+                    ToggleState.Position = UDim2.new(0, 2, 0.5, -9)
                 end
                 Callback(IsToggled)
             end
@@ -359,11 +416,11 @@ function Luma:CreateMainWindow(Name)
             local Label = Instance.new("TextLabel")
             
             Label.Name = Text .. "Label"
-            Label.Size = UDim2.new(1, 0, 0, 20)
+            Label.Size = UDim2.new(1, 0, 0, 25)
             Label.BackgroundTransparency = 1
             Label.Text = Text
             Label.TextColor3 = Luma.Theme.TextSecondary
-            Label.TextSize = 13
+            Label.TextSize = 14
             Label.Font = Enum.Font.Gotham
             Label.TextXAlignment = Enum.TextXAlignment.Left
             Label.Parent = TabContent
