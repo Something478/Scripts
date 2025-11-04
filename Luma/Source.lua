@@ -257,6 +257,7 @@ function Luma:CreateMainWindow(Name)
         
         local TabContentList = Instance.new("UIListLayout")
         TabContentList.Padding = UDim.new(0, 10)
+        TabContentList.SortOrder = Enum.SortOrder.LayoutOrder
         TabContentList.Parent = TabContent
         
         TabContentList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
