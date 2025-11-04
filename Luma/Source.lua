@@ -47,13 +47,8 @@ function Luma:CreateMainWindow(Name)
     ShowButton.Parent = ScreenGui
     
     local ShowCorner = Instance.new("UICorner")
-    ShowCorner.CornerRadius = UDim.new(0, 6)
+    ShowCorner.CornerRadius = UDim.new(1, 8)
     ShowCorner.Parent = ShowButton
-    
-    local ShowStroke = Instance.new("UIStroke")
-    ShowStroke.Color = Color3.fromRGB(100, 100, 120)
-    ShowStroke.Thickness = 1
-    ShowStroke.Parent = ShowButton
     
     MainFrame.Name = "MainFrame"
     MainFrame.Size = UDim2.new(0, 500, 0, 400)
