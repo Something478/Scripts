@@ -16,7 +16,14 @@ Luma.Theme = {
     CloseButtonHover = Color3.fromRGB(255, 100, 100),
     MinimizeButton = Color3.fromRGB(255, 180, 60),
     MinimizeButtonHover = Color3.fromRGB(255, 200, 80),
-    ShowButton = Color3.fromRGB(0, 0, 0)
+    ShowButton = Color3.fromRGB(0, 0, 0),
+    SectionBackground = Color3.fromRGB(35, 35, 45),
+    InputBackground = Color3.fromRGB(40, 40, 50),
+    InputStroke = Color3.fromRGB(70, 70, 80),
+    SliderBackground = Color3.fromRGB(50, 50, 60),
+    SliderProgress = Color3.fromRGB(0, 170, 255),
+    DropdownBackground = Color3.fromRGB(40, 40, 50),
+    DropdownSelected = Color3.fromRGB(60, 60, 70)
 }
 
 function Luma:CreateMainWindow(Name)
@@ -47,8 +54,13 @@ function Luma:CreateMainWindow(Name)
     ShowButton.Parent = ScreenGui
     
     local ShowCorner = Instance.new("UICorner")
-    ShowCorner.CornerRadius = UDim.new(1, 8)
+    ShowCorner.CornerRadius = UDim.new(0, 6)
     ShowCorner.Parent = ShowButton
+    
+    local ShowStroke = Instance.new("UIStroke")
+    ShowStroke.Color = Color3.fromRGB(100, 100, 120)
+    ShowStroke.Thickness = 1
+    ShowStroke.Parent = ShowButton
     
     MainFrame.Name = "MainFrame"
     MainFrame.Size = UDim2.new(0, 500, 0, 400)
@@ -180,15 +192,13 @@ function Luma:CreateMainWindow(Name)
     ContentScrolling.BorderSizePixel = 0
     ContentScrolling.ScrollBarThickness = 6
     ContentScrolling.ScrollBarImageColor3 = Luma.Theme.TabButton
+    ContentScrolling.AutomaticCanvasSize = Enum.AutomaticSize.Y
     ContentScrolling.Parent = ContentFrame
     
     local ContentList = Instance.new("UIListLayout")
     ContentList.Padding = UDim.new(0, 8)
+    ContentList.SortOrder = Enum.SortOrder.LayoutOrder
     ContentList.Parent = ContentScrolling
-    
-    ContentList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-        ContentScrolling.CanvasSize = UDim2.new(0, 0, 0, ContentList.AbsoluteContentSize.Y)
-    end)
     
     ShowButton.MouseButton1Click:Connect(function()
         MainFrame.Visible = true
@@ -226,6 +236,7 @@ function Luma:CreateMainWindow(Name)
     end)
     
     local Tabs = {}
+    local elementCount = 0
     
     function Tabs:CreateTab(TabName)
         local TabButton = Instance.new("TextButton")
@@ -250,13 +261,14 @@ function Luma:CreateMainWindow(Name)
         TabStroke.Parent = TabButton
         
         TabContent.Name = TabName .. "Content"
-        TabContent.Size = UDim2.new(1, 0, 1, 0)
+        TabContent.Size = UDim2.new(1, 0, 0, 0)
         TabContent.BackgroundTransparency = 1
         TabContent.Visible = false
+        TabContent.LayoutOrder = 1
         TabContent.Parent = ContentScrolling
         
         local TabContentList = Instance.new("UIListLayout")
-        TabContentList.Padding = UDim.new(0, 10)
+        TabContentList.Padding = UDim.new(0, 8)
         TabContentList.SortOrder = Enum.SortOrder.LayoutOrder
         TabContentList.Parent = TabContent
         
@@ -287,8 +299,471 @@ function Luma:CreateMainWindow(Name)
         end)
         
         local TabElements = {}
+        local tabElementCount = 0
+        
+        function TabElements:CreateSection(SectionName)
+            tabElementCount = tabElementCount + 1
+            
+            local SectionFrame = Instance.new("Frame")
+            local SectionLabel = Instance.new("TextLabel")
+            
+            SectionFrame.Name = "Section"
+            SectionFrame.Size = UDim2.new(1, 0, 0, 30)
+            SectionFrame.BackgroundColor3 = Luma.Theme.SectionBackground
+            SectionFrame.BackgroundTransparency = 0
+            SectionFrame.LayoutOrder = tabElementCount
+            SectionFrame.Parent = TabContent
+            
+            local SectionCorner = Instance.new("UICorner")
+            SectionCorner.CornerRadius = UDim.new(0, 5)
+            SectionCorner.Parent = SectionFrame
+            
+            local SectionStroke = Instance.new("UIStroke")
+            SectionStroke.Color = Color3.fromRGB(80, 80, 90)
+            SectionStroke.Thickness = 1
+            SectionStroke.Parent = SectionFrame
+            
+            SectionLabel.Name = "SectionLabel"
+            SectionLabel.Size = UDim2.new(1, -20, 1, 0)
+            SectionLabel.Position = UDim2.new(0, 10, 0, 0)
+            SectionLabel.BackgroundTransparency = 1
+            SectionLabel.Text = SectionName
+            SectionLabel.TextColor3 = Luma.Theme.Text
+            SectionLabel.TextSize = 14
+            SectionLabel.Font = Enum.Font.GothamBold
+            SectionLabel.TextXAlignment = Enum.TextXAlignment.Left
+            SectionLabel.Parent = SectionFrame
+            
+            local section = {}
+            
+            function section:Set(NewName)
+                SectionLabel.Text = NewName
+            end
+            
+            return section
+        end
+        
+        function TabElements:CreateDivider()
+            tabElementCount = tabElementCount + 1
+            
+            local DividerFrame = Instance.new("Frame")
+            
+            DividerFrame.Name = "Divider"
+            DividerFrame.Size = UDim2.new(1, 0, 0, 1)
+            DividerFrame.BackgroundColor3 = Luma.Theme.TextSecondary
+            DividerFrame.BackgroundTransparency = 0.3
+            DividerFrame.LayoutOrder = tabElementCount
+            DividerFrame.Parent = TabContent
+            
+            local DividerCorner = Instance.new("UICorner")
+            DividerCorner.CornerRadius = UDim.new(0, 2)
+            DividerCorner.Parent = DividerFrame
+            
+            local divider = {}
+            
+            function divider:Set(Visible)
+                DividerFrame.Visible = Visible
+            end
+            
+            return divider
+        end
+        
+        function TabElements:CreateParagraph(ParagraphSettings)
+            tabElementCount = tabElementCount + 1
+            
+            local ParagraphFrame = Instance.new("Frame")
+            local TitleLabel = Instance.new("TextLabel")
+            local ContentLabel = Instance.new("TextLabel")
+            
+            ParagraphFrame.Name = "Paragraph"
+            ParagraphFrame.Size = UDim2.new(1, 0, 0, 60)
+            ParagraphFrame.BackgroundColor3 = Luma.Theme.SectionBackground
+            ParagraphFrame.BackgroundTransparency = 0
+            ParagraphFrame.LayoutOrder = tabElementCount
+            ParagraphFrame.Parent = TabContent
+            
+            local ParagraphCorner = Instance.new("UICorner")
+            ParagraphCorner.CornerRadius = UDim.new(0, 5)
+            ParagraphCorner.Parent = ParagraphFrame
+            
+            local ParagraphStroke = Instance.new("UIStroke")
+            ParagraphStroke.Color = Color3.fromRGB(80, 80, 90)
+            ParagraphStroke.Thickness = 1
+            ParagraphStroke.Parent = ParagraphFrame
+            
+            TitleLabel.Name = "Title"
+            TitleLabel.Size = UDim2.new(1, -20, 0, 20)
+            TitleLabel.Position = UDim2.new(0, 10, 0, 5)
+            TitleLabel.BackgroundTransparency = 1
+            TitleLabel.Text = ParagraphSettings.Title or "Title"
+            TitleLabel.TextColor3 = Luma.Theme.Text
+            TitleLabel.TextSize = 14
+            TitleLabel.Font = Enum.Font.GothamBold
+            TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+            TitleLabel.Parent = ParagraphFrame
+            
+            ContentLabel.Name = "Content"
+            ContentLabel.Size = UDim2.new(1, -20, 0, 35)
+            ContentLabel.Position = UDim2.new(0, 10, 0, 25)
+            ContentLabel.BackgroundTransparency = 1
+            ContentLabel.Text = ParagraphSettings.Content or "Content"
+            ContentLabel.TextColor3 = Luma.Theme.TextSecondary
+            ContentLabel.TextSize = 12
+            ContentLabel.Font = Enum.Font.Gotham
+            ContentLabel.TextXAlignment = Enum.TextXAlignment.Left
+            ContentLabel.TextYAlignment = Enum.TextYAlignment.Top
+            ContentLabel.TextWrapped = true
+            ContentLabel.Parent = ParagraphFrame
+            
+            local paragraph = {}
+            
+            function paragraph:Set(NewSettings)
+                if NewSettings.Title then
+                    TitleLabel.Text = NewSettings.Title
+                end
+                if NewSettings.Content then
+                    ContentLabel.Text = NewSettings.Content
+                end
+            end
+            
+            return paragraph
+        end
+        
+        function TabElements:CreateInput(InputSettings)
+            tabElementCount = tabElementCount + 1
+            
+            local InputFrame = Instance.new("Frame")
+            local InputLabel = Instance.new("TextLabel")
+            local TextBox = Instance.new("TextBox")
+            
+            InputFrame.Name = "Input"
+            InputFrame.Size = UDim2.new(1, 0, 0, 60)
+            InputFrame.BackgroundColor3 = Luma.Theme.ElementBackground
+            InputFrame.BackgroundTransparency = 0
+            InputFrame.LayoutOrder = tabElementCount
+            InputFrame.Parent = TabContent
+            
+            local InputCorner = Instance.new("UICorner")
+            InputCorner.CornerRadius = UDim.new(0, 5)
+            InputCorner.Parent = InputFrame
+            
+            local InputStroke = Instance.new("UIStroke")
+            InputStroke.Color = Color3.fromRGB(80, 80, 90)
+            InputStroke.Thickness = 1
+            InputStroke.Parent = InputFrame
+            
+            InputLabel.Name = "Label"
+            InputLabel.Size = UDim2.new(1, -20, 0, 20)
+            InputLabel.Position = UDim2.new(0, 10, 0, 5)
+            InputLabel.BackgroundTransparency = 1
+            InputLabel.Text = InputSettings.Name or "Input"
+            InputLabel.TextColor3 = Luma.Theme.Text
+            InputLabel.TextSize = 14
+            InputLabel.Font = Enum.Font.Gotham
+            InputLabel.TextXAlignment = Enum.TextXAlignment.Left
+            InputLabel.Parent = InputFrame
+            
+            TextBox.Name = "TextBox"
+            TextBox.Size = UDim2.new(1, -20, 0, 25)
+            TextBox.Position = UDim2.new(0, 10, 0, 30)
+            TextBox.BackgroundColor3 = Luma.Theme.InputBackground
+            TextBox.TextColor3 = Luma.Theme.Text
+            TextBox.PlaceholderText = InputSettings.PlaceholderText or "Enter text..."
+            TextBox.Text = InputSettings.CurrentValue or ""
+            TextBox.TextSize = 12
+            TextBox.Font = Enum.Font.Gotham
+            TextBox.Parent = InputFrame
+            
+            local TextBoxCorner = Instance.new("UICorner")
+            TextBoxCorner.CornerRadius = UDim.new(0, 4)
+            TextBoxCorner.Parent = TextBox
+            
+            local TextBoxStroke = Instance.new("UIStroke")
+            TextBoxStroke.Color = Luma.Theme.InputStroke
+            TextBoxStroke.Thickness = 1
+            TextBoxStroke.Parent = TextBox
+            
+            TextBox.FocusLost:Connect(function()
+                if InputSettings.Callback then
+                    InputSettings.Callback(TextBox.Text)
+                end
+                if InputSettings.RemoveTextAfterFocusLost then
+                    TextBox.Text = ""
+                end
+            end)
+            
+            local input = {}
+            
+            function input:Set(Value)
+                TextBox.Text = Value
+                if InputSettings.Callback then
+                    InputSettings.Callback(Value)
+                end
+            end
+            
+            return input
+        end
+        
+        function TabElements:CreateSlider(SliderSettings)
+            tabElementCount = tabElementCount + 1
+            
+            local SliderFrame = Instance.new("Frame")
+            local SliderLabel = Instance.new("TextLabel")
+            local SliderTrack = Instance.new("Frame")
+            local SliderProgress = Instance.new("Frame")
+            local SliderButton = Instance.new("TextButton")
+            local ValueLabel = Instance.new("TextLabel")
+            
+            SliderFrame.Name = "Slider"
+            SliderFrame.Size = UDim2.new(1, 0, 0, 60)
+            SliderFrame.BackgroundColor3 = Luma.Theme.ElementBackground
+            SliderFrame.BackgroundTransparency = 0
+            SliderFrame.LayoutOrder = tabElementCount
+            SliderFrame.Parent = TabContent
+            
+            local SliderCorner = Instance.new("UICorner")
+            SliderCorner.CornerRadius = UDim.new(0, 5)
+            SliderCorner.Parent = SliderFrame
+            
+            local SliderStroke = Instance.new("UIStroke")
+            SliderStroke.Color = Color3.fromRGB(80, 80, 90)
+            SliderStroke.Thickness = 1
+            SliderStroke.Parent = SliderFrame
+            
+            SliderLabel.Name = "Label"
+            SliderLabel.Size = UDim2.new(1, -20, 0, 20)
+            SliderLabel.Position = UDim2.new(0, 10, 0, 5)
+            SliderLabel.BackgroundTransparency = 1
+            SliderLabel.Text = SliderSettings.Name or "Slider"
+            SliderLabel.TextColor3 = Luma.Theme.Text
+            SliderLabel.TextSize = 14
+            SliderLabel.Font = Enum.Font.Gotham
+            SliderLabel.TextXAlignment = Enum.TextXAlignment.Left
+            SliderLabel.Parent = SliderFrame
+            
+            ValueLabel.Name = "Value"
+            ValueLabel.Size = UDim2.new(0, 60, 0, 20)
+            ValueLabel.Position = UDim2.new(1, -70, 0, 5)
+            ValueLabel.BackgroundTransparency = 1
+            ValueLabel.Text = tostring(SliderSettings.CurrentValue or SliderSettings.Range[1]) .. (SliderSettings.Suffix or "")
+            ValueLabel.TextColor3 = Luma.Theme.TextSecondary
+            ValueLabel.TextSize = 12
+            ValueLabel.Font = Enum.Font.Gotham
+            ValueLabel.TextXAlignment = Enum.TextXAlignment.Right
+            ValueLabel.Parent = SliderFrame
+            
+            SliderTrack.Name = "Track"
+            SliderTrack.Size = UDim2.new(1, -20, 0, 15)
+            SliderTrack.Position = UDim2.new(0, 10, 0, 35)
+            SliderTrack.BackgroundColor3 = Luma.Theme.SliderBackground
+            SliderTrack.Parent = SliderFrame
+            
+            local TrackCorner = Instance.new("UICorner")
+            TrackCorner.CornerRadius = UDim.new(0, 7)
+            TrackCorner.Parent = SliderTrack
+            
+            SliderProgress.Name = "Progress"
+            SliderProgress.Size = UDim2.new(0, 0, 1, 0)
+            SliderProgress.BackgroundColor3 = Luma.Theme.SliderProgress
+            SliderProgress.Parent = SliderTrack
+            
+            local ProgressCorner = Instance.new("UICorner")
+            ProgressCorner.CornerRadius = UDim.new(0, 7)
+            ProgressCorner.Parent = SliderProgress
+            
+            SliderButton.Name = "SliderButton"
+            SliderButton.Size = UDim2.new(1, 0, 1, 0)
+            SliderButton.BackgroundTransparency = 1
+            SliderButton.Text = ""
+            SliderButton.Parent = SliderTrack
+            
+            local currentValue = SliderSettings.CurrentValue or SliderSettings.Range[1]
+            local range = SliderSettings.Range[2] - SliderSettings.Range[1]
+            local increment = SliderSettings.Increment or 1
+            
+            local function updateSlider(value)
+                currentValue = math.clamp(value, SliderSettings.Range[1], SliderSettings.Range[2])
+                local percentage = (currentValue - SliderSettings.Range[1]) / range
+                SliderProgress.Size = UDim2.new(percentage, 0, 1, 0)
+                ValueLabel.Text = tostring(currentValue) .. (SliderSettings.Suffix or "")
+                
+                if SliderSettings.Callback then
+                    SliderSettings.Callback(currentValue)
+                end
+            end
+            
+            updateSlider(currentValue)
+            
+            local dragging = false
+            
+            SliderButton.MouseButton1Down:Connect(function()
+                dragging = true
+            end)
+            
+            game:GetService("UserInputService").InputEnded:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    dragging = false
+                end
+            end)
+            
+            game:GetService("UserInputService").InputChanged:Connect(function(input)
+                if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+                    local mousePos = game:GetService("Players").LocalPlayer:GetMouse()
+                    local trackAbsPos = SliderTrack.AbsolutePosition
+                    local trackAbsSize = SliderTrack.AbsoluteSize
+                    
+                    local relativeX = math.clamp(mousePos.X - trackAbsPos.X, 0, trackAbsSize.X)
+                    local percentage = relativeX / trackAbsSize.X
+                    local newValue = SliderSettings.Range[1] + (percentage * range)
+                    newValue = math.floor(newValue / increment) * increment
+                    
+                    updateSlider(newValue)
+                end
+            end)
+            
+            local slider = {}
+            
+            function slider:Set(Value)
+                updateSlider(Value)
+            end
+            
+            return slider
+        end
+        
+        function TabElements:CreateDropdown(DropdownSettings)
+            tabElementCount = tabElementCount + 1
+            
+            local DropdownFrame = Instance.new("Frame")
+            local DropdownLabel = Instance.new("TextLabel")
+            local DropdownButton = Instance.new("TextButton")
+            local DropdownList = Instance.new("ScrollingFrame")
+            local DropdownListLayout = Instance.new("UIListLayout")
+            
+            DropdownFrame.Name = "Dropdown"
+            DropdownFrame.Size = UDim2.new(1, 0, 0, 40)
+            DropdownFrame.BackgroundColor3 = Luma.Theme.ElementBackground
+            DropdownFrame.BackgroundTransparency = 0
+            DropdownFrame.LayoutOrder = tabElementCount
+            DropdownFrame.Parent = TabContent
+            
+            local DropdownCorner = Instance.new("UICorner")
+            DropdownCorner.CornerRadius = UDim.new(0, 5)
+            DropdownCorner.Parent = DropdownFrame
+            
+            local DropdownStroke = Instance.new("UIStroke")
+            DropdownStroke.Color = Color3.fromRGB(80, 80, 90)
+            DropdownStroke.Thickness = 1
+            DropdownStroke.Parent = DropdownFrame
+            
+            DropdownLabel.Name = "Label"
+            DropdownLabel.Size = UDim2.new(1, -20, 0, 20)
+            DropdownLabel.Position = UDim2.new(0, 10, 0, 5)
+            DropdownLabel.BackgroundTransparency = 1
+            DropdownLabel.Text = DropdownSettings.Name or "Dropdown"
+            DropdownLabel.TextColor3 = Luma.Theme.Text
+            DropdownLabel.TextSize = 14
+            DropdownLabel.Font = Enum.Font.Gotham
+            DropdownLabel.TextXAlignment = Enum.TextXAlignment.Left
+            DropdownLabel.Parent = DropdownFrame
+            
+            DropdownButton.Name = "DropdownButton"
+            DropdownButton.Size = UDim2.new(1, -20, 0, 25)
+            DropdownButton.Position = UDim2.new(0, 10, 0, 25)
+            DropdownButton.BackgroundColor3 = Luma.Theme.DropdownBackground
+            DropdownButton.TextColor3 = Luma.Theme.Text
+            DropdownButton.Text = DropdownSettings.CurrentOption or "Select..."
+            DropdownButton.TextSize = 12
+            DropdownButton.Font = Enum.Font.Gotham
+            DropdownButton.Parent = DropdownFrame
+            
+            local ButtonCorner = Instance.new("UICorner")
+            ButtonCorner.CornerRadius = UDim.new(0, 4)
+            ButtonCorner.Parent = DropdownButton
+            
+            local ButtonStroke = Instance.new("UIStroke")
+            ButtonStroke.Color = Luma.Theme.InputStroke
+            ButtonStroke.Thickness = 1
+            ButtonStroke.Parent = DropdownButton
+            
+            DropdownList.Name = "DropdownList"
+            DropdownList.Size = UDim2.new(1, -20, 0, 0)
+            DropdownList.Position = UDim2.new(0, 10, 0, 55)
+            DropdownList.BackgroundColor3 = Luma.Theme.DropdownBackground
+            DropdownList.BorderSizePixel = 0
+            DropdownList.ScrollBarThickness = 4
+            DropdownList.Visible = false
+            DropdownList.Parent = DropdownFrame
+            
+            local ListCorner = Instance.new("UICorner")
+            ListCorner.CornerRadius = UDim.new(0, 4)
+            ListCorner.Parent = DropdownList
+            
+            DropdownListLayout.Padding = UDim.new(0, 2)
+            DropdownListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+            DropdownListLayout.Parent = DropdownList
+            
+            local isOpen = false
+            
+            local function toggleDropdown()
+                isOpen = not isOpen
+                if isOpen then
+                    DropdownList.Visible = true
+                    DropdownList.Size = UDim2.new(1, -20, 0, math.min(#DropdownSettings.Options * 25, 125))
+                    DropdownFrame.Size = UDim2.new(1, 0, 0, 55 + math.min(#DropdownSettings.Options * 25, 125))
+                else
+                    DropdownList.Visible = false
+                    DropdownList.Size = UDim2.new(1, -20, 0, 0)
+                    DropdownFrame.Size = UDim2.new(1, 0, 0, 40)
+                end
+            end
+            
+            DropdownButton.MouseButton1Click:Connect(toggleDropdown)
+            
+            for i, option in ipairs(DropdownSettings.Options) do
+                local OptionButton = Instance.new("TextButton")
+                OptionButton.Name = option
+                OptionButton.Size = UDim2.new(1, 0, 0, 23)
+                OptionButton.BackgroundColor3 = Luma.Theme.DropdownBackground
+                OptionButton.TextColor3 = Luma.Theme.Text
+                OptionButton.Text = option
+                OptionButton.TextSize = 12
+                OptionButton.Font = Enum.Font.Gotham
+                OptionButton.Parent = DropdownList
+                
+                local OptionCorner = Instance.new("UICorner")
+                OptionCorner.CornerRadius = UDim.new(0, 3)
+                OptionCorner.Parent = OptionButton
+                
+                OptionButton.MouseButton1Click:Connect(function()
+                    DropdownButton.Text = option
+                    DropdownSettings.CurrentOption = option
+                    if DropdownSettings.Callback then
+                        DropdownSettings.Callback(option)
+                    end
+                    toggleDropdown()
+                end)
+            end
+            
+            DropdownListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+                DropdownList.CanvasSize = UDim2.new(0, 0, 0, DropdownListLayout.AbsoluteContentSize.Y)
+            end)
+            
+            local dropdown = {}
+            
+            function dropdown:Set(Option)
+                DropdownButton.Text = Option
+                DropdownSettings.CurrentOption = Option
+                if DropdownSettings.Callback then
+                    DropdownSettings.Callback(Option)
+                end
+            end
+            
+            return dropdown
+        end
         
         function TabElements:CreateButton(Text, Callback)
+            tabElementCount = tabElementCount + 1
+            
             local Button = Instance.new("TextButton")
             
             Button.Name = Text .. "Button"
@@ -298,6 +773,7 @@ function Luma:CreateMainWindow(Name)
             Button.TextColor3 = Luma.Theme.Text
             Button.TextSize = 14
             Button.Font = Enum.Font.GothamSemibold
+            Button.LayoutOrder = tabElementCount
             Button.Parent = TabContent
             
             local ButtonCorner = Instance.new("UICorner")
@@ -325,6 +801,8 @@ function Luma:CreateMainWindow(Name)
         end
         
         function TabElements:CreateToggle(Text, Callback)
+            tabElementCount = tabElementCount + 1
+            
             local ToggleFrame = Instance.new("Frame")
             local ToggleButton = Instance.new("TextButton")
             local ToggleLabel = Instance.new("TextLabel")
@@ -333,6 +811,7 @@ function Luma:CreateMainWindow(Name)
             ToggleFrame.Name = Text .. "Toggle"
             ToggleFrame.Size = UDim2.new(1, 0, 0, 30)
             ToggleFrame.BackgroundTransparency = 1
+            ToggleFrame.LayoutOrder = tabElementCount
             ToggleFrame.Parent = TabContent
             
             ToggleLabel.Name = "Label"
@@ -409,6 +888,8 @@ function Luma:CreateMainWindow(Name)
         end
         
         function TabElements:CreateLabel(Text)
+            tabElementCount = tabElementCount + 1
+            
             local Label = Instance.new("TextLabel")
             
             Label.Name = Text .. "Label"
@@ -419,6 +900,7 @@ function Luma:CreateMainWindow(Name)
             Label.TextSize = 14
             Label.Font = Enum.Font.Gotham
             Label.TextXAlignment = Enum.TextXAlignment.Left
+            Label.LayoutOrder = tabElementCount
             Label.Parent = TabContent
             
             return Label
