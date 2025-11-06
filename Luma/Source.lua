@@ -507,133 +507,142 @@ function Luma:CreateMainWindow(Name)
         function TabElements:CreateSlider(SliderSettings)
     tabElementCount = tabElementCount + 1
     
-    local SliderFrame = Instance.new("Frame")
-    local SliderLabel = Instance.new("TextLabel")
-    local SliderTrack = Instance.new("Frame")
-    local SliderProgress = Instance.new("Frame")
-    local SliderButton = Instance.new("TextButton")
-    local ValueLabel = Instance.new("TextLabel")
-    
-    SliderFrame.Name = "Slider"
-    SliderFrame.Size = UDim2.new(1, 0, 0, 60)
-    SliderFrame.BackgroundColor3 = Luma.Theme.SectionBackground
-    SliderFrame.BackgroundTransparency = 0
-    SliderFrame.LayoutOrder = tabElementCount
-    SliderFrame.Parent = TabContent
-    
-    local SliderCorner = Instance.new("UICorner")
-    SliderCorner.CornerRadius = UDim.new(0, 5)
-    SliderCorner.Parent = SliderFrame
-    
-    local SliderStroke = Instance.new("UIStroke")
-    SliderStroke.Color = Color3.fromRGB(80, 80, 90)
-    SliderStroke.Thickness = 1
-    SliderStroke.Parent = SliderFrame
-    
-    SliderLabel.Name = "Label"
-    SliderLabel.Size = UDim2.new(1, -20, 0, 20)
-    SliderLabel.Position = UDim2.new(0, 10, 0, 5)
-    SliderLabel.BackgroundTransparency = 1
-    SliderLabel.Text = SliderSettings.Name or "Slider"
-    SliderLabel.TextColor3 = Luma.Theme.Text
-    SliderLabel.TextSize = 14
-    SliderLabel.Font = Enum.Font.Gotham
-    SliderLabel.TextXAlignment = Enum.TextXAlignment.Left
-    SliderLabel.Parent = SliderFrame
-    
-    ValueLabel.Name = "Value"
-    ValueLabel.Size = UDim2.new(0, 60, 0, 20)
-    ValueLabel.Position = UDim2.new(1, -70, 0, 5)
-    ValueLabel.BackgroundTransparency = 1
-    ValueLabel.Text = tostring(SliderSettings.CurrentValue or SliderSettings.Min or 0) .. (SliderSettings.Suffix or "")
-    ValueLabel.TextColor3 = Luma.Theme.TextSecondary
-    ValueLabel.TextSize = 12
-    ValueLabel.Font = Enum.Font.Gotham
-    ValueLabel.TextXAlignment = Enum.TextXAlignment.Right
-    ValueLabel.Parent = SliderFrame
-    
-    SliderTrack.Name = "Track"
-    SliderTrack.Size = UDim2.new(1, -20, 0, 15)
-    SliderTrack.Position = UDim2.new(0, 10, 0, 35)
-    SliderTrack.BackgroundColor3 = Luma.Theme.SliderBackground
-    SliderTrack.Parent = SliderFrame
-    
-    local TrackCorner = Instance.new("UICorner")
-    TrackCorner.CornerRadius = UDim.new(0, 7)
-    TrackCorner.Parent = SliderTrack
-    
-    SliderProgress.Name = "Progress"
-    SliderProgress.Size = UDim2.new(0, 0, 1, 0)
-    SliderProgress.BackgroundColor3 = Luma.Theme.SliderProgress
-    SliderProgress.Parent = SliderTrack
-    
-    local ProgressCorner = Instance.new("UICorner")
-    ProgressCorner.CornerRadius = UDim.new(0, 7)
-    ProgressCorner.Parent = SliderProgress
-    
-    SliderButton.Name = "SliderButton"
-    SliderButton.Size = UDim2.new(1, 0, 1, 0)
-    SliderButton.BackgroundTransparency = 1
-    SliderButton.Text = ""
-    SliderButton.Parent = SliderTrack
-    
-    local min = SliderSettings.Min or 0
-    local max = SliderSettings.Max or 100
-    local currentValue = SliderSettings.CurrentValue or min
-    local range = max - min
-    local increment = SliderSettings.Increment or 1
-    
-    local function updateSlider(value)
-        currentValue = math.clamp(value, min, max)
-        local percentage = (currentValue - min) / range
-        SliderProgress.Size = UDim2.new(percentage, 0, 1, 0)
-        ValueLabel.Text = tostring(currentValue) .. (SliderSettings.Suffix or "")
+    local success, result = pcall(function()
+        local SliderFrame = Instance.new("Frame")
+        local SliderLabel = Instance.new("TextLabel")
+        local SliderTrack = Instance.new("Frame")
+        local SliderProgress = Instance.new("Frame")
+        local SliderButton = Instance.new("TextButton")
+        local ValueLabel = Instance.new("TextLabel")
         
-        if SliderSettings.Callback then
-            SliderSettings.Callback(currentValue)
-        end
-    end
-    
-    updateSlider(currentValue)
-    
-    local dragging = false
-    
-    SliderButton.MouseButton1Down:Connect(function()
-        dragging = true
-    end)
-    
-    game:GetService("UserInputService").InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = false
-        end
-    end)
-    
-    game:GetService("UserInputService").InputChanged:Connect(function(input)
-        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-            local mousePos = game:GetService("Players").LocalPlayer:GetMouse()
-            local trackAbsPos = SliderTrack.AbsolutePosition
-            local trackAbsSize = SliderTrack.AbsoluteSize
+        SliderFrame.Name = "Slider"
+        SliderFrame.Size = UDim2.new(1, 0, 0, 60)
+        SliderFrame.BackgroundColor3 = Luma.Theme.SectionBackground
+        SliderFrame.BackgroundTransparency = 0
+        SliderFrame.LayoutOrder = tabElementCount
+        SliderFrame.Parent = TabContent
+        
+        local SliderCorner = Instance.new("UICorner")
+        SliderCorner.CornerRadius = UDim.new(0, 5)
+        SliderCorner.Parent = SliderFrame
+        
+        local SliderStroke = Instance.new("UIStroke")
+        SliderStroke.Color = Color3.fromRGB(80, 80, 90)
+        SliderStroke.Thickness = 1
+        SliderStroke.Parent = SliderFrame
+        
+        SliderLabel.Name = "Label"
+        SliderLabel.Size = UDim2.new(1, -20, 0, 20)
+        SliderLabel.Position = UDim2.new(0, 10, 0, 5)
+        SliderLabel.BackgroundTransparency = 1
+        SliderLabel.Text = SliderSettings.Name or "Slider"
+        SliderLabel.TextColor3 = Luma.Theme.Text
+        SliderLabel.TextSize = 14
+        SliderLabel.Font = Enum.Font.Gotham
+        SliderLabel.TextXAlignment = Enum.TextXAlignment.Left
+        SliderLabel.Parent = SliderFrame
+        
+        ValueLabel.Name = "Value"
+        ValueLabel.Size = UDim2.new(0, 60, 0, 20)
+        ValueLabel.Position = UDim2.new(1, -70, 0, 5)
+        ValueLabel.BackgroundTransparency = 1
+        ValueLabel.Text = tostring(SliderSettings.CurrentValue or SliderSettings.Min or 0) .. (SliderSettings.Suffix or "")
+        ValueLabel.TextColor3 = Luma.Theme.TextSecondary
+        ValueLabel.TextSize = 12
+        ValueLabel.Font = Enum.Font.Gotham
+        ValueLabel.TextXAlignment = Enum.TextXAlignment.Right
+        ValueLabel.Parent = SliderFrame
+        
+        SliderTrack.Name = "Track"
+        SliderTrack.Size = UDim2.new(1, -20, 0, 15)
+        SliderTrack.Position = UDim2.new(0, 10, 0, 35)
+        SliderTrack.BackgroundColor3 = Luma.Theme.SliderBackground
+        SliderTrack.Parent = SliderFrame
+        
+        local TrackCorner = Instance.new("UICorner")
+        TrackCorner.CornerRadius = UDim.new(0, 7)
+        TrackCorner.Parent = SliderTrack
+        
+        SliderProgress.Name = "Progress"
+        SliderProgress.Size = UDim2.new(0, 0, 1, 0)
+        SliderProgress.BackgroundColor3 = Luma.Theme.SliderProgress
+        SliderProgress.Parent = SliderTrack
+        
+        local ProgressCorner = Instance.new("UICorner")
+        ProgressCorner.CornerRadius = UDim.new(0, 7)
+        ProgressCorner.Parent = SliderProgress
+        
+        SliderButton.Name = "SliderButton"
+        SliderButton.Size = UDim2.new(1, 0, 1, 0)
+        SliderButton.BackgroundTransparency = 1
+        SliderButton.Text = ""
+        SliderButton.Parent = SliderTrack
+        
+        local min = SliderSettings.Min or 0
+        local max = SliderSettings.Max or 100
+        local currentValue = SliderSettings.CurrentValue or min
+        local range = max - min
+        local increment = SliderSettings.Increment or 1
+        
+        local function updateSlider(value)
+            currentValue = math.clamp(value, min, max)
+            local percentage = (currentValue - min) / range
+            SliderProgress.Size = UDim2.new(percentage, 0, 1, 0)
+            ValueLabel.Text = tostring(currentValue) .. (SliderSettings.Suffix or "")
             
-            local relativeX = math.clamp(mousePos.X - trackAbsPos.X, 0, trackAbsSize.X)
-            local percentage = relativeX / trackAbsSize.X
-            local newValue = min + (percentage * range)
-            newValue = math.floor(newValue / increment) * increment
-            
-            updateSlider(newValue)
+            if SliderSettings.Callback then
+                SliderSettings.Callback(currentValue)
+            end
         end
+        
+        updateSlider(currentValue)
+        
+        local dragging = false
+        
+        SliderButton.MouseButton1Down:Connect(function()
+            dragging = true
+        end)
+        
+        game:GetService("UserInputService").InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                dragging = false
+            end
+        end)
+        
+        game:GetService("UserInputService").InputChanged:Connect(function(input)
+            if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+                local mousePos = game:GetService("Players").LocalPlayer:GetMouse()
+                local trackAbsPos = SliderTrack.AbsolutePosition
+                local trackAbsSize = SliderTrack.AbsoluteSize
+                
+                local relativeX = math.clamp(mousePos.X - trackAbsPos.X, 0, trackAbsSize.X)
+                local percentage = relativeX / trackAbsSize.X
+                local newValue = min + (percentage * range)
+                newValue = math.floor(newValue / increment) * increment
+                
+                updateSlider(newValue)
+            end
+        end)
+        
+        local slider = {}
+        
+        function slider:Set(Value)
+            updateSlider(Value)
+        end
+        
+        function slider:Get()
+            return currentValue
+        end
+        
+        return slider
     end)
     
-    local slider = {}
-    
-    function slider:Set(Value)
-        updateSlider(Value)
+    if not success then
+        warn("Slider creation failed:", result)
+        return nil
     end
     
-    function slider:Get()
-        return currentValue
-    end
-    
-    return slider
+    return result
 end
         
         function TabElements:CreateDropdown(DropdownSettings)
