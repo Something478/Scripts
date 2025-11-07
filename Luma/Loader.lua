@@ -42,8 +42,8 @@ function Luma:CreateMainWindow(Name)
         ShowStroke.Parent = ShowButton
         
         MainFrame.Name = "MainFrame"
-        MainFrame.Size = UDim2.new(0, 500, 0, 400)
-        MainFrame.Position = UDim2.new(0.5, -250, 0.5, -200)
+        MainFrame.Size = UDim2.new(0, 500, 0, 300) -- Reduced from 400 to 300
+        MainFrame.Position = UDim2.new(0.5, -250, 0.5, -150) -- Adjusted position
         MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
         MainFrame.Visible = false
         MainFrame.Parent = ScreenGui
@@ -58,7 +58,7 @@ function Luma:CreateMainWindow(Name)
         MainStroke.Parent = MainFrame
         
         Header.Name = "Header"
-        Header.Size = UDim2.new(1, 0, 0, 35)
+        Header.Size = UDim2.new(1, 0, 0, 30) -- Reduced from 35 to 30
         Header.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
         Header.Parent = MainFrame
         
@@ -72,18 +72,18 @@ function Luma:CreateMainWindow(Name)
         TitleLabel.BackgroundTransparency = 1
         TitleLabel.Text = Luma.Title
         TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        TitleLabel.TextSize = 16
+        TitleLabel.TextSize = 14 -- Reduced from 16 to 14
         TitleLabel.Font = Enum.Font.GothamBold
         TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
         TitleLabel.Parent = Header
         
         CloseButton.Name = "CloseButton"
-        CloseButton.Size = UDim2.new(0, 30, 0, 25)
-        CloseButton.Position = UDim2.new(1, -35, 0.5, -12.5)
+        CloseButton.Size = UDim2.new(0, 25, 0, 20) -- Reduced size
+        CloseButton.Position = UDim2.new(1, -30, 0.5, -10) -- Adjusted position
         CloseButton.BackgroundColor3 = Color3.fromRGB(255, 80, 80)
         CloseButton.Text = "×"
         CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        CloseButton.TextSize = 18
+        CloseButton.TextSize = 16 -- Reduced from 18 to 16
         CloseButton.Font = Enum.Font.GothamBold
         CloseButton.Parent = Header
         
@@ -101,8 +101,8 @@ function Luma:CreateMainWindow(Name)
             tween:Play()
             tween.Completed:Wait()
             MainFrame.Visible = false
-            MainFrame.Size = UDim2.new(0, 500, 0, 400)
-            MainFrame.Position = UDim2.new(0.5, -250, 0.5, -200)
+            MainFrame.Size = UDim2.new(0, 500, 0, 300)
+            MainFrame.Position = UDim2.new(0.5, -250, 0.5, -150)
             ShowButton.Visible = true
         end)
         
@@ -119,12 +119,12 @@ function Luma:CreateMainWindow(Name)
         end)
         
         MinimizeButton.Name = "MinimizeButton"
-        MinimizeButton.Size = UDim2.new(0, 30, 0, 25)
-        MinimizeButton.Position = UDim2.new(1, -70, 0.5, -12.5)
+        MinimizeButton.Size = UDim2.new(0, 25, 0, 20) -- Reduced size
+        MinimizeButton.Position = UDim2.new(1, -60, 0.5, -10) -- Adjusted position
         MinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 180, 60)
         MinimizeButton.Text = "-"
         MinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        MinimizeButton.TextSize = 18
+        MinimizeButton.TextSize = 16 -- Reduced from 18 to 16
         MinimizeButton.Font = Enum.Font.GothamBold
         MinimizeButton.Parent = Header
         
@@ -137,12 +137,12 @@ function Luma:CreateMainWindow(Name)
             IsMinimized = not IsMinimized
             if IsMinimized then
                 TweenService:Create(MainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-                    Size = UDim2.new(0, 500, 0, 35)
+                    Size = UDim2.new(0, 500, 0, 30)
                 }):Play()
                 MinimizeButton.Text = "+"
             else
                 TweenService:Create(MainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-                    Size = UDim2.new(0, 500, 0, 400)
+                    Size = UDim2.new(0, 500, 0, 300)
                 }):Play()
                 MinimizeButton.Text = "-"
             end
@@ -161,14 +161,14 @@ function Luma:CreateMainWindow(Name)
         end)
         
         TabButtonsFrame.Name = "TabButtons"
-        TabButtonsFrame.Size = UDim2.new(1, -20, 0, 35)
-        TabButtonsFrame.Position = UDim2.new(0, 10, 0, 40)
+        TabButtonsFrame.Size = UDim2.new(1, -20, 0, 30) -- Reduced from 35 to 30
+        TabButtonsFrame.Position = UDim2.new(0, 10, 0, 35) -- Adjusted position
         TabButtonsFrame.BackgroundTransparency = 1
         TabButtonsFrame.Parent = MainFrame
         
         TabListLayout = Instance.new("UIListLayout")
         TabListLayout.FillDirection = Enum.FillDirection.Horizontal
-        TabListLayout.Padding = UDim.new(0, 8)
+        TabListLayout.Padding = UDim.new(0, 6) -- Reduced padding from 8 to 6
         TabListLayout.Parent = TabButtonsFrame
         
         local TabPadding = Instance.new("UIPadding")
@@ -177,8 +177,8 @@ function Luma:CreateMainWindow(Name)
         TabPadding.Parent = TabButtonsFrame
         
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, -20, 1, -85)
-        ContentFrame.Position = UDim2.new(0, 10, 0, 80)
+        ContentFrame.Size = UDim2.new(1, -20, 1, -75) -- Adjusted for smaller height
+        ContentFrame.Position = UDim2.new(0, 10, 0, 70) -- Adjusted position
         ContentFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.Parent = MainFrame
@@ -191,13 +191,13 @@ function Luma:CreateMainWindow(Name)
         ContentScrolling.Size = UDim2.new(1, 0, 1, 0)
         ContentScrolling.BackgroundTransparency = 1
         ContentScrolling.BorderSizePixel = 0
-        ContentScrolling.ScrollBarThickness = 6
+        ContentScrolling.ScrollBarThickness = 5 -- Reduced from 6 to 5
         ContentScrolling.ScrollBarImageColor3 = Color3.fromRGB(50, 50, 60)
         ContentScrolling.AutomaticCanvasSize = Enum.AutomaticSize.Y
         ContentScrolling.Parent = ContentFrame
         
         local ContentList = Instance.new("UIListLayout")
-        ContentList.Padding = UDim.new(0, 8)
+        ContentList.Padding = UDim.new(0, 6) -- Reduced padding from 8 to 6
         ContentList.SortOrder = Enum.SortOrder.LayoutOrder
         ContentList.Parent = ContentScrolling
         
@@ -208,8 +208,8 @@ function Luma:CreateMainWindow(Name)
             MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
             
             local tween = TweenService:Create(MainFrame, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
-                Size = UDim2.new(0, 500, 0, 400),
-                Position = UDim2.new(0.5, -250, 0.5, -200)
+                Size = UDim2.new(0, 500, 0, 300),
+                Position = UDim2.new(0.5, -250, 0.5, -150)
             })
             tween:Play()
         end)
@@ -252,11 +252,11 @@ function Luma:CreateMainWindow(Name)
                 local TabContent = Instance.new("Frame")
                 
                 TabButton.Name = TabName .. "Tab"
-                TabButton.Size = UDim2.new(0, 90, 1, 0)
+                TabButton.Size = UDim2.new(0, 80, 1, 0) -- Reduced from 90 to 80
                 TabButton.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
                 TabButton.Text = TabName
                 TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-                TabButton.TextSize = 13
+                TabButton.TextSize = 12 -- Reduced from 13 to 12
                 TabButton.Font = Enum.Font.GothamSemibold
                 TabButton.Parent = TabButtonsFrame
                 
@@ -277,7 +277,7 @@ function Luma:CreateMainWindow(Name)
                 TabContent.Parent = ContentScrolling
                 
                 local TabContentList = Instance.new("UIListLayout")
-                TabContentList.Padding = UDim.new(0, 8)
+                TabContentList.Padding = UDim.new(0, 6) -- Reduced padding from 8 to 6
                 TabContentList.SortOrder = Enum.SortOrder.LayoutOrder
                 TabContentList.Parent = TabContent
                 
@@ -321,7 +321,7 @@ function Luma:CreateMainWindow(Name)
                         local SectionLabel = Instance.new("TextLabel")
                         
                         SectionFrame.Name = "Section"
-                        SectionFrame.Size = UDim2.new(1, 0, 0, 30)
+                        SectionFrame.Size = UDim2.new(1, 0, 0, 25) -- Reduced from 30 to 25
                         SectionFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
                         SectionFrame.BackgroundTransparency = 0
                         SectionFrame.LayoutOrder = tabElementCount
@@ -342,7 +342,7 @@ function Luma:CreateMainWindow(Name)
                         SectionLabel.BackgroundTransparency = 1
                         SectionLabel.Text = SectionName
                         SectionLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        SectionLabel.TextSize = 14
+                        SectionLabel.TextSize = 13 -- Reduced from 14 to 13
                         SectionLabel.Font = Enum.Font.GothamBold
                         SectionLabel.TextXAlignment = Enum.TextXAlignment.Left
                         SectionLabel.Parent = SectionFrame
@@ -396,7 +396,7 @@ function Luma:CreateMainWindow(Name)
                         local ContentLabel = Instance.new("TextLabel")
                         
                         ParagraphFrame.Name = "Paragraph"
-                        ParagraphFrame.Size = UDim2.new(1, 0, 0, 60)
+                        ParagraphFrame.Size = UDim2.new(1, 0, 0, 50) -- Reduced from 60 to 50
                         ParagraphFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
                         ParagraphFrame.BackgroundTransparency = 0
                         ParagraphFrame.LayoutOrder = tabElementCount
@@ -412,23 +412,23 @@ function Luma:CreateMainWindow(Name)
                         ParagraphStroke.Parent = ParagraphFrame
                         
                         TitleLabel.Name = "Title"
-                        TitleLabel.Size = UDim2.new(1, -20, 0, 20)
-                        TitleLabel.Position = UDim2.new(0, 10, 0, 5)
+                        TitleLabel.Size = UDim2.new(1, -20, 0, 18) -- Reduced from 20 to 18
+                        TitleLabel.Position = UDim2.new(0, 10, 0, 4) -- Adjusted position
                         TitleLabel.BackgroundTransparency = 1
                         TitleLabel.Text = ParagraphSettings.Title or "Title"
                         TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        TitleLabel.TextSize = 14
+                        TitleLabel.TextSize = 13 -- Reduced from 14 to 13
                         TitleLabel.Font = Enum.Font.GothamBold
                         TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
                         TitleLabel.Parent = ParagraphFrame
                         
                         ContentLabel.Name = "Content"
-                        ContentLabel.Size = UDim2.new(1, -20, 0, 35)
-                        ContentLabel.Position = UDim2.new(0, 10, 0, 25)
+                        ContentLabel.Size = UDim2.new(1, -20, 0, 28) -- Reduced from 35 to 28
+                        ContentLabel.Position = UDim2.new(0, 10, 0, 22) -- Adjusted position
                         ContentLabel.BackgroundTransparency = 1
                         ContentLabel.Text = ParagraphSettings.Content or "Content"
                         ContentLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
-                        ContentLabel.TextSize = 12
+                        ContentLabel.TextSize = 11 -- Reduced from 12 to 11
                         ContentLabel.Font = Enum.Font.Gotham
                         ContentLabel.TextXAlignment = Enum.TextXAlignment.Left
                         ContentLabel.TextYAlignment = Enum.TextYAlignment.Top
@@ -461,7 +461,7 @@ function Luma:CreateMainWindow(Name)
                         local TextBox = Instance.new("TextBox")
                         
                         InputFrame.Name = "Input"
-                        InputFrame.Size = UDim2.new(1, 0, 0, 60)
+                        InputFrame.Size = UDim2.new(1, 0, 0, 50) -- Reduced from 60 to 50
                         InputFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
                         InputFrame.BackgroundTransparency = 0
                         InputFrame.LayoutOrder = tabElementCount
@@ -477,24 +477,24 @@ function Luma:CreateMainWindow(Name)
                         InputStroke.Parent = InputFrame
                         
                         InputLabel.Name = "Label"
-                        InputLabel.Size = UDim2.new(1, -20, 0, 20)
-                        InputLabel.Position = UDim2.new(0, 10, 0, 5)
+                        InputLabel.Size = UDim2.new(1, -20, 0, 18) -- Reduced from 20 to 18
+                        InputLabel.Position = UDim2.new(0, 10, 0, 4) -- Adjusted position
                         InputLabel.BackgroundTransparency = 1
                         InputLabel.Text = InputSettings.Name or "Input"
                         InputLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        InputLabel.TextSize = 14
+                        InputLabel.TextSize = 13 -- Reduced from 14 to 13
                         InputLabel.Font = Enum.Font.Gotham
                         InputLabel.TextXAlignment = Enum.TextXAlignment.Left
                         InputLabel.Parent = InputFrame
                         
                         TextBox.Name = "TextBox"
-                        TextBox.Size = UDim2.new(1, -20, 0, 25)
-                        TextBox.Position = UDim2.new(0, 10, 0, 30)
+                        TextBox.Size = UDim2.new(1, -20, 0, 22) -- Reduced from 25 to 22
+                        TextBox.Position = UDim2.new(0, 10, 0, 24) -- Adjusted position
                         TextBox.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
                         TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
                         TextBox.PlaceholderText = InputSettings.PlaceholderText or "Enter text..."
                         TextBox.Text = InputSettings.CurrentValue or ""
-                        TextBox.TextSize = 12
+                        TextBox.TextSize = 11 -- Reduced from 12 to 11
                         TextBox.Font = Enum.Font.Gotham
                         TextBox.Parent = InputFrame
                         
@@ -552,7 +552,7 @@ function Luma:CreateMainWindow(Name)
                         local ValueLabel = Instance.new("TextLabel")
                         
                         SliderFrame.Name = "Slider"
-                        SliderFrame.Size = UDim2.new(1, 0, 0, 60)
+                        SliderFrame.Size = UDim2.new(1, 0, 0, 50) -- Reduced from 60 to 50
                         SliderFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
                         SliderFrame.BackgroundTransparency = 0
                         SliderFrame.LayoutOrder = tabElementCount
@@ -568,35 +568,35 @@ function Luma:CreateMainWindow(Name)
                         SliderStroke.Parent = SliderFrame
                         
                         SliderLabel.Name = "Label"
-                        SliderLabel.Size = UDim2.new(1, -20, 0, 20)
-                        SliderLabel.Position = UDim2.new(0, 10, 0, 5)
+                        SliderLabel.Size = UDim2.new(1, -20, 0, 18) -- Reduced from 20 to 18
+                        SliderLabel.Position = UDim2.new(0, 10, 0, 4) -- Adjusted position
                         SliderLabel.BackgroundTransparency = 1
                         SliderLabel.Text = SliderSettings.Name or "Slider"
                         SliderLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        SliderLabel.TextSize = 14
+                        SliderLabel.TextSize = 13 -- Reduced from 14 to 13
                         SliderLabel.Font = Enum.Font.Gotham
                         SliderLabel.TextXAlignment = Enum.TextXAlignment.Left
                         SliderLabel.Parent = SliderFrame
                         
                         ValueLabel.Name = "Value"
-                        ValueLabel.Size = UDim2.new(0, 60, 0, 20)
-                        ValueLabel.Position = UDim2.new(1, -70, 0, 5)
+                        ValueLabel.Size = UDim2.new(0, 50, 0, 18) -- Reduced from 60 to 50
+                        ValueLabel.Position = UDim2.new(1, -60, 0, 4) -- Adjusted position
                         ValueLabel.BackgroundTransparency = 1
                         ValueLabel.Text = tostring(SliderSettings.CurrentValue or SliderSettings.Min or 0) .. (SliderSettings.Suffix or "")
                         ValueLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
-                        ValueLabel.TextSize = 12
+                        ValueLabel.TextSize = 11 -- Reduced from 12 to 11
                         ValueLabel.Font = Enum.Font.Gotham
                         ValueLabel.TextXAlignment = Enum.TextXAlignment.Right
                         ValueLabel.Parent = SliderFrame
                         
                         SliderTrack.Name = "Track"
-                        SliderTrack.Size = UDim2.new(1, -20, 0, 15)
-                        SliderTrack.Position = UDim2.new(0, 10, 0, 35)
+                        SliderTrack.Size = UDim2.new(1, -20, 0, 12) -- Reduced from 15 to 12
+                        SliderTrack.Position = UDim2.new(0, 10, 0, 30) -- Adjusted position
                         SliderTrack.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
                         SliderTrack.Parent = SliderFrame
                         
                         local TrackCorner = Instance.new("UICorner")
-                        TrackCorner.CornerRadius = UDim.new(0, 7)
+                        TrackCorner.CornerRadius = UDim.new(0, 6) -- Reduced from 7 to 6
                         TrackCorner.Parent = SliderTrack
                         
                         SliderProgress.Name = "Progress"
@@ -605,7 +605,7 @@ function Luma:CreateMainWindow(Name)
                         SliderProgress.Parent = SliderTrack
                         
                         local ProgressCorner = Instance.new("UICorner")
-                        ProgressCorner.CornerRadius = UDim.new(0, 7)
+                        ProgressCorner.CornerRadius = UDim.new(0, 6) -- Reduced from 7 to 6
                         ProgressCorner.Parent = SliderProgress
                         
                         SliderButton.Name = "SliderButton"
@@ -684,7 +684,7 @@ function Luma:CreateMainWindow(Name)
                         local DropdownListLayout = Instance.new("UIListLayout")
                         
                         DropdownFrame.Name = "Dropdown"
-                        DropdownFrame.Size = UDim2.new(1, 0, 0, 40)
+                        DropdownFrame.Size = UDim2.new(1, 0, 0, 35) -- Reduced from 40 to 35
                         DropdownFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
                         DropdownFrame.BackgroundTransparency = 0
                         DropdownFrame.LayoutOrder = tabElementCount
@@ -700,23 +700,23 @@ function Luma:CreateMainWindow(Name)
                         DropdownStroke.Parent = DropdownFrame
                         
                         DropdownLabel.Name = "Label"
-                        DropdownLabel.Size = UDim2.new(1, -20, 0, 20)
-                        DropdownLabel.Position = UDim2.new(0, 10, 0, 5)
+                        DropdownLabel.Size = UDim2.new(1, -20, 0, 16) -- Reduced from 20 to 16
+                        DropdownLabel.Position = UDim2.new(0, 10, 0, 4) -- Adjusted position
                         DropdownLabel.BackgroundTransparency = 1
                         DropdownLabel.Text = DropdownSettings.Name or "Dropdown"
                         DropdownLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        DropdownLabel.TextSize = 14
+                        DropdownLabel.TextSize = 13 -- Reduced from 14 to 13
                         DropdownLabel.Font = Enum.Font.Gotham
                         DropdownLabel.TextXAlignment = Enum.TextXAlignment.Left
                         DropdownLabel.Parent = DropdownFrame
                         
                         DropdownButton.Name = "DropdownButton"
-                        DropdownButton.Size = UDim2.new(1, -20, 0, 25)
-                        DropdownButton.Position = UDim2.new(0, 10, 0, 25)
+                        DropdownButton.Size = UDim2.new(1, -20, 0, 22) -- Reduced from 25 to 22
+                        DropdownButton.Position = UDim2.new(0, 10, 0, 20) -- Adjusted position
                         DropdownButton.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
                         DropdownButton.TextColor3 = Color3.fromRGB(255, 255, 255)
                         DropdownButton.Text = DropdownSettings.CurrentOption or "Select..."
-                        DropdownButton.TextSize = 12
+                        DropdownButton.TextSize = 11 -- Reduced from 12 to 11
                         DropdownButton.Font = Enum.Font.Gotham
                         DropdownButton.Parent = DropdownFrame
                         
@@ -731,7 +731,7 @@ function Luma:CreateMainWindow(Name)
                         
                         DropdownList.Name = "DropdownList"
                         DropdownList.Size = UDim2.new(1, -20, 0, 0)
-                        DropdownList.Position = UDim2.new(0, 10, 0, 55)
+                        DropdownList.Position = UDim2.new(0, 10, 0, 47) -- Adjusted position
                         DropdownList.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
                         DropdownList.BorderSizePixel = 0
                         DropdownList.ScrollBarThickness = 4
@@ -752,17 +752,17 @@ function Luma:CreateMainWindow(Name)
                             if isOpen then
                                 DropdownList.Visible = true
                                 TweenService:Create(DropdownList, TweenInfo.new(0.2), {
-                                    Size = UDim2.new(1, -20, 0, math.min(#DropdownSettings.Options * 25, 125))
+                                    Size = UDim2.new(1, -20, 0, math.min(#DropdownSettings.Options * 22, 110)) -- Reduced height
                                 }):Play()
                                 TweenService:Create(DropdownFrame, TweenInfo.new(0.2), {
-                                    Size = UDim2.new(1, 0, 0, 55 + math.min(#DropdownSettings.Options * 25, 125))
+                                    Size = UDim2.new(1, 0, 0, 47 + math.min(#DropdownSettings.Options * 22, 110)) -- Adjusted height
                                 }):Play()
                             else
                                 TweenService:Create(DropdownList, TweenInfo.new(0.2), {
                                     Size = UDim2.new(1, -20, 0, 0)
                                 }):Play()
                                 TweenService:Create(DropdownFrame, TweenInfo.new(0.2), {
-                                    Size = UDim2.new(1, 0, 0, 40)
+                                    Size = UDim2.new(1, 0, 0, 35)
                                 }):Play()
                                 wait(0.2)
                                 DropdownList.Visible = false
@@ -774,11 +774,11 @@ function Luma:CreateMainWindow(Name)
                         for i, option in ipairs(DropdownSettings.Options) do
                             local OptionButton = Instance.new("TextButton")
                             OptionButton.Name = option
-                            OptionButton.Size = UDim2.new(1, 0, 0, 23)
+                            OptionButton.Size = UDim2.new(1, 0, 0, 20) -- Reduced from 23 to 20
                             OptionButton.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
                             OptionButton.TextColor3 = Color3.fromRGB(255, 255, 255)
                             OptionButton.Text = option
-                            OptionButton.TextSize = 12
+                            OptionButton.TextSize = 11 -- Reduced from 12 to 11
                             OptionButton.Font = Enum.Font.Gotham
                             OptionButton.Parent = DropdownList
                             
@@ -834,11 +834,11 @@ function Luma:CreateMainWindow(Name)
                         tabElementCount = tabElementCount + 1
                         local Button = Instance.new("TextButton")
                         Button.Name = Text .. "Button"
-                        Button.Size = UDim2.new(1, 0, 0, 35)
+                        Button.Size = UDim2.new(1, 0, 0, 30) -- Reduced from 35 to 30
                         Button.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
                         Button.Text = Text
                         Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        Button.TextSize = 14
+                        Button.TextSize = 13 -- Reduced from 14 to 13
                         Button.Font = Enum.Font.GothamSemibold
                         Button.LayoutOrder = tabElementCount
                         Button.Parent = TabContent
@@ -886,7 +886,7 @@ function Luma:CreateMainWindow(Name)
                         local ToggleState = Instance.new("Frame")
                         
                         ToggleFrame.Name = Text .. "Toggle"
-                        ToggleFrame.Size = UDim2.new(1, 0, 0, 30)
+                        ToggleFrame.Size = UDim2.new(1, 0, 0, 25) -- Reduced from 30 to 25
                         ToggleFrame.BackgroundTransparency = 1
                         ToggleFrame.LayoutOrder = tabElementCount
                         ToggleFrame.Parent = TabContent
@@ -897,20 +897,20 @@ function Luma:CreateMainWindow(Name)
                         ToggleLabel.BackgroundTransparency = 1
                         ToggleLabel.Text = Text
                         ToggleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        ToggleLabel.TextSize = 14
+                        ToggleLabel.TextSize = 13 -- Reduced from 14 to 13
                         ToggleLabel.Font = Enum.Font.Gotham
                         ToggleLabel.TextXAlignment = Enum.TextXAlignment.Left
                         ToggleLabel.Parent = ToggleFrame
                         
                         ToggleButton.Name = "Toggle"
-                        ToggleButton.Size = UDim2.new(0, 45, 0, 22)
-                        ToggleButton.Position = UDim2.new(1, -45, 0.5, -11)
+                        ToggleButton.Size = UDim2.new(0, 40, 0, 20) -- Reduced from 45,22 to 40,20
+                        ToggleButton.Position = UDim2.new(1, -40, 0.5, -10) -- Adjusted position
                         ToggleButton.BackgroundColor3 = Color3.fromRGB(80, 80, 90)
                         ToggleButton.Text = ""
                         ToggleButton.Parent = ToggleFrame
                         
                         local ToggleCorner = Instance.new("UICorner")
-                        ToggleCorner.CornerRadius = UDim.new(0, 11)
+                        ToggleCorner.CornerRadius = UDim.new(0, 10) -- Reduced from 11 to 10
                         ToggleCorner.Parent = ToggleButton
                         
                         local ToggleStroke = Instance.new("UIStroke")
@@ -919,13 +919,13 @@ function Luma:CreateMainWindow(Name)
                         ToggleStroke.Parent = ToggleButton
                         
                         ToggleState.Name = "State"
-                        ToggleState.Size = UDim2.new(0, 18, 0, 18)
-                        ToggleState.Position = UDim2.new(0, 2, 0.5, -9)
+                        ToggleState.Size = UDim2.new(0, 16, 0, 16) -- Reduced from 18,18 to 16,16
+                        ToggleState.Position = UDim2.new(0, 2, 0.5, -8) -- Adjusted position
                         ToggleState.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                         ToggleState.Parent = ToggleButton
                         
                         local StateCorner = Instance.new("UICorner")
-                        StateCorner.CornerRadius = UDim.new(0, 9)
+                        StateCorner.CornerRadius = UDim.new(0, 8) -- Reduced from 9 to 8
                         StateCorner.Parent = ToggleState
                         
                         local StateStroke = Instance.new("UIStroke")
@@ -941,14 +941,14 @@ function Luma:CreateMainWindow(Name)
                                     BackgroundColor3 = Color3.fromRGB(0, 170, 255)
                                 }):Play()
                                 TweenService:Create(ToggleState, TweenInfo.new(0.2), {
-                                    Position = UDim2.new(1, -20, 0.5, -9)
+                                    Position = UDim2.new(1, -18, 0.5, -8) -- Adjusted position
                                 }):Play()
                             else
                                 TweenService:Create(ToggleButton, TweenInfo.new(0.2), {
                                     BackgroundColor3 = Color3.fromRGB(80, 80, 90)
                                 }):Play()
                                 TweenService:Create(ToggleState, TweenInfo.new(0.2), {
-                                    Position = UDim2.new(0, 2, 0.5, -9)
+                                    Position = UDim2.new(0, 2, 0.5, -8) -- Adjusted position
                                 }):Play()
                             end
                             Callback(IsToggled)
@@ -983,11 +983,11 @@ function Luma:CreateMainWindow(Name)
                         tabElementCount = tabElementCount + 1
                         local Label = Instance.new("TextLabel")
                         Label.Name = Text .. "Label"
-                        Label.Size = UDim2.new(1, 0, 0, 25)
+                        Label.Size = UDim2.new(1, 0, 0, 22) -- Reduced from 25 to 22
                         Label.BackgroundTransparency = 1
                         Label.Text = Text
                         Label.TextColor3 = Color3.fromRGB(200, 200, 200)
-                        Label.TextSize = 14
+                        Label.TextSize = 13 -- Reduced from 14 to 13
                         Label.Font = Enum.Font.Gotham
                         Label.TextXAlignment = Enum.TextXAlignment.Left
                         Label.LayoutOrder = tabElementCount
