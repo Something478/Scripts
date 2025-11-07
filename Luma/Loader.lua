@@ -1,9 +1,11 @@
 getgenv().Luma = {}
-
 Luma.Title = "Untitled Hub - Luma Library"
 
 function Luma:CreateMainWindow(Name)
     local success, result = pcall(function()
+        local TweenService = game:GetService("TweenService")
+        local UserInputService = game:GetService("UserInputService")
+        
         local ScreenGui = Instance.new("ScreenGui")
         local ShowButton = Instance.new("TextButton")
         local MainFrame = Instance.new("Frame")
@@ -89,17 +91,31 @@ function Luma:CreateMainWindow(Name)
         CloseCorner.CornerRadius = UDim.new(0, 5)
         CloseCorner.Parent = CloseButton
         
+        local closeTweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        
         CloseButton.MouseButton1Click:Connect(function()
+            local tween = TweenService:Create(MainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
+                Size = UDim2.new(0, 0, 0, 0),
+                Position = UDim2.new(0.5, 0, 0.5, 0)
+            })
+            tween:Play()
+            tween.Completed:Wait()
             MainFrame.Visible = false
+            MainFrame.Size = UDim2.new(0, 500, 0, 400)
+            MainFrame.Position = UDim2.new(0.5, -250, 0.5, -200)
             ShowButton.Visible = true
         end)
         
         CloseButton.MouseEnter:Connect(function()
-            CloseButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+            TweenService:Create(CloseButton, closeTweenInfo, {
+                BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+            }):Play()
         end)
         
         CloseButton.MouseLeave:Connect(function()
-            CloseButton.BackgroundColor3 = Color3.fromRGB(255, 80, 80)
+            TweenService:Create(CloseButton, closeTweenInfo, {
+                BackgroundColor3 = Color3.fromRGB(255, 80, 80)
+            }):Play()
         end)
         
         MinimizeButton.Name = "MinimizeButton"
@@ -120,20 +136,28 @@ function Luma:CreateMainWindow(Name)
         MinimizeButton.MouseButton1Click:Connect(function()
             IsMinimized = not IsMinimized
             if IsMinimized then
-                MainFrame.Size = UDim2.new(0, 500, 0, 35)
+                TweenService:Create(MainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                    Size = UDim2.new(0, 500, 0, 35)
+                }):Play()
                 MinimizeButton.Text = "+"
             else
-                MainFrame.Size = UDim2.new(0, 500, 0, 400)
+                TweenService:Create(MainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                    Size = UDim2.new(0, 500, 0, 400)
+                }):Play()
                 MinimizeButton.Text = "-"
             end
         end)
         
         MinimizeButton.MouseEnter:Connect(function()
-            MinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 200, 80)
+            TweenService:Create(MinimizeButton, closeTweenInfo, {
+                BackgroundColor3 = Color3.fromRGB(255, 200, 80)
+            }):Play()
         end)
         
         MinimizeButton.MouseLeave:Connect(function()
-            MinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 180, 60)
+            TweenService:Create(MinimizeButton, closeTweenInfo, {
+                BackgroundColor3 = Color3.fromRGB(255, 180, 60)
+            }):Play()
         end)
         
         TabButtonsFrame.Name = "TabButtons"
@@ -178,8 +202,16 @@ function Luma:CreateMainWindow(Name)
         ContentList.Parent = ContentScrolling
         
         ShowButton.MouseButton1Click:Connect(function()
-            MainFrame.Visible = true
             ShowButton.Visible = false
+            MainFrame.Visible = true
+            MainFrame.Size = UDim2.new(0, 0, 0, 0)
+            MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+            
+            local tween = TweenService:Create(MainFrame, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+                Size = UDim2.new(0, 500, 0, 400),
+                Position = UDim2.new(0.5, -250, 0.5, -200)
+            })
+            tween:Play()
         end)
         
         local Dragging = false
@@ -190,7 +222,6 @@ function Luma:CreateMainWindow(Name)
                 Dragging = true
                 DragStart = input.Position
                 StartPos = MainFrame.Position
-                
                 input.Changed:Connect(function()
                     if input.UserInputState == Enum.UserInputState.End then
                         Dragging = false
@@ -205,7 +236,7 @@ function Luma:CreateMainWindow(Name)
             end
         end)
         
-        game:GetService("UserInputService").InputChanged:Connect(function(input)
+        UserInputService.InputChanged:Connect(function(input)
             if input == DragInput and Dragging then
                 local Delta = input.Position - DragStart
                 MainFrame.Position = UDim2.new(StartPos.X.Scale, StartPos.X.Offset + Delta.X, StartPos.Y.Scale, StartPos.Y.Offset + Delta.Y)
@@ -255,24 +286,28 @@ function Luma:CreateMainWindow(Name)
                 end)
                 
                 if #TabButtonsFrame:GetChildren() == 3 then
-                    TabButton.BackgroundColor3 = Color3.fromRGB(65, 65, 75)
+                    TweenService:Create(TabButton, TweenInfo.new(0.2), {
+                        BackgroundColor3 = Color3.fromRGB(65, 65, 75)
+                    }):Play()
                     TabContent.Visible = true
                 end
                 
                 TabButton.MouseButton1Click:Connect(function()
                     for _, child in pairs(TabButtonsFrame:GetChildren()) do
                         if child:IsA("TextButton") then
-                            child.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+                            TweenService:Create(child, TweenInfo.new(0.2), {
+                                BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+                            }):Play()
                         end
                     end
-                    
                     for _, child in pairs(ContentScrolling:GetChildren()) do
                         if child:IsA("Frame") then
                             child.Visible = false
                         end
                     end
-                    
-                    TabButton.BackgroundColor3 = Color3.fromRGB(65, 65, 75)
+                    TweenService:Create(TabButton, TweenInfo.new(0.2), {
+                        BackgroundColor3 = Color3.fromRGB(65, 65, 75)
+                    }):Play()
                     TabContent.Visible = true
                 end)
                 
@@ -282,7 +317,6 @@ function Luma:CreateMainWindow(Name)
                 function TabElements:CreateSection(SectionName)
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local SectionFrame = Instance.new("Frame")
                         local SectionLabel = Instance.new("TextLabel")
                         
@@ -314,28 +348,22 @@ function Luma:CreateMainWindow(Name)
                         SectionLabel.Parent = SectionFrame
                         
                         local section = {}
-                        
                         function section:Set(NewName)
                             SectionLabel.Text = NewName
                         end
-                        
                         return section
                     end)
-                    
                     if not success then
                         warn("Section creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 function TabElements:CreateDivider()
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local DividerFrame = Instance.new("Frame")
-                        
                         DividerFrame.Name = "Divider"
                         DividerFrame.Size = UDim2.new(1, 0, 0, 1)
                         DividerFrame.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
@@ -348,26 +376,21 @@ function Luma:CreateMainWindow(Name)
                         DividerCorner.Parent = DividerFrame
                         
                         local divider = {}
-                        
                         function divider:Set(Visible)
                             DividerFrame.Visible = Visible
                         end
-                        
                         return divider
                     end)
-                    
                     if not success then
                         warn("Divider creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 function TabElements:CreateParagraph(ParagraphSettings)
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local ParagraphFrame = Instance.new("Frame")
                         local TitleLabel = Instance.new("TextLabel")
                         local ContentLabel = Instance.new("TextLabel")
@@ -413,7 +436,6 @@ function Luma:CreateMainWindow(Name)
                         ContentLabel.Parent = ParagraphFrame
                         
                         local paragraph = {}
-                        
                         function paragraph:Set(NewSettings)
                             if NewSettings.Title then
                                 TitleLabel.Text = NewSettings.Title
@@ -422,22 +444,18 @@ function Luma:CreateMainWindow(Name)
                                 ContentLabel.Text = NewSettings.Content
                             end
                         end
-                        
                         return paragraph
                     end)
-                    
                     if not success then
                         warn("Paragraph creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 function TabElements:CreateInput(InputSettings)
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local InputFrame = Instance.new("Frame")
                         local InputLabel = Instance.new("TextLabel")
                         local TextBox = Instance.new("TextBox")
@@ -489,7 +507,16 @@ function Luma:CreateMainWindow(Name)
                         TextBoxStroke.Thickness = 1
                         TextBoxStroke.Parent = TextBox
                         
+                        TextBox.Focused:Connect(function()
+                            TweenService:Create(TextBox, TweenInfo.new(0.2), {
+                                BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+                            }):Play()
+                        end)
+                        
                         TextBox.FocusLost:Connect(function()
+                            TweenService:Create(TextBox, TweenInfo.new(0.2), {
+                                BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+                            }):Play()
                             if InputSettings.Callback then
                                 InputSettings.Callback(TextBox.Text)
                             end
@@ -499,29 +526,24 @@ function Luma:CreateMainWindow(Name)
                         end)
                         
                         local input = {}
-                        
                         function input:Set(Value)
                             TextBox.Text = Value
                             if InputSettings.Callback then
                                 InputSettings.Callback(Value)
                             end
                         end
-                        
                         return input
                     end)
-                    
                     if not success then
                         warn("Input creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 function TabElements:CreateSlider(SliderSettings)
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local SliderFrame = Instance.new("Frame")
                         local SliderLabel = Instance.new("TextLabel")
                         local SliderTrack = Instance.new("Frame")
@@ -601,9 +623,10 @@ function Luma:CreateMainWindow(Name)
                         local function updateSlider(value)
                             currentValue = math.clamp(value, min, max)
                             local percentage = (currentValue - min) / range
-                            SliderProgress.Size = UDim2.new(percentage, 0, 1, 0)
+                            TweenService:Create(SliderProgress, TweenInfo.new(0.1), {
+                                Size = UDim2.new(percentage, 0, 1, 0)
+                            }):Play()
                             ValueLabel.Text = tostring(currentValue) .. (SliderSettings.Suffix or "")
-                            
                             if SliderSettings.Callback then
                                 SliderSettings.Callback(currentValue)
                             end
@@ -612,57 +635,48 @@ function Luma:CreateMainWindow(Name)
                         updateSlider(currentValue)
                         
                         local dragging = false
-                        
                         SliderButton.MouseButton1Down:Connect(function()
                             dragging = true
                         end)
                         
-                        game:GetService("UserInputService").InputEnded:Connect(function(input)
+                        UserInputService.InputEnded:Connect(function(input)
                             if input.UserInputType == Enum.UserInputType.MouseButton1 then
                                 dragging = false
                             end
                         end)
                         
-                        game:GetService("UserInputService").InputChanged:Connect(function(input)
+                        UserInputService.InputChanged:Connect(function(input)
                             if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
                                 local mousePos = game:GetService("Players").LocalPlayer:GetMouse()
                                 local trackAbsPos = SliderTrack.AbsolutePosition
                                 local trackAbsSize = SliderTrack.AbsoluteSize
-                                
                                 local relativeX = math.clamp(mousePos.X - trackAbsPos.X, 0, trackAbsSize.X)
                                 local percentage = relativeX / trackAbsSize.X
                                 local newValue = min + (percentage * range)
                                 newValue = math.floor(newValue / increment) * increment
-                                
                                 updateSlider(newValue)
                             end
                         end)
                         
                         local slider = {}
-                        
                         function slider:Set(Value)
                             updateSlider(Value)
                         end
-                        
                         function slider:Get()
                             return currentValue
                         end
-                        
                         return slider
                     end)
-                    
                     if not success then
                         warn("Slider creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 function TabElements:CreateDropdown(DropdownSettings)
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local DropdownFrame = Instance.new("Frame")
                         local DropdownLabel = Instance.new("TextLabel")
                         local DropdownButton = Instance.new("TextButton")
@@ -733,17 +747,25 @@ function Luma:CreateMainWindow(Name)
                         DropdownListLayout.Parent = DropdownList
                         
                         local isOpen = false
-                        
                         local function toggleDropdown()
                             isOpen = not isOpen
                             if isOpen then
                                 DropdownList.Visible = true
-                                DropdownList.Size = UDim2.new(1, -20, 0, math.min(#DropdownSettings.Options * 25, 125))
-                                DropdownFrame.Size = UDim2.new(1, 0, 0, 55 + math.min(#DropdownSettings.Options * 25, 125))
+                                TweenService:Create(DropdownList, TweenInfo.new(0.2), {
+                                    Size = UDim2.new(1, -20, 0, math.min(#DropdownSettings.Options * 25, 125))
+                                }):Play()
+                                TweenService:Create(DropdownFrame, TweenInfo.new(0.2), {
+                                    Size = UDim2.new(1, 0, 0, 55 + math.min(#DropdownSettings.Options * 25, 125))
+                                }):Play()
                             else
+                                TweenService:Create(DropdownList, TweenInfo.new(0.2), {
+                                    Size = UDim2.new(1, -20, 0, 0)
+                                }):Play()
+                                TweenService:Create(DropdownFrame, TweenInfo.new(0.2), {
+                                    Size = UDim2.new(1, 0, 0, 40)
+                                }):Play()
+                                wait(0.2)
                                 DropdownList.Visible = false
-                                DropdownList.Size = UDim2.new(1, -20, 0, 0)
-                                DropdownFrame.Size = UDim2.new(1, 0, 0, 40)
                             end
                         end
                         
@@ -772,6 +794,18 @@ function Luma:CreateMainWindow(Name)
                                 end
                                 toggleDropdown()
                             end)
+                            
+                            OptionButton.MouseEnter:Connect(function()
+                                TweenService:Create(OptionButton, TweenInfo.new(0.1), {
+                                    BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+                                }):Play()
+                            end)
+                            
+                            OptionButton.MouseLeave:Connect(function()
+                                TweenService:Create(OptionButton, TweenInfo.new(0.1), {
+                                    BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+                                }):Play()
+                            end)
                         end
                         
                         DropdownListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
@@ -779,7 +813,6 @@ function Luma:CreateMainWindow(Name)
                         end)
                         
                         local dropdown = {}
-                        
                         function dropdown:Set(Option)
                             DropdownButton.Text = Option
                             DropdownSettings.CurrentOption = Option
@@ -787,24 +820,19 @@ function Luma:CreateMainWindow(Name)
                                 DropdownSettings.Callback(Option)
                             end
                         end
-                        
                         return dropdown
                     end)
-                    
                     if not success then
                         warn("Dropdown creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 function TabElements:CreateButton(Text, Callback)
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local Button = Instance.new("TextButton")
-                        
                         Button.Name = Text .. "Button"
                         Button.Size = UDim2.new(1, 0, 0, 35)
                         Button.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
@@ -829,28 +857,29 @@ function Luma:CreateMainWindow(Name)
                         end)
                         
                         Button.MouseEnter:Connect(function()
-                            Button.BackgroundColor3 = Color3.fromRGB(70, 70, 80)
+                            TweenService:Create(Button, TweenInfo.new(0.1), {
+                                BackgroundColor3 = Color3.fromRGB(70, 70, 80)
+                            }):Play()
                         end)
                         
                         Button.MouseLeave:Connect(function()
-                            Button.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+                            TweenService:Create(Button, TweenInfo.new(0.1), {
+                                BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+                            }):Play()
                         end)
                         
                         return Button
                     end)
-                    
                     if not success then
                         warn("Button creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 function TabElements:CreateToggle(Text, Callback)
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local ToggleFrame = Instance.new("Frame")
                         local ToggleButton = Instance.new("TextButton")
                         local ToggleLabel = Instance.new("TextLabel")
@@ -908,11 +937,19 @@ function Luma:CreateMainWindow(Name)
                         
                         local function UpdateToggle()
                             if IsToggled then
-                                ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
-                                ToggleState.Position = UDim2.new(1, -20, 0.5, -9)
+                                TweenService:Create(ToggleButton, TweenInfo.new(0.2), {
+                                    BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+                                }):Play()
+                                TweenService:Create(ToggleState, TweenInfo.new(0.2), {
+                                    Position = UDim2.new(1, -20, 0.5, -9)
+                                }):Play()
                             else
-                                ToggleButton.BackgroundColor3 = Color3.fromRGB(80, 80, 90)
-                                ToggleState.Position = UDim2.new(0, 2, 0.5, -9)
+                                TweenService:Create(ToggleButton, TweenInfo.new(0.2), {
+                                    BackgroundColor3 = Color3.fromRGB(80, 80, 90)
+                                }):Play()
+                                TweenService:Create(ToggleState, TweenInfo.new(0.2), {
+                                    Position = UDim2.new(0, 2, 0.5, -9)
+                                }):Play()
                             end
                             Callback(IsToggled)
                         end
@@ -934,21 +971,17 @@ function Luma:CreateMainWindow(Name)
                             end
                         }
                     end)
-                    
                     if not success then
                         warn("Toggle creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 function TabElements:CreateLabel(Text)
                     local success, result = pcall(function()
                         tabElementCount = tabElementCount + 1
-                        
                         local Label = Instance.new("TextLabel")
-                        
                         Label.Name = Text .. "Label"
                         Label.Size = UDim2.new(1, 0, 0, 25)
                         Label.BackgroundTransparency = 1
@@ -959,37 +992,30 @@ function Luma:CreateMainWindow(Name)
                         Label.TextXAlignment = Enum.TextXAlignment.Left
                         Label.LayoutOrder = tabElementCount
                         Label.Parent = TabContent
-                        
                         return Label
                     end)
-                    
                     if not success then
                         warn("Label creation failed:", result)
                         return nil
                     end
-                    
                     return result
                 end
                 
                 return TabElements
             end)
-            
             if not success then
                 warn("Tab creation failed:", result)
                 return nil
             end
-            
             return result
         end
         
         return Tabs
     end)
-    
     if not success then
         warn("Main window creation failed:", result)
         return nil
     end
-    
     return result
 end
 
