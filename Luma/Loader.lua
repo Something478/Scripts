@@ -6,11 +6,12 @@ function Luma:CreateWindow(config)
     local CollectionService = game:GetService("CollectionService")
     local TweenService = game:GetService("TweenService")
     local Players = game:GetService("Players")
+    local UserInputService = game:GetService("UserInputService")
 
     local LumaGUI = Instance.new("ScreenGui")
     LumaGUI.Name = "Luma"
     LumaGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    LumaGUI.RobloxLocked = true
+    LumaGUI.ResetOnSpawn = false
     LumaGUI.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
 
     CollectionService:AddTag(LumaGUI, "main")
@@ -21,8 +22,8 @@ function Luma:CreateWindow(config)
     Tab.Active = true
     Tab.BorderSizePixel = 0
     Tab.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    Tab.Size = config.Size or UDim2.new(0, 650, 0, 400)
-    Tab.Position = config.Position or UDim2.new(0.5, -325, 0.5, -200)
+    Tab.Size = config.Size or UDim2.new(0, 650, 0, 200) -- Fixed height to 200px
+    Tab.Position = config.Position or UDim2.new(0.5, -325, 0.5, -100)
     Tab.BackgroundTransparency = 0
 
     local UICornerTab = Instance.new("UICorner")
@@ -118,6 +119,7 @@ function Luma:CreateWindow(config)
     ScrollingFrame.BackgroundTransparency = 1
     ScrollingFrame.ScrollBarThickness = 6
     ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(60, 60, 60)
+    ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y -- Auto resize
 
     local UIListLayout = Instance.new("UIListLayout")
     UIListLayout.Parent = ScrollingFrame
@@ -128,6 +130,7 @@ function Luma:CreateWindow(config)
     UIPadding.Parent = ScrollingFrame
     UIPadding.PaddingLeft = UDim.new(0, 8)
     UIPadding.PaddingTop = UDim.new(0, 8)
+    UIPadding.PaddingRight = UDim.new(0, 8)
 
     local UIDragDetector = Instance.new("TextButton")
     UIDragDetector.Name = "UIDragDetector"
@@ -156,9 +159,11 @@ function Luma:CreateWindow(config)
             local sectionAPI = {}
             
             function sectionAPI:CreateButton(config)
+                config = config or {}
                 local button = Instance.new("TextButton")
+                button.Name = "Button"
                 button.Text = config.Text or "Button"
-                button.Size = UDim2.new(1, -16, 0, 40)
+                button.Size = UDim2.new(1, 0, 0, 40)
                 button.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
                 button.TextColor3 = Color3.fromRGB(255, 255, 255)
                 button.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json")
@@ -183,12 +188,15 @@ function Luma:CreateWindow(config)
             end
             
             function sectionAPI:CreateToggle(config)
+                config = config or {}
                 local toggleFrame = Instance.new("Frame")
-                toggleFrame.Size = UDim2.new(1, -16, 0, 30)
+                toggleFrame.Name = "Toggle"
+                toggleFrame.Size = UDim2.new(1, 0, 0, 30)
                 toggleFrame.BackgroundTransparency = 1
                 toggleFrame.Parent = ScrollingFrame
                 
                 local label = Instance.new("TextLabel")
+                label.Name = "Label"
                 label.Text = config.Text or "Toggle"
                 label.Size = UDim2.new(0.7, 0, 1, 0)
                 label.BackgroundTransparency = 1
@@ -199,6 +207,7 @@ function Luma:CreateWindow(config)
                 label.Parent = toggleFrame
                 
                 local toggleButton = Instance.new("TextButton")
+                toggleButton.Name = "ToggleButton"
                 toggleButton.Size = UDim2.new(0, 40, 0, 20)
                 toggleButton.Position = UDim2.new(1, -40, 0.5, -10)
                 toggleButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
@@ -210,6 +219,7 @@ function Luma:CreateWindow(config)
                 corner.Parent = toggleButton
                 
                 local toggleCircle = Instance.new("Frame")
+                toggleCircle.Name = "ToggleCircle"
                 toggleCircle.Size = UDim2.new(0, 16, 0, 16)
                 toggleCircle.Position = UDim2.new(0, 2, 0, 2)
                 toggleCircle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -219,10 +229,9 @@ function Luma:CreateWindow(config)
                 circleCorner.CornerRadius = UDim.new(1, 0)
                 circleCorner.Parent = toggleCircle
                 
-                local isToggled = false
+                local isToggled = config.Default or false
                 
-                toggleButton.MouseButton1Click:Connect(function()
-                    isToggled = not isToggled
+                local function updateToggle()
                     if isToggled then
                         TweenService:Create(toggleCircle, tweenInfo, {Position = UDim2.new(0, 22, 0, 2)}):Play()
                         TweenService:Create(toggleButton, tweenInfo, {BackgroundColor3 = Color3.fromRGB(40, 167, 69)}):Play()
@@ -230,18 +239,35 @@ function Luma:CreateWindow(config)
                         TweenService:Create(toggleCircle, tweenInfo, {Position = UDim2.new(0, 2, 0, 2)}):Play()
                         TweenService:Create(toggleButton, tweenInfo, {BackgroundColor3 = Color3.fromRGB(70, 70, 70)}):Play()
                     end
+                end
+                
+                updateToggle()
+                
+                toggleButton.MouseButton1Click:Connect(function()
+                    isToggled = not isToggled
+                    updateToggle()
                     if config.Callback then
                         config.Callback(isToggled)
                     end
                 end)
                 
-                return toggleFrame
+                return {
+                    Set = function(self, value)
+                        isToggled = value
+                        updateToggle()
+                    end,
+                    Get = function(self)
+                        return isToggled
+                    end
+                }
             end
             
             function sectionAPI:CreateLabel(config)
+                config = config or {}
                 local label = Instance.new("TextLabel")
+                label.Name = "Label"
                 label.Text = config.Text or "Label"
-                label.Size = UDim2.new(1, -16, 0, 30)
+                label.Size = UDim2.new(1, 0, 0, 30)
                 label.BackgroundTransparency = 1
                 label.TextColor3 = Color3.fromRGB(200, 200, 200)
                 label.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json")
@@ -251,6 +277,44 @@ function Luma:CreateWindow(config)
                 
                 return label
             end
+
+            function sectionAPI:CreateParagraph(config)
+                config = config or {}
+                local paragraphFrame = Instance.new("Frame")
+                paragraphFrame.Name = "Paragraph"
+                paragraphFrame.Size = UDim2.new(1, 0, 0, 0)
+                paragraphFrame.BackgroundTransparency = 1
+                paragraphFrame.Parent = ScrollingFrame
+                paragraphFrame.AutomaticSize = Enum.AutomaticSize.Y
+                
+                local titleLabel = Instance.new("TextLabel")
+                titleLabel.Name = "Title"
+                titleLabel.Text = config.Title or "Title"
+                titleLabel.Size = UDim2.new(1, 0, 0, 20)
+                titleLabel.Position = UDim2.new(0, 0, 0, 0)
+                titleLabel.BackgroundTransparency = 1
+                titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                titleLabel.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold)
+                titleLabel.TextSize = 14
+                titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+                titleLabel.Parent = paragraphFrame
+                
+                local textLabel = Instance.new("TextLabel")
+                textLabel.Name = "Text"
+                textLabel.Text = config.Text or "Text content goes here..."
+                textLabel.Size = UDim2.new(1, 0, 0, 0)
+                textLabel.Position = UDim2.new(0, 0, 0, 25)
+                textLabel.BackgroundTransparency = 1
+                textLabel.TextColor3 = Color3.fromRGB(180, 180, 180)
+                textLabel.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json")
+                textLabel.TextSize = 12
+                textLabel.TextXAlignment = Enum.TextXAlignment.Left
+                textLabel.TextWrapped = true
+                textLabel.AutomaticSize = Enum.AutomaticSize.Y
+                textLabel.Parent = paragraphFrame
+                
+                return paragraphFrame
+            end
             
             return sectionAPI
         end
@@ -258,12 +322,9 @@ function Luma:CreateWindow(config)
         return tabAPI
     end
 
+    -- Button functionality
     CloseButton.MouseButton1Click:Connect(function()
-        local fadeOut = TweenService:Create(LumaGUI, tweenInfo, {Enabled = false})
-        fadeOut:Play()
-        fadeOut.Completed:Connect(function()
-            LumaGUI:Destroy()
-        end)
+        LumaGUI:Destroy()
     end)
 
     MinimizeButton.MouseButton1Click:Connect(function()
@@ -330,26 +391,38 @@ function Luma:CreateWindow(config)
         end
     end)
 
+    -- Improved drag functionality
     local dragInput, dragStart, startPos
-    UIDragDetector.MouseButton1Down:Connect(function(input)
-        dragStart = input.Position
-        startPos = Tab.Position
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragInput = nil
-            end
-        end)
+    local dragging = false
+
+    local function update(input)
+        local delta = input.Position - dragStart
+        Tab.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+
+    UIDragDetector.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = Tab.Position
+            
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
     end)
 
-    UIDragDetector.MouseButton1Up:Connect(function(input)
-        dragInput = nil
+    UIDragDetector.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
     end)
 
-    UIDragDetector.MouseMoved:Connect(function(input)
-        if not UIDragDetector.Enabled then return end
-        if dragInput and dragInput == input then
-            local delta = input.Position - dragStart
-            Tab.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            update(input)
         end
     end)
 
