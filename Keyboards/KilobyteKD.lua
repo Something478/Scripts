@@ -1,6 +1,6 @@
-local Players             = game:GetService("Players")
+local Players = game:GetService("Players")
 local VirtualInputManager = game:GetService("VirtualInputManager")
-local TweenService        = game:GetService("TweenService")
+local TweenService  = game:GetService("TweenService")
 
 local plr = Players.LocalPlayer
 local playerGui = plr:WaitForChild("PlayerGui")
@@ -51,10 +51,6 @@ closeBtn.Parent = mainFrame
 closeBtn.TextTransparency = 1
 closeBtn.BackgroundTransparency = 1
 
-local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0.3,0)
-corner.Parent = closeBtn
-
 TweenService:Create(mainFrame, TweenInfo.new(0.5), {BackgroundTransparency = 0}):Play()
 TweenService:Create(outline, TweenInfo.new(0.5), {Transparency = 0}):Play()
 TweenService:Create(title, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
@@ -87,10 +83,6 @@ for rowIndex, row in ipairs(keysLayout) do
         keyBtn.Parent = mainFrame
         keyBtn.TextTransparency = 1
         keyBtn.BackgroundTransparency = 1
-
-        local corner2 = Instance.new("UICorner")
-        corner2.CornerRadius = UDim.new(0.25, 0)
-        corner2.Parent = keyBtn
 
         local stroke = Instance.new("UIStroke")
         stroke.Color = Color3.fromRGB(120, 60, 255)
