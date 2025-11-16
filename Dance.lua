@@ -8,7 +8,11 @@ local plr = Players.LocalPlayer
 local playerGui = plr:WaitForChild("PlayerGui")
 
 pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Unnamed.lua"))()
+    local DevTools = loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Utility/Devtools.lua"))()
+    DevTools("GetTag")
+end)
+pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Unnamed.lua"))()
 end)
 
 local Wait = task.wait
