@@ -18,7 +18,7 @@ local function Chat(message)
 end
 
 pcall(function()
-    local DevTools = loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Developer%20tools.lua"))()
+    local DevTools = loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Utility/Devtools.lua"))()
     DevTools("GetTag")
 end)
 
