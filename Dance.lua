@@ -5,7 +5,7 @@ local StarterGui = game:GetService("StarterGui")
 local TextChatService = game:GetService("TextChatService")
 
 local plr = Players.LocalPlayer
-local playerGui = plr:WaitForChild("PlayerGui")
+local playerGui = plr:DelayForChild("PlayerGui")
 
 pcall(function()
     local DevTools = loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Utility/Devtools.lua"))()
@@ -15,7 +15,7 @@ pcall(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Unnamed.lua"))()
 end)
 
-local Wait = task.wait
+local Delay = task.Delay
 
 local function Chat(message)
     TextChatService.TextChannels.RBXGeneral:SendAsync(message)
@@ -202,7 +202,7 @@ local function closePopup()
     local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
     local tween = TweenService:Create(popup, tweenInfo, {Size = UDim2.new(0, 0, 0, 0)})
     tween:Play()
-    tween.Completed:Wait()
+    tween.Completed:Delay()
     if not uiState.enabled then
         popup.Visible = false
         minimizer.Text = "Enable"
@@ -218,7 +218,7 @@ end)
 reanimateBtn.MouseButton1Click:Connect(function()
     closePopup()
     Chat("-gh 6202063049,4602533885,4602533885,4602533885,4602533885,4602533885,4602533885,4602533885,4602533885,4602533885,4602533885,4602533885,4602533885,4602533885")
-    Wait(3)
+    Delay(3)
     local reps = "4602533885,"
     local repped = reps:rep(13)
     local base = "-gh 6202063049,"
@@ -229,8 +229,8 @@ reanimateBtn.MouseButton1Click:Connect(function()
     else
         print(done)
     end
-    repeat Wait() until plr.Character:FindFirstChild("Smile")
-    Wait(.8)
+    repeat Delay() until plr.Character:FindFirstChild("Smile")
+    Delay(.8)
 
     local char = plr.Character
     local cons = {}
@@ -240,7 +240,7 @@ reanimateBtn.MouseButton1Click:Connect(function()
     local heartbeat = rs.Heartbeat
     local oldpos = char.HumanoidRootPart.CFrame
     char.HumanoidRootPart.CFrame = oldpos + Vector3.new(0, 10000, 0)
-    Wait(.3)
+    Delay(.3)
 
     local reanimstorage = Instance.new("Folder", char)
     reanimstorage.Name = "ReanimStorage"
@@ -401,7 +401,7 @@ reanimateBtn.MouseButton1Click:Connect(function()
     plr.Character = reanim
     anim.Disabled = true
     anim.Disabled = false
-    Wait(.3)
+    Delay(.3)
     plr.Character.HumanoidRootPart.CFrame = oldpos + Vector3.new(0, 6, 0)
 
     for i, v in pairs(bighats) do
@@ -422,11 +422,11 @@ reanimateBtn.MouseButton1Click:Connect(function()
         end
         StarterGui:SetCore("ResetButtonCallback", true)
         reset:Destroy()
-        notify("Resetting", "Please wait " .. tostring(Players.RespawnTime) .. " seconds", Players.RespawnTime)
+        notify("Resetting", "Please Delay " .. tostring(Players.RespawnTime) .. " seconds", Players.RespawnTime)
     end))
     StarterGui:SetCore("ResetButtonCallback", reset)
 
-    Wait(5)
+    Delay(5)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/somethingsimade/KDV3-Fixed/refs/heads/main/KrystalDance3"))()
 end)
 
@@ -434,19 +434,19 @@ creditsBtn.MouseButton1Click:Connect(function()
     closePopup()
     print("------------------------------------------")
     print("Krystal Dance V3 - Made by NITRO-GT")
-    Wait(.1)
+    Delay(.1)
     print("Krystal Dance V3 - Fixed by MrY7zz")
-    Wait(.1)
+    Delay(.1)
     print("Krystal Dance V3 - Credits goes to them!!")
-    Wait(.1)
+    Delay(.1)
     print("------------------Changelog------------------")
-    Wait(.1)
+    Delay(.1)
     print("Renamed from Giant Krystal Dance to Giant Dance.")
-    Wait(.1)
+    Delay(.1)
     print("Love from StarFlow 💖")
-    Wait(.1)
+    Delay(.1)
     print("------------------------------------------")
-    Wait(.1)
+    Delay(.1)
     notify("Giant Dance", "Check Console!")
 end)
 
@@ -458,16 +458,16 @@ gui:GetPropertyChangedSignal("Enabled"):Connect(function()
     end
 end)
 
-Wait(1)
+Delay(1)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/DevTools/refs/heads/main/Keyboards"))()
 notify("Giant Dance", "Please, choose a keyboard,")
-Wait(.95)
+Delay(.95)
 notify("Giant Dance", "bc without one you")
-Wait(.95)
+Delay(.95)
 notify("Giant Dance", "won't be able to use this")
-Wait(.95)
+Delay(.95)
 notify("Giant Dance", "Supported games:")
-Wait(.95)
+Delay(.95)
 notify("Giant Dance", "Just a baseplate,")
-Wait(.95)
+Delay(.95)
 notify("Giant Dance", "Green Baseplate.")
