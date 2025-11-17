@@ -87,7 +87,6 @@ local function mkBtn(txt, sym)
     return btn
 end
 
--- CHANGED: Fixed icons to use ▶ for executor and 🔎 for search
 local execB = mkBtn("Executor", "▶")
 local srchB = mkBtn("Search", "🔎")
 
@@ -164,7 +163,7 @@ execB.MouseButton1Click:Connect(function()
     hl.RichText = true; hl.ZIndex = 2
 
     t.Name = "Text"; t.Parent = s; t.BackgroundTransparency = 1; t.BorderSizePixel = 0; t.Position = UDim2.new(0,46,0,0); t.Size = UDim2.new(1,-52,1,0)
-    t.ClearTextOnFocus = false; t.Font = Enum.Font.Code; t.MultiLine = true; t.PlaceholderText = "-- Script here"; t.PlaceholderColor3 = Color3.fromRGB(150,150,170)
+    t.ClearTextOnFocus = false; t.Font = Enum.Font.Code; t.MultiLine = true; t.PlaceholderText = "Script here..."; t.PlaceholderColor3 = Color3.fromRGB(150,150,170)
     t.Text = ""; t.TextColor3 = Color3.fromRGB(255,255,255); t.TextSize = 16; t.TextXAlignment = Enum.TextXAlignment.Left; t.TextYAlignment = Enum.TextYAlignment.Top
     t.TextWrapped = false; t.TextTransparency = 1; t.ZIndex = 4
 
@@ -544,7 +543,6 @@ srchB.MouseButton1Click:Connect(function()
     m.ClipsDescendants = true
     m.AnchorPoint = Vector2.new(0.5,0.5)
     m.Position = UDim2.fromScale(0.5,0.5)
-    -- CHANGED: Set Y size to 380
     m.Size = UDim2.new(fSX, 0, 0, 380)
     local c1 = Instance.new("UICorner")
     c1.CornerRadius = UDim.new(0, 12)
@@ -613,7 +611,7 @@ srchB.MouseButton1Click:Connect(function()
 
     local sr = Instance.new("Frame")
     sr.Size = UDim2.new(1, -32, 0, 64)
-    sr.Position = UDim2.new(0, 16, 0, 56)  -- Adjusted position
+    sr.Position = UDim2.new(0, 16, 0, 56)
     sr.BackgroundColor3 = Color3.fromRGB(26,27,39)
     sr.BorderSizePixel = 0
     sr.Parent = m
@@ -671,11 +669,10 @@ srchB.MouseButton1Click:Connect(function()
     local goc = Instance.new("UICorner")
     goc.CornerRadius = UDim.new(0, 10)
     goc.Parent = go
-
-    -- CHANGED: Adjusted results container for 380 height
+    
     local rc = Instance.new("Frame")
-    rc.Size = UDim2.new(1, -32, 0, 200)  -- Fixed height for 380 total
-    rc.Position = UDim2.new(0, 16, 0, 136)  -- Adjusted position
+    rc.Size = UDim2.new(1, -32, 0, 200)
+    rc.Position = UDim2.new(0, 16, 0, 136)  
     rc.BackgroundColor3 = Color3.fromRGB(26,27,39)
     rc.BorderSizePixel = 0
     rc.Parent = m
@@ -700,10 +697,9 @@ srchB.MouseButton1Click:Connect(function()
     sf.CanvasSize = UDim2.new(0, 0, 0, 0)
     sf.Parent = rc
 
-    -- CHANGED: Adjusted card size for new height
     local gLay = Instance.new("UIGridLayout")
     gLay.CellPadding = UDim2.new(0, 10, 0, 10)
-    gLay.CellSize = UDim2.new(mob and 1 or 0.48, -12, 0, mob and 180 or 180)  -- Adjusted height
+    gLay.CellSize = UDim2.new(mob and 1 or 0.48, -12, 0, mob and 180 or 180)  
     gLay.FillDirection = Enum.FillDirection.Horizontal
     gLay.SortOrder = Enum.SortOrder.LayoutOrder
     gLay.VerticalAlignment = Enum.VerticalAlignment.Top
@@ -716,14 +712,13 @@ srchB.MouseButton1Click:Connect(function()
     pad.PaddingBottom = UDim.new(0, 8)
     pad.Parent = sf
 
-    -- CHANGED: Made engine button smaller and repositioned
     local engb = Instance.new("TextButton")
-    engb.Size = UDim2.new(0, 160, 0, 28)  -- Smaller size
-    engb.Position = UDim2.new(0, 16, 1, -40)  -- Adjusted position
+    engb.Size = UDim2.new(0, 160, 0, 28)
+    engb.Position = UDim2.new(0, 16, 1, -40)  
     engb.BackgroundColor3 = Color3.fromRGB(32,34,48)
     engb.Text = "Engine: ScriptBlox"
     engb.TextColor3 = col.tx
-    engb.TextSize = 12  -- Smaller text
+    engb.TextSize = 12  
     engb.Font = Enum.Font.GothamSemibold
     engb.AutoButtonColor = false
     engb.Parent = m
@@ -982,7 +977,7 @@ srchB.MouseButton1Click:Connect(function()
         local cam = workspace.CurrentCamera; local vp = cam and cam.ViewportSize or Vector2.new(1280,720)
         local inset = S("GuiService"):GetGuiInset(); local ux = math.max(0, vp.X - inset.X*2); local uy = math.max(0, vp.Y - inset.Y*2)
         local w = math.clamp(ux * fSX, B_MIN.X, szC.MaxSize.X)
-        local h = 380  -- Fixed height
+        local h = 380  
         return math.floor(w), h
     end
     local function tbH() return tb.AbsoluteSize.Y + 2 end
@@ -997,8 +992,8 @@ srchB.MouseButton1Click:Connect(function()
             sr.Position = UDim2.new(0,16,0,sTop)
             sr.Size = UDim2.new(1,-32,0,64)
             rc.Position = UDim2.new(0,16,0,sTop + 64 + gap)
-            rc.Size = UDim2.new(1,-32,0,200)  -- Fixed height
-            engb.Position = UDim2.new(0,16,1,-40)  -- Adjusted position
+            rc.Size = UDim2.new(1,-32,0,200)  
+            engb.Position = UDim2.new(0,16,1,-40)
         end
         szCan()
     end
@@ -1101,7 +1096,6 @@ srchB.MouseButton1Click:Connect(function()
         c.MouseEnter:Connect(function() tw:Create(cs, TweenInfo.new(0.12), {Transparency = 0.15}):Play() end)
         c.MouseLeave:Connect(function() tw:Create(cs, TweenInfo.new(0.12), {Transparency = 0.35}):Play() end)
 
-        -- CHANGED: Adjusted cover image height for smaller cards
         local covH = 80
         local shCov = hasPlId
         local covImg
@@ -1254,11 +1248,11 @@ srchB.MouseButton1Click:Connect(function()
 
         local function mkB(txt, bg)
             local b = Instance.new("TextButton")
-            b.Size = UDim2.new(0, 80, 0, 28)  -- Smaller buttons
+            b.Size = UDim2.new(0, 80, 0, 28)  
             b.BackgroundColor3 = bg
             b.Text = txt
             b.TextColor3 = col.tx
-            b.TextSize = 12  -- Smaller text
+            b.TextSize = 12
             b.Font = Enum.Font.GothamSemibold
             b.AutoButtonColor = false
             b.Parent = row
