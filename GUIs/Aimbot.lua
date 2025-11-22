@@ -83,12 +83,13 @@ UI["About_a"]["Position"] = UDim2.new(0.00952, 0, 0.73684, 0);
 
 UI["UICorner_b"] = Instance.new("UICorner", UI["About_a"]);
 
-UI["Credits_UI_c"] = Instance.new("Frame", UI["Aimbot_UI_2"]);
+UI["Credits_UI_c"] = Instance.new("Frame", UI["ScreenGui_1"]);
 UI["Credits_UI_c"]["BorderSizePixel"] = 0;
 UI["Credits_UI_c"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
 UI["Credits_UI_c"]["Size"] = UDim2.new(0, 210, 0, 152);
-UI["Credits_UI_c"]["Position"] = UDim2.new(-1.02857, 0, 0, 0);
+UI["Credits_UI_c"]["Position"] = UDim2.new(0.73368, 0, -0.01698, 0);
 UI["Credits_UI_c"]["Name"] = [[Credits_UI]];
+UI["Credits_UI_c"]["Visible"] = false;
 
 UI["Hide_d"] = Instance.new("TextButton", UI["Credits_UI_c"]);
 UI["Hide_d"]["TextWrapped"] = true;
@@ -137,7 +138,7 @@ UI["Label2_11"]["Text"] = "YouTube: @StarFlow.0\nDiscord: St4rFl0w\nScriptblox: 
 UI["Label2_11"]["Name"] = [[Label2]];
 UI["Label2_11"]["Position"] = UDim2.new(0.02857, 0, 0.23684, 0);
 
-UI["Show_12"] = Instance.new("TextButton", UI["Aimbot_UI_2"]);
+UI["Show_12"] = Instance.new("TextButton", UI["ScreenGui_1"]);
 UI["Show_12"]["TextWrapped"] = true;
 UI["Show_12"]["BorderSizePixel"] = 0;
 UI["Show_12"]["TextSize"] = 20;
@@ -146,7 +147,9 @@ UI["Show_12"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
 UI["Show_12"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 UI["Show_12"]["Size"] = UDim2.new(0, 103, 0, 44);
 UI["Show_12"]["Text"] = [[Aimbot UI]];
-UI["Show_12"]["Position"] = UDim2.new(0.50476, 0, -0.30263, 0);
+UI["Show_12"]["Name"] = [[Show]];
+UI["Show_12"]["Position"] = UDim2.new(0.73368, 0, -0.01698, 0);
+UI["Show_12"]["Visible"] = false;
 
 UI["UICorner_13"] = Instance.new("UICorner", UI["Show_12"]);
 UI["UICorner_13"]["CornerRadius"] = UDim.new(0, 100);
@@ -192,6 +195,7 @@ end
 
 dragify(UI["Aimbot_UI_2"])
 dragify(UI["Credits_UI_c"])
+dragify(UI["Show_12"])
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -202,7 +206,6 @@ local aimbotEnabled = false
 local currentHighlight = nil
 local currentTarget = nil
 local connection = nil
-local uiHidden = false
 
 function findNearestPlayer()
     local nearestPlayer = nil
@@ -287,43 +290,23 @@ function aimbotLoop()
 end
 
 UI["Hide_3"].MouseButton1Click:Connect(function()
-    uiHidden = not uiHidden
-    if uiHidden then
-        UI["Hide_3"].Text = "+"
-        UI["Title_8"].Visible = false
-        UI["Target_9"].Visible = false
-        UI["Toggle_6"].Visible = false
-        UI["About_a"].Visible = false
-        UI["Hide_3"].Visible = false
-        UI["Show_12"].Visible = true
-    else
-        UI["Hide_3"].Text = "-"
-        UI["Title_8"].Visible = true
-        UI["Target_9"].Visible = true
-        UI["Toggle_6"].Visible = true
-        UI["About_a"].Visible = true
-        UI["Hide_3"].Visible = true
-        UI["Show_12"].Visible = false
-    end
+    UI["Aimbot_UI_2"].Visible = false
+    UI["Show_12"].Visible = true
 end)
 
 UI["Show_12"].MouseButton1Click:Connect(function()
-    uiHidden = false
-    UI["Hide_3"].Text = "-"
-    UI["Title_8"].Visible = true
-    UI["Target_9"].Visible = true
-    UI["Toggle_6"].Visible = true
-    UI["About_a"].Visible = true
-    UI["Hide_3"].Visible = true
+    UI["Aimbot_UI_2"].Visible = true
     UI["Show_12"].Visible = false
 end)
 
 UI["About_a"].MouseButton1Click:Connect(function()
-    UI["Credits_UI_c"].Position = UDim2.new(0, 0, 0, 0)
+    UI["Credits_UI_c"].Visible = true
+    UI["Aimbot_UI_2"].Visible = false
 end)
 
 UI["Hide_d"].MouseButton1Click:Connect(function()
-    UI["Credits_UI_c"].Position = UDim2.new(-1.02857, 0, 0, 0)
+    UI["Credits_UI_c"].Visible = false
+    UI["Aimbot_UI_2"].Visible = true
 end)
 
 UI["Toggle_6"].MouseButton1Click:Connect(function()
@@ -347,4 +330,4 @@ UI["Toggle_6"].MouseButton1Click:Connect(function()
     end
 end)
 
-return UI["ScreenGui_1"], require;
+return UI["ScreenGui_1"], require
