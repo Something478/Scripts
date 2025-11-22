@@ -6,84 +6,150 @@ UI["ScreenGui_1"]["ResetOnSpawn"] = false;
 
 UI["Aimbot_UI_2"] = Instance.new("Frame", UI["ScreenGui_1"]);
 UI["Aimbot_UI_2"]["BorderSizePixel"] = 0;
-UI["Aimbot_UI_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-UI["Aimbot_UI_2"]["Size"] = UDim2.new(0, 208, 0, 128);
-UI["Aimbot_UI_2"]["Position"] = UDim2.new(0.73368, 0, 0.01132, 0);
+UI["Aimbot_UI_2"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Aimbot_UI_2"]["Size"] = UDim2.new(0, 210, 0, 152);
+UI["Aimbot_UI_2"]["Position"] = UDim2.new(0.73368, 0, -0.01698, 0);
 UI["Aimbot_UI_2"]["Name"] = [[Aimbot_UI]];
 
-UI["Close_3"] = Instance.new("TextButton", UI["Aimbot_UI_2"]);
-UI["Close_3"]["TextWrapped"] = true;
-UI["Close_3"]["BorderSizePixel"] = 0;
-UI["Close_3"]["TextScaled"] = true;
-UI["Close_3"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
-UI["Close_3"]["BackgroundColor3"] = Color3.fromRGB(27, 27, 27);
-UI["Close_3"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["Close_3"]["Text"] = [[X]];
-UI["Close_3"]["Name"] = [[Close]];
-UI["Close_3"]["Position"] = UDim2.new(0.85577, 0, 0.01563, 0);
+UI["Hide_3"] = Instance.new("TextButton", UI["Aimbot_UI_2"]);
+UI["Hide_3"]["TextWrapped"] = true;
+UI["Hide_3"]["BorderSizePixel"] = 0;
+UI["Hide_3"]["TextSize"] = 24;
+UI["Hide_3"]["TextScaled"] = true;
+UI["Hide_3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["Hide_3"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
+UI["Hide_3"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Hide_3"]["Size"] = UDim2.new(0, 30, 0, 30);
+UI["Hide_3"]["Text"] = [[-]];
+UI["Hide_3"]["Name"] = [[Hide]];
+UI["Hide_3"]["Position"] = UDim2.new(0.84762, 0, 0.01316, 0);
 
-UI["UICorner_4"] = Instance.new("UICorner", UI["Close_3"]);
-UI["UICorner_4"]["CornerRadius"] = UDim.new(0, 4);
+UI["UICorner_4"] = Instance.new("UICorner", UI["Hide_3"]);
 
 UI["UICorner_5"] = Instance.new("UICorner", UI["Aimbot_UI_2"]);
-UI["UICorner_5"]["CornerRadius"] = UDim.new(0, 4);
 
-UI["Title_6"] = Instance.new("TextLabel", UI["Aimbot_UI_2"]);
-UI["Title_6"]["TextWrapped"] = true;
-UI["Title_6"]["BorderSizePixel"] = 0;
-UI["Title_6"]["TextSize"] = 14;
-UI["Title_6"]["TextScaled"] = true;
-UI["Title_6"]["BackgroundColor3"] = Color3.fromRGB(27, 27, 27);
-UI["Title_6"]["TextColor3"] = Color3.fromRGB(130, 0, 255);
-UI["Title_6"]["Size"] = UDim2.new(0, 172, 0, 30);
-UI["Title_6"]["Text"] = [[Universal Aimbot]];
-UI["Title_6"]["Name"] = [[Title]];
-UI["Title_6"]["Position"] = UDim2.new(0.00962, 0, 0.01563, 0);
+UI["Toggle_6"] = Instance.new("TextButton", UI["Aimbot_UI_2"]);
+UI["Toggle_6"]["TextWrapped"] = true;
+UI["Toggle_6"]["BorderSizePixel"] = 0;
+UI["Toggle_6"]["TextSize"] = 24;
+UI["Toggle_6"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["Toggle_6"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
+UI["Toggle_6"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Toggle_6"]["Size"] = UDim2.new(0, 206, 0, 38);
+UI["Toggle_6"]["Text"] = [[Enable Aimbot]];
+UI["Toggle_6"]["Name"] = [[Toggle]];
+UI["Toggle_6"]["Position"] = UDim2.new(0.00952, 0, 0.22368, 0);
 
-UI["UICorner_7"] = Instance.new("UICorner", UI["Title_6"]);
-UI["UICorner_7"]["CornerRadius"] = UDim.new(0, 4);
+UI["UICorner_7"] = Instance.new("UICorner", UI["Toggle_6"]);
 
-UI["Toggle_8"] = Instance.new("TextButton", UI["Aimbot_UI_2"]);
-UI["Toggle_8"]["TextWrapped"] = true;
-UI["Toggle_8"]["BorderSizePixel"] = 0;
-UI["Toggle_8"]["TextSize"] = 16;
-UI["Toggle_8"]["TextColor3"] = Color3.fromRGB(130, 0, 255);
-UI["Toggle_8"]["BackgroundColor3"] = Color3.fromRGB(27, 27, 27);
-UI["Toggle_8"]["Size"] = UDim2.new(0, 206, 0, 34);
-UI["Toggle_8"]["Text"] = [[Enable Aimbot]];
-UI["Toggle_8"]["Name"] = [[Toggle]];
-UI["Toggle_8"]["Position"] = UDim2.new(0.00962, 0, 0.5625, 0);
+UI["Title_8"] = Instance.new("TextLabel", UI["Aimbot_UI_2"]);
+UI["Title_8"]["TextWrapped"] = true;
+UI["Title_8"]["BorderSizePixel"] = 0;
+UI["Title_8"]["TextSize"] = 14;
+UI["Title_8"]["TextScaled"] = true;
+UI["Title_8"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+UI["Title_8"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Title_8"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
+UI["Title_8"]["BackgroundTransparency"] = 1;
+UI["Title_8"]["Size"] = UDim2.new(0, 172, 0, 30);
+UI["Title_8"]["Text"] = [[Universal Aimbot]];
+UI["Title_8"]["Name"] = [[Title]];
+UI["Title_8"]["Position"] = UDim2.new(0.00952, 0, 0.01316, 0);
 
-UI["UICorner_9"] = Instance.new("UICorner", UI["Toggle_8"]);
-UI["UICorner_9"]["CornerRadius"] = UDim.new(0, 4);
+UI["Target_9"] = Instance.new("TextLabel", UI["Aimbot_UI_2"]);
+UI["Target_9"]["TextWrapped"] = true;
+UI["Target_9"]["BorderSizePixel"] = 0;
+UI["Target_9"]["TextSize"] = 19;
+UI["Target_9"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Target_9"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Target_9"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
+UI["Target_9"]["BackgroundTransparency"] = 1;
+UI["Target_9"]["Size"] = UDim2.new(0, 206, 0, 36);
+UI["Target_9"]["Text"] = [[Target:]];
+UI["Target_9"]["Name"] = [[Target]];
+UI["Target_9"]["Position"] = UDim2.new(0.00952, 0, 0.48684, 0);
 
-UI["UIStroke_a"] = Instance.new("UIStroke", UI["Aimbot_UI_2"]);
-UI["UIStroke_a"]["Color"] = Color3.fromRGB(130, 0, 255);
+UI["About_a"] = Instance.new("TextButton", UI["Aimbot_UI_2"]);
+UI["About_a"]["TextWrapped"] = true;
+UI["About_a"]["BorderSizePixel"] = 0;
+UI["About_a"]["TextSize"] = 24;
+UI["About_a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["About_a"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
+UI["About_a"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["About_a"]["Size"] = UDim2.new(0, 206, 0, 38);
+UI["About_a"]["Text"] = [[Creator Info]];
+UI["About_a"]["Name"] = [[About]];
+UI["About_a"]["Position"] = UDim2.new(0.00952, 0, 0.73684, 0);
 
-UI["Credits_b"] = Instance.new("TextLabel", UI["Aimbot_UI_2"]);
-UI["Credits_b"]["TextWrapped"] = true;
-UI["Credits_b"]["BorderSizePixel"] = 0;
-UI["Credits_b"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-UI["Credits_b"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-UI["Credits_b"]["TextScaled"] = true;
-UI["Credits_b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Credits_b"]["TextColor3"] = Color3.fromRGB(130, 0, 255);
-UI["Credits_b"]["BackgroundTransparency"] = 1;
-UI["Credits_b"]["Size"] = UDim2.new(0, 152, 0, 18);
-UI["Credits_b"]["Text"] = [[Made by StarFlow]];
-UI["Credits_b"]["Name"] = [[Credits]];
-UI["Credits_b"]["Position"] = UDim2.new(0.01923, 0, 0.84375, 0);
+UI["UICorner_b"] = Instance.new("UICorner", UI["About_a"]);
 
-UI["Target_c"] = Instance.new("TextLabel", UI["Aimbot_UI_2"]);
-UI["Target_c"]["TextWrapped"] = true;
-UI["Target_c"]["BorderSizePixel"] = 0;
-UI["Target_c"]["TextSize"] = 12;
-UI["Target_c"]["BackgroundColor3"] = Color3.fromRGB(27, 27, 27);
-UI["Target_c"]["TextColor3"] = Color3.fromRGB(130, 0, 255);
-UI["Target_c"]["Size"] = UDim2.new(0, 206, 0, 32);
-UI["Target_c"]["Text"] = [[Target:]];
-UI["Target_c"]["Name"] = [[Target]];
-UI["Target_c"]["Position"] = UDim2.new(0.00962, 0, 0.28125, 0);
+UI["Credits_UI_c"] = Instance.new("Frame", UI["Aimbot_UI_2"]);
+UI["Credits_UI_c"]["BorderSizePixel"] = 0;
+UI["Credits_UI_c"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Credits_UI_c"]["Size"] = UDim2.new(0, 210, 0, 152);
+UI["Credits_UI_c"]["Position"] = UDim2.new(-1.02857, 0, 0, 0);
+UI["Credits_UI_c"]["Name"] = [[Credits_UI]];
+
+UI["Hide_d"] = Instance.new("TextButton", UI["Credits_UI_c"]);
+UI["Hide_d"]["TextWrapped"] = true;
+UI["Hide_d"]["BorderSizePixel"] = 0;
+UI["Hide_d"]["TextSize"] = 24;
+UI["Hide_d"]["TextScaled"] = true;
+UI["Hide_d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["Hide_d"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
+UI["Hide_d"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Hide_d"]["Size"] = UDim2.new(0, 30, 0, 30);
+UI["Hide_d"]["Text"] = [[X]];
+UI["Hide_d"]["Name"] = [[Hide]];
+UI["Hide_d"]["Position"] = UDim2.new(0.84762, 0, 0.01316, 0);
+
+UI["UICorner_e"] = Instance.new("UICorner", UI["Hide_d"]);
+
+UI["UICorner_f"] = Instance.new("UICorner", UI["Credits_UI_c"]);
+
+UI["Label_10"] = Instance.new("TextLabel", UI["Credits_UI_c"]);
+UI["Label_10"]["TextWrapped"] = true;
+UI["Label_10"]["BorderSizePixel"] = 0;
+UI["Label_10"]["TextSize"] = 14;
+UI["Label_10"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+UI["Label_10"]["TextScaled"] = true;
+UI["Label_10"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+UI["Label_10"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Label_10"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
+UI["Label_10"]["BackgroundTransparency"] = 1;
+UI["Label_10"]["Size"] = UDim2.new(0, 170, 0, 30);
+UI["Label_10"]["Text"] = [[Creator Info]];
+UI["Label_10"]["Name"] = [[Label]];
+UI["Label_10"]["Position"] = UDim2.new(0.01905, 0, 0.01316, 0);
+
+UI["Label2_11"] = Instance.new("TextLabel", UI["Credits_UI_c"]);
+UI["Label2_11"]["TextWrapped"] = true;
+UI["Label2_11"]["BorderSizePixel"] = 0;
+UI["Label2_11"]["TextSize"] = 19;
+UI["Label2_11"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+UI["Label2_11"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+UI["Label2_11"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Label2_11"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Label2_11"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
+UI["Label2_11"]["BackgroundTransparency"] = 1;
+UI["Label2_11"]["Size"] = UDim2.new(0, 200, 0, 110);
+UI["Label2_11"]["Text"] = "YouTube: @StarFlow.0\nDiscord: St4rFl0w\nScriptblox: @StarFlow";
+UI["Label2_11"]["Name"] = [[Label2]];
+UI["Label2_11"]["Position"] = UDim2.new(0.02857, 0, 0.23684, 0);
+
+UI["Show_12"] = Instance.new("TextButton", UI["Aimbot_UI_2"]);
+UI["Show_12"]["TextWrapped"] = true;
+UI["Show_12"]["BorderSizePixel"] = 0;
+UI["Show_12"]["TextSize"] = 20;
+UI["Show_12"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
+UI["Show_12"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Show_12"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Show_12"]["Size"] = UDim2.new(0, 103, 0, 44);
+UI["Show_12"]["Text"] = [[Aimbot UI]];
+UI["Show_12"]["Position"] = UDim2.new(0.50476, 0, -0.30263, 0);
+
+UI["UICorner_13"] = Instance.new("UICorner", UI["Show_12"]);
+UI["UICorner_13"]["CornerRadius"] = UDim.new(0, 100);
 
 local function dragify(Frame)
     local dragToggle = nil
@@ -125,6 +191,7 @@ local function dragify(Frame)
 end
 
 dragify(UI["Aimbot_UI_2"])
+dragify(UI["Credits_UI_c"])
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -135,6 +202,7 @@ local aimbotEnabled = false
 local currentHighlight = nil
 local currentTarget = nil
 local connection = nil
+local uiHidden = false
 
 function findNearestPlayer()
     local nearestPlayer = nil
@@ -206,45 +274,77 @@ function aimbotLoop()
         if currentTarget ~= nearestPlayer then
             highlightTarget(nearestPlayer)
         end
-        UI["Target_c"].Text = "Target: " .. nearestPlayer.Name
+        UI["Target_9"].Text = "Target: " .. nearestPlayer.Name
         lockCameraToTarget()
     else
         if currentHighlight then
             currentHighlight:Destroy()
             currentHighlight = nil
         end
-        UI["Target_c"].Text = "Target: None"
+        UI["Target_9"].Text = "Target: None"
         currentTarget = nil
     end
 end
 
-UI["Close_3"].MouseButton1Click:Connect(function()
-    UI["ScreenGui_1"]:Destroy()
-    if connection then
-        connection:Disconnect()
-        connection = nil
+UI["Hide_3"].MouseButton1Click:Connect(function()
+    uiHidden = not uiHidden
+    if uiHidden then
+        UI["Hide_3"].Text = "+"
+        UI["Title_8"].Visible = false
+        UI["Target_9"].Visible = false
+        UI["Toggle_6"].Visible = false
+        UI["About_a"].Visible = false
+        UI["Hide_3"].Visible = false
+        UI["Show_12"].Visible = true
+    else
+        UI["Hide_3"].Text = "-"
+        UI["Title_8"].Visible = true
+        UI["Target_9"].Visible = true
+        UI["Toggle_6"].Visible = true
+        UI["About_a"].Visible = true
+        UI["Hide_3"].Visible = true
+        UI["Show_12"].Visible = false
     end
 end)
 
-UI["Toggle_8"].MouseButton1Click:Connect(function()
+UI["Show_12"].MouseButton1Click:Connect(function()
+    uiHidden = false
+    UI["Hide_3"].Text = "-"
+    UI["Title_8"].Visible = true
+    UI["Target_9"].Visible = true
+    UI["Toggle_6"].Visible = true
+    UI["About_a"].Visible = true
+    UI["Hide_3"].Visible = true
+    UI["Show_12"].Visible = false
+end)
+
+UI["About_a"].MouseButton1Click:Connect(function()
+    UI["Credits_UI_c"].Position = UDim2.new(0, 0, 0, 0)
+end)
+
+UI["Hide_d"].MouseButton1Click:Connect(function()
+    UI["Credits_UI_c"].Position = UDim2.new(-1.02857, 0, 0, 0)
+end)
+
+UI["Toggle_6"].MouseButton1Click:Connect(function()
     aimbotEnabled = not aimbotEnabled
     
     if aimbotEnabled then
-        UI["Toggle_8"].Text = "Disable Aimbot"
-        UI["Toggle_8"].TextColor3 = Color3.fromRGB(255, 0, 0)
+        UI["Toggle_6"].Text = "Disable Aimbot"
+        UI["Toggle_6"].TextColor3 = Color3.fromRGB(255, 0, 0)
         if not connection then
             connection = RunService.RenderStepped:Connect(aimbotLoop)
         end
     else
-        UI["Toggle_8"].Text = "Enable Aimbot"
-        UI["Toggle_8"].TextColor3 = Color3.fromRGB(130, 0, 255)
+        UI["Toggle_6"].Text = "Enable Aimbot"
+        UI["Toggle_6"].TextColor3 = Color3.fromRGB(255, 255, 255)
         if currentHighlight then
             currentHighlight:Destroy()
             currentHighlight = nil
         end
-        UI["Target_c"].Text = "Target: None"
+        UI["Target_9"].Text = "Target: None"
         currentTarget = nil
     end
 end)
 
-return UI["ScreenGui_1"], require
+return UI["ScreenGui_1"], require;
