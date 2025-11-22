@@ -145,10 +145,10 @@ UI["Show_12"]["TextSize"] = 20;
 UI["Show_12"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
 UI["Show_12"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
 UI["Show_12"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Show_12"]["Size"] = UDim2.new(0, 106, 0, 44);
+UI["Show_12"]["Size"] = UDim2.new(0, 103, 0, 44);
 UI["Show_12"]["Text"] = [[Aimbot UI]];
 UI["Show_12"]["Name"] = [[Show]];
-UI["Show_12"]["Position"] = UDim2.new(0, 106, 0, -46);
+UI["Show_12"]["Position"] = UDim2.new(0.73368, 0, -0.01698, 0);
 UI["Show_12"]["Visible"] = false;
 
 UI["UICorner_13"] = Instance.new("UICorner", UI["Show_12"]);
@@ -289,135 +289,56 @@ function aimbotLoop()
     end
 end
 
-local function scaleUIElements(frame, scale)
-    for _, child in pairs(frame:GetChildren()) do
-        if child:IsA("GuiObject") then
-            TweenService:Create(child, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-                Size = UDim2.new(child.Size.X.Scale, child.Size.X.Offset * scale, child.Size.Y.Scale, child.Size.Y.Offset * scale),
-                Position = UDim2.new(child.Position.X.Scale, child.Position.X.Offset * scale, child.Position.Y.Scale, child.Position.Y.Offset * scale),
-                TextSize = child:FindFirstChild("TextSize") and child.TextSize * scale or child.TextSize
-            }):Play()
-        end
-    end
-end
-
-local function resetUIElements(frame)
-    for _, child in pairs(frame:GetChildren()) do
-        if child:IsA("GuiObject") then
-            local originalSize = child.Size
-            local originalPosition = child.Position
-            local originalTextSize = child.TextSize
-            
-            TweenService:Create(child, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
-                Size = originalSize,
-                Position = originalPosition,
-                TextSize = originalTextSize
-            }):Play()
-        end
-    end
-end
-
 UI["Hide_3"].MouseButton1Click:Connect(function()
-    scaleUIElements(UI["Aimbot_UI_2"], 0.1)
-    TweenService:Create(UI["Aimbot_UI_2"], TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
-        Size = UDim2.new(0, 0, 0, 0),
-        Position = UDim2.new(UI["Aimbot_UI_2"].Position.X.Scale, UI["Aimbot_UI_2"].Position.X.Offset + 105, UI["Aimbot_UI_2"].Position.Y.Scale, UI["Aimbot_UI_2"].Position.Y.Offset + 76)
-    }):Play()
-    task.wait(0.4)
+    TweenService:Create(UI["Aimbot_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+    task.wait(0.3)
     UI["Aimbot_UI_2"].Visible = false
     UI["Aimbot_UI_2"].Size = UDim2.new(0, 210, 0, 152)
-    UI["Aimbot_UI_2"].Position = UDim2.new(0.73368, 0, -0.01698, 0)
-    
     UI["Show_12"].Visible = true
-    UI["Show_12"].Size = UDim2.new(0, 0, 0, 0)
-    TweenService:Create(UI["Show_12"], TweenInfo.new(0.4, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
-        Size = UDim2.new(0, 106, 0, 44)
-    }):Play()
-    resetUIElements(UI["Aimbot_UI_2"])
+    TweenService:Create(UI["Show_12"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 103, 0, 44)}):Play()
 end)
 
 UI["Show_12"].MouseButton1Click:Connect(function()
-    TweenService:Create(UI["Show_12"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
-        Size = UDim2.new(0, 0, 0, 0)
-    }):Play()
+    TweenService:Create(UI["Show_12"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
     task.wait(0.3)
     UI["Show_12"].Visible = false
-    UI["Show_12"].Size = UDim2.new(0, 106, 0, 44)
-    
+    UI["Show_12"].Size = UDim2.new(0, 103, 0, 44)
     UI["Aimbot_UI_2"].Visible = true
     UI["Aimbot_UI_2"].Size = UDim2.new(0, 0, 0, 0)
-    UI["Aimbot_UI_2"].Position = UDim2.new(UI["Aimbot_UI_2"].Position.X.Scale, UI["Aimbot_UI_2"].Position.X.Offset + 105, UI["Aimbot_UI_2"].Position.Y.Scale, UI["Aimbot_UI_2"].Position.Y.Offset + 76)
-    TweenService:Create(UI["Aimbot_UI_2"], TweenInfo.new(0.4, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
-        Size = UDim2.new(0, 210, 0, 152),
-        Position = UDim2.new(0.73368, 0, -0.01698, 0)
-    }):Play()
-    task.wait(0.4)
-    resetUIElements(UI["Aimbot_UI_2"])
+    TweenService:Create(UI["Aimbot_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 152)}):Play()
 end)
 
 UI["About_a"].MouseButton1Click:Connect(function()
-    scaleUIElements(UI["Aimbot_UI_2"], 0.1)
-    TweenService:Create(UI["Aimbot_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
-        Size = UDim2.new(0, 0, 0, 0),
-        Position = UDim2.new(UI["Aimbot_UI_2"].Position.X.Scale, UI["Aimbot_UI_2"].Position.X.Offset + 105, UI["Aimbot_UI_2"].Position.Y.Scale, UI["Aimbot_UI_2"].Position.Y.Offset + 76)
-    }):Play()
+    TweenService:Create(UI["Aimbot_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
     task.wait(0.3)
     UI["Aimbot_UI_2"].Visible = false
     UI["Aimbot_UI_2"].Size = UDim2.new(0, 210, 0, 152)
-    UI["Aimbot_UI_2"].Position = UDim2.new(0.73368, 0, -0.01698, 0)
-    
     UI["Credits_UI_c"].Visible = true
     UI["Credits_UI_c"].Size = UDim2.new(0, 0, 0, 0)
-    UI["Credits_UI_c"].Position = UDim2.new(UI["Credits_UI_c"].Position.X.Scale, UI["Credits_UI_c"].Position.X.Offset + 105, UI["Credits_UI_c"].Position.Y.Scale, UI["Credits_UI_c"].Position.Y.Offset + 76)
-    TweenService:Create(UI["Credits_UI_c"], TweenInfo.new(0.4, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
-        Size = UDim2.new(0, 210, 0, 152),
-        Position = UDim2.new(0.73368, 0, -0.01698, 0)
-    }):Play()
-    task.wait(0.4)
-    resetUIElements(UI["Credits_UI_c"])
-    resetUIElements(UI["Aimbot_UI_2"])
+    TweenService:Create(UI["Credits_UI_c"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 152)}):Play()
 end)
 
 UI["Hide_d"].MouseButton1Click:Connect(function()
-    scaleUIElements(UI["Credits_UI_c"], 0.1)
-    TweenService:Create(UI["Credits_UI_c"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
-        Size = UDim2.new(0, 0, 0, 0),
-        Position = UDim2.new(UI["Credits_UI_c"].Position.X.Scale, UI["Credits_UI_c"].Position.X.Offset + 105, UI["Credits_UI_c"].Position.Y.Scale, UI["Credits_UI_c"].Position.Y.Offset + 76)
-    }):Play()
+    TweenService:Create(UI["Credits_UI_c"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
     task.wait(0.3)
     UI["Credits_UI_c"].Visible = false
     UI["Credits_UI_c"].Size = UDim2.new(0, 210, 0, 152)
-    UI["Credits_UI_c"].Position = UDim2.new(0.73368, 0, -0.01698, 0)
-    
     UI["Aimbot_UI_2"].Visible = true
     UI["Aimbot_UI_2"].Size = UDim2.new(0, 0, 0, 0)
-    UI["Aimbot_UI_2"].Position = UDim2.new(UI["Aimbot_UI_2"].Position.X.Scale, UI["Aimbot_UI_2"].Position.X.Offset + 105, UI["Aimbot_UI_2"].Position.Y.Scale, UI["Aimbot_UI_2"].Position.Y.Offset + 76)
-    TweenService:Create(UI["Aimbot_UI_2"], TweenInfo.new(0.4, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
-        Size = UDim2.new(0, 210, 0, 152),
-        Position = UDim2.new(0.73368, 0, -0.01698, 0)
-    }):Play()
-    task.wait(0.4)
-    resetUIElements(UI["Aimbot_UI_2"])
-    resetUIElements(UI["Credits_UI_c"])
+    TweenService:Create(UI["Aimbot_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 152)}):Play()
 end)
 
 UI["Toggle_6"].MouseButton1Click:Connect(function()
     aimbotEnabled = not aimbotEnabled
     
     if aimbotEnabled then
-        TweenService:Create(UI["Toggle_6"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-            TextColor3 = Color3.fromRGB(255, 0, 0),
-            BackgroundColor3 = Color3.fromRGB(161, 0, 0)
-        }):Play()
+        TweenService:Create(UI["Toggle_6"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 0, 0)}):Play()
         UI["Toggle_6"].Text = "Disable Aimbot"
         if not connection then
             connection = RunService.RenderStepped:Connect(aimbotLoop)
         end
     else
-        TweenService:Create(UI["Toggle_6"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-            TextColor3 = Color3.fromRGB(255, 255, 255),
-            BackgroundColor3 = Color3.fromRGB(91, 0, 161)
-        }):Play()
+        TweenService:Create(UI["Toggle_6"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
         UI["Toggle_6"].Text = "Enable Aimbot"
         if currentHighlight then
             currentHighlight:Destroy()
