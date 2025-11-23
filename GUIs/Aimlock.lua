@@ -1,172 +1,160 @@
-local function S(n) return (cloneref and cloneref(game:GetService(n))) or game:GetService(n) end
+local UI = {}
 
-local function UIRoot(gui)
-	gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
-	gui.DisplayOrder = 999999999
-	gui.IgnoreGuiInset = true
-	gui.ResetOnSpawn = false
-	local cg = S("CoreGui")
-	local lp = S("Players").LocalPlayer
-	if cg and cg:FindFirstChild("RobloxGui") then gui.Parent = cg.RobloxGui return end
-	if cg then gui.Parent = cg return end
-	if lp and lp:FindFirstChild("PlayerGui") then gui.Parent = lp.PlayerGui return end
-end
+UI["ScreenGui"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+UI["ScreenGui"]["ndexBehavior"] = Enum.ZIndexBehavior.Sibling
+UI["ScreenGui"]["ResetOnSpawn"] = false
+UI["ScreenGui"]["ZIndex"] = 9999999999
 
-local UI = {};
+UI["Aimlock_UI"] = Instance.new("Frame", UI["ScreenGui"])
+UI["Aimlock_UI"]["BorderSizePixel"] = 0
+UI["Aimlock_UI"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61)
+UI["Aimlock_UI"]["Size"] = UDim2.new(0, 214, 0, 154)
+UI["Aimlock_UI"]["Position"] = UDim2.new(0.74089, 0, 0, 0)
+UI["Aimlock_UI"]["Name"] = [[Aimlock_UI]]
 
-UI["ScreenGui"] = Instance.new("ScreenGui")
-UIRoot(UI["ScreenGui"])
+UI["About"] = Instance.new("TextButton", UI["Aimlock_UI"])
+UI["About"]["TextWrapped"] = true
+UI["About"]["BorderSizePixel"] = 0
+UI["About"]["TextSize"] = 24
+UI["About"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["About"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161)
+UI["About"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["About"]["Size"] = UDim2.new(0, 206, 0, 38)
+UI["About"]["Text"] = [[Creator Info]]
+UI["About"]["Name"] = [[About]]
+UI["About"]["Position"] = UDim2.new(0.01869, 0, 0.72727, 0)
 
-UI["Aimlock_UI"] = Instance.new("Frame", UI["ScreenGui"]);
-UI["Aimlock_UI"]["BorderSizePixel"] = 0;
-UI["Aimlock_UI"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Aimlock_UI"]["Size"] = UDim2.new(0, 214, 0, 154);
-UI["Aimlock_UI"]["Position"] = UDim2.new(0.74089, 0, 0, 0);
-UI["Aimlock_UI"]["Name"] = [[Aimlock_UI]];
+UI["UICorner_1"] = Instance.new("UICorner", UI["About"])
 
-UI["About"] = Instance.new("TextButton", UI["Aimlock_UI"]);
-UI["About"]["TextWrapped"] = true;
-UI["About"]["BorderSizePixel"] = 0;
-UI["About"]["TextSize"] = 24;
-UI["About"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["About"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
-UI["About"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["About"]["Size"] = UDim2.new(0, 206, 0, 38);
-UI["About"]["Text"] = [[Creator Info]];
-UI["About"]["Name"] = [[About]];
-UI["About"]["Position"] = UDim2.new(0.01869, 0, 0.72727, 0);
+UI["UICorner_2"] = Instance.new("UICorner", UI["Aimlock_UI"])
 
-UI["UICorner_1"] = Instance.new("UICorner", UI["About"]);
+UI["Credits_UI"] = Instance.new("Frame", UI["Aimlock_UI"])
+UI["Credits_UI"]["BorderSizePixel"] = 0
+UI["Credits_UI"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61)
+UI["Credits_UI"]["Size"] = UDim2.new(0, 210, 0, 118)
+UI["Credits_UI"]["Position"] = UDim2.new(-1.00935, 0, 0, 0)
+UI["Credits_UI"]["Name"] = [[Credits_UI]]
+UI["Credits_UI"]["Visible"] = false
 
-UI["UICorner_2"] = Instance.new("UICorner", UI["Aimlock_UI"]);
+UI["CreditsLabel"] = Instance.new("TextLabel", UI["Credits_UI"])
+UI["CreditsLabel"]["TextWrapped"] = true
+UI["CreditsLabel"]["BorderSizePixel"] = 0
+UI["CreditsLabel"]["TextSize"] = 14
+UI["CreditsLabel"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["CreditsLabel"]["TextScaled"] = true
+UI["CreditsLabel"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["CreditsLabel"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["CreditsLabel"]["TextColor3"] = Color3.fromRGB(188, 121, 250)
+UI["CreditsLabel"]["BackgroundTransparency"] = 1
+UI["CreditsLabel"]["Size"] = UDim2.new(0, 170, 0, 30)
+UI["CreditsLabel"]["Text"] = [[Creator Info]]
+UI["CreditsLabel"]["Name"] = [[CreditsLabel]]
+UI["CreditsLabel"]["Position"] = UDim2.new(0.01905, 0, 0.01695, 0)
 
-UI["Credits_UI"] = Instance.new("Frame", UI["Aimlock_UI"]);
-UI["Credits_UI"]["BorderSizePixel"] = 0;
-UI["Credits_UI"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Credits_UI"]["Size"] = UDim2.new(0, 210, 0, 118);
-UI["Credits_UI"]["Position"] = UDim2.new(-1.00935, 0, 0, 0);
-UI["Credits_UI"]["Name"] = [[Credits_UI]];
-UI["Credits_UI"]["Visible"] = false;
+UI["UICorner_3"] = Instance.new("UICorner", UI["Credits_UI"])
 
-UI["CreditsLabel"] = Instance.new("TextLabel", UI["Credits_UI"]);
-UI["CreditsLabel"]["TextWrapped"] = true;
-UI["CreditsLabel"]["BorderSizePixel"] = 0;
-UI["CreditsLabel"]["TextSize"] = 14;
-UI["CreditsLabel"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-UI["CreditsLabel"]["TextScaled"] = true;
-UI["CreditsLabel"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-UI["CreditsLabel"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["CreditsLabel"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
-UI["CreditsLabel"]["BackgroundTransparency"] = 1;
-UI["CreditsLabel"]["Size"] = UDim2.new(0, 170, 0, 30);
-UI["CreditsLabel"]["Text"] = [[Creator Info]];
-UI["CreditsLabel"]["Name"] = [[CreditsLabel]];
-UI["CreditsLabel"]["Position"] = UDim2.new(0.01905, 0, 0.01695, 0);
+UI["CreditsText"] = Instance.new("TextLabel", UI["Credits_UI"])
+UI["CreditsText"]["TextWrapped"] = true
+UI["CreditsText"]["BorderSizePixel"] = 0
+UI["CreditsText"]["TextSize"] = 19
+UI["CreditsText"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["CreditsText"]["TextYAlignment"] = Enum.TextYAlignment.Top
+UI["CreditsText"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61)
+UI["CreditsText"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["CreditsText"]["TextColor3"] = Color3.fromRGB(252, 199, 253)
+UI["CreditsText"]["BackgroundTransparency"] = 1
+UI["CreditsText"]["Size"] = UDim2.new(0, 200, 0, 80)
+UI["CreditsText"]["Text"] = [[YouTube: @StarFlow.0\nDiscord: St4rFl0w\nScriptblox: @StarFlow]]
+UI["CreditsText"]["Name"] = [[CreditsText]]
+UI["CreditsText"]["Position"] = UDim2.new(0.02857, 0, 0.28814, 0)
 
-UI["UICorner_3"] = Instance.new("UICorner", UI["Credits_UI"]);
+UI["Hide_B"] = Instance.new("TextButton", UI["Credits_UI"])
+UI["Hide_B"]["TextWrapped"] = true
+UI["Hide_B"]["BorderSizePixel"] = 0
+UI["Hide_B"]["TextSize"] = 24
+UI["Hide_B"]["TextScaled"] = true
+UI["Hide_B"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["Hide_B"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161)
+UI["Hide_B"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["Hide_B"]["Size"] = UDim2.new(0, 30, 0, 30)
+UI["Hide_B"]["Text"] = [[X]]
+UI["Hide_B"]["Name"] = [[Hide_B]]
+UI["Hide_B"]["Position"] = UDim2.new(0.84762, 0, 0.01695, 0)
 
-UI["CreditsText"] = Instance.new("TextLabel", UI["Credits_UI"]);
-UI["CreditsText"]["TextWrapped"] = true;
-UI["CreditsText"]["BorderSizePixel"] = 0;
-UI["CreditsText"]["TextSize"] = 19;
-UI["CreditsText"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-UI["CreditsText"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-UI["CreditsText"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["CreditsText"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["CreditsText"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
-UI["CreditsText"]["BackgroundTransparency"] = 1;
-UI["CreditsText"]["Size"] = UDim2.new(0, 200, 0, 80);
-UI["CreditsText"]["Text"] = [[YouTube: @StarFlow.0\nDiscord: St4rFl0w\nScriptblox: @StarFlow]];
-UI["CreditsText"]["Name"] = [[CreditsText]];
-UI["CreditsText"]["Position"] = UDim2.new(0.02857, 0, 0.28814, 0);
+UI["UICorner_4"] = Instance.new("UICorner", UI["Hide_B"])
 
-UI["Hide_B"] = Instance.new("TextButton", UI["Credits_UI"]);
-UI["Hide_B"]["TextWrapped"] = true;
-UI["Hide_B"]["BorderSizePixel"] = 0;
-UI["Hide_B"]["TextSize"] = 24;
-UI["Hide_B"]["TextScaled"] = true;
-UI["Hide_B"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Hide_B"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
-UI["Hide_B"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Hide_B"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["Hide_B"]["Text"] = [[X]];
-UI["Hide_B"]["Name"] = [[Hide_B]];
-UI["Hide_B"]["Position"] = UDim2.new(0.84762, 0, 0.01695, 0);
+UI["Toggle"] = Instance.new("TextButton", UI["Aimlock_UI"])
+UI["Toggle"]["TextWrapped"] = true
+UI["Toggle"]["BorderSizePixel"] = 0
+UI["Toggle"]["TextSize"] = 24
+UI["Toggle"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["Toggle"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161)
+UI["Toggle"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["Toggle"]["Size"] = UDim2.new(0, 206, 0, 38)
+UI["Toggle"]["Text"] = [[Enable Aimbot]]
+UI["Toggle"]["Name"] = [[Toggle]]
+UI["Toggle"]["Position"] = UDim2.new(0.01869, 0, 0.22078, 0)
 
-UI["UICorner_4"] = Instance.new("UICorner", UI["Hide_B"]);
+UI["UICorner_5"] = Instance.new("UICorner", UI["Toggle"])
 
-UI["Toggle"] = Instance.new("TextButton", UI["Aimlock_UI"]);
-UI["Toggle"]["TextWrapped"] = true;
-UI["Toggle"]["BorderSizePixel"] = 0;
-UI["Toggle"]["TextSize"] = 24;
-UI["Toggle"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Toggle"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
-UI["Toggle"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Toggle"]["Size"] = UDim2.new(0, 206, 0, 38);
-UI["Toggle"]["Text"] = [[Enable Aimbot]];
-UI["Toggle"]["Name"] = [[Toggle]];
-UI["Toggle"]["Position"] = UDim2.new(0.01869, 0, 0.22078, 0);
+UI["Title"] = Instance.new("TextLabel", UI["Aimlock_UI"])
+UI["Title"]["TextWrapped"] = true
+UI["Title"]["BorderSizePixel"] = 0
+UI["Title"]["TextSize"] = 14
+UI["Title"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["Title"]["TextScaled"] = true
+UI["Title"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["Title"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["Title"]["TextColor3"] = Color3.fromRGB(188, 121, 250)
+UI["Title"]["BackgroundTransparency"] = 1
+UI["Title"]["Size"] = UDim2.new(0, 172, 0, 30)
+UI["Title"]["Text"] = [[Universal Aimbot]]
+UI["Title"]["Name"] = [[Title]]
+UI["Title"]["Position"] = UDim2.new(0.01869, 0, 0.01299, 0)
 
-UI["UICorner_5"] = Instance.new("UICorner", UI["Toggle"]);
+UI["Target"] = Instance.new("TextLabel", UI["Aimlock_UI"])
+UI["Target"]["TextWrapped"] = true
+UI["Target"]["BorderSizePixel"] = 0
+UI["Target"]["TextSize"] = 19
+UI["Target"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61)
+UI["Target"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["Target"]["TextColor3"] = Color3.fromRGB(252, 199, 253)
+UI["Target"]["BackgroundTransparency"] = 1
+UI["Target"]["Size"] = UDim2.new(0, 206, 0, 36)
+UI["Target"]["Text"] = [[Target:]]
+UI["Target"]["Name"] = [[Target]]
+UI["Target"]["Position"] = UDim2.new(0.00935, 0, 0.48052, 0)
 
-UI["Title"] = Instance.new("TextLabel", UI["Aimlock_UI"]);
-UI["Title"]["TextWrapped"] = true;
-UI["Title"]["BorderSizePixel"] = 0;
-UI["Title"]["TextSize"] = 14;
-UI["Title"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-UI["Title"]["TextScaled"] = true;
-UI["Title"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-UI["Title"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Title"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
-UI["Title"]["BackgroundTransparency"] = 1;
-UI["Title"]["Size"] = UDim2.new(0, 172, 0, 30);
-UI["Title"]["Text"] = [[Universal Aimbot]];
-UI["Title"]["Name"] = [[Title]];
-UI["Title"]["Position"] = UDim2.new(0.01869, 0, 0.01299, 0);
+UI[Hide_A"] = Instance.new("TextButton", UI["Aimlock_UI"])
+UI["Hide_A"]["TextWrapped"] = true
+UI["Hide_A"]["BorderSizePixel"] = 0
+UI["Hide_A"]["TextSize"] = 24
+UI["Hide_A"]["TextScaled"] = true
+UI["Hide_A"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["Hide_A"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161)
+UI["Hide_A"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["Hide_A"]["Size"] = UDim2.new(0, 30, 0, 30)
+UI["Hide_A"]["Text"] = [[-]]
+UI["Hide_A"]["Name"] = [[Hide_A]]
+UI["Hide_A"]["Position"] = UDim2.new(0.84112, 0, 0.01299, 0)
 
-UI["Target"] = Instance.new("TextLabel", UI["Aimlock_UI"]);
-UI["Target"]["TextWrapped"] = true;
-UI["Target"]["BorderSizePixel"] = 0;
-UI["Target"]["TextSize"] = 19;
-UI["Target"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Target"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Target"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
-UI["Target"]["BackgroundTransparency"] = 1;
-UI["Target"]["Size"] = UDim2.new(0, 206, 0, 36);
-UI["Target"]["Text"] = [[Target:]];
-UI["Target"]["Name"] = [[Target]];
-UI["Target"]["Position"] = UDim2.new(0.00935, 0, 0.48052, 0);
+UI["UICorner_6"] = Instance.new("UICorner", UI["Hide_A"])
 
-UI["Hide_A"] = Instance.new("TextButton", UI["Aimlock_UI"]);
-UI["Hide_A"]["TextWrapped"] = true;
-UI["Hide_A"]["BorderSizePixel"] = 0;
-UI["Hide_A"]["TextSize"] = 24;
-UI["Hide_A"]["TextScaled"] = true;
-UI["Hide_A"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Hide_A"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
-UI["Hide_A"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Hide_A"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["Hide_A"]["Text"] = [[-]];
-UI["Hide_A"]["Name"] = [[Hide_A]];
-UI["Hide_A"]["Position"] = UDim2.new(0.84112, 0, 0.01299, 0);
+UI["Show"] = Instance.new("TextButton", UI["ScreenGui"])
+UI["Show"]["TextWrapped"] = true
+UI["Show"]["BorderSizePixel"] = 0
+UI["Show"]["TextSize"] = 20
+UI["Show"]["TextColor3"] = Color3.fromRGB(188, 121, 250)
+UI["Show"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61)
+UI["Show"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+UI["Show"]["Size"] = UDim2.new(0, 118, 0, 44)
+UI["Show"]["Text"] = [[Aimbot UI]]
+UI["Show"]["Name"] = [[Show]]
+UI["Show"]["Position"] = UDim2.new(0.4378, 0, -0.13015, 0)
+UI["Show"]["Visible"] = false
 
-UI["UICorner_6"] = Instance.new("UICorner", UI["Hide_A"]);
-
-UI["Show"] = Instance.new("TextButton", UI["ScreenGui"]);
-UI["Show"]["TextWrapped"] = true;
-UI["Show"]["BorderSizePixel"] = 0;
-UI["Show"]["TextSize"] = 20;
-UI["Show"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
-UI["Show"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Show"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Show"]["Size"] = UDim2.new(0, 118, 0, 44);
-UI["Show"]["Text"] = [[Aimbot UI]];
-UI["Show"]["Name"] = [[Show]];
-UI["Show"]["Position"] = UDim2.new(0.4378, 0, -0.13015, 0);
-UI["Show"]["Visible"] = false;
-
-UI["UICorner_7"] = Instance.new("UICorner", UI["Show"]);
-UI["UICorner_7"]["CornerRadius"] = UDim.new(0, 100);
+UI["UICorner_7"] = Instance.new("UICorner", UI["Show"])
+UI["UICorner_7"]["CornerRadius"] = UDim.new(0, 100)
 
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -304,7 +292,7 @@ function aimbotLoop()
     end
 end
 
-function toggleAimbot()
+function tAim()
     AimlockEnabled = not AimlockEnabled
     
     if AimlockEnabled then
@@ -358,14 +346,14 @@ UI["Hide_B"].MouseButton1Click:Connect(function()
 end)
 
 UI["Toggle"].MouseButton1Click:Connect(function()
-    toggleAimbot()
+    tAim()
 end)
 
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if gameProcessed then return end
     
     if input.KeyCode == Enum.KeyCode.RightControl then
-        toggleAimbot()
+        tAim()
     end
 end)
 
