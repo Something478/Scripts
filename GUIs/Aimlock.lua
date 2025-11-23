@@ -1,160 +1,162 @@
 local UI = {};
 
-UI["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
-UI["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
-UI["ScreenGui_1"]["ResetOnSpawn"] = false;
+UI["ScreenGui"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+UI["ScreenGui"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+UI["ScreenGui"]["ResetOnSpawn"] = false;
 
-UI["Aimlock_UI_2"] = Instance.new("Frame", UI["ScreenGui_1"]);
-UI["Aimlock_UI_2"]["BorderSizePixel"] = 0;
-UI["Aimlock_UI_2"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Aimlock_UI_2"]["Size"] = UDim2.new(0, 210, 0, 152);
-UI["Aimlock_UI_2"]["Position"] = UDim2.new(0.73368, 0, -0.01698, 0);
-UI["Aimlock_UI_2"]["Name"] = [[Aimlock_UI]];
+UI["Aimlock_UI"] = Instance.new("Frame", UI["ScreenGui"]);
+UI["Aimlock_UI"]["BorderSizePixel"] = 0;
+UI["Aimlock_UI"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Aimlock_UI"]["Size"] = UDim2.new(0, 214, 0, 154);
+UI["Aimlock_UI"]["Position"] = UDim2.new(0.74089, 0, 0, 0);
+UI["Aimlock_UI"]["Name"] = [[Aimlock_UI]];
 
-UI["Hide_3"] = Instance.new("TextButton", UI["Aimlock_UI_2"]);
-UI["Hide_3"]["TextWrapped"] = true;
-UI["Hide_3"]["BorderSizePixel"] = 0;
-UI["Hide_3"]["TextSize"] = 24;
-UI["Hide_3"]["TextScaled"] = true;
-UI["Hide_3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Hide_3"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
-UI["Hide_3"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Hide_3"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["Hide_3"]["Text"] = [[-]];
-UI["Hide_3"]["Name"] = [[Hide]];
-UI["Hide_3"]["Position"] = UDim2.new(0.84762, 0, 0.01316, 0);
+UI["About"] = Instance.new("TextButton", UI["Aimlock_UI"]);
+UI["About"]["TextWrapped"] = true;
+UI["About"]["BorderSizePixel"] = 0;
+UI["About"]["TextSize"] = 24;
+UI["About"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["About"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
+UI["About"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["About"]["Size"] = UDim2.new(0, 206, 0, 38);
+UI["About"]["Text"] = [[Creator Info]];
+UI["About"]["Name"] = [[About]];
+UI["About"]["Position"] = UDim2.new(0.01869, 0, 0.72727, 0);
 
-UI["UICorner_4"] = Instance.new("UICorner", UI["Hide_3"]);
+UI["UICorner_1"] = Instance.new("UICorner", UI["About"]);
 
-UI["UICorner_5"] = Instance.new("UICorner", UI["Aimlock_UI_2"]);
+UI["UICorner_2"] = Instance.new("UICorner", UI["Aimlock_UI"]);
 
-UI["Toggle_6"] = Instance.new("TextButton", UI["Aimlock_UI_2"]);
-UI["Toggle_6"]["TextWrapped"] = true;
-UI["Toggle_6"]["BorderSizePixel"] = 0;
-UI["Toggle_6"]["TextSize"] = 24;
-UI["Toggle_6"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Toggle_6"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
-UI["Toggle_6"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Toggle_6"]["Size"] = UDim2.new(0, 206, 0, 38);
-UI["Toggle_6"]["Text"] = [[Enable Aimlock]];
-UI["Toggle_6"]["Name"] = [[Toggle]];
-UI["Toggle_6"]["Position"] = UDim2.new(0.00952, 0, 0.22368, 0);
+UI["Credits_UI"] = Instance.new("Frame", UI["Aimlock_UI"]);
+UI["Credits_UI"]["BorderSizePixel"] = 0;
+UI["Credits_UI"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Credits_UI"]["Size"] = UDim2.new(0, 210, 0, 118);
+UI["Credits_UI"]["Position"] = UDim2.new(-1.00935, 0, 0, 0);
+UI["Credits_UI"]["Name"] = [[Credits_UI]];
+UI["Credits_UI"]["Visible"] = false;
 
-UI["UICorner_7"] = Instance.new("UICorner", UI["Toggle_6"]);
+UI["Title_A_B"] = Instance.new("TextLabel", UI["Credits_UI"]);
+UI["Title_A_B"]["TextWrapped"] = true;
+UI["Title_A_B"]["BorderSizePixel"] = 0;
+UI["Title_A_B"]["TextSize"] = 14;
+UI["Title_A_B"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+UI["Title_A_B"]["TextScaled"] = true;
+UI["Title_A_B"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+UI["Title_A_B"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Title_A_B"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
+UI["Title_A_B"]["BackgroundTransparency"] = 1;
+UI["Title_A_B"]["Size"] = UDim2.new(0, 170, 0, 30);
+UI["Title_A_B"]["Text"] = [[Creator Info]];
+UI["Title_A_B"]["Name"] = [[Title_A_B]];
+UI["Title_A_B"]["Position"] = UDim2.new(0.01905, 0, 0.01695, 0);
 
-UI["Title_8"] = Instance.new("TextLabel", UI["Aimlock_UI_2"]);
-UI["Title_8"]["TextWrapped"] = true;
-UI["Title_8"]["BorderSizePixel"] = 0;
-UI["Title_8"]["TextSize"] = 14;
-UI["Title_8"]["TextScaled"] = true;
-UI["Title_8"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-UI["Title_8"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Title_8"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
-UI["Title_8"]["BackgroundTransparency"] = 1;
-UI["Title_8"]["Size"] = UDim2.new(0, 172, 0, 30);
-UI["Title_8"]["Text"] = [[Universal Aimlock]];
-UI["Title_8"]["Name"] = [[Title]];
-UI["Title_8"]["Position"] = UDim2.new(0.00952, 0, 0.01316, 0);
+UI["UICorner_3"] = Instance.new("UICorner", UI["Credits_UI"]);
 
-UI["Target_9"] = Instance.new("TextLabel", UI["Aimlock_UI_2"]);
-UI["Target_9"]["TextWrapped"] = true;
-UI["Target_9"]["BorderSizePixel"] = 0;
-UI["Target_9"]["TextSize"] = 19;
-UI["Target_9"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Target_9"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Target_9"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
-UI["Target_9"]["BackgroundTransparency"] = 1;
-UI["Target_9"]["Size"] = UDim2.new(0, 206, 0, 36);
-UI["Target_9"]["Text"] = [[Target:]];
-UI["Target_9"]["Name"] = [[Target]];
-UI["Target_9"]["Position"] = UDim2.new(0.00952, 0, 0.48684, 0);
+UI["CreditsText"] = Instance.new("TextLabel", UI["Credits_UI"]);
+UI["CreditsText"]["TextWrapped"] = true;
+UI["CreditsText"]["BorderSizePixel"] = 0;
+UI["CreditsText"]["TextSize"] = 19;
+UI["CreditsText"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+UI["CreditsText"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+UI["CreditsText"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["CreditsText"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["CreditsText"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
+UI["CreditsText"]["BackgroundTransparency"] = 1;
+UI["CreditsText"]["Size"] = UDim2.new(0, 200, 0, 80);
+UI["CreditsText"]["Text"] = [[YouTube: @StarFlow.0\nDiscord: St4rFl0w\nScriptblox: @StarFlow]];
+UI["CreditsText"]["Name"] = [[CreditsText]];
+UI["CreditsText"]["Position"] = UDim2.new(0.02857, 0, 0.28814, 0);
 
-UI["About_a"] = Instance.new("TextButton", UI["Aimlock_UI_2"]);
-UI["About_a"]["TextWrapped"] = true;
-UI["About_a"]["BorderSizePixel"] = 0;
-UI["About_a"]["TextSize"] = 24;
-UI["About_a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["About_a"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
-UI["About_a"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["About_a"]["Size"] = UDim2.new(0, 206, 0, 38);
-UI["About_a"]["Text"] = [[Creator Info]];
-UI["About_a"]["Name"] = [[About]];
-UI["About_a"]["Position"] = UDim2.new(0.00952, 0, 0.73684, 0);
+UI["Hide_A_B"] = Instance.new("TextButton", UI["Credits_UI"]);
+UI["Hide_A_B"]["TextWrapped"] = true;
+UI["Hide_A_B"]["BorderSizePixel"] = 0;
+UI["Hide_A_B"]["TextSize"] = 24;
+UI["Hide_A_B"]["TextScaled"] = true;
+UI["Hide_A_B"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["Hide_A_B"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
+UI["Hide_A_B"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Hide_A_B"]["Size"] = UDim2.new(0, 30, 0, 30);
+UI["Hide_A_B"]["Text"] = [[X]];
+UI["Hide_A_B"]["Name"] = [[Hide_A_B]];
+UI["Hide_A_B"]["Position"] = UDim2.new(0.84762, 0, 0.01695, 0);
 
-UI["UICorner_b"] = Instance.new("UICorner", UI["About_a"]);
+UI["UICorner_4"] = Instance.new("UICorner", UI["Hide_A_B"]);
 
-UI["Credits_UI_c"] = Instance.new("Frame", UI["ScreenGui_1"]);
-UI["Credits_UI_c"]["BorderSizePixel"] = 0;
-UI["Credits_UI_c"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Credits_UI_c"]["Size"] = UDim2.new(0, 210, 0, 152);
-UI["Credits_UI_c"]["Position"] = UDim2.new(0.73368, 0, -0.01698, 0);
-UI["Credits_UI_c"]["Name"] = [[Credits_UI]];
-UI["Credits_UI_c"]["Visible"] = false;
+UI["Toggle"] = Instance.new("TextButton", UI["Aimlock_UI"]);
+UI["Toggle"]["TextWrapped"] = true;
+UI["Toggle"]["BorderSizePixel"] = 0;
+UI["Toggle"]["TextSize"] = 24;
+UI["Toggle"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["Toggle"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
+UI["Toggle"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Toggle"]["Size"] = UDim2.new(0, 206, 0, 38);
+UI["Toggle"]["Text"] = [[Enable Aimlock]];
+UI["Toggle"]["Name"] = [[Toggle]];
+UI["Toggle"]["Position"] = UDim2.new(0.01869, 0, 0.22078, 0);
 
-UI["Hide_d"] = Instance.new("TextButton", UI["Credits_UI_c"]);
-UI["Hide_d"]["TextWrapped"] = true;
-UI["Hide_d"]["BorderSizePixel"] = 0;
-UI["Hide_d"]["TextSize"] = 24;
-UI["Hide_d"]["TextScaled"] = true;
-UI["Hide_d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Hide_d"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
-UI["Hide_d"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Hide_d"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["Hide_d"]["Text"] = [[X]];
-UI["Hide_d"]["Name"] = [[Hide]];
-UI["Hide_d"]["Position"] = UDim2.new(0.84762, 0, 0.01316, 0);
+UI["UICorner_5"] = Instance.new("UICorner", UI["Toggle"]);
 
-UI["UICorner_e"] = Instance.new("UICorner", UI["Hide_d"]);
+UI["Title_A"] = Instance.new("TextLabel", UI["Aimlock_UI"]);
+UI["Title_A"]["TextWrapped"] = true;
+UI["Title_A"]["BorderSizePixel"] = 0;
+UI["Title_A"]["TextSize"] = 14;
+UI["Title_A"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+UI["Title_A"]["TextScaled"] = true;
+UI["Title_A"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+UI["Title_A"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Title_A"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
+UI["Title_A"]["BackgroundTransparency"] = 1;
+UI["Title_A"]["Size"] = UDim2.new(0, 172, 0, 30);
+UI["Title_A"]["Text"] = [[Universal Aimlock]];
+UI["Title_A"]["Name"] = [[Title_A]];
+UI["Title_A"]["Position"] = UDim2.new(0.01869, 0, 0.01299, 0);
 
-UI["UICorner_f"] = Instance.new("UICorner", UI["Credits_UI_c"]);
+UI["Target"] = Instance.new("TextLabel", UI["Aimlock_UI"]);
+UI["Target"]["TextWrapped"] = true;
+UI["Target"]["BorderSizePixel"] = 0;
+UI["Target"]["TextSize"] = 19;
+UI["Target"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Target"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Target"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
+UI["Target"]["BackgroundTransparency"] = 1;
+UI["Target"]["Size"] = UDim2.new(0, 206, 0, 36);
+UI["Target"]["Text"] = [[Target: None]];
+UI["Target"]["Name"] = [[Target]];
+UI["Target"]["Position"] = UDim2.new(0.00935, 0, 0.48052, 0);
 
-UI["Label_10"] = Instance.new("TextLabel", UI["Credits_UI_c"]);
-UI["Label_10"]["TextWrapped"] = true;
-UI["Label_10"]["BorderSizePixel"] = 0;
-UI["Label_10"]["TextSize"] = 14;
-UI["Label_10"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-UI["Label_10"]["TextScaled"] = true;
-UI["Label_10"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-UI["Label_10"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Label_10"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
-UI["Label_10"]["BackgroundTransparency"] = 1;
-UI["Label_10"]["Size"] = UDim2.new(0, 170, 0, 30);
-UI["Label_10"]["Text"] = [[Creator Info]];
-UI["Label_10"]["Name"] = [[Label]];
-UI["Label_10"]["Position"] = UDim2.new(0.01905, 0, 0.01316, 0);
+UI["Hide_A"] = Instance.new("TextButton", UI["Aimlock_UI"]);
+UI["Hide_A"]["TextWrapped"] = true;
+UI["Hide_A"]["BorderSizePixel"] = 0;
+UI["Hide_A"]["TextSize"] = 24;
+UI["Hide_A"]["TextScaled"] = true;
+UI["Hide_A"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["Hide_A"]["BackgroundColor3"] = Color3.fromRGB(91, 0, 161);
+UI["Hide_A"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Hide_A"]["Size"] = UDim2.new(0, 30, 0, 30);
+UI["Hide_A"]["Text"] = [[-]];
+UI["Hide_A"]["Name"] = [[Hide_A]];
+UI["Hide_A"]["Position"] = UDim2.new(0.84112, 0, 0.01299, 0);
 
-UI["Label2_11"] = Instance.new("TextLabel", UI["Credits_UI_c"]);
-UI["Label2_11"]["TextWrapped"] = true;
-UI["Label2_11"]["BorderSizePixel"] = 0;
-UI["Label2_11"]["TextSize"] = 19;
-UI["Label2_11"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-UI["Label2_11"]["TextYAlignment"] = Enum.TextYAlignment.Top;
-UI["Label2_11"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Label2_11"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Label2_11"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
-UI["Label2_11"]["BackgroundTransparency"] = 1;
-UI["Label2_11"]["Size"] = UDim2.new(0, 200, 0, 110);
-UI["Label2_11"]["Text"] = "YouTube: @StarFlow.0\nDiscord: St4rFl0w\nScriptblox: @StarFlow";
-UI["Label2_11"]["Name"] = [[Label2]];
-UI["Label2_11"]["Position"] = UDim2.new(0.02857, 0, 0.23684, 0);
+UI["UICorner_6"] = Instance.new("UICorner", UI["Hide_A"]);
 
-UI["Show_12"] = Instance.new("TextButton", UI["ScreenGui_1"]);
-UI["Show_12"]["TextWrapped"] = true;
-UI["Show_12"]["BorderSizePixel"] = 0;
-UI["Show_12"]["TextSize"] = 20;
-UI["Show_12"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
-UI["Show_12"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
-UI["Show_12"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-UI["Show_12"]["Size"] = UDim2.new(0, 103, 0, 44);
-UI["Show_12"]["Text"] = [[Aimlock UI]];
-UI["Show_12"]["Name"] = [[Show]];
-UI["Show_12"]["Position"] = UDim2.new(0.73368, 0, -0.01698, 0);
-UI["Show_12"]["Visible"] = false;
+UI["Show"] = Instance.new("TextButton", UI["ScreenGui"]);
+UI["Show"]["TextWrapped"] = true;
+UI["Show"]["BorderSizePixel"] = 0;
+UI["Show"]["TextSize"] = 20;
+UI["Show"]["TextColor3"] = Color3.fromRGB(188, 121, 250);
+UI["Show"]["BackgroundColor3"] = Color3.fromRGB(36, 0, 61);
+UI["Show"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+UI["Show"]["Size"] = UDim2.new(0, 118, 0, 44);
+UI["Show"]["Text"] = [[Aimlock UI]];
+UI["Show"]["Name"] = [[Show]];
+UI["Show"]["Position"] = UDim2.new(0.4378, 0, -0.13015, 0);
+UI["Show"]["Visible"] = false;
 
-UI["UICorner_13"] = Instance.new("UICorner", UI["Show_12"]);
-UI["UICorner_13"]["CornerRadius"] = UDim.new(0, 100);
+UI["UICorner_7"] = Instance.new("UICorner", UI["Show"]);
+UI["UICorner_7"]["CornerRadius"] = UDim.new(0, 100);
 
 local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
 
 local function dragify(Frame)
     local dragToggle = nil
@@ -187,15 +189,15 @@ local function dragify(Frame)
         end
     end)
 
-    game:GetService("UserInputService").InputChanged:Connect(function(input)
+    UserInputService.InputChanged:Connect(function(input)
         if (input == dragInput and dragToggle) then
             updateInput(input)
         end
     end)
 end
 
-dragify(UI["Aimlock_UI_2"])
-dragify(UI["Credits_UI_c"])
+dragify(UI["Aimlock_UI"])
+dragify(UI["Credits_UI"])
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -207,8 +209,8 @@ local currentHighlight = nil
 local currentTarget = nil
 local connection = nil
 
-function findNearestPlayer()
-    local nearestPlayer = nil
+function getClosestEnemy()
+    local closestPlayer = nil
     local shortestDistance = math.huge
     local localCharacter = LocalPlayer.Character
     local localRoot = localCharacter and localCharacter:FindFirstChild("HumanoidRootPart")
@@ -226,16 +228,16 @@ function findNearestPlayer()
                 local distance = (localRoot.Position - rootPart.Position).Magnitude
                 if distance < shortestDistance then
                     shortestDistance = distance
-                    nearestPlayer = player
+                    closestPlayer = player
                 end
             end
         end
     end
     
-    return nearestPlayer
+    return closestPlayer
 end
 
-function highlightTarget(player)
+function highlightEnemy(player)
     if currentHighlight then
         currentHighlight:Destroy()
         currentHighlight = nil
@@ -256,7 +258,7 @@ function highlightTarget(player)
     currentTarget = player
 end
 
-function lockCameraToTarget()
+function lockOnTarget()
     if not currentTarget or not currentTarget.Character then return end
     
     local head = currentTarget.Character:FindFirstChild("Head")
@@ -271,82 +273,87 @@ end
 function AimlockLoop()
     if not AimlockEnabled then return end
     
-    local nearestPlayer = findNearestPlayer()
+    local closestEnemy = getClosestEnemy()
     
-    if nearestPlayer then
-        if currentTarget ~= nearestPlayer then
-            highlightTarget(nearestPlayer)
+    if closestEnemy then
+        if currentTarget ~= closestEnemy then
+            highlightEnemy(closestEnemy)
         end
-        UI["Target_9"].Text = "Target: " .. nearestPlayer.Name
-        lockCameraToTarget()
+        UI["Target"].Text = "Target: " .. closestEnemy.Name
+        lockOnTarget()
     else
         if currentHighlight then
             currentHighlight:Destroy()
             currentHighlight = nil
         end
-        UI["Target_9"].Text = "Target: None"
+        UI["Target"].Text = "Target: None"
         currentTarget = nil
     end
 end
 
-UI["Hide_3"].MouseButton1Click:Connect(function()
-    TweenService:Create(UI["Aimlock_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-    task.wait(0.3)
-    UI["Aimlock_UI_2"].Visible = false
-    UI["Aimlock_UI_2"].Size = UDim2.new(0, 210, 0, 152)
-    UI["Show_12"].Visible = true
-    TweenService:Create(UI["Show_12"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 103, 0, 44)}):Play()
-end)
-
-UI["Show_12"].MouseButton1Click:Connect(function()
-    TweenService:Create(UI["Show_12"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-    task.wait(0.3)
-    UI["Show_12"].Visible = false
-    UI["Show_12"].Size = UDim2.new(0, 103, 0, 44)
-    UI["Aimlock_UI_2"].Visible = true
-    UI["Aimlock_UI_2"].Size = UDim2.new(0, 0, 0, 0)
-    TweenService:Create(UI["Aimlock_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 152)}):Play()
-end)
-
-UI["About_a"].MouseButton1Click:Connect(function()
-    TweenService:Create(UI["Aimlock_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-    task.wait(0.3)
-    UI["Aimlock_UI_2"].Visible = false
-    UI["Aimlock_UI_2"].Size = UDim2.new(0, 210, 0, 152)
-    UI["Credits_UI_c"].Visible = true
-    UI["Credits_UI_c"].Size = UDim2.new(0, 0, 0, 0)
-    TweenService:Create(UI["Credits_UI_c"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 152)}):Play()
-end)
-
-UI["Hide_d"].MouseButton1Click:Connect(function()
-    TweenService:Create(UI["Credits_UI_c"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-    task.wait(0.3)
-    UI["Credits_UI_c"].Visible = false
-    UI["Credits_UI_c"].Size = UDim2.new(0, 210, 0, 152)
-    UI["Aimlock_UI_2"].Visible = true
-    UI["Aimlock_UI_2"].Size = UDim2.new(0, 0, 0, 0)
-    TweenService:Create(UI["Aimlock_UI_2"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 152)}):Play()
-end)
-
-UI["Toggle_6"].MouseButton1Click:Connect(function()
+function tlock()
     AimlockEnabled = not AimlockEnabled
     
     if AimlockEnabled then
-        TweenService:Create(UI["Toggle_6"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 0, 0)}):Play()
-        UI["Toggle_6"].Text = "Disable Aimlock"
+        TweenService:Create(UI["Toggle"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 0, 0)}):Play()
+        UI["Toggle"].Text = "Disable Aimlock"
         if not connection then
             connection = RunService.RenderStepped:Connect(AimlockLoop)
         end
     else
-        TweenService:Create(UI["Toggle_6"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-        UI["Toggle_6"].Text = "Enable Aimlock"
+        TweenService:Create(UI["Toggle"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+        UI["Toggle"].Text = "Enable Aimlock"
         if currentHighlight then
             currentHighlight:Destroy()
             currentHighlight = nil
         end
-        UI["Target_9"].Text = "Target: None"
+        UI["Target"].Text = "Target: None"
         currentTarget = nil
+    end
+end
+
+UI["Hide_A"].MouseButton1Click:Connect(function()
+    TweenService:Create(UI["Aimlock_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+    task.wait(0.3)
+    UI["Aimlock_UI"].Visible = false
+    UI["Aimlock_UI"].Size = UDim2.new(0, 214, 0, 154)
+    UI["Show"].Visible = true
+    TweenService:Create(UI["Show"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 118, 0, 44)}):Play()
+end)
+
+UI["Show"].MouseButton1Click:Connect(function()
+    TweenService:Create(UI["Show"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+    task.wait(0.3)
+    UI["Show"].Visible = false
+    UI["Show"].Size = UDim2.new(0, 118, 0, 44)
+    UI["Aimlock_UI"].Visible = true
+    UI["Aimlock_UI"].Size = UDim2.new(0, 0, 0, 0)
+    TweenService:Create(UI["Aimlock_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 214, 0, 154)}):Play()
+end)
+
+UI["About"].MouseButton1Click:Connect(function()
+    UI["Credits_UI"].Visible = true
+    UI["Credits_UI"].Size = UDim2.new(0, 0, 0, 0)
+    TweenService:Create(UI["Credits_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 118)}):Play()
+end)
+
+UI["Hide_A_B"].MouseButton1Click:Connect(function()
+    TweenService:Create(UI["Credits_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+    task.wait(0.3)
+    UI["Credits_UI"].Visible = false
+    UI["Credits_UI"].Size = UDim2.new(0, 210, 0, 118)
+end)
+
+UI["Toggle"].MouseButton1Click:Connect(function()
+    tlock()
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    
+    if input.KeyCode == Enum.KeyCode.RightControl then
+        tlock()
     end
 end)
 
-return UI["ScreenGui_1"], require
+return UI["ScreenGui"], require
