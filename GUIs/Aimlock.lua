@@ -1,4 +1,4 @@
-local UI = {};
+local function S(n) return (cloneref and cloneref(game:GetService(n))) or game:GetService(n) end
 
 local function UIRoot(gui)
 	gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
@@ -11,6 +11,8 @@ local function UIRoot(gui)
 	if cg then gui.Parent = cg return end
 	if lp and lp:FindFirstChild("PlayerGui") then gui.Parent = lp.PlayerGui return end
 end
+
+local UI = {};
 
 UI["ScreenGui"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 UI["ScreenGui"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
