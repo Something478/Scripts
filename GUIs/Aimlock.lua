@@ -14,8 +14,7 @@ end
 
 local UI = {};
 
-UI["ScreenGui"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
-UI["ScreenGui"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+UI["ScreenGui"] = Instance.new("ScreenGui")
 UIRoot(UI["ScreenGui"])
 
 UI["Aimlock_UI"] = Instance.new("Frame", UI["ScreenGui"]);
