@@ -63,7 +63,7 @@ UI["CreditsText"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.j
 UI["CreditsText"]["TextColor3"] = Color3.fromRGB(252, 199, 253);
 UI["CreditsText"]["BackgroundTransparency"] = 1;
 UI["CreditsText"]["Size"] = UDim2.new(0, 200, 0, 80);
-UI["CreditsText"]["Text"] = [[YouTube: @StarFlow.0\nDiscord: St4rFl0w\nScriptblox: @StarFlow]];
+UI["CreditsText"]["Text"] = "YouTube: @StarFlow.0\nDiscord: @St4rFl0w\nScriptblox: @StarFlow"
 UI["CreditsText"]["Name"] = [[CreditsText]];
 UI["CreditsText"]["Position"] = UDim2.new(0.02857, 0, 0.28814, 0);
 
