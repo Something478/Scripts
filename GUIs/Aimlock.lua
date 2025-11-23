@@ -1,8 +1,20 @@
 local UI = {};
 
+local function UIRoot(gui)
+	gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+	gui.DisplayOrder = 999999999
+	gui.IgnoreGuiInset = true
+	gui.ResetOnSpawn = false
+	local cg = S("CoreGui")
+	local lp = S("Players").LocalPlayer
+	if cg and cg:FindFirstChild("RobloxGui") then gui.Parent = cg.RobloxGui return end
+	if cg then gui.Parent = cg return end
+	if lp and lp:FindFirstChild("PlayerGui") then gui.Parent = lp.PlayerGui return end
+end
+
 UI["ScreenGui"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 UI["ScreenGui"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
-UI["ScreenGui"]["ResetOnSpawn"] = false;
+UIRoot(UI["ScreenGui"])
 
 UI["Aimlock_UI"] = Instance.new("Frame", UI["ScreenGui"]);
 UI["Aimlock_UI"]["BorderSizePixel"] = 0;
