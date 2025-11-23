@@ -3,7 +3,6 @@ local UI = {}
 UI["ScreenGui"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
 UI["ScreenGui"]["ndexBehavior"] = Enum.ZIndexBehavior.Sibling
 UI["ScreenGui"]["ResetOnSpawn"] = false
-UI["ScreenGui"]["ZIndex"] = 9999999999
 
 UI["Aimlock_UI"] = Instance.new("Frame", UI["ScreenGui"])
 UI["Aimlock_UI"]["BorderSizePixel"] = 0
