@@ -155,204 +155,204 @@ UI["Show"]["Visible"] = false;
 UI["UICorner_7"] = Instance.new("UICorner", UI["Show"]);
 UI["UICorner_7"]["CornerRadius"] = UDim.new(0, 100);
 
-local TW = game:GetService("TweenService")
-local UIS = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
 
-local function dg(F)
-    local dt = nil
-    local di = nil
-    local ds = nil
-    local sp = nil
+local function dragify(Frame)
+    local dragToggle = nil
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
 
-    local function ui(i)
-        local D = i.Position - ds
-        local P = UDim2.new(sp.X.Scale, sp.X.Offset + D.X, sp.Y.Scale, sp.Y.Offset + D.Y)
-        TW:Create(F, TweenInfo.new(0.1), {Position = P}):Play()
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+        TweenService:Create(Frame, TweenInfo.new(0.1), {Position = Position}):Play()
     end
 
-    F.InputBegan:Connect(function(i)
-        if (i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch) then
-            dt = true
-            ds = i.Position
-            sp = F.Position
-            i.Changed:Connect(function()
-                if (i.UserInputState == Enum.UserInputState.End) then
-                    dt = false
+    Frame.InputBegan:Connect(function(input)
+        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Frame.Position
+            input.Changed:Connect(function()
+                if (input.UserInputState == Enum.UserInputState.End) then
+                    dragToggle = false
                 end
-            end
+            end)
         end
     end)
 
-    F.InputChanged:Connect(function(i)
-        if (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then
-            di = i
+    Frame.InputChanged:Connect(function(input)
+        if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+            dragInput = input
         end
     end)
 
-    UIS.InputChanged:Connect(function(i)
-        if (i == di and dt) then
-            ui(i)
+    UserInputService.InputChanged:Connect(function(input)
+        if (input == dragInput and dragToggle) then
+            updateInput(input)
         end
     end)
 end
 
-dg(UI["Aimlock_UI"])
-dg(UI["Credits_UI"])
+dragify(UI["Aimlock_UI"])
+dragify(UI["Credits_UI"])
 
-local P = game:GetService("Players")
-local RS = game:GetService("RunService")
-local LP = P.LocalPlayer
-local C = workspace.CurrentCamera
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+local Camera = workspace.CurrentCamera
 
-local AE = false
-local ch = nil
-local ct = nil
-local cn = nil
+local AimlockEnabled = false
+local currentHighlight = nil
+local currentTarget = nil
+local connection = nil
 
-function ge()
-    local cp = nil
-    local sd = math.huge
-    local lc = LP.Character
-    local lr = lc and lc:FindFirstChild("HumanoidRootPart")
+function getClosestEnemy()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    local localCharacter = LocalPlayer.Character
+    local localRoot = localCharacter and localCharacter:FindFirstChild("HumanoidRootPart")
     
-    if not lr then return nil end
+    if not localRoot then return nil end
     
-    for _, p in pairs(P:GetPlayers()) do
-        if p ~= LP and p.Character then
-            local char = p.Character
-            local h = char:FindFirstChild("Humanoid")
-            local head = char:FindFirstChild("Head")
-            local rp = char:FindFirstChild("HumanoidRootPart")
+    for _, player in pairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and player.Character then
+            local character = player.Character
+            local humanoid = character:FindFirstChild("Humanoid")
+            local head = character:FindFirstChild("Head")
+            local rootPart = character:FindFirstChild("HumanoidRootPart")
             
-            if h and h.Health > 0 and rp and head then
-                local d = (lr.Position - rp.Position).Magnitude
-                if d < sd then
-                    sd = d
-                    cp = p
+            if humanoid and humanoid.Health > 0 and rootPart and head then
+                local distance = (localRoot.Position - rootPart.Position).Magnitude
+                if distance < shortestDistance then
+                    shortestDistance = distance
+                    closestPlayer = player
                 end
             end
         end
     end
     
-    return cp
+    return closestPlayer
 end
 
-function he(p)
-    if ch then
-        ch:Destroy()
-        ch = nil
+function highlightEnemy(player)
+    if currentHighlight then
+        currentHighlight:Destroy()
+        currentHighlight = nil
     end
     
-    if not p or not p.Character then return end
+    if not player or not player.Character then return end
     
-    local h = Instance.new("Highlight")
-    h.Name = "AimlockHighlight"
-    h.Adornee = p.Character
-    h.FillColor = Color3.fromRGB(255, 0, 0)
-    h.OutlineColor = Color3.fromRGB(255, 255, 255)
-    h.FillTransparency = 0.3
-    h.OutlineTransparency = 0
-    h.Parent = p.Character
+    local highlight = Instance.new("Highlight")
+    highlight.Name = "AimlockHighlight"
+    highlight.Adornee = player.Character
+    highlight.FillColor = Color3.fromRGB(255, 0, 0)
+    highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+    highlight.FillTransparency = 0.3
+    highlight.OutlineTransparency = 0
+    highlight.Parent = player.Character
     
-    ch = h
-    ct = p
+    currentHighlight = highlight
+    currentTarget = player
 end
 
-function lt()
-    if not ct or not ct.Character then return end
+function lockOnTarget()
+    if not currentTarget or not currentTarget.Character then return end
     
-    local head = ct.Character:FindFirstChild("Head")
+    local head = currentTarget.Character:FindFirstChild("Head")
     if head then
-        local cam = workspace.CurrentCamera
-        local cp = cam.CFrame.Position
-        local lv = (head.Position - cp).Unit
-        cam.CFrame = CFrame.new(cp, cp + lv)
+        local camera = workspace.CurrentCamera
+        local cameraPosition = camera.CFrame.Position
+        local lookVector = (head.Position - cameraPosition).Unit
+        camera.CFrame = CFrame.new(cameraPosition, cameraPosition + lookVector)
     end
 end
 
-function al()
-    if not AE then return end
+function aimbotLoop()
+    if not AimlockEnabled then return end
     
-    local ce = ge()
+    local closestEnemy = getClosestEnemy()
     
-    if ce then
-        if ct ~= ce then
-            he(ce)
+    if closestEnemy then
+        if currentTarget ~= closestEnemy then
+            highlightEnemy(closestEnemy)
         end
-        UI["Target"].Text = "Target: " .. ce.Name
-        lt()
+        UI["Target"].Text = "Target: " .. closestEnemy.Name
+        lockOnTarget()
     else
-        if ch then
-            ch:Destroy()
-            ch = nil
+        if currentHighlight then
+            currentHighlight:Destroy()
+            currentHighlight = nil
         end
         UI["Target"].Text = "Target: None"
-        ct = nil
+        currentTarget = nil
     end
 end
 
-function ta()
-    AE = not AE
+function toggleAimbot()
+    AimlockEnabled = not AimlockEnabled
     
-    if AE then
-        TW:Create(UI["Toggle"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 0, 0)}):Play()
+    if AimlockEnabled then
+        TweenService:Create(UI["Toggle"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 0, 0)}):Play()
         UI["Toggle"].Text = "Disable Aimbot"
-        if not cn then
-            cn = RS.RenderStepped:Connect(al)
+        if not connection then
+            connection = RunService.RenderStepped:Connect(aimbotLoop)
         end
     else
-        TW:Create(UI["Toggle"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+        TweenService:Create(UI["Toggle"], TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
         UI["Toggle"].Text = "Enable Aimbot"
-        if ch then
-            ch:Destroy()
-            ch = nil
+        if currentHighlight then
+            currentHighlight:Destroy()
+            currentHighlight = nil
         end
         UI["Target"].Text = "Target: None"
-        ct = nil
+        currentTarget = nil
     end
 end
 
 UI["Hide_A"].MouseButton1Click:Connect(function()
-    TW:Create(UI["Aimlock_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+    TweenService:Create(UI["Aimlock_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
     task.wait(0.3)
     UI["Aimlock_UI"].Visible = false
     UI["Aimlock_UI"].Size = UDim2.new(0, 214, 0, 154)
     UI["Show"].Visible = true
-    TW:Create(UI["Show"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 118, 0, 44)}):Play()
+    TweenService:Create(UI["Show"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 118, 0, 44)}):Play()
 end)
 
 UI["Show"].MouseButton1Click:Connect(function()
-    TW:Create(UI["Show"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+    TweenService:Create(UI["Show"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
     task.wait(0.3)
     UI["Show"].Visible = false
     UI["Show"].Size = UDim2.new(0, 118, 0, 44)
     UI["Aimlock_UI"].Visible = true
     UI["Aimlock_UI"].Size = UDim2.new(0, 0, 0, 0)
-    TW:Create(UI["Aimlock_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 214, 0, 154)}):Play()
+    TweenService:Create(UI["Aimlock_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 214, 0, 154)}):Play()
 end)
 
 UI["About"].MouseButton1Click:Connect(function()
     UI["Credits_UI"].Visible = true
     UI["Credits_UI"].Size = UDim2.new(0, 0, 0, 0)
-    TW:Create(UI["Credits_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 118)}):Play()
+    TweenService:Create(UI["Credits_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 210, 0, 118)}):Play()
 end)
 
 UI["Hide_B"].MouseButton1Click:Connect(function()
-    TW:Create(UI["Credits_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+    TweenService:Create(UI["Credits_UI"], TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
     task.wait(0.3)
     UI["Credits_UI"].Visible = false
     UI["Credits_UI"].Size = UDim2.new(0, 210, 0, 118)
 end)
 
 UI["Toggle"].MouseButton1Click:Connect(function()
-    ta()
+    toggleAimbot()
 end)
 
-UIS.InputBegan:Connect(function(i, gp)
-    if gp then return end
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
     
-    if i.KeyCode == Enum.KeyCode.RightControl then
-        ta()
+    if input.KeyCode == Enum.KeyCode.RightControl then
+        toggleAimbot()
     end
 end)
 
