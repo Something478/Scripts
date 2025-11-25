@@ -267,7 +267,7 @@ UI["Title"]["BackgroundColor3"] = Color3.fromRGB(32, 32, 32);
 UI["Title"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
 UI["Title"]["TextColor3"] = Color3.fromRGB(171, 0, 255);
 UI["Title"]["Size"] = UDim2.new(0, 341, 0, 30);
-UI["Title"]["Text"] = [[Kilobyte keyboard]];
+UI["Title"]["Text"] = "Kilobyte keyboard [V2]"
 UI["Title"]["Name"] = [[Title]];
 
 UI["UICorner_17"] = Instance.new("UICorner", UI["Title"]);
