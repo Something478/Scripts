@@ -88,8 +88,9 @@ for rowIndex, row in ipairs(keysLayout) do
 
         local stroke = Instance.new("UIStroke")
         stroke.Color = Color3.fromRGB(120, 60, 255)
-        stroke.Thickness = 1.5
-        stroke.Transparency = 1
+        stroke.Thickness = 1
+        stroke.Transparency = 0
+        stroke.ApplyStrokeMode = Border
         stroke.Parent = keyBtn
 
         TweenService:Create(keyBtn, TweenInfo.new(0.5), {TextTransparency = 0, BackgroundTransparency = 0}):Play()
