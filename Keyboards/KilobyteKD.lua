@@ -1,14 +1,14 @@
 local Players = game:GetService("Players")
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local TweenService  = game:GetService("TweenService")
+local plr = Players.LocalPlayer
+local playerGui = plr:WaitForChild("PlayerGui")
 pcall(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
 end)
-local plr = Players.LocalPlayer
-local playerGui = plr:WaitForChild("PlayerGui")
 
 local gui = Instance.new("ScreenGui")
-gui.Name = "KilobyteKeyboard"
+gui.Name = "KB_V1"
 gui.ResetOnSpawn = false
 gui.Parent = playerGui
 gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -34,7 +34,7 @@ local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, -30, 0, 20)
 title.Position = UDim2.new(0, 0, 0, 0)
 title.BackgroundTransparency = 1
-title.Text = "KiloByte"
+title.Text = "Kilobyte keyboard [V1]"
 title.TextColor3 = Color3.fromRGB(150, 80, 255)
 title.TextScaled = true
 title.Font = Enum.Font.Arcade
