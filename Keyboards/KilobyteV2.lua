@@ -852,25 +852,12 @@ HoverAnim(UI["Show"])
 
 UI["Show"].MouseButton1Click:Connect(function()
     UI["MainFrame"].Visible = true
-    UI["MainFrame"].Position = UDim2.new(0.01924, 0, -0.5, 0)
     UI["Show"].Visible = false
-    
-    local tween = game:GetService("TweenService"):Create(UI["MainFrame"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
-        Position = UDim2.new(0.01924, 0, 0, 0)
-    })
-    tween:Play()
 end)
 
 UI["Hide"].MouseButton1Click:Connect(function()
-    local tween = game:GetService("TweenService"):Create(UI["MainFrame"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
-        Position = UDim2.new(0.01924, 0, -0.5, 0)
-    })
-    tween:Play()
-    
-    tween.Completed:Connect(function()
-        UI["MainFrame"].Visible = false
-        UI["Show"].Visible = true
-    end)
+    UI["MainFrame"].Visible = false
+    UI["Show"].Visible = true
 end)
 
 UI["Close"].MouseButton1Click:Connect(function()
