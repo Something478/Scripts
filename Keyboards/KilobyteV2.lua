@@ -717,15 +717,29 @@ UI["UIStroke_66"]["Color"] = Color3.fromRGB(171, 0, 255);
 
 local function dragify(Frame)
     local dragToggle = nil
-    local dragSpeed = .25
     local dragInput = nil
     local dragStart = nil
     local startPos = nil
 
     local function updateInput(input)
         local Delta = input.Position - dragStart
-        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-        game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
+        local newX = startPos.X.Offset + Delta.X
+        local newY = startPos.Y.Offset + Delta.Y
+        
+        local gui = Frame:FindFirstAncestorOfClass("ScreenGui")
+        local absoluteSize = gui.AbsoluteSize
+        local frameSize = Frame.AbsoluteSize
+        
+        local minX = 0
+        local maxX = absoluteSize.X - frameSize.X
+        local minY = 0
+        local maxY = absoluteSize.Y - frameSize.Y
+        
+        newX = math.clamp(newX, minX, maxX)
+        newY = math.clamp(newY, minY, maxY)
+        
+        local Position = UDim2.new(0, newX, 0, newY)
+        Frame.Position = Position
     end
 
     Frame.InputBegan:Connect(function(input)
@@ -753,7 +767,6 @@ local function dragify(Frame)
         end
     end)
 end
-dragify(UI["MainFrame"])
 
 local VIM = game:GetService("VirtualInputManager")
 local keyMap = {
