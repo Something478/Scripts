@@ -717,10 +717,32 @@ UI["UIStroke_66"]["Color"] = Color3.fromRGB(171, 0, 255);
 
 local function dragify(Frame)
     local UIS = game:GetService("UserInputService")
+    local TweenService = game:GetService("TweenService")
 
     local dragging = false
     local dragStart
     local startPos
+    local dragSpeed = 0.20
+
+    local function update(input)
+        local gui = Frame:FindFirstAncestorOfClass("ScreenGui")
+        if not gui then return end
+
+        local screen = gui.AbsoluteSize
+        local size = Frame.AbsoluteSize
+
+        local delta = input.Position - dragStart
+        local newPos = Vector2.new(startPos.X + delta.X, startPos.Y + delta.Y)
+
+        newPos = Vector2.new(
+            math.clamp(newPos.X, 0, screen.X - size.X),
+            math.clamp(newPos.Y, 0, screen.Y - size.Y)
+        )
+
+        TweenService:Create(Frame, TweenInfo.new(dragSpeed, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
+            Position = UDim2.fromOffset(newPos.X, newPos.Y)
+        }):Play()
+    end
 
     Frame.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
@@ -738,21 +760,7 @@ local function dragify(Frame)
 
     UIS.InputChanged:Connect(function(input)
         if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-            local gui = Frame:FindFirstAncestorOfClass("ScreenGui")
-            if not gui then return end
-
-            local screenSize = gui.AbsoluteSize
-            local frameSize = Frame.AbsoluteSize
-
-            local delta = input.Position - dragStart
-            local newPos = startPos + Vector2.new(delta.X, delta.Y)
-
-            newPos = Vector2.new(
-                math.clamp(newPos.X, 0, screenSize.X - frameSize.X),
-                math.clamp(newPos.Y, 0, screenSize.Y - frameSize.Y)
-            )
-
-            Frame.Position = UDim2.fromOffset(newPos.X, newPos.Y)
+            update(input)
         end
     end)
 end
