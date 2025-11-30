@@ -756,6 +756,7 @@ local function dragify(Frame)
         end
     end)
 end
+dragify(UI["MainFrame"])
 
 local VIM = game:GetService("VirtualInputManager")
 local keyMap = {
