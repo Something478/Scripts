@@ -3,8 +3,9 @@ local VirtualInputManager = game:GetService("VirtualInputManager")
 local TweenService  = game:GetService("TweenService")
 local plr = Players.LocalPlayer
 local playerGui = plr:WaitForChild("PlayerGui")
+
 pcall(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
 end)
 
 local gui = Instance.new("ScreenGui")
@@ -25,7 +26,7 @@ mainFrame.Draggable = true
 mainFrame.BackgroundTransparency = 1
 
 local outline = Instance.new("UIStroke")
-outline.Color = Color3.fromRGB(120, 60, 255)
+outline.Color = Color3.fromRGB(171, 0, 255)
 outline.Thickness = 2
 outline.Transparency = 1
 outline.Parent = mainFrame
@@ -35,7 +36,7 @@ title.Size = UDim2.new(1, -30, 0, 20)
 title.Position = UDim2.new(0, 0, 0, 0)
 title.BackgroundTransparency = 1
 title.Text = "Kilobyte keyboard [V1]"
-title.TextColor3 = Color3.fromRGB(150, 80, 255)
+title.TextColor3 = Color3.fromRGB(171, 0, 255)
 title.TextScaled = true
 title.Font = Enum.Font.Arcade
 title.Parent = mainFrame
@@ -87,10 +88,10 @@ for rowIndex, row in ipairs(keysLayout) do
         keyBtn.BackgroundTransparency = 1
 
         local stroke = Instance.new("UIStroke")
-        stroke.Color = Color3.fromRGB(120, 60, 255)
+        stroke.Color = Color3.fromRGB(171, 0, 255)
         stroke.Thickness = 1
         stroke.Transparency = 0
-        stroke.ApplyStrokeMode = Border
+        stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
         stroke.Parent = keyBtn
 
         TweenService:Create(keyBtn, TweenInfo.new(0.5), {TextTransparency = 0, BackgroundTransparency = 0}):Play()
