@@ -722,7 +722,7 @@ local function dragify(Frame)
     local dragInput = nil
     local dragStart = nil
     local startPos = nil
-    local dragSpeed = 0.7
+    local dragSpeed = 0.3
 
     local function clampToScreen(gui, px, py)
         local screen = gui.AbsoluteSize
