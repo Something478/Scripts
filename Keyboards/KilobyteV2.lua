@@ -717,49 +717,64 @@ UI["UIStroke_66"]["Color"] = Color3.fromRGB(171, 0, 255);
 
 local function dragify(Frame)
     local UIS = game:GetService("UserInputService")
-    local TweenService = game:GetService("TweenService")
 
     local dragging = false
-    local dragStart
-    local startPos
-    local dragSpeed = 0.3
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+    local dragSpeed = 0.7
+
+    local function clampToScreen(gui, px, py)
+        local screen = gui.AbsoluteSize
+        local size = Frame.AbsoluteSize
+        return math.clamp(px, 0, screen.X - size.X), math.clamp(py, 0, screen.Y - size.Y)
+    end
 
     local function update(input)
         local gui = Frame:FindFirstAncestorOfClass("ScreenGui")
         if not gui then return end
 
-        local screen = gui.AbsoluteSize
-        local size = Frame.AbsoluteSize
-
         local delta = input.Position - dragStart
-        local newPos = Vector2.new(startPos.X + delta.X, startPos.Y + delta.Y)
+        local targetX = startPos.X + delta.X
+        local targetY = startPos.Y + delta.Y
+        targetX, targetY = clampToScreen(gui, targetX, targetY)
 
-        newPos = Vector2.new(
-            math.clamp(newPos.X, 0, screen.X - size.X),
-            math.clamp(newPos.Y, 0, screen.Y - size.Y)
-        )
+        if dragSpeed >= 1 then
+            Frame.Position = UDim2.fromOffset(math.floor(targetX + 0.5), math.floor(targetY + 0.5))
+            return
+        end
 
-        TweenService:Create(Frame, TweenInfo.new(dragSpeed, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
-            Position = UDim2.fromOffset(newPos.X, newPos.Y)
-        }):Play()
+        local cur = Frame.AbsolutePosition
+        local interpX = cur.X + (targetX - cur.X) * math.clamp(dragSpeed, 0, 1)
+        local interpY = cur.Y + (targetY - cur.Y) * math.clamp(dragSpeed, 0, 1)
+
+        Frame.Position = UDim2.fromOffset(math.floor(interpX + 0.5), math.floor(interpY + 0.5))
     end
 
     Frame.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
             dragging = true
+            dragInput = input
             dragStart = input.Position
             startPos = Frame.AbsolutePosition
 
             input.Changed:Connect(function()
                 if input.UserInputState == Enum.UserInputState.End then
                     dragging = false
+                    dragInput = nil
                 end
             end)
         end
     end)
 
+    Frame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
     UIS.InputChanged:Connect(function(input)
-        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        if dragging and input == dragInput then
             update(input)
         end
     end)
