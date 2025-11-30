@@ -722,7 +722,7 @@ local function dragify(Frame)
     local dragging = false
     local dragStart
     local startPos
-    local dragSpeed = 0.20
+    local dragSpeed = 0.3
 
     local function update(input)
         local gui = Frame:FindFirstAncestorOfClass("ScreenGui")
