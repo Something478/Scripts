@@ -817,4 +817,7 @@ UI["Minimize"].MouseButton1Click:Connect(function()
     UI["Show"].Visible = true
 end)
 
+UI["MainFrame"].Visible = true
+UI["Show"].Visible = false
+
 return UI["KilobyteV2"], require;
