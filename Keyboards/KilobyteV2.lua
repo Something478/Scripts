@@ -227,19 +227,19 @@ UI["UIStroke_13"] = Instance.new("UIStroke", UI["MainFrame"]);
 UI["UIStroke_13"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 UI["UIStroke_13"]["Color"] = Color3.fromRGB(171, 0, 255);
 
-UI["Minimize"] = Instance.new("TextButton", UI["MainFrame"]);
-UI["Minimize"]["TextWrapped"] = true;
-UI["Minimize"]["BorderSizePixel"] = 0;
-UI["Minimize"]["TextScaled"] = true;
-UI["Minimize"]["TextColor3"] = Color3.fromRGB(85, 179, 255);
-UI["Minimize"]["BackgroundColor3"] = Color3.fromRGB(43, 43, 43);
-UI["Minimize"]["ZIndex"] = 5;
-UI["Minimize"]["Size"] = UDim2.new(0, 26, 0, 26);
-UI["Minimize"]["Text"] = [[–]];
-UI["Minimize"]["Name"] = [[Minimize]];
-UI["Minimize"]["Position"] = UDim2.new(0.83041, 0, 0.01176, 0);
+UI["Hide"] = Instance.new("TextButton", UI["MainFrame"]);
+UI["Hide"]["TextWrapped"] = true;
+UI["Hide"]["BorderSizePixel"] = 0;
+UI["Hide"]["TextScaled"] = true;
+UI["Hide"]["TextColor3"] = Color3.fromRGB(85, 179, 255);
+UI["Hide"]["BackgroundColor3"] = Color3.fromRGB(43, 43, 43);
+UI["Hide"]["ZIndex"] = 5;
+UI["Hide"]["Size"] = UDim2.new(0, 26, 0, 26);
+UI["Hide"]["Text"] = [[–]];
+UI["Hide"]["Name"] = [[Hide]];
+UI["Hide"]["Position"] = UDim2.new(0.83041, 0, 0.01176, 0);
 
-UI["UICorner_14"] = Instance.new("UICorner", UI["Minimize"]);
+UI["UICorner_14"] = Instance.new("UICorner", UI["Hide"]);
 
 UI["G"] = Instance.new("TextButton", UI["MainFrame"]);
 UI["G"]["TextWrapped"] = true;
@@ -804,21 +804,81 @@ for keyName, button in pairs(UI) do
     end
 end
 
+-- Hover and click animations
+local function HoverAnim(button)
+    local originalSize = button.Size
+    local originalBg = button.BackgroundColor3
+    local originalText = button.TextColor3
+    
+    button.MouseEnter:Connect(function()
+        game:GetService("TweenService"):Create(button, TweenInfo.new(0.2), {
+            Size = originalSize + UDim2.new(0, 4, 0, 4),
+            BackgroundColor3 = Color3.fromRGB(50, 50, 50),
+            TextColor3 = Color3.fromRGB(200, 50, 255)
+        }):Play()
+    end)
+    
+    button.MouseLeave:Connect(function()
+        game:GetService("TweenService"):Create(button, TweenInfo.new(0.2), {
+            Size = originalSize,
+            BackgroundColor3 = originalBg,
+            TextColor3 = originalText
+        }):Play()
+    end)
+    
+    button.MouseButton1Down:Connect(function()
+        game:GetService("TweenService"):Create(button, TweenInfo.new(0.1), {
+            Size = originalSize - UDim2.new(0, 2, 0, 2),
+            BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        }):Play()
+    end)
+    
+    button.MouseButton1Up:Connect(function()
+        game:GetService("TweenService"):Create(button, TweenInfo.new(0.1), {
+            Size = originalSize,
+            BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        }):Play()
+    end)
+end
+
+for keyName, keyCode in pairs(keyMap) do
+    if UI[keyName] and UI[keyName]:IsA("TextButton") then
+        HoverAnim(UI[keyName])
+    end
+end
+
+HoverAnim(UI["Close"])
+HoverAnim(UI["Hide"])
+HoverAnim(UI["Show"])
+
 UI["Show"].MouseButton1Click:Connect(function()
     UI["MainFrame"].Visible = true
+    UI["MainFrame"].Position = UDim2.new(0.01924, 0, -0.5, 0)
     UI["Show"].Visible = false
+    
+    local tween = game:GetService("TweenService"):Create(UI["MainFrame"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+        Position = UDim2.new(0.01924, 0, 0, 0)
+    })
+    tween:Play()
+end)
+
+UI["Hide"].MouseButton1Click:Connect(function()
+    local tween = game:GetService("TweenService"):Create(UI["MainFrame"], TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
+        Position = UDim2.new(0.01924, 0, -0.5, 0)
+    })
+    tween:Play()
+    
+    tween.Completed:Connect(function()
+        UI["MainFrame"].Visible = false
+        UI["Show"].Visible = true
+    end)
 end)
 
 UI["Close"].MouseButton1Click:Connect(function()
     UI["KilobyteV2"]:Destroy()
 end)
 
-UI["Minimize"].MouseButton1Click:Connect(function()
-    UI["MainFrame"].Visible = false
-    UI["Show"].Visible = true
-end)
-
 UI["MainFrame"].Visible = true
 UI["Show"].Visible = false
 
-return UI["KilobyteV2"], require;
+return UI["KilobyteV2"], require
