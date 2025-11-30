@@ -2,6 +2,7 @@ local UI = {};
 
 UI["KilobyteV2"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 UI["KilobyteV2"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+UI["KilobyteV2"]["ResetOnSpawn"] = false
 
 UI["Show"] = Instance.new("TextButton", UI["KilobyteV2"]);
 UI["Show"]["TextWrapped"] = true;
