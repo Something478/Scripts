@@ -1,1 +1,0 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Keyboards/KilobyteV1.lua"))()
