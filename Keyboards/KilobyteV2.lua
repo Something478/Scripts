@@ -716,54 +716,43 @@ UI["UIStroke_66"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 UI["UIStroke_66"]["Color"] = Color3.fromRGB(171, 0, 255);
 
 local function dragify(Frame)
-    local dragToggle = nil
-    local dragInput = nil
-    local dragStart = nil
-    local startPos = nil
+    local UIS = game:GetService("UserInputService")
 
-    local function updateInput(input)
-        local Delta = input.Position - dragStart
-        local newX = startPos.X.Offset + Delta.X
-        local newY = startPos.Y.Offset + Delta.Y
-        
-        local gui = Frame:FindFirstAncestorOfClass("ScreenGui")
-        local absoluteSize = gui.AbsoluteSize
-        local frameSize = Frame.AbsoluteSize
-        
-        local minX = 0
-        local maxX = absoluteSize.X - frameSize.X
-        local minY = 0
-        local maxY = absoluteSize.Y - frameSize.Y
-        
-        newX = math.clamp(newX, minX, maxX)
-        newY = math.clamp(newY, minY, maxY)
-        
-        local Position = UDim2.new(0, newX, 0, newY)
-        Frame.Position = Position
-    end
+    local dragging = false
+    local dragStart
+    local startPos
 
     Frame.InputBegan:Connect(function(input)
-        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
-            dragToggle = true
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
             dragStart = input.Position
-            startPos = Frame.Position
+            startPos = Frame.AbsolutePosition
+
             input.Changed:Connect(function()
-                if (input.UserInputState == Enum.UserInputState.End) then
-                    dragToggle = false
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
                 end
             end)
         end
     end)
 
-    Frame.InputChanged:Connect(function(input)
-        if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-            dragInput = input
-        end
-    end)
+    UIS.InputChanged:Connect(function(input)
+        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+            local gui = Frame:FindFirstAncestorOfClass("ScreenGui")
+            if not gui then return end
 
-    game:GetService("UserInputService").InputChanged:Connect(function(input)
-        if (input == dragInput and dragToggle) then
-            updateInput(input)
+            local screenSize = gui.AbsoluteSize
+            local frameSize = Frame.AbsoluteSize
+
+            local delta = input.Position - dragStart
+            local newPos = startPos + Vector2.new(delta.X, delta.Y)
+
+            newPos = Vector2.new(
+                math.clamp(newPos.X, 0, screenSize.X - frameSize.X),
+                math.clamp(newPos.Y, 0, screenSize.Y - frameSize.Y)
+            )
+
+            Frame.Position = UDim2.fromOffset(newPos.X, newPos.Y)
         end
     end)
 end
