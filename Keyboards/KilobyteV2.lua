@@ -804,7 +804,6 @@ for keyName, button in pairs(UI) do
     end
 end
 
--- Hover and click animations
 local function HoverAnim(button)
     local originalSize = button.Size
     local originalBg = button.BackgroundColor3
