@@ -831,13 +831,11 @@ for keyName, button in pairs(UI) do
 end
 
 local function HoverAnim(button)
-    local originalSize = button.Size
     local originalBg = button.BackgroundColor3
     local originalText = button.TextColor3
     
     button.MouseEnter:Connect(function()
         game:GetService("TweenService"):Create(button, TweenInfo.new(0.2), {
-            Size = originalSize + UDim2.new(0, 4, 0, 4),
             BackgroundColor3 = Color3.fromRGB(50, 50, 50),
             TextColor3 = Color3.fromRGB(200, 50, 255)
         }):Play()
@@ -845,7 +843,6 @@ local function HoverAnim(button)
     
     button.MouseLeave:Connect(function()
         game:GetService("TweenService"):Create(button, TweenInfo.new(0.2), {
-            Size = originalSize,
             BackgroundColor3 = originalBg,
             TextColor3 = originalText
         }):Play()
@@ -853,17 +850,21 @@ local function HoverAnim(button)
     
     button.MouseButton1Down:Connect(function()
         game:GetService("TweenService"):Create(button, TweenInfo.new(0.1), {
-            Size = originalSize - UDim2.new(0, 2, 0, 2),
             BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         }):Play()
     end)
     
     button.MouseButton1Up:Connect(function()
         game:GetService("TweenService"):Create(button, TweenInfo.new(0.1), {
-            Size = originalSize,
             BackgroundColor3 = Color3.fromRGB(50, 50, 50)
         }):Play()
     end)
+end
+
+for keyName, keyCode in pairs(keyMap) do
+    if UI[keyName] and UI[keyName]:IsA("TextButton") then
+        HoverAnim(UI[keyName])
+    end
 end
 
 for keyName, keyCode in pairs(keyMap) do
