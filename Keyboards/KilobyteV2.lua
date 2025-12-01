@@ -877,21 +877,41 @@ HoverAnim(UI["Close"])
 HoverAnim(UI["Hide"])
 HoverAnim(UI["Show"])
 
+local TweenService = game:GetService("TweenService")
+
+local openTween = TweenService:Create(
+    UI["MainFrame"],
+    TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+    {Position = UDim2.new(0.01924, 0, 0, 0)}
+)
+
+local closeTween = TweenService:Create(
+    UI["MainFrame"],
+    TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In),
+    {Position = UDim2.new(0.01924, 0, -1, 0)}
+)
+
 UI["Show"].MouseButton1Click:Connect(function()
     UI["MainFrame"].Visible = true
     UI["Show"].Visible = false
+    openTween:Play()
 end)
 
 UI["Hide"].MouseButton1Click:Connect(function()
+    closeTween:Play()
+    closeTween.Completed:Wait()
     UI["MainFrame"].Visible = false
     UI["Show"].Visible = true
 end)
 
 UI["Close"].MouseButton1Click:Connect(function()
+    closeTween:Play()
+    closeTween.Completed:Wait()
     UI["KilobyteV2"]:Destroy()
 end)
 
 UI["MainFrame"].Visible = true
 UI["Show"].Visible = false
+openTween:Play()
 
 return UI["KilobyteV2"], require
