@@ -53,7 +53,7 @@ UI["Credits_UI"]["Size"] = UDim2.new(0.99065, 0, 1.22785, 0);
 UI["Credits_UI"]["Position"] = UDim2.new(-1.01869, 0, 0, 0);
 UI["Credits_UI"]["Name"] = "Credits_UI"
 UI["Credits_UI"]["Visible"] = false
-UI["Credits_UI"]["ZIndex"] = 2  -- Higher ZIndex to appear on top
+UI["Credits_UI"]["ZIndex"] = 2  
 
 UI["UICorner_4"] = Instance.new("UICorner", UI["Credits_UI"]);
 
@@ -193,7 +193,6 @@ UI["Target"]["Text"] = "Target:"
 UI["Target"]["Name"] = "Target"
 UI["Target"]["Position"] = UDim2.new(0.01869, 0, 0.49367, 0);
 
--- Animation functions
 local TweenService = game:GetService("TweenService")
 
 local function SlideIn(frame)
@@ -201,7 +200,7 @@ local function SlideIn(frame)
     local tween = TweenService:Create(frame, tweenInfo, {Position = UDim2.new(0.74089, 0, 0, 0)})
     frame.Visible = true
     tween:Play()
-    UI["Show"].Visible = false  -- Hide Show button when UI is open
+    UI["Show"].Visible = false  
 end
 
 local function SlideOut(frame, callback)
@@ -210,7 +209,7 @@ local function SlideOut(frame, callback)
     tween:Play()
     tween.Completed:Connect(function()
         frame.Visible = false
-        UI["Show"].Visible = true  -- Show Show button when UI is closed
+        UI["Show"].Visible = true  
         if callback then callback() end
     end)
 end
@@ -290,32 +289,29 @@ local function LocateNearest()
     return nearestPlr
 end
 
--- Show button click - shows main UI with animation
 UI["Show"].MouseButton1Click:Connect(function()
     if not UI["Aimlock_UI"].Visible then
         SlideIn(UI["Aimlock_UI"])
     end
 end)
 
--- Toggle Aimlock button
 UI["Toggle_2"].MouseButton1Click:Connect(function()
     AimlockEnabled = not AimlockEnabled
     if AimlockEnabled then
         UI["Toggle_2"].Text = "Disable Aimlock"
-        UI["Toggle_2"].BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Red when disabled
+        UI["Toggle_2"].BackgroundColor3 = Color3.fromRGB(255, 0, 0) 
         CurrentTarget = LocateNearest()
         if CurrentTarget then
             UI["Target"].Text = "Target: " .. CurrentTarget.Name
         end
     else
         UI["Toggle_2"].Text = "Enable Aimlock"
-        UI["Toggle_2"].BackgroundColor3 = Color3.fromRGB(0, 6, 126) -- Blue when enabled
+        UI["Toggle_2"].BackgroundColor3 = Color3.fromRGB(0, 6, 126) 
         UI["Target"].Text = "Target: None"
         CurrentTarget = nil
     end
 end)
 
--- Toggle ESP button
 UI["Toggle"].MouseButton1Click:Connect(function()
     ESPEnabled = not ESPEnabled
     if ESPEnabled then
@@ -326,19 +322,16 @@ UI["Toggle"].MouseButton1Click:Connect(function()
     UpdateESP()
 end)
 
--- More button - shows more UI with animation
 UI["More"].MouseButton1Click:Connect(function()
     if not UI["Credits_UI"].Visible then
         SlideInMoreUI()
     end
 end)
 
--- Hide button in Credits UI
 UI["Hide"].MouseButton1Click:Connect(function()
     SlideOutMoreUI()
 end)
 
--- Hide button in main UI - hides everything and shows Show button
 UI["Hide_2"].MouseButton1Click:Connect(function()
     if UI["Credits_UI"].Visible then
         SlideOutMoreUI(function()
