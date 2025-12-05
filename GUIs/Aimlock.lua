@@ -5,6 +5,7 @@ local UI = {};
 
 UI["ScreenGui"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 UI["ScreenGui"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+UI["ScreenGui"]["ResetOnSpawn"] = false
 
 UI["Show"] = Instance.new("TextButton", UI["ScreenGui"]);
 UI["Show"]["TextWrapped"] = true;
