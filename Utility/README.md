@@ -1,1 +1,1 @@
-Note: these aren't devtools for people to use, these devtools are for me to use.
+Note: the devtools aren't for people to use, the devtools are for me to use.
