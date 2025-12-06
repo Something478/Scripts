@@ -1014,11 +1014,9 @@ G2L["a9"] = Instance.new("UIStroke", G2L["a8"]);
 G2L["a9"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["a9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.Background.Delete.UICorner
 G2L["aa"] = Instance.new("UICorner", G2L["a8"]);
 G2L["aa"]["CornerRadius"] = UDim.new(0, 5);
 
--- StarterGui.DeltaKeyboard.Main.Background.LeftAlt
 G2L["ab"] = Instance.new("TextButton", G2L["4"]);
 G2L["ab"]["TextWrapped"] = true;
 G2L["ab"]["BackgroundColor3"] = Color3.fromRGB(8, 8, 8);
@@ -1030,16 +1028,13 @@ G2L["ab"]["Name"] = [[LeftAlt]];
 G2L["ab"]["Text"] = [[Alt]];
 G2L["ab"]["Position"] = UDim2.new(0, 73, 0, 160);
 
--- StarterGui.DeltaKeyboard.Main.Background.LeftAlt.UIStroke
 G2L["ac"] = Instance.new("UIStroke", G2L["ab"]);
 G2L["ac"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["ac"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.Background.LeftAlt.UICorner
 G2L["ad"] = Instance.new("UICorner", G2L["ab"]);
 G2L["ad"]["CornerRadius"] = UDim.new(0, 5);
 
--- StarterGui.DeltaKeyboard.Main.Background.Space
 G2L["ae"] = Instance.new("TextButton", G2L["4"]);
 G2L["ae"]["TextWrapped"] = true;
 G2L["ae"]["BackgroundColor3"] = Color3.fromRGB(8, 8, 8);
@@ -1051,16 +1046,13 @@ G2L["ae"]["Name"] = [[Space]];
 G2L["ae"]["Text"] = [[]];
 G2L["ae"]["Position"] = UDim2.new(0, 137, 0, 160);
 
--- StarterGui.DeltaKeyboard.Main.Background.Space.UIStroke
 G2L["af"] = Instance.new("UIStroke", G2L["ae"]);
 G2L["af"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["af"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.Background.Space.UICorner
 G2L["b0"] = Instance.new("UICorner", G2L["ae"]);
 G2L["b0"]["CornerRadius"] = UDim.new(0, 5);
 
--- StarterGui.DeltaKeyboard.Main.Background.RightAlt
 G2L["b1"] = Instance.new("TextButton", G2L["4"]);
 G2L["b1"]["TextWrapped"] = true;
 G2L["b1"]["BackgroundColor3"] = Color3.fromRGB(8, 8, 8);
@@ -1072,16 +1064,13 @@ G2L["b1"]["Name"] = [[RightAlt]];
 G2L["b1"]["Text"] = [[Alt]];
 G2L["b1"]["Position"] = UDim2.new(0, 305, 0, 160);
 
--- StarterGui.DeltaKeyboard.Main.Background.RightAlt.UIStroke
 G2L["b2"] = Instance.new("UIStroke", G2L["b1"]);
 G2L["b2"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["b2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.Background.RightAlt.UICorner
 G2L["b3"] = Instance.new("UICorner", G2L["b1"]);
 G2L["b3"]["CornerRadius"] = UDim.new(0, 5);
 
--- StarterGui.DeltaKeyboard.Main.Background.RightControl
 G2L["b4"] = Instance.new("TextButton", G2L["4"]);
 G2L["b4"]["TextWrapped"] = true;
 G2L["b4"]["BackgroundColor3"] = Color3.fromRGB(8, 8, 8);
@@ -1093,16 +1082,13 @@ G2L["b4"]["Name"] = [[RightControl]];
 G2L["b4"]["Text"] = [[Ctrl]];
 G2L["b4"]["Position"] = UDim2.new(0, 337, 0, 160);
 
--- StarterGui.DeltaKeyboard.Main.Background.RightControl.UIStroke
 G2L["b5"] = Instance.new("UIStroke", G2L["b4"]);
 G2L["b5"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["b5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.Background.RightControl.UICorner
 G2L["b6"] = Instance.new("UICorner", G2L["b4"]);
 G2L["b6"]["CornerRadius"] = UDim.new(0, 5);
 
--- StarterGui.DeltaKeyboard.Main.Background.PageUp
 G2L["b7"] = Instance.new("TextButton", G2L["4"]);
 G2L["b7"]["TextWrapped"] = true;
 G2L["b7"]["BackgroundColor3"] = Color3.fromRGB(8, 8, 8);
@@ -1114,16 +1100,13 @@ G2L["b7"]["Name"] = [[PageUp]];
 G2L["b7"]["Text"] = [[Up]];
 G2L["b7"]["Position"] = UDim2.new(0, 400, 0, 160);
 
--- StarterGui.DeltaKeyboard.Main.Background.PageUp.UIStroke
 G2L["b8"] = Instance.new("UIStroke", G2L["b7"]);
 G2L["b8"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["b8"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.Background.PageUp.UICorner
 G2L["b9"] = Instance.new("UICorner", G2L["b7"]);
 G2L["b9"]["CornerRadius"] = UDim.new(0, 5);
 
--- StarterGui.DeltaKeyboard.Main.Background.PageDown
 G2L["ba"] = Instance.new("TextButton", G2L["4"]);
 G2L["ba"]["TextWrapped"] = true;
 G2L["ba"]["BackgroundColor3"] = Color3.fromRGB(8, 8, 8);
@@ -1135,16 +1118,13 @@ G2L["ba"]["Name"] = [[PageDown]];
 G2L["ba"]["Text"] = [[Down]];
 G2L["ba"]["Position"] = UDim2.new(0, 400, 0, 174);
 
--- StarterGui.DeltaKeyboard.Main.Background.PageDown.UIStroke
 G2L["bb"] = Instance.new("UIStroke", G2L["ba"]);
 G2L["bb"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["bb"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.Background.PageDown.UICorner
 G2L["bc"] = Instance.new("UICorner", G2L["ba"]);
 G2L["bc"]["CornerRadius"] = UDim.new(0, 5);
 
--- StarterGui.DeltaKeyboard.Main.Background.End
 G2L["bd"] = Instance.new("TextButton", G2L["4"]);
 G2L["bd"]["TextWrapped"] = true;
 G2L["bd"]["BackgroundColor3"] = Color3.fromRGB(8, 8, 8);
@@ -1156,16 +1136,13 @@ G2L["bd"]["Name"] = [[End]];
 G2L["bd"]["Text"] = [[>]];
 G2L["bd"]["Position"] = UDim2.new(0, 436, 0, 174);
 
--- StarterGui.DeltaKeyboard.Main.Background.End.UIStroke
 G2L["be"] = Instance.new("UIStroke", G2L["bd"]);
 G2L["be"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["be"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.Background.End.UICorner
 G2L["bf"] = Instance.new("UICorner", G2L["bd"]);
 G2L["bf"]["CornerRadius"] = UDim.new(0, 5);
 
--- StarterGui.DeltaKeyboard.Main.Background.Home
 G2L["c0"] = Instance.new("TextButton", G2L["4"]);
 G2L["c0"]["TextWrapped"] = true;
 G2L["c0"]["BackgroundColor3"] = Color3.fromRGB(8, 8, 8);
@@ -1177,7 +1154,6 @@ G2L["c0"]["Name"] = [[Home]];
 G2L["c0"]["Text"] = [[<]];
 G2L["c0"]["Position"] = UDim2.new(0, 366, 0, 174);
 
--- StarterGui.DeltaKeyboard.Main.Background.Home.UIStroke
 G2L["c1"] = Instance.new("UIStroke", G2L["c0"]);
 G2L["c1"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["c1"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
