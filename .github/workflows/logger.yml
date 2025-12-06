@@ -1,4 +1,4 @@
-name: Logger
+name: logger
 on:
   workflow_dispatch:
 
@@ -6,7 +6,7 @@ jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Lua
@@ -16,5 +16,5 @@ jobs:
 
       - name: Run Lua script
         env:
-          WEBHOOK: ${{ secrets.WEBHOOK }}
+          webhook: ${{ secrets.webhook }}
         run: lua Utility/Webhook.luau
