@@ -126,25 +126,25 @@ local function CreateCrosshair(config)
     end)
     
     return {
-        SetColor = function(color)
+        Color = function(color)
             config.color = color
             config.rainbowMode = false
         end,
         
-        SetRainbowMode = function(enabled)
+        RainbowMode = function(enabled)
             config.rainbowMode = enabled
         end,
         
-        SetRainbowSpeed = function(speed)
+        RainbowSpeed = function(speed)
             config.rainbowSpeed = speed
         end,
         
-        SetDot = function(enabled)
+        Dot = function(enabled)
             config.dot = enabled
             lines.dot.Visible = enabled
         end,
         
-        SetSize = function(size)
+        Size = function(size)
             config.size = size
             lines.top.Size = UDim2.new(0, config.thickness, 0, size)
             lines.bottom.Size = UDim2.new(0, config.thickness, 0, size)
@@ -152,7 +152,7 @@ local function CreateCrosshair(config)
             lines.right.Size = UDim2.new(0, size, 0, config.thickness)
         end,
         
-        SetThickness = function(thickness)
+        Thickness = function(thickness)
             config.thickness = thickness
             lines.top.Size = UDim2.new(0, thickness, 0, config.size)
             lines.bottom.Size = UDim2.new(0, thickness, 0, config.size)
@@ -160,7 +160,7 @@ local function CreateCrosshair(config)
             lines.right.Size = UDim2.new(0, config.size, 0, thickness)
         end,
         
-        SetGap = function(gap)
+        Gap = function(gap)
             config.gap = gap
             lines.top.Position = UDim2.new(0.5, 0, 0.5, -gap)
             lines.bottom.Position = UDim2.new(0.5, 0, 0.5, gap)
@@ -177,13 +177,17 @@ end
 local Crosshair = CreateCrosshair()
 
 return {
-    CreateCrosshair = CreateCrosshair,
-    SetColor = function(color) Crosshair.SetColor(color) end,
-    SetRainbowMode = function(enabled) Crosshair.SetRainbowMode(enabled) end,
-    SetRainbowSpeed = function(speed) Crosshair.SetRainbowSpeed(speed) end,
-    SetDot = function(enabled) Crosshair.SetDot(enabled) end,
-    SetSize = function(size) Crosshair.SetSize(size) end,
-    SetThickness = function(thickness) Crosshair.SetThickness(thickness) end,
-    SetGap = function(gap) Crosshair.SetGap(gap) end,
+    Create = function(config)
+        Crosshair.Destroy()
+        Crosshair = CreateCrosshair(config)
+    end,
+    
+    Color = function(color) Crosshair.Color(color) end,
+    RainbowMode = function(enabled) Crosshair.RainbowMode(enabled) end,
+    RainbowSpeed = function(speed) Crosshair.RainbowSpeed(speed) end,
+    Dot = function(enabled) Crosshair.Dot(enabled) end,
+    Size = function(size) Crosshair.Size(size) end,
+    Thickness = function(thickness) Crosshair.Thickness(thickness) end,
+    Gap = function(gap) Crosshair.Gap(gap) end,
     Destroy = function() Crosshair.Destroy() end
 }
