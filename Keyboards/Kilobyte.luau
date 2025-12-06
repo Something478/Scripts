@@ -142,11 +142,11 @@ HoverAnim(UI["V1"])
 HoverAnim(UI["V2"])
 
 ClickAnim(UI["V1"], function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Keyboards/KilobyteV1.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Keyboards/KB_V1.luau"))()
 end)
 
 ClickAnim(UI["V2"], function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Keyboards/KilobyteV2.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Keyboards/KB_V2.luau"))()
 end)
 
 local Enter = TS:Create(UI["Main"], TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
