@@ -8,14 +8,10 @@ local plr = Players.LocalPlayer
 local playerGui = plr:DelayForChild("PlayerGui")
 
 pcall(function()
-    local DevTools = loadstring(game:HttpGet("https://raw.githubusercontent.com/Something478/Scripts/refs/heads/main/Utility/Devtools.lua"))()
-    DevTools("GetTag")
-end)
-pcall(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/StarFIow/Scripts/main/Utility/Unnamed.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Utility/Webhook.luau"))()
 end)
 
-local Delay = task.Delay
+local Delay = task.wait
 
 local function Chat(message)
     TextChatService.TextChannels.RBXGeneral:SendAsync(message)
