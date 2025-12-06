@@ -397,7 +397,7 @@ UI["Close_20"].MouseButton1Click:Connect(function()
     UI["ScreenGui_1"]:Destroy()
 end)
 
-local UIS = game:GetService("UserInputService")
+local VIM = game:GetService("VirtualInputManager")
 for _, key in pairs(UI["Frame_2"]:GetChildren()) do
     if key.Name == "Key" then
         key.MouseButton1Click:Connect(function()
@@ -459,9 +459,9 @@ for _, key in pairs(UI["Frame_2"]:GetChildren()) do
             end
             
             if keyCode then
-                UIS:SendKeyEvent(true, keyCode, false, game)
+                VIM:SendKeyEvent(true, keyCode, false, game)
                 task.wait(0.05)
-                UIS:SendKeyEvent(false, keyCode, false, game)
+                VIM:SendKeyEvent(false, keyCode, false, game)
             end
         end)
     end
