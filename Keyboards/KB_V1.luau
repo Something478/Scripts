@@ -140,7 +140,7 @@ UI["TextLabel_13"]["BackgroundColor3"] = Color3.fromRGB(27, 27, 27);
 UI["TextLabel_13"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
 UI["TextLabel_13"]["TextColor3"] = Color3.fromRGB(172, 0, 255);
 UI["TextLabel_13"]["Size"] = UDim2.new(0, 204, 0, 32);
-UI["TextLabel_13"]["Text"] = [[Kilobyte keyboard [V1]]];
+UI["TextLabel_13"]["Text"] = "Kilobyte keyboard [V1]"
 
 UI["UICorner_14"] = Instance.new("UICorner", UI["TextLabel_13"]);
 UI["UICorner_14"]["CornerRadius"] = UDim.new(0, 4);
