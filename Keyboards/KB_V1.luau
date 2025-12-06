@@ -10,12 +10,12 @@ end)
 
 local UI = {}
 
-UI["Screen"] = Instance.new("ScreenGui", playerGui)
-UI["Screen"]["Name"] = "KB_V1"
-UI["Screen"]["ResetOnSpawn"] = false
-UI["Screen"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+UI["ScreenGui"] = Instance.new("ScreenGui", playerGui)
+UI["ScreenGui"]["Name"] = "KB_V1"
+UI["ScreenGui"]["ResetOnSpawn"] = false
+UI["ScreenGui"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 
-UI["MainFrame"] = Instance.new("Frame", UI["Screen"])
+UI["MainFrame"] = Instance.new("Frame", UI["ScreenGui"])
 UI["MainFrame"]["Size"] = UDim2.new(0, 342, 0, 170)
 UI["MainFrame"]["Position"] = UDim2.new(0, 16, 0, 0)
 UI["MainFrame"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
@@ -196,10 +196,10 @@ local function dragify(Frame)
     local startPos = nil
     local dragSpeed = 0.25
 
-    local function clampToScreen(gui, px, py)
-        local screen = gui.AbsoluteSize
+    local function clampToScreenGui(gui, px, py)
+        local ScreenGui = gui.AbsoluteSize
         local size = Frame.AbsoluteSize
-        return math.clamp(px, 0, screen.X - size.X), math.clamp(py, 0, screen.Y - size.Y)
+        return math.clamp(px, 0, ScreenGui.X - size.X), math.clamp(py, 0, ScreenGui.Y - size.Y)
     end
 
     local function update(input)
@@ -209,7 +209,7 @@ local function dragify(Frame)
         local delta = input.Position - dragStart
         local targetX = startPos.X + delta.X
         local targetY = startPos.Y + delta.Y
-        targetX, targetY = clampToScreen(gui, targetX, targetY)
+        targetX, targetY = clampToScreenGui(gui, targetX, targetY)
 
         if dragSpeed >= 1 then
             Frame.Position = UDim2.fromOffset(math.floor(targetX + 0.5), math.floor(targetY + 0.5))
@@ -265,7 +265,7 @@ UI["Close"].MouseButton1Click:Connect(function()
     TweenService:Create(UI["Close"], TweenInfo.new(0.5), {TextTransparency = 1, BackgroundTransparency = 1}):Play()
 
     task.wait(0.5)
-    UI["Screen"]:Destroy()
+    UI["ScreenGui"]:Destroy()
 end)
 
-return UI["Screen"]
+return UI["ScreenGui"]
