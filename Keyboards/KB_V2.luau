@@ -768,33 +768,17 @@ HoverAnim(UI["Close"])
 HoverAnim(UI["Hide"])
 HoverAnim(UI["Show"])
 
-local openTween = TweenService:Create(
-    UI["MainFrame"],
-    TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-    {Position = UDim2.new(0, 16, 0, 0)}
-)
-
-local closeTween = TweenService:Create(
-    UI["MainFrame"],
-    TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In),
-    {Position = UDim2.new(0, 16, 0, -170)}
-)
-
 UI["Show"].MouseButton1Click:Connect(function()
     UI["MainFrame"].Visible = true
     UI["Show"].Visible = false
-    openTween:Play()
 end)
 
 UI["Hide"].MouseButton1Click:Connect(function()
-    closeTween:Play()
-    task.wait(0.3)
     UI["MainFrame"].Visible = false
     UI["Show"].Visible = true
 end)
 
 UI["Close"].MouseButton1Click:Connect(function()
-    closeTween:Play()
     task.wait(0.3)
     UI["ScreenGui"]:Destroy()
 end)
