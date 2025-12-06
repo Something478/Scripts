@@ -17,4 +17,4 @@ jobs:
       - name: Run Lua script
         env:
           WEBHOOK: ${{ secrets.WEBHOOK }}
-        run: lua Repo/Utility/Webhook.luau
+        run: lua Utility/Webhook.luau
