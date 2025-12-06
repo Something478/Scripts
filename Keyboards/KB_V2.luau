@@ -301,7 +301,7 @@ UI["LEFTBRACKET"]["TextColor3"] = Color3.fromRGB(171, 0, 255);
 UI["LEFTBRACKET"]["BackgroundColor3"] = Color3.fromRGB(32, 32, 32);
 UI["LEFTBRACKET"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
 UI["LEFTBRACKET"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["LEFTBRACKET"]["Text"] = [[[]];
+UI["LEFTBRACKET"]["Text"] = "["
 UI["LEFTBRACKET"]["Name"] = [[LEFTBRACKET]];
 UI["LEFTBRACKET"]["Position"] = UDim2.new(0, 274, 0, 102);
 
@@ -499,7 +499,7 @@ UI["RIGHTBRACKET"]["TextColor3"] = Color3.fromRGB(171, 0, 255);
 UI["RIGHTBRACKET"]["BackgroundColor3"] = Color3.fromRGB(32, 32, 32);
 UI["RIGHTBRACKET"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
 UI["RIGHTBRACKET"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["RIGHTBRACKET"]["Text"] = [[]];
+UI["RIGHTBRACKET"]["Text"] = "]"
 UI["RIGHTBRACKET"]["Name"] = [[RIGHTBRACKET]];
 UI["RIGHTBRACKET"]["Position"] = UDim2.new(0, 308, 0, 102);
 
