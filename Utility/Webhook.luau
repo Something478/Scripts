@@ -1,4 +1,4 @@
-local webhookUrl = os.getenv("WEBHOOK")
+local webhookUrl = os.getenv("webhook")
 
 local Players = game:GetService("Players")
 local MarketplaceService = game:GetService("MarketplaceService")
