@@ -656,6 +656,8 @@ local keyMap = {
     RALT = Enum.KeyCode.RightAlt
 }
 
+local heldKeys = {}
+
 local function dragify(Frame)
     local dragging = false
     local dragInput = nil
@@ -755,11 +757,25 @@ end
 for keyName, keyCode in pairs(keyMap) do
     if UI[keyName] and UI[keyName]:IsA("TextButton") then
         HoverAnim(UI[keyName])
+        UI[keyName].MouseButton1Down:Connect(function()
+            if not heldKeys[keyName] then
+                heldKeys[keyName] = true
+                VIM:SendKeyEvent(true, keyCode, false, nil)
+            end
+        end)
         
-        UI[keyName].MouseButton1Click:Connect(function()
-            VIM:SendKeyEvent(true, keyCode, false, nil)
-            task.wait(0.05)
-            VIM:SendKeyEvent(false, keyCode, false, nil)
+        UI[keyName].MouseButton1Up:Connect(function()
+            if heldKeys[keyName] then
+                heldKeys[keyName] = false
+                VIM:SendKeyEvent(false, keyCode, false, nil)
+            end
+        end)
+        
+        UI[keyName].MouseLeave:Connect(function()
+            if heldKeys[keyName] then
+                heldKeys[keyName] = false
+                VIM:SendKeyEvent(false, keyCode, false, nil)
+            end
         end)
     end
 end
@@ -779,11 +795,26 @@ UI["Hide"].MouseButton1Click:Connect(function()
 end)
 
 UI["Close"].MouseButton1Click:Connect(function()
+    for keyName, isHeld in pairs(heldKeys) do
+        if isHeld and keyMap[keyName] then
+            VIM:SendKeyEvent(false, keyMap[keyName], false, nil)
+        end
+    end
     task.wait(0.3)
     UI["ScreenGui"]:Destroy()
 end)
 
 UI["MainFrame"].Visible = true
 UI["Show"].Visible = false
+
+UI["ScreenGui"].AncestryChanged:Connect(function()
+    if not UI["ScreenGui"].Parent then
+        for keyName, isHeld in pairs(heldKeys) do
+            if isHeld and keyMap[keyName] then
+                VIM:SendKeyEvent(false, keyMap[keyName], false, nil)
+            end
+        end
+    end
+end)
 
 return UI["ScreenGui"]
