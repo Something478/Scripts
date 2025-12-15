@@ -35,12 +35,12 @@ Favorites tab:
 
 ---
 
-Loader:
+# Loader  
 ```
 loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Executor/Lunaris/.luau"))()
 ```
 
 ---
 
-Credits:  
+# Credits  
 Made by StarFlow in 3 days.
