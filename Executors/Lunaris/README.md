@@ -33,15 +33,15 @@ Search tab:
 Favorites tab:
 
 </details>
+
 ---
 
 Loader:
 ```
 loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Executor/Lunaris/.luau"))()
 ```
-> Requires any working Roblox executor.
 
 ---
 
 Credits:
-Made by StarFlow
+Made by StarFlow in 3 days.
