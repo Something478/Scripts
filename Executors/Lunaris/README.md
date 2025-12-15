@@ -25,7 +25,6 @@ Executor tab:<br>![Executor](Images/2.jpg)
 Search tab:<br>![Search](Images/3.jpg)
 
 Favorites tab:<br>![Favorites](Images/4.jpg)
-<details>
 
 
 
