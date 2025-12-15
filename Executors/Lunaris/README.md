@@ -34,7 +34,6 @@ Favorites tab:<br>![Favorites](Images/4.jpg)
 ```
 loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Executor/Lunaris/.luau"))()
 ```
-<details>
 
 
 
@@ -43,4 +42,3 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/
 </a><br><a href="https://www.youtube.com/@StarFlow.0">
   <img src="https://raw.githubusercontent.com/its-starflow/Scripts/refs/heads/main/Executors/Lunaris/Images/P-2.png" width="120">
 </a>  
-</details>
