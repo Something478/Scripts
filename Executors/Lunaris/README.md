@@ -22,7 +22,7 @@ This project exists purely for fun.
 </details>
 
 <details>
-  <summary>Images</summary>U
+  <summary>Images</summary>  
 Home tab:
 
 Executor tab:
