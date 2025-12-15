@@ -1,1 +1,2 @@
-
+local LP = game.Players.LocalPlayer
+LP:Kick("[Lunaris]: No PC version yet, sorry.")
