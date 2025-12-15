@@ -4,6 +4,7 @@ local LP = game.Players.LocalPlayer
 local function isMobile()
 	return UIS.TouchEnabled and not UIS.KeyboardEnabled
 end
+
 --placeholder rn
 if isMobile() then
 	loadstring(game:HttpGet("MOBILE_LINK_HERE"))()
