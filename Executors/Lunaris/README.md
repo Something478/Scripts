@@ -1,8 +1,7 @@
 # Lunaris Executor
 
-> Lunaris is a executor UI made to be run inside another executor.
-
-> It is NOT a real executor. Think of it as an executor that runs inside an executor.
+Lunaris is a executor UI made to be run inside another executor.
+It is NOT a real executor. Think of it as an executor that runs inside an executor.
 
 ---
 
