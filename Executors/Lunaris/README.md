@@ -26,10 +26,7 @@ Executor tab:<br>![Executor](Executors/Lunaris/Images/2.jpg)
 Search tab:<br>![Search](Executors/Lunaris/Images/3.jpg)
 
 Favorites tab:<br>![Favorites](Executors/Lunaris/Images/4.jpg)
-
-</details>
-
----
+<details>
 
 <details>
   <summary>Loader</summary>  
@@ -38,7 +35,6 @@ Favorites tab:<br>![Favorites](Executors/Lunaris/Images/4.jpg)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Executor/Lunaris/.luau"))()
 ```
 <details>
----
 
 <details>
   <summary>Credits</summary>Made by StarFlow in 3 days.<br><br>Profiles:<br><a href="https://scriptblox.com/u/starflow"> <img src="https://raw.githubusercontent.com/its-starflow/Scripts/refs/heads/main/Executors/Lunaris/Images/P-1.png" width="120">  
