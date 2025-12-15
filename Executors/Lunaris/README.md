@@ -1,12 +1,12 @@
-Lunaris Executor
+# Lunaris Executor
 
-> Lunaris is a fun / experimental executor UI made to be run inside another executor.
+> Lunaris is a executor UI made to be run inside another executor.
 
-It is NOT a real executor. Think of it as an executor that runs inside an executor.
+> It is NOT a real executor. Think of it as an executor that runs inside an executor.
 
 ---
 
- What is Lunaris?
+# What is Lunaris?
 
 Lunaris is a loadstring-based executor UI created just for fun.
 
