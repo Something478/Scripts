@@ -1,7 +1,6 @@
 # Lunaris Executor
 
-Lunaris is a executor UI made to be run inside another executor.
-It is NOT a real executor. Think of it as an executor that runs inside an executor.
+Lunaris is a executor UI made to be run inside another executor, its NOT a real executor. Think of it as an executor that runs inside an executor, you can call it a "Loadstring executor".
 
 ---
 
@@ -17,8 +16,6 @@ You execute Lunaris using a normal executor via loadstring(game:HttpGet(...))()
   <summary>Explanation</summary>Lunaris works by being executed inside an existing Roblox executor.
 
 It does not bypass anything and does not add new exploit capabilities.
-
-This project exists purely for fun.
 </details>
 
 <details>
