@@ -42,4 +42,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/
 
 ---
 
-Credits:\nMade by StarFlow in 3 days.
+Credits:\Made by StarFlow in 3 days.
