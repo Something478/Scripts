@@ -18,13 +18,13 @@ It does not bypass anything and does not add new exploit capabilities.
 <details>
   <summary>Images</summary>
 
-Home tab:<br>![Home](Executors/Lunaris/Images/1.jpg)
+Home tab:<br>![Home](Images/1.jpg)
 
-Executor tab:<br>![Executor](Executors/Lunaris/Images/2.jpg)
+Executor tab:<br>![Executor](Images/2.jpg)
 
-Search tab:<br>![Search](Executors/Lunaris/Images/3.jpg)
+Search tab:<br>![Search](Images/3.jpg)
 
-Favorites tab:<br>![Favorites](Executors/Lunaris/Images/4.jpg)
+Favorites tab:<br>![Favorites](Images/4.jpg)
 <details>
 
 
