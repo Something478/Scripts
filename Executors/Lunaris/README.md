@@ -36,8 +36,9 @@ Favorites tab:
 ---
 
 <details>
-  <summary>Loader</summary><br>
-```lua
+  <summary>Loader</summary>  
+  
+```
 loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Executor/Lunaris/.luau"))()
 ```
 <details>
