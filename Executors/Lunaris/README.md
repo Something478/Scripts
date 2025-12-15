@@ -19,17 +19,13 @@ It does not bypass anything and does not add new exploit capabilities.
 <details>
   <summary>Images</summary>
 
-Home tab:
-![Home](Executors/Lunaris/Images/home.png)
+Home tab:<br>![Home](Executors/Lunaris/Images/1.png)
 
-Executor tab:
-![Executor](Executors/Lunaris/Images/executor.png)
+Executor tab:<br>![Executor](Executors/Lunaris/Images/2.png)
 
-Search tab:
-![Search](Executors/Lunaris/Images/search.png)
+Search tab:<br>![Search](Executors/Lunaris/Images/3.png)
 
-Favorites tab:
-![Favorites](Executors/Lunaris/Images/favorites.png)
+Favorites tab:<br>![Favorites](Executors/Lunaris/Images/4.png)
 
 </details>
 
