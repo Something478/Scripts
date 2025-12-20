@@ -4,34 +4,34 @@ UI["main_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:
 UI["main_1"]["Name"] = "main"
 UI["main_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 
-UI["Show_2"] = Instance.new("ImageButton", UI["main_1"])
-UI["Show_2"]["BorderSizePixel"] = 0
-UI["Show_2"]["BackgroundColor3"] = Color3.fromRGB(9, 0, 59)
-UI["Show_2"]["Image"] = "http://www.roblox.com/asset/?id=114265663904736"
-UI["Show_2"]["Size"] = UDim2.new(0.05292, 0, 0.12449, 0)
-UI["Show_2"]["Name"] = "Show"
-UI["Show_2"]["Position"] = UDim2.new(0.01893, 0, 0.00282, 0)
-UI["Show_2"]["Visible"] = false
+UI["show_2"] = Instance.new("ImageButton", UI["main_1"])
+UI["show_2"]["BorderSizePixel"] = 0
+UI["show_2"]["BackgroundColor3"] = Color3.fromRGB(9, 0, 59)
+UI["show_2"]["Image"] = "http://www.roblox.com/asset/?id=114265663904736"
+UI["show_2"]["Size"] = UDim2.new(0.05292, 0, 0.12449, 0)
+UI["show_2"]["Name"] = "Show"
+UI["show_2"]["Position"] = UDim2.new(0.01893, 0, 0.00282, 0)
+UI["show_2"]["Visible"] = false
 
-UI["UICorner_3"] = Instance.new("UICorner", UI["Show_2"])
+UI["UICorner_3"] = Instance.new("UICorner", UI["show_2"])
 UI["UICorner_3"]["CornerRadius"] = UDim.new(0, 4)
 
-UI["UIStroke_4"] = Instance.new("UIStroke", UI["Show_2"])
+UI["UIStroke_4"] = Instance.new("UIStroke", UI["show_2"])
 UI["UIStroke_4"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
 UI["UIStroke_4"]["Color"] = Color3.fromRGB(255, 255, 255)
 
 UI["UIGradient_5"] = Instance.new("UIGradient", UI["UIStroke_4"])
 UI["UIGradient_5"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))}
 
-UI["Keyboard_6"] = Instance.new("Frame", UI["main_1"])
-UI["Keyboard_6"]["BorderSizePixel"] = 5
-UI["Keyboard_6"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
-UI["Keyboard_6"]["Size"] = UDim2.new(0.41375, 0, 0.52061, 0)
-UI["Keyboard_6"]["Position"] = UDim2.new(0.08179, 0, 0, 0)
-UI["Keyboard_6"]["BorderColor3"] = Color3.fromRGB(255, 255, 255)
-UI["Keyboard_6"]["Name"] = "Keyboard"
+UI["keyboard_6"] = Instance.new("Frame", UI["main_1"])
+UI["keyboard_6"]["BorderSizePixel"] = 5
+UI["keyboard_6"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["keyboard_6"]["Size"] = UDim2.new(0.41375, 0, 0.52061, 0)
+UI["keyboard_6"]["Position"] = UDim2.new(0.08179, 0, 0, 0)
+UI["keyboard_6"]["BorderColor3"] = Color3.fromRGB(255, 255, 255)
+UI["keyboard_6"]["Name"] = "Keyboard"
 
-UI["hide_7"] = Instance.new("TextButton", UI["Keyboard_6"])
+UI["hide_7"] = Instance.new("TextButton", UI["keyboard_6"])
 UI["hide_7"]["TextWrapped"] = true
 UI["hide_7"]["BorderSizePixel"] = 0
 UI["hide_7"]["TextScaled"] = true
@@ -56,10 +56,10 @@ UI["UIStroke_a"]["Color"] = Color3.fromRGB(255, 255, 255)
 UI["UIGradient_b"] = Instance.new("UIGradient", UI["UIStroke_a"])
 UI["UIGradient_b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))}
 
-UI["UICorner_c"] = Instance.new("UICorner", UI["Keyboard_6"])
+UI["UICorner_c"] = Instance.new("UICorner", UI["keyboard_6"])
 UI["UICorner_c"]["CornerRadius"] = UDim.new(0, 4)
 
-UI["line4_d"] = Instance.new("Frame", UI["Keyboard_6"])
+UI["line4_d"] = Instance.new("Frame", UI["keyboard_6"])
 UI["line4_d"]["BorderSizePixel"] = 0
 UI["line4_d"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 UI["line4_d"]["Size"] = UDim2.new(0.97674, 0, 0.18478, 0)
@@ -186,7 +186,7 @@ UI["UIStroke_25"]["Color"] = Color3.fromRGB(255, 255, 255)
 UI["UIGradient_26"] = Instance.new("UIGradient", UI["UIStroke_25"])
 UI["UIGradient_26"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))}
 
-UI["close_27"] = Instance.new("TextButton", UI["Keyboard_6"])
+UI["close_27"] = Instance.new("TextButton", UI["keyboard_6"])
 UI["close_27"]["TextWrapped"] = true
 UI["close_27"]["BorderSizePixel"] = 0
 UI["close_27"]["TextScaled"] = true
@@ -211,7 +211,7 @@ UI["UIStroke_2a"]["Color"] = Color3.fromRGB(255, 255, 255)
 UI["UIGradient_2b"] = Instance.new("UIGradient", UI["UIStroke_2a"])
 UI["UIGradient_2b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))}
 
-UI["line3_2c"] = Instance.new("Frame", UI["Keyboard_6"])
+UI["line3_2c"] = Instance.new("Frame", UI["keyboard_6"])
 UI["line3_2c"]["BorderSizePixel"] = 0
 UI["line3_2c"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 UI["line3_2c"]["Size"] = UDim2.new(0.68023, 0, 0.18478, 0)
@@ -396,7 +396,7 @@ UI["UIStroke_4f"]["Color"] = Color3.fromRGB(255, 255, 255)
 UI["UIGradient_50"] = Instance.new("UIGradient", UI["UIStroke_4f"])
 UI["UIGradient_50"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))}
 
-UI["line2_51"] = Instance.new("Frame", UI["Keyboard_6"])
+UI["line2_51"] = Instance.new("Frame", UI["keyboard_6"])
 UI["line2_51"]["BorderSizePixel"] = 0
 UI["line2_51"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 UI["line2_51"]["Size"] = UDim2.new(0.87791, 0, 0.18478, 0)
@@ -631,24 +631,24 @@ UI["UIStroke_7e"]["Color"] = Color3.fromRGB(255, 255, 255)
 UI["UIGradient_7f"] = Instance.new("UIGradient", UI["UIStroke_7e"])
 UI["UIGradient_7f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))}
 
-UI["Title_80"] = Instance.new("TextLabel", UI["Keyboard_6"]);
-UI["Title_80"]["TextWrapped"] = true;
-UI["Title_80"]["BorderSizePixel"] = 0;
-UI["Title_80"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-UI["Title_80"]["TextScaled"] = true;
-UI["Title_80"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Title_80"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-UI["Title_80"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Title_80"]["BackgroundTransparency"] = 1;
-UI["Title_80"]["Size"] = UDim2.new(0.76744, 0, 0.16304, 0);
-UI["Title_80"]["Text"] = "Kilobyte keyboard";
-UI["Title_80"]["Name"] = [[Title]];
-UI["Title_80"]["Position"] = UDim2.new(0.01744, 0, 0.02174, 0);
+UI["title_80"] = Instance.new("TextLabel", UI["keyboard_6"]);
+UI["title_80"]["TextWrapped"] = true;
+UI["title_80"]["BorderSizePixel"] = 0;
+UI["title_80"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+UI["title_80"]["TextScaled"] = true;
+UI["title_80"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+UI["title_80"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+UI["title_80"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+UI["title_80"]["BackgroundTransparency"] = 1;
+UI["title_80"]["Size"] = UDim2.new(0.76744, 0, 0.16304, 0);
+UI["title_80"]["Text"] = "Kilobyte keyboard";
+UI["title_80"]["Name"] = [[Title]];
+UI["title_80"]["Position"] = UDim2.new(0.01744, 0, 0.02174, 0);
 
-UI["UIGradient_81"] = Instance.new("UIGradient", UI["Title_80"])
+UI["UIGradient_81"] = Instance.new("UIGradient", UI["title_80"])
 UI["UIGradient_81"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))}
 
-UI["line1_82"] = Instance.new("Frame", UI["Keyboard_6"])
+UI["line1_82"] = Instance.new("Frame", UI["keyboard_6"])
 UI["line1_82"]["BorderSizePixel"] = 0
 UI["line1_82"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 UI["line1_82"]["Size"] = UDim2.new(0.97674, 0, 0.18478, 0)
@@ -908,7 +908,7 @@ UI["UIStroke_b4"]["Color"] = Color3.fromRGB(255, 255, 255)
 UI["UIGradient_b5"] = Instance.new("UIGradient", UI["UIStroke_b4"])
 UI["UIGradient_b5"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))}
 
-UI["UIStroke_b6"] = Instance.new("UIStroke", UI["Keyboard_6"])
+UI["UIStroke_b6"] = Instance.new("UIStroke", UI["keyboard_6"])
 UI["UIStroke_b6"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
 UI["UIStroke_b6"]["Color"] = Color3.fromRGB(255, 255, 255)
 
@@ -1018,8 +1018,8 @@ local function dragify(Frame)
     end)
 end
 
-dragify(UI["Keyboard_6"])
-dragify(UI["Show_2"])
+dragify(UI["keyboard_6"])
+dragify(UI["show_2"])
 
 local function HoverAnim(button)
     local originalBg = button.BackgroundColor3
@@ -1082,7 +1082,7 @@ local function setupKeyButton(button)
     end
 end
 
-for _, button in pairs(UI["Keyboard_6"]:GetDescendants()) do
+for _, button in pairs(UI["keyboard_6"]:GetDescendants()) do
     if button:IsA("TextButton") and button.Name == "key" then
         setupKeyButton(button)
     end
@@ -1110,13 +1110,13 @@ UI["space_1e"].MouseLeave:Connect(function()
 end)
 
 UI["hide_7"].MouseButton1Click:Connect(function()
-    UI["Keyboard_6"].Visible = false
-    UI["Show_2"].Visible = true
+    UI["keyboard_6"].Visible = false
+    UI["show_2"].Visible = true
 end)
 
-UI["Show_2"].MouseButton1Click:Connect(function()
-    UI["Keyboard_6"].Visible = true
-    UI["Show_2"].Visible = false
+UI["show_2"].MouseButton1Click:Connect(function()
+    UI["keyboard_6"].Visible = true
+    UI["show_2"].Visible = false
 end)
 
 UI["close_27"].MouseButton1Click:Connect(function()
@@ -1129,8 +1129,8 @@ UI["close_27"].MouseButton1Click:Connect(function()
     UI["main_1"]:Destroy()
 end)
 
-UI["Keyboard_6"].Visible = true
-UI["Show_2"].Visible = false
+UI["keyboard_6"].Visible = true
+UI["show_2"].Visible = false
 
 UI["main_1"].AncestryChanged:Connect(function()
     if not UI["main_1"].Parent then
