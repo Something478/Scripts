@@ -1,7 +1,7 @@
 local UI = {}
 
 UI["main_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
-UI["main_1"]["Name"] = "main"
+UI["main_1"]["Name"] = "KB_V2"
 UI["main_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 
 UI["show_2"] = Instance.new("ImageButton", UI["main_1"])
