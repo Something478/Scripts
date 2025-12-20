@@ -641,7 +641,7 @@ UI["title_80"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]],
 UI["title_80"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["title_80"]["BackgroundTransparency"] = 1;
 UI["title_80"]["Size"] = UDim2.new(0.76744, 0, 0.16304, 0);
-UI["title_80"]["Text"] = "Kilobyte keyboard";
+UI["title_80"]["Text"] = "Kilobyte keyboard [V2]";
 UI["title_80"]["Name"] = [[Title]];
 UI["title_80"]["Position"] = UDim2.new(0.01744, 0, 0.02174, 0);
 
