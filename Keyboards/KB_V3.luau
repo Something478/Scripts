@@ -39,7 +39,7 @@ UI["6"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["6"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["7"] = Instance.new("UICorner", UI["5"]);
-UI["7"]["CornerRadius"] = UDim.new(0, 5);
+UI["7"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["8"] = Instance.new("TextButton", UI["4"]);
 UI["8"]["TextWrapped"] = true;
@@ -57,7 +57,7 @@ UI["9"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["a"] = Instance.new("UICorner", UI["8"]);
-UI["a"]["CornerRadius"] = UDim.new(0, 5);
+UI["a"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["b"] = Instance.new("TextButton", UI["4"]);
 UI["b"]["TextWrapped"] = true;
@@ -75,7 +75,7 @@ UI["c"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["d"] = Instance.new("UICorner", UI["b"]);
-UI["d"]["CornerRadius"] = UDim.new(0, 5);
+UI["d"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["e"] = Instance.new("TextButton", UI["4"]);
 UI["e"]["TextWrapped"] = true;
@@ -93,7 +93,7 @@ UI["f"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["10"] = Instance.new("UICorner", UI["e"]);
-UI["10"]["CornerRadius"] = UDim.new(0, 5);
+UI["10"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["11"] = Instance.new("TextButton", UI["4"]);
 UI["11"]["TextWrapped"] = true;
@@ -111,7 +111,7 @@ UI["12"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["12"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["13"] = Instance.new("UICorner", UI["11"]);
-UI["13"]["CornerRadius"] = UDim.new(0, 5);
+UI["13"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["14"] = Instance.new("TextButton", UI["4"]);
 UI["14"]["TextWrapped"] = true;
@@ -129,7 +129,7 @@ UI["15"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["15"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["16"] = Instance.new("UICorner", UI["14"]);
-UI["16"]["CornerRadius"] = UDim.new(0, 5);
+UI["16"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["17"] = Instance.new("TextButton", UI["4"]);
 UI["17"]["TextWrapped"] = true;
@@ -147,7 +147,7 @@ UI["18"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["18"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["19"] = Instance.new("UICorner", UI["17"]);
-UI["19"]["CornerRadius"] = UDim.new(0, 5);
+UI["19"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["1a"] = Instance.new("TextButton", UI["4"]);
 UI["1a"]["TextWrapped"] = true;
@@ -165,7 +165,7 @@ UI["1b"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["1b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["1c"] = Instance.new("UICorner", UI["1a"]);
-UI["1c"]["CornerRadius"] = UDim.new(0, 5);
+UI["1c"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["1d"] = Instance.new("TextButton", UI["4"]);
 UI["1d"]["TextWrapped"] = true;
@@ -183,7 +183,7 @@ UI["1e"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["1e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["1f"] = Instance.new("UICorner", UI["1d"]);
-UI["1f"]["CornerRadius"] = UDim.new(0, 5);
+UI["1f"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["20"] = Instance.new("TextButton", UI["4"]);
 UI["20"]["TextWrapped"] = true;
@@ -201,7 +201,7 @@ UI["21"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["21"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["22"] = Instance.new("UICorner", UI["20"]);
-UI["22"]["CornerRadius"] = UDim.new(0, 5);
+UI["22"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["23"] = Instance.new("TextButton", UI["4"]);
 UI["23"]["TextWrapped"] = true;
@@ -219,7 +219,7 @@ UI["24"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["24"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["25"] = Instance.new("UICorner", UI["23"]);
-UI["25"]["CornerRadius"] = UDim.new(0, 5);
+UI["25"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["26"] = Instance.new("TextButton", UI["4"]);
 UI["26"]["TextWrapped"] = true;
@@ -237,7 +237,7 @@ UI["27"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["27"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["28"] = Instance.new("UICorner", UI["26"]);
-UI["28"]["CornerRadius"] = UDim.new(0, 5);
+UI["28"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["29"] = Instance.new("TextButton", UI["4"]);
 UI["29"]["TextWrapped"] = true;
@@ -255,7 +255,7 @@ UI["2a"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["2a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["2b"] = Instance.new("UICorner", UI["29"]);
-UI["2b"]["CornerRadius"] = UDim.new(0, 5);
+UI["2b"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["2c"] = Instance.new("TextButton", UI["4"]);
 UI["2c"]["TextWrapped"] = true;
@@ -273,7 +273,7 @@ UI["2d"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["2d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["2e"] = Instance.new("UICorner", UI["2c"]);
-UI["2e"]["CornerRadius"] = UDim.new(0, 5);
+UI["2e"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["2f"] = Instance.new("TextButton", UI["4"]);
 UI["2f"]["TextWrapped"] = true;
@@ -291,7 +291,7 @@ UI["30"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["30"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["31"] = Instance.new("UICorner", UI["2f"]);
-UI["31"]["CornerRadius"] = UDim.new(0, 5);
+UI["31"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["32"] = Instance.new("TextButton", UI["4"]);
 UI["32"]["TextWrapped"] = true;
@@ -309,7 +309,7 @@ UI["33"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["33"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["34"] = Instance.new("UICorner", UI["32"]);
-UI["34"]["CornerRadius"] = UDim.new(0, 5);
+UI["34"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["35"] = Instance.new("TextButton", UI["4"]);
 UI["35"]["TextWrapped"] = true;
@@ -327,7 +327,7 @@ UI["36"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["36"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["37"] = Instance.new("UICorner", UI["35"]);
-UI["37"]["CornerRadius"] = UDim.new(0, 5);
+UI["37"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["38"] = Instance.new("TextButton", UI["4"]);
 UI["38"]["TextWrapped"] = true;
@@ -345,7 +345,7 @@ UI["39"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["39"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["3a"] = Instance.new("UICorner", UI["38"]);
-UI["3a"]["CornerRadius"] = UDim.new(0, 5);
+UI["3a"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["3b"] = Instance.new("TextButton", UI["4"]);
 UI["3b"]["TextWrapped"] = true;
@@ -363,7 +363,7 @@ UI["3c"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["3c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["3d"] = Instance.new("UICorner", UI["3b"]);
-UI["3d"]["CornerRadius"] = UDim.new(0, 5);
+UI["3d"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["3e"] = Instance.new("TextButton", UI["4"]);
 UI["3e"]["TextWrapped"] = true;
@@ -381,7 +381,7 @@ UI["3f"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["3f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["40"] = Instance.new("UICorner", UI["3e"]);
-UI["40"]["CornerRadius"] = UDim.new(0, 5);
+UI["40"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["41"] = Instance.new("TextButton", UI["4"]);
 UI["41"]["TextWrapped"] = true;
@@ -399,7 +399,7 @@ UI["42"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["42"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["43"] = Instance.new("UICorner", UI["41"]);
-UI["43"]["CornerRadius"] = UDim.new(0, 5);
+UI["43"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["44"] = Instance.new("TextButton", UI["4"]);
 UI["44"]["TextWrapped"] = true;
@@ -417,7 +417,7 @@ UI["45"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["45"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["46"] = Instance.new("UICorner", UI["44"]);
-UI["46"]["CornerRadius"] = UDim.new(0, 5);
+UI["46"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["47"] = Instance.new("TextButton", UI["4"]);
 UI["47"]["TextWrapped"] = true;
@@ -435,7 +435,7 @@ UI["48"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["48"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["49"] = Instance.new("UICorner", UI["47"]);
-UI["49"]["CornerRadius"] = UDim.new(0, 5);
+UI["49"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["4a"] = Instance.new("TextButton", UI["4"]);
 UI["4a"]["TextWrapped"] = true;
@@ -453,7 +453,7 @@ UI["4b"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["4b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["4c"] = Instance.new("UICorner", UI["4a"]);
-UI["4c"]["CornerRadius"] = UDim.new(0, 5);
+UI["4c"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["4d"] = Instance.new("TextButton", UI["4"]);
 UI["4d"]["TextWrapped"] = true;
@@ -471,7 +471,7 @@ UI["4e"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["4e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["4f"] = Instance.new("UICorner", UI["4d"]);
-UI["4f"]["CornerRadius"] = UDim.new(0, 5);
+UI["4f"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["50"] = Instance.new("TextButton", UI["4"]);
 UI["50"]["TextWrapped"] = true;
@@ -489,7 +489,7 @@ UI["51"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["51"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["52"] = Instance.new("UICorner", UI["50"]);
-UI["52"]["CornerRadius"] = UDim.new(0, 5);
+UI["52"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["53"] = Instance.new("TextButton", UI["4"]);
 UI["53"]["TextWrapped"] = true;
@@ -507,7 +507,7 @@ UI["54"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["54"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["55"] = Instance.new("UICorner", UI["53"]);
-UI["55"]["CornerRadius"] = UDim.new(0, 5);
+UI["55"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["56"] = Instance.new("LocalScript", UI["4"]);
 UI["56"]["Name"] "Handler"
@@ -528,7 +528,7 @@ UI["58"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["58"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["59"] = Instance.new("UICorner", UI["57"]);
-UI["59"]["CornerRadius"] = UDim.new(0, 5);
+UI["59"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["5a"] = Instance.new("TextButton", UI["4"]);
 UI["5a"]["TextWrapped"] = true;
@@ -546,7 +546,7 @@ UI["5b"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["5b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["5c"] = Instance.new("UICorner", UI["5a"]);
-UI["5c"]["CornerRadius"] = UDim.new(0, 5);
+UI["5c"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["5d"] = Instance.new("TextButton", UI["4"]);
 UI["5d"]["TextWrapped"] = true;
@@ -564,7 +564,7 @@ UI["5e"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["5e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["5f"] = Instance.new("UICorner", UI["5d"]);
-UI["5f"]["CornerRadius"] = UDim.new(0, 5);
+UI["5f"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["60"] = Instance.new("TextButton", UI["4"]);
 UI["60"]["TextWrapped"] = true;
@@ -582,7 +582,7 @@ UI["61"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["61"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["62"] = Instance.new("UICorner", UI["60"]);
-UI["62"]["CornerRadius"] = UDim.new(0, 5);
+UI["62"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["63"] = Instance.new("TextButton", UI["4"]);
 UI["63"]["TextWrapped"] = true;
@@ -600,7 +600,7 @@ UI["64"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["64"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["65"] = Instance.new("UICorner", UI["63"]);
-UI["65"]["CornerRadius"] = UDim.new(0, 5);
+UI["65"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["66"] = Instance.new("TextButton", UI["4"]);
 UI["66"]["TextWrapped"] = true;
@@ -618,7 +618,7 @@ UI["67"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["67"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["68"] = Instance.new("UICorner", UI["66"]);
-UI["68"]["CornerRadius"] = UDim.new(0, 5);
+UI["68"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["69"] = Instance.new("TextButton", UI["4"]);
 UI["69"]["TextWrapped"] = true;
@@ -636,7 +636,7 @@ UI["6a"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["6a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["6b"] = Instance.new("UICorner", UI["69"]);
-UI["6b"]["CornerRadius"] = UDim.new(0, 5);
+UI["6b"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["6c"] = Instance.new("TextButton", UI["4"]);
 UI["6c"]["TextWrapped"] = true;
@@ -654,7 +654,7 @@ UI["6d"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["6d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["6e"] = Instance.new("UICorner", UI["6c"]);
-UI["6e"]["CornerRadius"] = UDim.new(0, 5);
+UI["6e"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["6f"] = Instance.new("TextButton", UI["4"]);
 UI["6f"]["TextWrapped"] = true;
@@ -672,7 +672,7 @@ UI["70"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["70"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["71"] = Instance.new("UICorner", UI["6f"]);
-UI["71"]["CornerRadius"] = UDim.new(0, 5);
+UI["71"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["72"] = Instance.new("TextButton", UI["4"]);
 UI["72"]["TextWrapped"] = true;
@@ -690,7 +690,7 @@ UI["73"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["73"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["74"] = Instance.new("UICorner", UI["72"]);
-UI["74"]["CornerRadius"] = UDim.new(0, 5);
+UI["74"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["75"] = Instance.new("TextButton", UI["4"]);
 UI["75"]["TextWrapped"] = true;
@@ -708,7 +708,7 @@ UI["76"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["76"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["77"] = Instance.new("UICorner", UI["75"]);
-UI["77"]["CornerRadius"] = UDim.new(0, 5);
+UI["77"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["78"] = Instance.new("TextButton", UI["4"]);
 UI["78"]["TextWrapped"] = true;
@@ -726,7 +726,7 @@ UI["79"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["79"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["7a"] = Instance.new("UICorner", UI["78"]);
-UI["7a"]["CornerRadius"] = UDim.new(0, 5);
+UI["7a"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["7b"] = Instance.new("TextButton", UI["4"]);
 UI["7b"]["TextWrapped"] = true;
@@ -744,7 +744,7 @@ UI["7c"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["7c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["7d"] = Instance.new("UICorner", UI["7b"]);
-UI["7d"]["CornerRadius"] = UDim.new(0, 5);
+UI["7d"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["7e"] = Instance.new("TextButton", UI["4"]);
 UI["7e"]["TextWrapped"] = true;
@@ -762,7 +762,7 @@ UI["7f"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["7f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["80"] = Instance.new("UICorner", UI["7e"]);
-UI["80"]["CornerRadius"] = UDim.new(0, 5);
+UI["80"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["81"] = Instance.new("TextButton", UI["4"]);
 UI["81"]["TextWrapped"] = true;
@@ -780,7 +780,7 @@ UI["82"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["82"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["83"] = Instance.new("UICorner", UI["81"]);
-UI["83"]["CornerRadius"] = UDim.new(0, 5);
+UI["83"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["84"] = Instance.new("TextButton", UI["4"]);
 UI["84"]["TextWrapped"] = true;
@@ -798,7 +798,7 @@ UI["85"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["85"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["86"] = Instance.new("UICorner", UI["84"]);
-UI["86"]["CornerRadius"] = UDim.new(0, 5);
+UI["86"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["87"] = Instance.new("TextButton", UI["4"]);
 UI["87"]["TextWrapped"] = true;
@@ -816,7 +816,7 @@ UI["88"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["88"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["89"] = Instance.new("UICorner", UI["87"]);
-UI["89"]["CornerRadius"] = UDim.new(0, 5);
+UI["89"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["8a"] = Instance.new("TextButton", UI["4"]);
 UI["8a"]["TextWrapped"] = true;
@@ -834,7 +834,7 @@ UI["8b"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["8b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["8c"] = Instance.new("UICorner", UI["8a"]);
-UI["8c"]["CornerRadius"] = UDim.new(0, 5);
+UI["8c"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["8d"] = Instance.new("TextButton", UI["4"]);
 UI["8d"]["TextWrapped"] = true;
@@ -852,7 +852,7 @@ UI["8e"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["8e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["8f"] = Instance.new("UICorner", UI["8d"]);
-UI["8f"]["CornerRadius"] = UDim.new(0, 5);
+UI["8f"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["90"] = Instance.new("TextButton", UI["4"]);
 UI["90"]["TextWrapped"] = true;
@@ -870,7 +870,7 @@ UI["91"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["91"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["92"] = Instance.new("UICorner", UI["90"]);
-UI["92"]["CornerRadius"] = UDim.new(0, 5);
+UI["92"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["93"] = Instance.new("TextButton", UI["4"]);
 UI["93"]["TextWrapped"] = true;
@@ -888,7 +888,7 @@ UI["94"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["94"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["95"] = Instance.new("UICorner", UI["93"]);
-UI["95"]["CornerRadius"] = UDim.new(0, 5);
+UI["95"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["96"] = Instance.new("TextButton", UI["4"]);
 UI["96"]["TextWrapped"] = true;
@@ -906,7 +906,7 @@ UI["97"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["97"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["98"] = Instance.new("UICorner", UI["96"]);
-UI["98"]["CornerRadius"] = UDim.new(0, 5);
+UI["98"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["99"] = Instance.new("TextButton", UI["4"]);
 UI["99"]["TextWrapped"] = true;
@@ -924,7 +924,7 @@ UI["9a"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["9a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["9b"] = Instance.new("UICorner", UI["99"]);
-UI["9b"]["CornerRadius"] = UDim.new(0, 5);
+UI["9b"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["9c"] = Instance.new("TextButton", UI["4"]);
 UI["9c"]["TextWrapped"] = true;
@@ -943,7 +943,7 @@ UI["9d"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["9d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["9e"] = Instance.new("UICorner", UI["9c"]);
-UI["9e"]["CornerRadius"] = UDim.new(0, 5);
+UI["9e"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["9f"] = Instance.new("TextButton", UI["4"]);
 UI["9f"]["TextWrapped"] = true;
@@ -961,7 +961,7 @@ UI["a0"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["a0"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["a1"] = Instance.new("UICorner", UI["9f"]);
-UI["a1"]["CornerRadius"] = UDim.new(0, 5);
+UI["a1"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["a2"] = Instance.new("TextButton", UI["4"]);
 UI["a2"]["TextWrapped"] = true;
@@ -979,7 +979,7 @@ UI["a3"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["a3"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["a4"] = Instance.new("UICorner", UI["a2"]);
-UI["a4"]["CornerRadius"] = UDim.new(0, 5);
+UI["a4"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["a5"] = Instance.new("TextButton", UI["4"]);
 UI["a5"]["TextWrapped"] = true;
@@ -997,7 +997,7 @@ UI["a6"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["a6"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["a7"] = Instance.new("UICorner", UI["a5"]);
-UI["a7"]["CornerRadius"] = UDim.new(0, 5);
+UI["a7"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["a8"] = Instance.new("TextButton", UI["4"]);
 UI["a8"]["TextWrapped"] = true;
@@ -1015,7 +1015,7 @@ UI["a9"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["a9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["aa"] = Instance.new("UICorner", UI["a8"]);
-UI["aa"]["CornerRadius"] = UDim.new(0, 5);
+UI["aa"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["ab"] = Instance.new("TextButton", UI["4"]);
 UI["ab"]["TextWrapped"] = true;
@@ -1033,7 +1033,7 @@ UI["ac"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["ac"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["ad"] = Instance.new("UICorner", UI["ab"]);
-UI["ad"]["CornerRadius"] = UDim.new(0, 5);
+UI["ad"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["ae"] = Instance.new("TextButton", UI["4"]);
 UI["ae"]["TextWrapped"] = true;
@@ -1051,7 +1051,7 @@ UI["af"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["af"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["b0"] = Instance.new("UICorner", UI["ae"]);
-UI["b0"]["CornerRadius"] = UDim.new(0, 5);
+UI["b0"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["b1"] = Instance.new("TextButton", UI["4"]);
 UI["b1"]["TextWrapped"] = true;
@@ -1069,7 +1069,7 @@ UI["b2"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["b2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["b3"] = Instance.new("UICorner", UI["b1"]);
-UI["b3"]["CornerRadius"] = UDim.new(0, 5);
+UI["b3"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["b4"] = Instance.new("TextButton", UI["4"]);
 UI["b4"]["TextWrapped"] = true;
@@ -1087,7 +1087,7 @@ UI["b5"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["b5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["b6"] = Instance.new("UICorner", UI["b4"]);
-UI["b6"]["CornerRadius"] = UDim.new(0, 5);
+UI["b6"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["b7"] = Instance.new("TextButton", UI["4"]);
 UI["b7"]["TextWrapped"] = true;
@@ -1105,7 +1105,7 @@ UI["b8"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["b8"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["b9"] = Instance.new("UICorner", UI["b7"]);
-UI["b9"]["CornerRadius"] = UDim.new(0, 5);
+UI["b9"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["ba"] = Instance.new("TextButton", UI["4"]);
 UI["ba"]["TextWrapped"] = true;
@@ -1123,7 +1123,7 @@ UI["bb"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["bb"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["bc"] = Instance.new("UICorner", UI["ba"]);
-UI["bc"]["CornerRadius"] = UDim.new(0, 5);
+UI["bc"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["bd"] = Instance.new("TextButton", UI["4"]);
 UI["bd"]["TextWrapped"] = true;
@@ -1141,7 +1141,7 @@ UI["be"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["be"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["bf"] = Instance.new("UICorner", UI["bd"]);
-UI["bf"]["CornerRadius"] = UDim.new(0, 5);
+UI["bf"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["c0"] = Instance.new("TextButton", UI["4"]);
 UI["c0"]["TextWrapped"] = true;
@@ -1159,7 +1159,7 @@ UI["c1"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["c1"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["c2"] = Instance.new("UICorner", UI["c0"]);
-UI["c2"]["CornerRadius"] = UDim.new(0, 5);
+UI["c2"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["c3"] = Instance.new("TextButton", UI["4"]);
 UI["c3"]["TextWrapped"] = true;
@@ -1177,7 +1177,7 @@ UI["c4"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["c4"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["c5"] = Instance.new("UICorner", UI["c3"]);
-UI["c5"]["CornerRadius"] = UDim.new(0, 5);
+UI["c5"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["c6"] = Instance.new("TextButton", UI["4"]);
 UI["c6"]["TextWrapped"] = true;
@@ -1195,7 +1195,7 @@ UI["c7"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["c7"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["c8"] = Instance.new("UICorner", UI["c6"]);
-UI["c8"]["CornerRadius"] = UDim.new(0, 5);
+UI["c8"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["c9"] = Instance.new("TextButton", UI["4"]);
 UI["c9"]["TextWrapped"] = true;
@@ -1213,7 +1213,7 @@ UI["ca"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["ca"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["cb"] = Instance.new("UICorner", UI["c9"]);
-UI["cb"]["CornerRadius"] = UDim.new(0, 5);
+UI["cb"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["cc"] = Instance.new("TextButton", UI["4"]);
 UI["cc"]["TextWrapped"] = true;
@@ -1231,7 +1231,7 @@ UI["cd"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["cd"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["ce"] = Instance.new("UICorner", UI["cc"]);
-UI["ce"]["CornerRadius"] = UDim.new(0, 5);
+UI["ce"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["cf"] = Instance.new("TextButton", UI["4"]);
 UI["cf"]["TextWrapped"] = true;
@@ -1249,7 +1249,7 @@ UI["d0"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["d0"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["d1"] = Instance.new("UICorner", UI["cf"]);
-UI["d1"]["CornerRadius"] = UDim.new(0, 5);
+UI["d1"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["d2"] = Instance.new("TextButton", UI["4"]);
 UI["d2"]["TextWrapped"] = true;
@@ -1267,7 +1267,7 @@ UI["d3"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["d3"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["d4"] = Instance.new("UICorner", UI["d2"]);
-UI["d4"]["CornerRadius"] = UDim.new(0, 5);
+UI["d4"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["d5"] = Instance.new("TextButton", UI["4"]);
 UI["d5"]["TextWrapped"] = true;
@@ -1285,7 +1285,7 @@ UI["d6"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["d6"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["d7"] = Instance.new("UICorner", UI["d5"]);
-UI["d7"]["CornerRadius"] = UDim.new(0, 5);
+UI["d7"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["d8"] = Instance.new("TextButton", UI["4"]);
 UI["d8"]["TextWrapped"] = true;
@@ -1303,7 +1303,7 @@ UI["d9"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["d9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["da"] = Instance.new("UICorner", UI["d8"]);
-UI["da"]["CornerRadius"] = UDim.new(0, 5);
+UI["da"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["db"] = Instance.new("TextButton", UI["4"]);
 UI["db"]["TextWrapped"] = true;
@@ -1321,7 +1321,7 @@ UI["dc"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["dc"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["dd"] = Instance.new("UICorner", UI["db"]);
-UI["dd"]["CornerRadius"] = UDim.new(0, 5);
+UI["dd"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["de"] = Instance.new("TextButton", UI["4"]);
 UI["de"]["TextWrapped"] = true;
@@ -1339,7 +1339,7 @@ UI["df"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["df"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["e0"] = Instance.new("UICorner", UI["de"]);
-UI["e0"]["CornerRadius"] = UDim.new(0, 5);
+UI["e0"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["e1"] = Instance.new("TextButton", UI["4"]);
 UI["e1"]["TextWrapped"] = true;
@@ -1357,7 +1357,7 @@ UI["e2"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["e2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["e3"] = Instance.new("UICorner", UI["e1"]);
-UI["e3"]["CornerRadius"] = UDim.new(0, 5);
+UI["e3"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["e4"] = Instance.new("TextButton", UI["4"]);
 UI["e4"]["TextWrapped"] = true;
@@ -1375,7 +1375,7 @@ UI["e5"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["e5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["e6"] = Instance.new("UICorner", UI["e4"]);
-UI["e6"]["CornerRadius"] = UDim.new(0, 5);
+UI["e6"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["e7"] = Instance.new("LocalScript", UI["4"]);
 UI["e7"]["Name"] "RGBHandler"
@@ -1397,7 +1397,7 @@ UI["e9"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["e9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["ea"] = Instance.new("UICorner", UI["e8"]);
-UI["ea"]["CornerRadius"] = UDim.new(0, 5);
+UI["ea"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["eb"] = Instance.new("TextButton", UI["4"]);
 UI["eb"]["TextWrapped"] = true;
@@ -1416,7 +1416,7 @@ UI["ec"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["ec"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["ed"] = Instance.new("UICorner", UI["eb"]);
-UI["ed"]["CornerRadius"] = UDim.new(0, 5);
+UI["ed"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["ee"] = Instance.new("TextButton", UI["4"]);
 UI["ee"]["TextWrapped"] = true;
@@ -1435,7 +1435,7 @@ UI["ef"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["ef"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["f0"] = Instance.new("UICorner", UI["ee"]);
-UI["f0"]["CornerRadius"] = UDim.new(0, 5);
+UI["f0"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["f1"] = Instance.new("TextButton", UI["4"]);
 UI["f1"]["TextWrapped"] = true;
@@ -1454,7 +1454,7 @@ UI["f2"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["f2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["f3"] = Instance.new("UICorner", UI["f1"]);
-UI["f3"]["CornerRadius"] = UDim.new(0, 5);
+UI["f3"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["f4"] = Instance.new("TextButton", UI["4"]);
 UI["f4"]["TextWrapped"] = true;
@@ -1473,7 +1473,7 @@ UI["f5"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["f5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["f6"] = Instance.new("UICorner", UI["f4"]);
-UI["f6"]["CornerRadius"] = UDim.new(0, 5);
+UI["f6"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["f7"] = Instance.new("TextButton", UI["4"]);
 UI["f7"]["TextWrapped"] = true;
@@ -1492,7 +1492,7 @@ UI["f8"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["f8"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["f9"] = Instance.new("UICorner", UI["f7"]);
-UI["f9"]["CornerRadius"] = UDim.new(0, 5);
+UI["f9"]["CornerRadius"] = UDim.new(0, 4);
 
 
 UI["fa"] = Instance.new("TextButton", UI["4"]);
@@ -1512,7 +1512,7 @@ UI["fb"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["fb"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["fc"] = Instance.new("UICorner", UI["fa"]);
-UI["fc"]["CornerRadius"] = UDim.new(0, 5);
+UI["fc"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["fd"] = Instance.new("TextButton", UI["4"]);
 UI["fd"]["TextWrapped"] = true;
@@ -1532,7 +1532,7 @@ UI["fe"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["fe"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["ff"] = Instance.new("UICorner", UI["fd"]);
-UI["ff"]["CornerRadius"] = UDim.new(0, 5);
+UI["ff"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["100"] = Instance.new("TextButton", UI["4"]);
 UI["100"]["TextWrapped"] = true;
@@ -1551,7 +1551,7 @@ UI["101"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["101"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["102"] = Instance.new("UICorner", UI["100"]);
-UI["102"]["CornerRadius"] = UDim.new(0, 5);
+UI["102"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["103"] = Instance.new("TextButton", UI["4"]);
 UI["103"]["TextWrapped"] = true;
@@ -1570,7 +1570,7 @@ UI["104"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["104"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["105"] = Instance.new("UICorner", UI["103"]);
-UI["105"]["CornerRadius"] = UDim.new(0, 5);
+UI["105"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["106"] = Instance.new("TextButton", UI["4"]);
 UI["106"]["TextWrapped"] = true;
@@ -1589,7 +1589,7 @@ UI["107"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["107"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["108"] = Instance.new("UICorner", UI["106"]);
-UI["108"]["CornerRadius"] = UDim.new(0, 5);
+UI["108"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["109"] = Instance.new("TextButton", UI["4"]);
 UI["109"]["TextWrapped"] = true;
@@ -1608,7 +1608,7 @@ UI["10a"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["10a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["10b"] = Instance.new("UICorner", UI["109"]);
-UI["10b"]["CornerRadius"] = UDim.new(0, 5);
+UI["10b"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["10c"] = Instance.new("TextButton", UI["4"]);
 UI["10c"]["TextWrapped"] = true;
@@ -1627,7 +1627,7 @@ UI["10d"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["10d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["10e"] = Instance.new("UICorner", UI["10c"]);
-UI["10e"]["CornerRadius"] = UDim.new(0, 5);
+UI["10e"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["10f"] = Instance.new("TextButton", UI["4"]);
 UI["10f"]["TextWrapped"] = true;
@@ -1646,7 +1646,7 @@ UI["110"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["110"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["111"] = Instance.new("UICorner", UI["10f"]);
-UI["111"]["CornerRadius"] = UDim.new(0, 5);
+UI["111"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["112"] = Instance.new("TextButton", UI["4"]);
 UI["112"]["TextWrapped"] = true;
@@ -1665,7 +1665,7 @@ UI["113"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["113"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["114"] = Instance.new("UICorner", UI["112"]);
-UI["114"]["CornerRadius"] = UDim.new(0, 5);
+UI["114"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["115"] = Instance.new("TextButton", UI["4"]);
 UI["115"]["TextWrapped"] = true;
@@ -1684,7 +1684,7 @@ UI["116"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["116"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["117"] = Instance.new("UICorner", UI["115"]);
-UI["117"]["CornerRadius"] = UDim.new(0, 5);
+UI["117"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["118"] = Instance.new("TextButton", UI["4"]);
 UI["118"]["TextWrapped"] = true;
@@ -1703,7 +1703,7 @@ UI["119"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["119"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["11a"] = Instance.new("UICorner", UI["118"]);
-UI["11a"]["CornerRadius"] = UDim.new(0, 5);
+UI["11a"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["11b"] = Instance.new("TextButton", UI["4"]);
 UI["11b"]["TextWrapped"] = true;
@@ -1722,7 +1722,7 @@ UI["11c"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["11c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["11d"] = Instance.new("UICorner", UI["11b"]);
-UI["11d"]["CornerRadius"] = UDim.new(0, 5);
+UI["11d"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["11e"] = Instance.new("TextButton", UI["4"]);
 UI["11e"]["TextWrapped"] = true;
@@ -1741,7 +1741,7 @@ UI["11f"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["11f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["120"] = Instance.new("UICorner", UI["11e"]);
-UI["120"]["CornerRadius"] = UDim.new(0, 5);
+UI["120"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["121"] = Instance.new("TextButton", UI["4"]);
 UI["121"]["TextWrapped"] = true;
@@ -1760,7 +1760,7 @@ UI["122"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["122"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["123"] = Instance.new("UICorner", UI["121"]);
-UI["123"]["CornerRadius"] = UDim.new(0, 5);
+UI["123"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["124"] = Instance.new("TextButton", UI["4"]);
 UI["124"]["TextWrapped"] = true;
@@ -1779,10 +1779,10 @@ UI["125"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["125"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["126"] = Instance.new("UICorner", UI["124"]);
-UI["126"]["CornerRadius"] = UDim.new(0, 5);
+UI["126"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["127"] = Instance.new("UICorner", UI["4"]);
-UI["127"]["CornerRadius"] = UDim.new(0, 5);
+UI["127"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["128"] = Instance.new("TextButton", UI["4"]);
 UI["128"]["TextWrapped"] = true;
@@ -1800,10 +1800,10 @@ UI["129"]["Color"] = Color3.fromRGB(255, 255, 255);
 UI["129"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 UI["12a"] = Instance.new("UICorner", UI["128"]);
-UI["12a"]["CornerRadius"] = UDim.new(0, 5);
+UI["12a"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["12b"] = Instance.new("UICorner", UI["2"]);
-UI["12b"]["CornerRadius"] = UDim.new(0, 5);
+UI["12b"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["12f"] = Instance.new("TextButton", UI["2"]);
 UI["12f"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 0);
@@ -1849,7 +1849,7 @@ UI["136"] = Instance.new("LocalScript", UI["2"]);
 UI["136"]["Name"] "Drag"
 
 UI["137"] = Instance.new("UICorner", UI["2"]);
-UI["137"]["CornerRadius"] = UDim.new(0, 5);
+UI["137"]["CornerRadius"] = UDim.new(0, 4);
 
 UI["138"] = Instance.new("LocalScript", UI["2"]);
 UI["138"]["Name"] "ButtonHandler"
@@ -2063,7 +2063,7 @@ UI["156"]["Visible"] = false;
 UI["156"]["Position"] = UDim2.new(0.015649452805519104, 0, 0.03064066171646118, 0);
 
 UI["157"] = Instance.new("UICorner", UI["156"]);
-UI["157"]["CornerRadius"] = UDim.new(0, 12);
+UI["157"["CornerRadius"] = UDim.new(0, 4);
 
 UI["158"] = Instance.new("UIStroke", UI["156"]);
 UI["158"]["Color"] = Color3.fromRGB(158, 0, 255);
