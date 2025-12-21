@@ -2770,15 +2770,11 @@ do
 		end
 
 		if ui:IsA("TextLabel") or ui:IsA("TextButton") then
-			for _, c in ipairs(ui:GetChildren()) do
-				if c:IsA("UIGradient") then
-					c:Destroy()
-				end
+			if not ui:FindFirstChildWhichIsA("UIGradient") then
+				local tg = Instance.new("UIGradient")
+				tg.Color = gradientColor
+				tg.Parent = ui
 			end
-
-			local tg = Instance.new("UIGradient")
-			tg.Color = gradientColor
-			tg.Parent = ui
 		end
 	end
 
@@ -2793,17 +2789,12 @@ do
 
 			stroke.Color = Color3.fromRGB(255, 255, 255)
 
-			for _, c in ipairs(stroke:GetChildren()) do
-				if c:IsA("UIGradient") then
-					c:Destroy()
-				end
+			if not stroke:FindFirstChildWhichIsA("UIGradient") then
+				local sg = Instance.new("UIGradient")
+				sg.Color = gradientColor
+				sg.Parent = stroke
 			end
-
-			local sg = Instance.new("UIGradient")
-			sg.Color = gradientColor
-			sg.Parent = stroke
 		end
 	end
 end
-
 return G2L["1"], require;
