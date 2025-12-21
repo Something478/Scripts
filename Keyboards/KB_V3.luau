@@ -2114,7 +2114,6 @@ G2L["12c"]["Name"] = [[ToggleRGB]];
 G2L["12c"]["Text"] = [[]];
 G2L["12c"]["Position"] = UDim2.new(0.9649999737739563, 0, 0.9300000071525574, 0);
 G2L["12c"]["Visible"] = false;
-G2l["12c"]["Interactable"] = false;
 
 -- StarterGui.KilobyteV3.Main.tesy
 G2L["12f"] = Instance.new("TextButton", G2L["2"]);
