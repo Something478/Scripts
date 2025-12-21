@@ -2296,7 +2296,7 @@ G2L["147"]["TextSize"] = 18;
 G2L["147"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["147"]["Size"] = UDim2.new(0, 285, 0, 24);
 G2L["147"]["Active"] = true;
-G2L["147"]["Text"] = "Kilobyte keyboard [V3? - Setting floating key"
+G2L["147"]["Text"] = "Kilobyte keyboard [V3] - Setting floating key"
 G2L["147"]["Name"] = [[Title]];
 G2L["147"]["BackgroundTransparency"] = 1;
 G2L["147"]["Position"] = UDim2.new(-0.0035211266949772835, 0, 0.02054794505238533, 0);
@@ -2761,33 +2761,47 @@ do
 		ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))
 	}
 
-	for _, ui in pairs(G2L) do
-		if typeof(ui) == "Instance" then
-			if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
-				ui.FontFace = UbuntuFont
-				ui.TextScaled = true
+	local root = G2L["1"]
+
+	for _, ui in ipairs(root:GetDescendants()) do
+		if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
+			ui.FontFace = UbuntuFont
+			ui.TextScaled = true
+		end
+
+		if ui:IsA("TextLabel") or ui:IsA("TextButton") then
+			for _, c in ipairs(ui:GetChildren()) do
+				if c:IsA("UIGradient") then
+					c:Destroy()
+				end
 			end
 
-			if ui:IsA("GuiObject") then
-				local stroke = ui:FindFirstChildWhichIsA("UIStroke")
+			local tg = Instance.new("UIGradient")
+			tg.Color = gradientColor
+			tg.Parent = ui
+		end
+	end
 
-				if not stroke then
-					stroke = Instance.new("UIStroke")
-					stroke.Parent = ui
-				end
+	for _, target in ipairs({ G2L["2"], G2L["156"] }) do
+		if typeof(target) == "Instance" then
+			local stroke = target:FindFirstChildWhichIsA("UIStroke")
 
-				stroke.Color = Color3.fromRGB(255, 255, 255)
-
-				for _, child in ipairs(stroke:GetChildren()) do
-					if child:IsA("UIGradient") then
-						child:Destroy()
-					end
-				end
-
-				local gradient = Instance.new("UIGradient")
-				gradient.Color = gradientColor
-				gradient.Parent = stroke
+			if not stroke then
+				stroke = Instance.new("UIStroke")
+				stroke.Parent = target
 			end
+
+			stroke.Color = Color3.fromRGB(255, 255, 255)
+
+			for _, c in ipairs(stroke:GetChildren()) do
+				if c:IsA("UIGradient") then
+					c:Destroy()
+				end
+			end
+
+			local sg = Instance.new("UIGradient")
+			sg.Color = gradientColor
+			sg.Parent = stroke
 		end
 	end
 end
