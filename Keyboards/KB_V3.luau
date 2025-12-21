@@ -2186,11 +2186,9 @@ local function C_56()
 		end
 	end
 end
-
 C_56()
 
 local UIS = game:GetService("UserInputService")
-
 local function dragify(Frame)
     local dragging = false
     local dragInput = nil
@@ -2253,7 +2251,6 @@ local function dragify(Frame)
         end
     end)
 end
-
 dragify(UI["2"])
 
 local function C_138()
