@@ -2435,4 +2435,4 @@ local function StyleUI(root)
 end
 StyleUI(UI["1"])
 
-return UI["1"], require
+return UI["1"], require;
