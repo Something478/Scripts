@@ -2764,4 +2764,23 @@ for _, ui in pairs(G2L) do
 	end
 end
 
+local gradientColor = ColorSequence.new{
+	ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),
+	ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))
+}
+
+for _, ui in pairs(G2L) do
+	if typeof(ui) == "Instance" and ui:IsA("UIStroke") then
+		for _, child in ipairs(ui:GetChildren()) do
+			if child:IsA("UIGradient") then
+				child:Destroy()
+			end
+		end
+
+		local gradient = Instance.new("UIGradient")
+		gradient.Color = gradientColor
+		gradient.Parent = ui
+	end
+end
+
 return G2L["1"], require;
