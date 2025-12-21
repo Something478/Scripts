@@ -606,6 +606,7 @@ local keyMap = {
 	N = Enum.KeyCode.N, M = Enum.KeyCode.M
 }
 
+local UIS = game:GetService("UserInputService")
 local function dragify(Frame)
     local dragging = false
     local dragInput = nil
