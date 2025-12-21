@@ -2250,53 +2250,73 @@ local function C_56()
 	end
 end;
 task.spawn(C_56);
-local function C_136()
-	local script = UI["136"];
-	local function dragify(Frame)
-		dragToggle = nil
-		dragSpeed = .25 
-		dragInput = nil
-		dragStart = nil
-		dragPos = nil
 
-		function updateInput(input)
-			Delta = input.Position - dragStart
-			Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-			game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
-		end
+local UIS = game:GetService("UserInputService")
+local function dragify(Frame)
+    local dragging = false
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+    local dragSpeed = 0.25
 
-		Frame.InputBegan:Connect(function(input)
-			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
-				dragToggle = true
-				dragStart = input.Position
-				startPos = Frame.Position
-				input.Changed:Connect(function()
-					if (input.UserInputState == Enum.UserInputState.End) then
-						dragToggle = false
-					end
-				end)
-			end
-		end)
+    local function clampToScreen(gui, px, py)
+        local screen = gui.AbsoluteSize
+        local size = Frame.AbsoluteSize
+        return math.clamp(px, 0, screen.X - size.X), math.clamp(py, 0, screen.Y - size.Y)
+    end
 
-		Frame.InputChanged:Connect(function(input)
-			if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-				dragInput = input
-			end
-		end)
+    local function update(input)
+        local gui = Frame:FindFirstAncestorOfClass("ScreenGui")
+        if not gui then return end
 
-		game:GetService("UserInputService").InputChanged:Connect(function(input)
-			if (input == dragInput and dragToggle) then
-				updateInput(input)
-			end
-		end)
-	end
-	task.spawn(function()
-		dragify(script.Parent.Parent.FloatingIcon)
-	end)
-	dragify(script.Parent)
+        local delta = input.Position - dragStart
+        local targetX = startPos.X + delta.X
+        local targetY = startPos.Y + delta.Y
+        targetX, targetY = clampToScreen(gui, targetX, targetY)
 
-end;
-task.spawn(C_136);
+        if dragSpeed >= 1 then
+            Frame.Position = UDim2.fromOffset(math.floor(targetX + 0.5), math.floor(targetY + 0.5))
+            return
+        end
+
+        local cur = Frame.AbsolutePosition
+        local interpX = cur.X + (targetX - cur.X) * math.clamp(dragSpeed, 0, 1)
+        local interpY = cur.Y + (targetY - cur.Y) * math.clamp(dragSpeed, 0, 1)
+
+        Frame.Position = UDim2.fromOffset(math.floor(interpX + 0.5), math.floor(interpY + 0.5))
+    end
+
+    Frame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragInput = input
+            dragStart = input.Position
+            startPos = Frame.AbsolutePosition
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                    dragInput = nil
+                end
+            end)
+        end
+    end)
+
+    Frame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    UIS.InputChanged:Connect(function(input)
+        if dragging and input == dragInput then
+            update(input)
+        end
+    end)
+end
+
+dragify(UI["2"])
+
 local function C_138()
 	local script = UI["138"];
 	local buttons = script.Parent
