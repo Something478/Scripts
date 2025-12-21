@@ -898,7 +898,7 @@ UI["96"]["FontFace"] = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.Fo
 UI["96"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["96"]["Size"] = UDim2.new(0, 25, 0, 25);
 UI["96"]["Name"] = [[-LeftBracket]];
-UI["96"]["Text"] = [[[]];
+UI["96"]["Text"] = "["
 UI["96"]["Position"] = UDim2.new(0, 378, 0, 63);
 
 UI["97"] = Instance.new("UIStroke", UI["96"]);
