@@ -668,7 +668,6 @@ local function dragify(Frame)
         end
     end)
 end
-
 dragify(UI["Keyboard_2"])
 
 UI["close_3"].MouseButton1Click:Connect(function()
