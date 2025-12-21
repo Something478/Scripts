@@ -2740,5 +2740,19 @@ local function C_159()
 	end)
 end;
 task.spawn(C_159);
+local SF = Font.new(
+	"rbxasset://fonts/families/Ubuntu.json",
+	Enum.FontWeight.Regular,
+	Enum.FontStyle.Normal
+)
+
+for _, ui in pairs(G2L) do
+	if typeof(ui) == "Instance" then
+		if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
+			ui.FontFace = SF
+			ui.TextScaled = true
+		end
+	end
+end
 
 return G2L["1"], require;
