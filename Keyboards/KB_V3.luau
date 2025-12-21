@@ -2750,7 +2750,7 @@ end;
 task.spawn(C_159);
 
 do
-	local UbuntuFont = Font.new(
+	local SetFont = Font.new(
 		"rbxasset://fonts/families/Ubuntu.json",
 		Enum.FontWeight.Regular,
 		Enum.FontStyle.Normal
@@ -2765,7 +2765,7 @@ do
 
 	for _, ui in ipairs(root:GetDescendants()) do
 		if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
-			ui.FontFace = UbuntuFont
+			ui.FontFace = SetFont
 			ui.TextScaled = true
 		end
 
@@ -2778,21 +2778,14 @@ do
 		end
 	end
 
-	for _, target in ipairs({ G2L["2"], G2L["156"] }) do
-		if typeof(target) == "Instance" then
-			local stroke = target:FindFirstChildWhichIsA("UIStroke")
+	for _, ui in ipairs(root:GetDescendants()) do
+		if ui:IsA("UIStroke") then
+			ui.Color = Color3.fromRGB(255, 255, 255)
 
-			if not stroke then
-				stroke = Instance.new("UIStroke")
-				stroke.Parent = target
-			end
-
-			stroke.Color = Color3.fromRGB(255, 255, 255)
-
-			if not stroke:FindFirstChildWhichIsA("UIGradient") then
+			if not ui:FindFirstChildWhichIsA("UIGradient") then
 				local sg = Instance.new("UIGradient")
 				sg.Color = gradientColor
-				sg.Parent = stroke
+				sg.Parent = ui
 			end
 		end
 	end
