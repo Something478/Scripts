@@ -2354,19 +2354,4 @@ local function C_159()
 end
 C_159()
 
-local function StyleUI(root)
-	if not root then return end
-
-	for _, obj in ipairs(root:GetDescendants()) do
-		if obj:IsA("UICorner") then
-			obj.CornerRadius = UDim.new(0, 4)
-		elseif obj:IsA("UIStroke") then
-			obj.Color = Color3.fromRGB(255, 255, 255)
-		elseif obj:IsA("TextLabel") or obj:IsA("TextButton") then
-			obj.TextColor3 = Color3.fromRGB(255, 255, 255)
-		end
-	end
-end
-StyleUI(UI["1"])
-
 return UI["1"]
