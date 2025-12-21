@@ -2146,31 +2146,6 @@ G2L["131"]["Color"] = Color3.fromRGB(255, 255, 255);
 G2L["131"]["Thickness"] = 0.8999999761581421;
 G2L["131"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
--- StarterGui.DeltaKeyboard.Main.ToggleShift
-G2L["132"] = Instance.new("TextButton", G2L["2"]);
-G2L["132"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 0);
-G2L["132"]["TextSize"] = 14;
-G2L["132"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["132"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["132"]["Size"] = UDim2.new(0, 78, 0, 14);
-G2L["132"]["Name"] = [[ToggleShift]];
-G2L["132"]["Text"] = [[Enable Shift]];
-G2L["132"]["Position"] = UDim2.new(0.7934519052505493, 0, 0.9299998879432678, 0);
-
--- StarterGui.DeltaKeyboard.Main.ToggleShift.UICorner
-G2L["133"] = Instance.new("UICorner", G2L["132"]);
-G2L["133"]["CornerRadius"] = UDim.new(0, 4);
-
--- StarterGui.DeltaKeyboard.Main.ToggleShift.UIStroke
-G2L["134"] = Instance.new("UIStroke", G2L["132"]);
-G2L["134"]["Color"] = Color3.fromRGB(255, 255, 255);
-G2L["134"]["Thickness"] = 0.8999999761581421;
-G2L["134"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-
--- StarterGui.DeltaKeyboard.Main.ToggleShift.UIStroke
-G2L["135"] = Instance.new("UIStroke", G2L["132"]);
-G2L["135"]["Thickness"] = 0.8999999761581421;
-
 -- StarterGui.DeltaKeyboard.Main.Drag
 G2L["136"] = Instance.new("LocalScript", G2L["2"]);
 G2L["136"]["Name"] = [[Drag]];
@@ -2620,66 +2595,7 @@ local function C_56()
 	end
 end;
 task.spawn(C_56);
--- StarterGui.DeltaKeyboard.Main.Background.RGBHandler
-local function C_e7()
-	local script = G2L["e7"];
-	pcall(function()
-		local TweenService = game:GetService("TweenService")
-		local bool = true
 
-		script.Parent.Parent.ToggleRGB.MouseButton1Up:Connect(function()
-			if bool then
-				bool = false
-				script.Parent.Parent.Parent.Main.UIStroke.Color =  Color3.fromRGB(255, 255, 255)
-				script.Parent.Parent.ToggleRGB.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-			elseif not bool then
-				bool = true
-				script.Parent.Parent.Parent.Main.UIStroke.Color =  Color3.fromRGB(157, 0, 255)
-				script.Parent.Parent.ToggleRGB.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-				for i, v in pairs(script.Parent:GetChildren()) do
-					if v:IsA("TextButton") then
-						task.spawn(function()
-							local x = 0
-							while true do
-								v.UIStroke.Color = Color3.fromHSV(x,1,1) 
-								x = x + 1/255 
-								if x >= 1 then
-									x = 0
-								end
-								if not bool then
-									v.UIStroke.Color = Color3.new(1,1,1)
-									break
-								end
-								wait() 
-							end
-						end)
-					end
-				end
-			end
-		end)
-
-		for i, v in pairs(script.Parent:GetChildren()) do
-			if v:IsA("TextButton") then
-				task.spawn(function()
-					local x = 0
-					while true do
-						v.UIStroke.Color = Color3.fromHSV(x,1,1) 
-						x = x + 1/255 
-						if x >= 1 then
-							x = 0
-						end
-						if not bool then
-							v.UIStroke.Color = Color3.new(1,1,1)
-							break
-						end
-						wait() 
-					end
-				end)
-			end
-		end
-	end)
-end;
-task.spawn(C_e7);
 -- StarterGui.DeltaKeyboard.Main.Drag
 local function C_136()
 	local script = G2L["136"];
@@ -2782,22 +2698,12 @@ local function C_138()
 		script.Parent.Parent.IsSelectingKey.Value = true
 	end)
 
-	local IsSelecting =script.Parent.Parent.IsSelectingKey
+	local IsSelecting = script.Parent.Parent.IsSelectingKey
 	IsSelecting:GetPropertyChangedSignal("Value"):Connect(function()
 		if IsSelecting.Value == true then
-			script.Parent.Title.Text = "Delta Mobile - Keyboard (Selecting Key)"
+			script.Parent.Title.Text = "Kilobyte keyboard (Selecting Key)"
 		elseif IsSelecting.Value == false then
-			script.Parent.Title.Text = "Delta Mobile - Keyboard Cracked By ATA"
-		end
-	end)
-
-	script.Parent.ToggleShift.MouseButton1Up:Connect(function()
-		if script.Parent.Parent.ToggleShift.Value == true then
-			script.Parent.Parent.ToggleShift.Value = false
-			script.Parent.ToggleShift.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-		elseif script.Parent.Parent.ToggleShift.Value == false then
-			script.Parent.Parent.ToggleShift.Value = true
-			script.Parent.ToggleShift.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+			script.Parent.Title.Text = "Kilobyte keyboard"
 		end
 	end)
 end;
