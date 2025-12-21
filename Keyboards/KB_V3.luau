@@ -2396,7 +2396,7 @@ G2L["155"]["Name"] = [[Shifting]];
 -- StarterGui.KilobyteV3.FloatingIcon
 G2L["156"] = Instance.new("ImageButton", G2L["1"]);
 G2L["156"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30);
-G2L["156"]["Image"] = [[rbxassetid://13501536441]];
+G2L["156"]["Image"] = "http://www.roblox.com/asset/?id=114265663904736"
 G2L["156"]["Size"] = UDim2.new(0, 40, 0, 40);
 G2L["156"]["Name"] = [[FloatingIcon]];
 G2L["156"]["Visible"] = false;
@@ -2404,7 +2404,7 @@ G2L["156"]["Position"] = UDim2.new(0.015649452805519104, 0, 0.03064066171646118,
 
 -- StarterGui.KilobyteV3.FloatingIcon.UICorner
 G2L["157"] = Instance.new("UICorner", G2L["156"]);
-G2L["157"]["CornerRadius"] = UDim.new(0, 12);
+G2L["157"]["CornerRadius"] = UDim.new(0, 4);
 
 -- StarterGui.KilobyteV3.FloatingIcon.UIStroke
 G2L["158"] = Instance.new("UIStroke", G2L["156"]);
