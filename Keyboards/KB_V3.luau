@@ -2749,37 +2749,46 @@ local function C_159()
 end;
 task.spawn(C_159);
 
-local SetFont = Font.new(
-	"rbxasset://fonts/families/Ubuntu.json",
-	Enum.FontWeight.Regular,
-	Enum.FontStyle.Normal
-)
+do
+	local UbuntuFont = Font.new(
+		"rbxasset://fonts/families/Ubuntu.json",
+		Enum.FontWeight.Regular,
+		Enum.FontStyle.Normal
+	)
 
-for _, ui in pairs(G2L) do
-	if typeof(ui) == "Instance" then
-		if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
-			ui.FontFace = SetFont
-			ui.TextScaled = true
-		end
-	end
-end
+	local gradientColor = ColorSequence.new{
+		ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),
+		ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))
+	}
 
-local gradientColor = ColorSequence.new{
-	ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),
-	ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))
-}
+	for _, ui in pairs(G2L) do
+		if typeof(ui) == "Instance" then
+			if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
+				ui.FontFace = UbuntuFont
+				ui.TextScaled = true
+			end
 
-for _, ui in pairs(G2L) do
-	if typeof(ui) == "Instance" and ui:IsA("UIStroke") then
-		for _, child in ipairs(ui:GetChildren()) do
-			if child:IsA("UIGradient") then
-				child:Destroy()
+			if ui:IsA("GuiObject") then
+				local stroke = ui:FindFirstChildWhichIsA("UIStroke")
+
+				if not stroke then
+					stroke = Instance.new("UIStroke")
+					stroke.Parent = ui
+				end
+
+				stroke.Color = Color3.fromRGB(255, 255, 255)
+
+				for _, child in ipairs(stroke:GetChildren()) do
+					if child:IsA("UIGradient") then
+						child:Destroy()
+					end
+				end
+
+				local gradient = Instance.new("UIGradient")
+				gradient.Color = gradientColor
+				gradient.Parent = stroke
 			end
 		end
-
-		local gradient = Instance.new("UIGradient")
-		gradient.Color = gradientColor
-		gradient.Parent = ui
 	end
 end
 
