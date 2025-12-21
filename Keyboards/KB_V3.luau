@@ -2763,6 +2763,10 @@ local gradientColor = ColorSequence.new{
 local root = G2L["1"]
 
 for _, ui in ipairs(root:GetDescendants()) do
+	if ui.Name == "ToggleRGB" then
+		ui:Destroy()
+	end
+
 	if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
 		ui.FontFace = UbuntuFont
 		ui.TextScaled = true
