@@ -2739,6 +2739,7 @@ local function C_159()
 	end)
 end;
 task.spawn(C_159);
+
 local SF = Font.new(
 	"rbxasset://fonts/families/Ubuntu.json",
 	Enum.FontWeight.Regular,
