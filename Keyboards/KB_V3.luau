@@ -2113,16 +2113,7 @@ G2L["12c"]["Size"] = UDim2.new(0, 14, 0, 14);
 G2L["12c"]["Name"] = [[ToggleRGB]];
 G2L["12c"]["Text"] = [[]];
 G2L["12c"]["Position"] = UDim2.new(0.9649999737739563, 0, 0.9300000071525574, 0);
-
--- StarterGui.KilobyteV3.Main.ToggleRGB.UICorner
-G2L["12d"] = Instance.new("UICorner", G2L["12c"]);
-G2L["12d"]["CornerRadius"] = UDim.new(0, 4);
-
--- StarterGui.KilobyteV3.Main.ToggleRGB.UIStroke
-G2L["12e"] = Instance.new("UIStroke", G2L["12c"]);
-G2L["12e"]["Color"] = Color3.fromRGB(255, 255, 255);
-G2L["12e"]["Thickness"] = 0.8999999761581421;
-G2L["12e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["12c"]["Visible"] = false;
 
 -- StarterGui.KilobyteV3.Main.tesy
 G2L["12f"] = Instance.new("TextButton", G2L["2"]);
