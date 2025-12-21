@@ -2056,7 +2056,7 @@ UI["155"]["Name"] = [[Shifting]];
 
 UI["156"] = Instance.new("ImageButton", UI["1"]);
 UI["156"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30);
-UI["156"]["Image"] = [[rbxassetid://13501536441]];
+UI["156"]["Image"] = "http://www.roblox.com/asset/?id=114265663904736"
 UI["156"]["Size"] = UDim2.new(0, 40, 0, 40);
 UI["156"]["Name"] = [[FloatingIcon]];
 UI["156"]["Visible"] = false;
