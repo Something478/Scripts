@@ -2749,45 +2749,43 @@ local function C_159()
 end;
 task.spawn(C_159);
 
-do
-	local SetFont = Font.new(
-		"rbxasset://fonts/families/Ubuntu.json",
-		Enum.FontWeight.Regular,
-		Enum.FontStyle.Normal
-	)
+local UbuntuFont = Font.new(
+	"rbxasset://fonts/families/Ubuntu.json",
+	Enum.FontWeight.Regular,
+	Enum.FontStyle.Normal
+)
 
-	local gradientColor = ColorSequence.new{
-		ColorSequenceKeypoint.new(0.000, Color3.fromRGB(101, 0, 255)),
-		ColorSequenceKeypoint.new(1.000, Color3.fromRGB(170, 0, 255))
-	}
+local gradientColor = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(101, 0, 255)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(170, 0, 255))
+}
 
-	local root = G2L["1"]
+local root = G2L["1"]
 
-	for _, ui in ipairs(root:GetDescendants()) do
-		if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
-			ui.FontFace = SetFont
-			ui.TextScaled = true
-		end
+for _, ui in ipairs(root:GetDescendants()) do
+	if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
+		ui.FontFace = UbuntuFont
+		ui.TextScaled = true
+		ui.TextColor3 = Color3.fromRGB(255, 255, 255)
+	end
 
-		if ui:IsA("TextLabel") or ui:IsA("TextButton") then
-			if not ui:FindFirstChildWhichIsA("UIGradient") then
-				local tg = Instance.new("UIGradient")
-				tg.Color = gradientColor
-				tg.Parent = ui
-			end
+	if ui:IsA("TextLabel") or ui:IsA("TextButton") then
+		if not ui:FindFirstChildWhichIsA("UIGradient") then
+			local tg = Instance.new("UIGradient")
+			tg.Color = gradientColor
+			tg.Parent = ui
 		end
 	end
 
-	for _, ui in ipairs(root:GetDescendants()) do
-		if ui:IsA("UIStroke") then
-			ui.Color = Color3.fromRGB(255, 255, 255)
+	if ui:IsA("UIStroke") then
+		ui.Color = Color3.fromRGB(255, 255, 255)
 
-			if not ui:FindFirstChildWhichIsA("UIGradient") then
-				local sg = Instance.new("UIGradient")
-				sg.Color = gradientColor
-				sg.Parent = ui
-			end
+		if not ui:FindFirstChildWhichIsA("UIGradient") then
+			local sg = Instance.new("UIGradient")
+			sg.Color = gradientColor
+			sg.Parent = ui
 		end
 	end
 end
+
 return G2L["1"], require;
