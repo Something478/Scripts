@@ -2312,7 +2312,6 @@ local function C_138()
 		end
 	end)
 end
-
 C_138()
 
 local function C_152()
@@ -2344,7 +2343,6 @@ local function C_152()
 		end
 	end)
 end
-
 C_152()
 
 local function C_159()
@@ -2354,7 +2352,6 @@ local function C_159()
 		script.Parent.Parent.Main.Visible = true
 	end)
 end
-
 C_159()
 
 local function StyleUI(root)
@@ -2370,7 +2367,6 @@ local function StyleUI(root)
 		end
 	end
 end
-
 StyleUI(UI["1"])
 
 return UI["1"]
