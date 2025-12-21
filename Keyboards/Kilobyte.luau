@@ -8,7 +8,7 @@ local TS = game:GetService("TweenService")
 UI["Main"] = Instance.new("Frame", UI["Screen"]);
 UI["Main"]["BorderSizePixel"] = 0;
 UI["Main"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-UI["Main"]["Size"] = UDim2.new(0, 342, 0, 170);
+UI["Main"]["Size"] = UDim2.new(0, 342, 0, 220);
 UI["Main"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
 UI["Main"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
 UI["Main"]["Name"] = "Main";
@@ -30,7 +30,7 @@ UI["V1"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], En
 UI["V1"]["Size"] = UDim2.new(0, 100, 0, 50);
 UI["V1"]["Text"] = "V1";
 UI["V1"]["Name"] = "V1";
-UI["V1"]["Position"] = UDim2.new(0, 50, 0, 80);
+UI["V1"]["Position"] = UDim2.new(0, 21, 0, 130); 
 
 UI["V1Corner"] = Instance.new("UICorner", UI["V1"]);
 UI["V1Corner"]["CornerRadius"] = UDim.new(0, 4);
@@ -49,7 +49,7 @@ UI["V2"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], En
 UI["V2"]["Size"] = UDim2.new(0, 100, 0, 50);
 UI["V2"]["Text"] = "V2";
 UI["V2"]["Name"] = "V2";
-UI["V2"]["Position"] = UDim2.new(0, 192, 0, 80);
+UI["V2"]["Position"] = UDim2.new(0, 121, 0, 130); 
 
 UI["V2Corner"] = Instance.new("UICorner", UI["V2"]);
 UI["V2Corner"]["CornerRadius"] = UDim.new(0, 4);
@@ -57,6 +57,25 @@ UI["V2Corner"]["CornerRadius"] = UDim.new(0, 4);
 UI["V2Stroke"] = Instance.new("UIStroke", UI["V2"]);
 UI["V2Stroke"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 UI["V2Stroke"]["Color"] = Color3.fromRGB(171, 0, 255);
+
+UI["V3"] = Instance.new("TextButton", UI["Main"]);
+UI["V3"]["TextWrapped"] = true;
+UI["V3"]["BorderSizePixel"] = 0;
+UI["V3"]["TextScaled"] = true;
+UI["V3"]["TextColor3"] = Color3.fromRGB(171, 0, 255);
+UI["V3"]["BackgroundColor3"] = Color3.fromRGB(32, 32, 32);
+UI["V3"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+UI["V3"]["Size"] = UDim2.new(0, 100, 0, 50);
+UI["V3"]["Text"] = "V3";
+UI["V3"]["Name"] = "V3";
+UI["V3"]["Position"] = UDim2.new(0, 221, 0, 130); 
+
+UI["V3Corner"] = Instance.new("UICorner", UI["V3"]);
+UI["V3Corner"]["CornerRadius"] = UDim.new(0, 4);
+
+UI["V3Stroke"] = Instance.new("UIStroke", UI["V3"]);
+UI["V3Stroke"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+UI["V3Stroke"]["Color"] = Color3.fromRGB(171, 0, 255);
 
 UI["UILine"] = Instance.new("Frame", UI["Main"]);
 UI["UILine"]["BorderSizePixel"] = 0;
@@ -147,8 +166,17 @@ local function ClickAnim(button, func)
     end)
 end
 
+pcall(function()
 HoverAnim(UI["V1"])
+end)
+
+pcall(function()
 HoverAnim(UI["V2"])
+end
+
+pcall(function()
+HoverAnim(UI["V3"])
+end)
 
 ClickAnim(UI["V1"], function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Keyboards/KB_V1.luau"))()
@@ -158,8 +186,14 @@ ClickAnim(UI["V2"], function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Keyboards/KB_V2.luau"))()
 end)
 
+pcall(function()
+ClickAnim(UI["V3"], function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/its-starflow/Scripts/main/Keyboards/KB_V3.luau"))()
+end)
+end)
+
 local Enter = TS:Create(UI["Main"], TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
-    Size = UDim2.new(0, 342, 0, 170)
+    Size = UDim2.new(0, 342, 0, 220)
 })
 UI["Main"].Size = UDim2.new(0, 0, 0, 0)
 UI["Main"].Position = UDim2.new(0.5, 0, 0.5, 0)
