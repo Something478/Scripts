@@ -2676,10 +2676,10 @@ local function C_138()
 				tw:Play()
 				cooldown = true
 				tw.Completed:Wait()
-				script.Parent.ToggleRGB.Visible = true
+				script.Parent.ToggleRGB.Visible = false
 				script.Parent.Settings.Visible = true
 				script.Parent.Background.Visible = true
-				script.Parent.ToggleShift.Visible = true
+				script.Parent.ToggleShift.Visible = false
 				cooldown = false
 			end
 		end
@@ -2740,17 +2740,4 @@ local function C_159()
 end;
 task.spawn(C_159);
 
-local UbuntuFont = Font.new(
-	"rbxasset://fonts/families/Ubuntu.json",
-	Enum.FontWeight.Regular,
-	Enum.FontStyle.Normal
-)
-
-for _, ui in pairs(G2L) do
-	if typeof(ui) == "Instance" then
-		if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
-			ui.FontFace = UbuntuFont
-		end
-	end
-end
 return G2L["1"], require;
