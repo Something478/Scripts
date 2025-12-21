@@ -2073,13 +2073,12 @@ UI["158"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 UI["159"] = Instance.new("LocalScript", UI["156"]);
 
 local function C_56()
-	local script = UI["56"];
+	local script = UI["56"]
 
 	local btns = script.Parent
 	local IsSelecting = script.Parent.Parent.Parent.IsSelectingKey
-	local ToggleShift = script.Parent.Parent.Parent.ToggleShift
+	
 	local function CreateFloatingKey(keybind, text)
-
 		local key = script.Parent.Parent.Parent.KEY:Clone()
 		if text == "" then
 			text = "Space"
@@ -2107,7 +2106,6 @@ local function C_56()
 				local key = string.sub(keys.Name, 2)
 
 				keys.MouseButton1Down:Connect(function()
-
 					if IsSelecting.Value == true then
 						CreateFloatingKey(key, keys.Text)
 						IsSelecting.Value = false
@@ -2116,7 +2114,6 @@ local function C_56()
 					end
 				end)
 				keys.MouseButton1Up:Connect(function()
-
 					if IsSelecting.Value == true then
 						CreateFloatingKey(key, keys.Text)
 						IsSelecting.Value = false
@@ -2128,7 +2125,6 @@ local function C_56()
 				local key = string.sub(keys.Name, 2)
 
 				keys.MouseButton1Down:Connect(function()
-
 					if IsSelecting.Value == true then
 						CreateFloatingKey(key, keys.Text)
 						IsSelecting.Value = false
@@ -2137,7 +2133,6 @@ local function C_56()
 					end
 				end)
 				keys.MouseButton1Up:Connect(function()
-
 					if IsSelecting.Value == true then
 						CreateFloatingKey(key, keys.Text)
 						IsSelecting.Value = false
@@ -2147,82 +2142,25 @@ local function C_56()
 				end)
 
 			elseif keys.Name == "RightShift" then
-
 				keys.MouseButton1Up:Connect(function()
-					if ToggleShift.Value == false then
-						if script.Parent.Parent.Parent.Shifting.Value then
-							script.Parent.Parent.Parent.Shifting.Value = false
-							for i,v in pairs(btns:GetChildren()) do
-								if v:IsA("TextButton") then
-									local a = v.Name
-									if string.find(a, "_") then
-										v.Visible = false
-									elseif string.find(a, "-") then
-										v.Visible = true
-									end
-								end
-							end
-						elseif not script.Parent.Parent.Parent.Shifting.Value then
-							script.Parent.Parent.Parent.Shifting.Value = true
-							for i,v in pairs(btns:GetChildren()) do
-								if v:IsA("TextButton") then
-									local a = v.Name
-									if string.find(a, "_") then
-										v.Visible = true
-									elseif string.find(a, "-") then
-										v.Visible = false
-									end
-								end
-							end
-						end
-					elseif ToggleShift.Value == true then
-						if IsSelecting.Value == false then
-							keypress(Enum.KeyCode[keys.Name])
-						elseif IsSelecting.Value == true then
-							IsSelecting.Value = false
-							CreateFloatingKey(keys.Name, keys.Name)
-						end
+					if IsSelecting.Value == true then
+						IsSelecting.Value = false
+						CreateFloatingKey(keys.Name, keys.Name)
+					else
+						keypress(Enum.KeyCode[keys.Name])
 					end
 				end)
 			elseif keys.Name == "LeftShift" then
 				keys.MouseButton1Up:Connect(function()
-					if ToggleShift.Value == false then
-						if script.Parent.Parent.Parent.Shifting.Value then
-							script.Parent.Parent.Parent.Shifting.Value = false
-							for i,v in pairs(btns:GetChildren()) do
-								if v:IsA("TextButton") then
-									local a = v.Name
-									if string.find(a, "_") then
-										v.Visible = false
-									elseif string.find(a, "-") then
-										v.Visible = true
-									end
-								end
-							end
-						elseif not script.Parent.Parent.Parent.Shifting.Value then
-							script.Parent.Parent.Parent.Shifting.Value = true
-							for i,v in pairs(btns:GetChildren()) do
-								if v:IsA("TextButton") then
-									local a = v.Name
-									if string.find(a, "_") then
-										v.Visible = true
-									elseif string.find(a, "-") then
-										v.Visible = false
-									end
-								end
-							end
-						end
-					elseif ToggleShift.Value == true then
-						if IsSelecting.Value == false then
-							keypress(Enum.KeyCode[keys.Name])
-						elseif IsSelecting.Value == true then
-							IsSelecting.Value = false
-							CreateFloatingKey(keys.Name, keys.Name)
-						end
+					if IsSelecting.Value == true then
+						IsSelecting.Value = false
+						CreateFloatingKey(keys.Name, keys.Name)
+					else
+						keypress(Enum.KeyCode[keys.Name])
 					end
 				end)
 				keys.MouseButton1Down:Connect(function()
-					if ToggleShift.Value == true then
+					if IsSelecting.Value == false then
 						keypress(Enum.KeyCode[keys.Name])
 					end
 				end)
@@ -2235,7 +2173,6 @@ local function C_56()
 					else
 						keypress(Enum.KeyCode[keys.Name])
 					end
-
 				end)
 				keys.MouseButton1Up:Connect(function()
 					if IsSelecting.Value == true then
@@ -2248,10 +2185,12 @@ local function C_56()
 			end		
 		end
 	end
-end;
-task.spawn(C_56);
+end
+
+C_56()
 
 local UIS = game:GetService("UserInputService")
+
 local function dragify(Frame)
     local dragging = false
     local dragInput = nil
@@ -2318,7 +2257,7 @@ end
 dragify(UI["2"])
 
 local function C_138()
-	local script = UI["138"];
+	local script = UI["138"]
 	local buttons = script.Parent
 	local ts = game.TweenService
 	local cooldown = false
@@ -2333,17 +2272,14 @@ local function C_138()
 		buttons.Close.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 	end)
 	buttons.Minimize.MouseButton1Up:Connect(function()
-
 		script.Parent.Visible = false
 		script.Parent.Parent.FloatingIcon.Visible = true
 	end)
 	buttons.Window.MouseButton1Up:Connect(function()
 		if not cooldown then
 			if script.Parent.Background.Visible == true then
-				script.Parent.ToggleRGB.Visible = false
 				script.Parent.Settings.Visible = false
 				script.Parent.Background.Visible = false
-				script.Parent.ToggleShift.Visible = false
 				local ti = TweenInfo.new(.8, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
 				local tw = ts:Create(script.Parent, ti, {Size = UDim2.new(0, 478,0, 29)})
 				tw:Play()
@@ -2351,16 +2287,13 @@ local function C_138()
 				tw.Completed:Wait()
 				cooldown = false
 			elseif script.Parent.Background.Visible ==false then
-
 				local ti = TweenInfo.new(.8, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
 				local tw = ts:Create(script.Parent, ti, {Size = UDim2.new(0, 478,0, 236)})
 				tw:Play()
 				cooldown = true
 				tw.Completed:Wait()
-				script.Parent.ToggleRGB.Visible = true
 				script.Parent.Settings.Visible = true
 				script.Parent.Background.Visible = true
-				script.Parent.ToggleShift.Visible = true
 				cooldown = false
 			end
 		end
@@ -2370,7 +2303,7 @@ local function C_138()
 		script.Parent.Parent.IsSelectingKey.Value = true
 	end)
 
-	local IsSelecting =script.Parent.Parent.IsSelectingKey
+	local IsSelecting = script.Parent.Parent.IsSelectingKey
 	IsSelecting:GetPropertyChangedSignal("Value"):Connect(function()
 		if IsSelecting.Value == true then
 			script.Parent.Title.Text = "Kilobyte keyboard [V3] (Selecting Key)"
@@ -2378,20 +2311,12 @@ local function C_138()
 			script.Parent.Title.Text = "Kilobyte keyboard [V3]"
 		end
 	end)
+end
 
-	script.Parent.ToggleShift.MouseButton1Up:Connect(function()
-		if script.Parent.Parent.ToggleShift.Value == true then
-			script.Parent.Parent.ToggleShift.Value = false
-			script.Parent.ToggleShift.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-		elseif script.Parent.Parent.ToggleShift.Value == false then
-			script.Parent.Parent.ToggleShift.Value = true
-			script.Parent.ToggleShift.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-		end
-	end)
-end;
-task.spawn(C_138);
+C_138()
+
 local function C_152()
-	local script = UI["152"];
+	local script = UI["152"]
 	local close = script.Parent.Close
 	local create = script.Parent.Create
 	local textbox = script.Parent.TextBox
@@ -2418,41 +2343,34 @@ local function C_152()
 			end)
 		end
 	end)
-end;
-task.spawn(C_152);
+end
+
+C_152()
+
 local function C_159()
-	local script = UI["159"];
+	local script = UI["159"]
 	script.Parent.MouseButton1Up:Connect(function()
 		script.Parent.Visible=false
 		script.Parent.Parent.Main.Visible = true
 	end)
-end;
-task.spawn(C_159);
+end
+
+C_159()
 
 local function StyleUI(root)
 	if not root then return end
-
-	local GRADIENT = ColorSequence.new{
-		ColorSequenceKeypoint.new(0, Color3.fromRGB(101, 0, 255)),
-		ColorSequenceKeypoint.new(1, Color3.fromRGB(170, 0, 255))
-	}
 
 	for _, obj in ipairs(root:GetDescendants()) do
 		if obj:IsA("UICorner") then
 			obj.CornerRadius = UDim.new(0, 4)
 		elseif obj:IsA("UIStroke") then
 			obj.Color = Color3.fromRGB(255, 255, 255)
-			if not obj:FindFirstChildOfClass("UIGradient") then
-				Instance.new("UIGradient", obj).Color = GRADIENT
-			end
 		elseif obj:IsA("TextLabel") or obj:IsA("TextButton") then
 			obj.TextColor3 = Color3.fromRGB(255, 255, 255)
-			if not obj:FindFirstChildOfClass("UIGradient") then
-				Instance.new("UIGradient", obj).Color = GRADIENT
-			end
 		end
 	end
 end
+
 StyleUI(UI["1"])
 
 return UI["1"]
