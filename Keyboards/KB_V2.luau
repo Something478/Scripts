@@ -27,7 +27,7 @@ UI["keyboard_6"] = Instance.new("Frame", UI["main_1"])
 UI["keyboard_6"]["BorderSizePixel"] = 5
 UI["keyboard_6"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
 UI["keyboard_6"]["Size"] = UDim2.new(0.41375, 0, 0.52061, 0)
-UI["keyboard_6"]["Position"] = UDim2.new(0.08179, 0, 0, 0)
+UI["keyboard_6"]["Position"] = UDim2.new(0.01893, 0, 0.00282, 0)
 UI["keyboard_6"]["BorderColor3"] = Color3.fromRGB(255, 255, 255)
 UI["keyboard_6"]["Name"] = "Keyboard"
 
