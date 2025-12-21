@@ -1,7 +1,7 @@
 local UI = {};
 
 UI["main_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
-UI["main_1"]["Name"] = [[main]];
+UI["main_1"]["Name"] = "main";
 UI["main_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 UI["Keyboard_2"] = Instance.new("Frame", UI["main_1"]);
@@ -10,7 +10,7 @@ UI["Keyboard_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["Keyboard_2"]["Size"] = UDim2.new(0, 242, 0, 146);
 UI["Keyboard_2"]["Position"] = UDim2.new(0, 16, 0, 2);
 UI["Keyboard_2"]["BorderColor3"] = Color3.fromRGB(255, 255, 255);
-UI["Keyboard_2"]["Name"] = [[Keyboard]];
+UI["Keyboard_2"]["Name"] = "Keyboard";
 
 UI["close_3"] = Instance.new("TextButton", UI["Keyboard_2"]);
 UI["close_3"]["TextWrapped"] = true;
@@ -20,8 +20,8 @@ UI["close_3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["close_3"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["close_3"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["close_3"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["close_3"]["Text"] = [[X]];
-UI["close_3"]["Name"] = [[close]];
+UI["close_3"]["Text"] = "X";
+UI["close_3"]["Name"] = "close";
 UI["close_3"]["Position"] = UDim2.new(0, 208, 0, 4);
 
 UI["UICorner_4"] = Instance.new("UICorner", UI["close_3"]);
@@ -45,7 +45,7 @@ UI["line3_9"]["BorderSizePixel"] = 0;
 UI["line3_9"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["line3_9"]["Size"] = UDim2.new(0, 234, 0, 34);
 UI["line3_9"]["Position"] = UDim2.new(0, 4, 0, 110);
-UI["line3_9"]["Name"] = [[line3]];
+UI["line3_9"]["Name"] = "line3";
 
 UI["key_a"] = Instance.new("TextButton", UI["line3_9"]);
 UI["key_a"]["TextWrapped"] = true;
@@ -55,8 +55,8 @@ UI["key_a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_a"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_a"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_a"]["Text"] = [[C]];
-UI["key_a"]["Name"] = [[key]];
+UI["key_a"]["Text"] = "C";
+UI["key_a"]["Name"] = "key";
 UI["key_a"]["Position"] = UDim2.new(0, 68, 0, 2);
 
 UI["UICorner_b"] = Instance.new("UICorner", UI["key_a"]);
@@ -80,8 +80,8 @@ UI["key_f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_f"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_f"]["Text"] = [[N]];
-UI["key_f"]["Name"] = [[key]];
+UI["key_f"]["Text"] = "N";
+UI["key_f"]["Name"] = "key";
 UI["key_f"]["Position"] = UDim2.new(0, 170, 0, 2);
 
 UI["UICorner_10"] = Instance.new("UICorner", UI["key_f"]);
@@ -108,8 +108,8 @@ UI["key_15"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_15"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_15"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_15"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_15"]["Text"] = [[B]];
-UI["key_15"]["Name"] = [[key]];
+UI["key_15"]["Text"] = "B";
+UI["key_15"]["Name"] = "key";
 UI["key_15"]["Position"] = UDim2.new(0, 136, 0, 2);
 
 UI["UICorner_16"] = Instance.new("UICorner", UI["key_15"]);
@@ -133,8 +133,8 @@ UI["key_1a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_1a"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_1a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_1a"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_1a"]["Text"] = [[Z]];
-UI["key_1a"]["Name"] = [[key]];
+UI["key_1a"]["Text"] = "Z";
+UI["key_1a"]["Name"] = "key";
 UI["key_1a"]["Position"] = UDim2.new(0, 0, 0, 2);
 
 UI["UICorner_1b"] = Instance.new("UICorner", UI["key_1a"]);
@@ -158,8 +158,8 @@ UI["key_1f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_1f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_1f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_1f"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_1f"]["Text"] = [[M]];
-UI["key_1f"]["Name"] = [[key]];
+UI["key_1f"]["Text"] = "M";
+UI["key_1f"]["Name"] = "key";
 UI["key_1f"]["Position"] = UDim2.new(0, 204, 0, 2);
 
 UI["UICorner_20"] = Instance.new("UICorner", UI["key_1f"]);
@@ -183,8 +183,8 @@ UI["key_24"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_24"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_24"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_24"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_24"]["Text"] = [[V]];
-UI["key_24"]["Name"] = [[key]];
+UI["key_24"]["Text"] = "V";
+UI["key_24"]["Name"] = "key";
 UI["key_24"]["Position"] = UDim2.new(0, 102, 0, 2);
 
 UI["UICorner_25"] = Instance.new("UICorner", UI["key_24"]);
@@ -208,8 +208,8 @@ UI["key_29"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_29"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_29"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_29"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_29"]["Text"] = [[X]];
-UI["key_29"]["Name"] = [[key]];
+UI["key_29"]["Text"] = "X";
+UI["key_29"]["Name"] = "key";
 UI["key_29"]["Position"] = UDim2.new(0, 34, 0, 2);
 
 UI["UICorner_2a"] = Instance.new("UICorner", UI["key_29"]);
@@ -230,7 +230,7 @@ UI["line2_2e"]["BorderSizePixel"] = 0;
 UI["line2_2e"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["line2_2e"]["Size"] = UDim2.new(0, 200, 0, 34);
 UI["line2_2e"]["Position"] = UDim2.new(0, 20, 0, 74);
-UI["line2_2e"]["Name"] = [[line2]];
+UI["line2_2e"]["Name"] = "line2";
 
 UI["key_2f"] = Instance.new("TextButton", UI["line2_2e"]);
 UI["key_2f"]["TextWrapped"] = true;
@@ -240,8 +240,8 @@ UI["key_2f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_2f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_2f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_2f"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_2f"]["Text"] = [[L]];
-UI["key_2f"]["Name"] = [[key]];
+UI["key_2f"]["Text"] = "L";
+UI["key_2f"]["Name"] = "key";
 UI["key_2f"]["Position"] = UDim2.new(0, 170, 0, 2);
 
 UI["UICorner_30"] = Instance.new("UICorner", UI["key_2f"]);
@@ -265,8 +265,8 @@ UI["key_34"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_34"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_34"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_34"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_34"]["Text"] = [[H]];
-UI["key_34"]["Name"] = [[key]];
+UI["key_34"]["Text"] = "H";
+UI["key_34"]["Name"] = "key";
 UI["key_34"]["Position"] = UDim2.new(0, 68, 0, 2);
 
 UI["UICorner_35"] = Instance.new("UICorner", UI["key_34"]);
@@ -293,8 +293,8 @@ UI["key_3a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_3a"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_3a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_3a"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_3a"]["Text"] = [[K]];
-UI["key_3a"]["Name"] = [[key]];
+UI["key_3a"]["Text"] = "K";
+UI["key_3a"]["Name"] = "key";
 UI["key_3a"]["Position"] = UDim2.new(0, 136, 0, 2);
 
 UI["UICorner_3b"] = Instance.new("UICorner", UI["key_3a"]);
@@ -318,8 +318,8 @@ UI["key_3f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_3f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_3f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_3f"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_3f"]["Text"] = [[F]];
-UI["key_3f"]["Name"] = [[key]];
+UI["key_3f"]["Text"] = "F";
+UI["key_3f"]["Name"] = "key";
 UI["key_3f"]["Position"] = UDim2.new(0, 0, 0, 2);
 
 UI["UICorner_40"] = Instance.new("UICorner", UI["key_3f"]);
@@ -343,8 +343,8 @@ UI["key_44"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_44"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_44"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_44"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_44"]["Text"] = [[J]];
-UI["key_44"]["Name"] = [[key]];
+UI["key_44"]["Text"] = "J";
+UI["key_44"]["Name"] = "key";
 UI["key_44"]["Position"] = UDim2.new(0, 102, 0, 2);
 
 UI["UICorner_45"] = Instance.new("UICorner", UI["key_44"]);
@@ -368,8 +368,8 @@ UI["key_49"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_49"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_49"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_49"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_49"]["Text"] = [[G]];
-UI["key_49"]["Name"] = [[key]];
+UI["key_49"]["Text"] = "G";
+UI["key_49"]["Name"] = "key";
 UI["key_49"]["Position"] = UDim2.new(0, 34, 0, 2);
 
 UI["UICorner_4a"] = Instance.new("UICorner", UI["key_49"]);
@@ -395,8 +395,8 @@ UI["Title_4e"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]],
 UI["Title_4e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["Title_4e"]["BackgroundTransparency"] = 1;
 UI["Title_4e"]["Size"] = UDim2.new(0, 200, 0, 30);
-UI["Title_4e"]["Text"] = [[Kilobyte keyboard V1]];
-UI["Title_4e"]["Name"] = [[Title]];
+UI["Title_4e"]["Text"] = "Kilobyte keyboard [V1]";
+UI["Title_4e"]["Name"] = "Title";
 UI["Title_4e"]["Position"] = UDim2.new(0, 4, 0, 4);
 
 UI["UIGradient_4f"] = Instance.new("UIGradient", UI["Title_4e"]);
@@ -407,7 +407,7 @@ UI["line1_50"]["BorderSizePixel"] = 0;
 UI["line1_50"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["line1_50"]["Size"] = UDim2.new(0, 232, 0, 34);
 UI["line1_50"]["Position"] = UDim2.new(0, 4, 0, 38);
-UI["line1_50"]["Name"] = [[line1]];
+UI["line1_50"]["Name"] = "line1";
 
 UI["key_51"] = Instance.new("TextButton", UI["line1_50"]);
 UI["key_51"]["TextWrapped"] = true;
@@ -417,8 +417,8 @@ UI["key_51"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_51"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_51"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_51"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_51"]["Text"] = [[E]];
-UI["key_51"]["Name"] = [[key]];
+UI["key_51"]["Text"] = "E";
+UI["key_51"]["Name"] = "key";
 UI["key_51"]["Position"] = UDim2.new(0, 34, 0, 2);
 
 UI["UICorner_52"] = Instance.new("UICorner", UI["key_51"]);
@@ -442,8 +442,8 @@ UI["key_56"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_56"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_56"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_56"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_56"]["Text"] = [[R]];
-UI["key_56"]["Name"] = [[key]];
+UI["key_56"]["Text"] = "R";
+UI["key_56"]["Name"] = "key";
 UI["key_56"]["Position"] = UDim2.new(0, 68, 0, 2);
 
 UI["UICorner_57"] = Instance.new("UICorner", UI["key_56"]);
@@ -470,8 +470,8 @@ UI["key_5c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_5c"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_5c"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_5c"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_5c"]["Text"] = [[P]];
-UI["key_5c"]["Name"] = [[key]];
+UI["key_5c"]["Text"] = "P";
+UI["key_5c"]["Name"] = "key";
 UI["key_5c"]["Position"] = UDim2.new(0, 204, 0, 2);
 
 UI["UICorner_5d"] = Instance.new("UICorner", UI["key_5c"]);
@@ -495,8 +495,8 @@ UI["key_61"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_61"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_61"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_61"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_61"]["Text"] = [[Y]];
-UI["key_61"]["Name"] = [[key]];
+UI["key_61"]["Text"] = "Y";
+UI["key_61"]["Name"] = "key";
 UI["key_61"]["Position"] = UDim2.new(0, 136, 0, 2);
 
 UI["UICorner_62"] = Instance.new("UICorner", UI["key_61"]);
@@ -520,8 +520,8 @@ UI["key_66"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_66"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_66"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_66"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_66"]["Text"] = [[T]];
-UI["key_66"]["Name"] = [[key]];
+UI["key_66"]["Text"] = "T";
+UI["key_66"]["Name"] = "key";
 UI["key_66"]["Position"] = UDim2.new(0, 102, 0, 2);
 
 UI["UICorner_67"] = Instance.new("UICorner", UI["key_66"]);
@@ -545,8 +545,8 @@ UI["key_6b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_6b"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_6b"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_6b"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_6b"]["Text"] = [[U]];
-UI["key_6b"]["Name"] = [[key]];
+UI["key_6b"]["Text"] = "U";
+UI["key_6b"]["Name"] = "key";
 UI["key_6b"]["Position"] = UDim2.new(0, 170, 0, 2);
 
 UI["UICorner_6c"] = Instance.new("UICorner", UI["key_6b"]);
@@ -570,8 +570,8 @@ UI["key_70"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 UI["key_70"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 UI["key_70"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 UI["key_70"]["Size"] = UDim2.new(0, 30, 0, 30);
-UI["key_70"]["Text"] = [[Q]];
-UI["key_70"]["Name"] = [[key]];
+UI["key_70"]["Text"] = "Q";
+UI["key_70"]["Name"] = "key";
 UI["key_70"]["Position"] = UDim2.new(0, 0, 0, 2);
 
 UI["UICorner_71"] = Instance.new("UICorner", UI["key_70"]);
