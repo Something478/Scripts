@@ -46,7 +46,7 @@ G2L["6"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Backquote.UICorner
 G2L["7"] = Instance.new("UICorner", G2L["5"]);
-G2L["7"]["CornerRadius"] = UDim.new(0, 4);
+G2L["7"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-One
 G2L["8"] = Instance.new("TextButton", G2L["4"]);
@@ -67,7 +67,7 @@ G2L["9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-One.UICorner
 G2L["a"] = Instance.new("UICorner", G2L["8"]);
-G2L["a"]["CornerRadius"] = UDim.new(0, 4);
+G2L["a"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Two
 G2L["b"] = Instance.new("TextButton", G2L["4"]);
@@ -88,7 +88,7 @@ G2L["c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Two.UICorner
 G2L["d"] = Instance.new("UICorner", G2L["b"]);
-G2L["d"]["CornerRadius"] = UDim.new(0, 4);
+G2L["d"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Three
 G2L["e"] = Instance.new("TextButton", G2L["4"]);
@@ -109,7 +109,7 @@ G2L["f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Three.UICorner
 G2L["10"] = Instance.new("UICorner", G2L["e"]);
-G2L["10"]["CornerRadius"] = UDim.new(0, 4);
+G2L["10"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Four
 G2L["11"] = Instance.new("TextButton", G2L["4"]);
@@ -130,7 +130,7 @@ G2L["12"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Four.UICorner
 G2L["13"] = Instance.new("UICorner", G2L["11"]);
-G2L["13"]["CornerRadius"] = UDim.new(0, 4);
+G2L["13"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Five
 G2L["14"] = Instance.new("TextButton", G2L["4"]);
@@ -151,7 +151,7 @@ G2L["15"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Five.UICorner
 G2L["16"] = Instance.new("UICorner", G2L["14"]);
-G2L["16"]["CornerRadius"] = UDim.new(0, 4);
+G2L["16"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Zero
 G2L["17"] = Instance.new("TextButton", G2L["4"]);
@@ -172,7 +172,7 @@ G2L["18"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Zero.UICorner
 G2L["19"] = Instance.new("UICorner", G2L["17"]);
-G2L["19"]["CornerRadius"] = UDim.new(0, 4);
+G2L["19"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Six
 G2L["1a"] = Instance.new("TextButton", G2L["4"]);
@@ -193,7 +193,7 @@ G2L["1b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Six.UICorner
 G2L["1c"] = Instance.new("UICorner", G2L["1a"]);
-G2L["1c"]["CornerRadius"] = UDim.new(0, 4);
+G2L["1c"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Seven
 G2L["1d"] = Instance.new("TextButton", G2L["4"]);
@@ -214,7 +214,7 @@ G2L["1e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Seven.UICorner
 G2L["1f"] = Instance.new("UICorner", G2L["1d"]);
-G2L["1f"]["CornerRadius"] = UDim.new(0, 4);
+G2L["1f"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Eight
 G2L["20"] = Instance.new("TextButton", G2L["4"]);
@@ -235,7 +235,7 @@ G2L["21"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Eight.UICorner
 G2L["22"] = Instance.new("UICorner", G2L["20"]);
-G2L["22"]["CornerRadius"] = UDim.new(0, 4);
+G2L["22"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Nine
 G2L["23"] = Instance.new("TextButton", G2L["4"]);
@@ -256,7 +256,7 @@ G2L["24"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Nine.UICorner
 G2L["25"] = Instance.new("UICorner", G2L["23"]);
-G2L["25"]["CornerRadius"] = UDim.new(0, 4);
+G2L["25"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Minus
 G2L["26"] = Instance.new("TextButton", G2L["4"]);
@@ -277,7 +277,7 @@ G2L["27"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Minus.UICorner
 G2L["28"] = Instance.new("UICorner", G2L["26"]);
-G2L["28"]["CornerRadius"] = UDim.new(0, 4);
+G2L["28"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Equals
 G2L["29"] = Instance.new("TextButton", G2L["4"]);
@@ -298,7 +298,7 @@ G2L["2a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Equals.UICorner
 G2L["2b"] = Instance.new("UICorner", G2L["29"]);
-G2L["2b"]["CornerRadius"] = UDim.new(0, 4);
+G2L["2b"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Backspace
 G2L["2c"] = Instance.new("TextButton", G2L["4"]);
@@ -319,7 +319,7 @@ G2L["2d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Backspace.UICorner
 G2L["2e"] = Instance.new("UICorner", G2L["2c"]);
-G2L["2e"]["CornerRadius"] = UDim.new(0, 4);
+G2L["2e"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Q
 G2L["2f"] = Instance.new("TextButton", G2L["4"]);
@@ -340,7 +340,7 @@ G2L["30"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Q.UICorner
 G2L["31"] = Instance.new("UICorner", G2L["2f"]);
-G2L["31"]["CornerRadius"] = UDim.new(0, 4);
+G2L["31"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.W
 G2L["32"] = Instance.new("TextButton", G2L["4"]);
@@ -361,7 +361,7 @@ G2L["33"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.W.UICorner
 G2L["34"] = Instance.new("UICorner", G2L["32"]);
-G2L["34"]["CornerRadius"] = UDim.new(0, 4);
+G2L["34"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.O
 G2L["35"] = Instance.new("TextButton", G2L["4"]);
@@ -382,7 +382,7 @@ G2L["36"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.O.UICorner
 G2L["37"] = Instance.new("UICorner", G2L["35"]);
-G2L["37"]["CornerRadius"] = UDim.new(0, 4);
+G2L["37"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.I
 G2L["38"] = Instance.new("TextButton", G2L["4"]);
@@ -403,7 +403,7 @@ G2L["39"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.I.UICorner
 G2L["3a"] = Instance.new("UICorner", G2L["38"]);
-G2L["3a"]["CornerRadius"] = UDim.new(0, 4);
+G2L["3a"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.U
 G2L["3b"] = Instance.new("TextButton", G2L["4"]);
@@ -424,7 +424,7 @@ G2L["3c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.U.UICorner
 G2L["3d"] = Instance.new("UICorner", G2L["3b"]);
-G2L["3d"]["CornerRadius"] = UDim.new(0, 4);
+G2L["3d"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Y
 G2L["3e"] = Instance.new("TextButton", G2L["4"]);
@@ -445,7 +445,7 @@ G2L["3f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Y.UICorner
 G2L["40"] = Instance.new("UICorner", G2L["3e"]);
-G2L["40"]["CornerRadius"] = UDim.new(0, 4);
+G2L["40"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.T
 G2L["41"] = Instance.new("TextButton", G2L["4"]);
@@ -466,7 +466,7 @@ G2L["42"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.T.UICorner
 G2L["43"] = Instance.new("UICorner", G2L["41"]);
-G2L["43"]["CornerRadius"] = UDim.new(0, 4);
+G2L["43"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.R
 G2L["44"] = Instance.new("TextButton", G2L["4"]);
@@ -487,7 +487,7 @@ G2L["45"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.R.UICorner
 G2L["46"] = Instance.new("UICorner", G2L["44"]);
-G2L["46"]["CornerRadius"] = UDim.new(0, 4);
+G2L["46"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.E
 G2L["47"] = Instance.new("TextButton", G2L["4"]);
@@ -508,7 +508,7 @@ G2L["48"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.E.UICorner
 G2L["49"] = Instance.new("UICorner", G2L["47"]);
-G2L["49"]["CornerRadius"] = UDim.new(0, 4);
+G2L["49"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.P
 G2L["4a"] = Instance.new("TextButton", G2L["4"]);
@@ -529,7 +529,7 @@ G2L["4b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.P.UICorner
 G2L["4c"] = Instance.new("UICorner", G2L["4a"]);
-G2L["4c"]["CornerRadius"] = UDim.new(0, 4);
+G2L["4c"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Semicolon
 G2L["4d"] = Instance.new("TextButton", G2L["4"]);
@@ -550,7 +550,7 @@ G2L["4e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Semicolon.UICorner
 G2L["4f"] = Instance.new("UICorner", G2L["4d"]);
-G2L["4f"]["CornerRadius"] = UDim.new(0, 4);
+G2L["4f"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.A
 G2L["50"] = Instance.new("TextButton", G2L["4"]);
@@ -571,7 +571,7 @@ G2L["51"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.A.UICorner
 G2L["52"] = Instance.new("UICorner", G2L["50"]);
-G2L["52"]["CornerRadius"] = UDim.new(0, 4);
+G2L["52"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.S
 G2L["53"] = Instance.new("TextButton", G2L["4"]);
@@ -592,7 +592,7 @@ G2L["54"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.S.UICorner
 G2L["55"] = Instance.new("UICorner", G2L["53"]);
-G2L["55"]["CornerRadius"] = UDim.new(0, 4);
+G2L["55"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Handler
 G2L["56"] = Instance.new("LocalScript", G2L["4"]);
@@ -617,7 +617,7 @@ G2L["58"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.G.UICorner
 G2L["59"] = Instance.new("UICorner", G2L["57"]);
-G2L["59"]["CornerRadius"] = UDim.new(0, 4);
+G2L["59"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F
 G2L["5a"] = Instance.new("TextButton", G2L["4"]);
@@ -638,7 +638,7 @@ G2L["5b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F.UICorner
 G2L["5c"] = Instance.new("UICorner", G2L["5a"]);
-G2L["5c"]["CornerRadius"] = UDim.new(0, 4);
+G2L["5c"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.H
 G2L["5d"] = Instance.new("TextButton", G2L["4"]);
@@ -659,7 +659,7 @@ G2L["5e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.H.UICorner
 G2L["5f"] = Instance.new("UICorner", G2L["5d"]);
-G2L["5f"]["CornerRadius"] = UDim.new(0, 4);
+G2L["5f"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.J
 G2L["60"] = Instance.new("TextButton", G2L["4"]);
@@ -680,7 +680,7 @@ G2L["61"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.J.UICorner
 G2L["62"] = Instance.new("UICorner", G2L["60"]);
-G2L["62"]["CornerRadius"] = UDim.new(0, 4);
+G2L["62"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.K
 G2L["63"] = Instance.new("TextButton", G2L["4"]);
@@ -701,7 +701,7 @@ G2L["64"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.K.UICorner
 G2L["65"] = Instance.new("UICorner", G2L["63"]);
-G2L["65"]["CornerRadius"] = UDim.new(0, 4);
+G2L["65"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.L
 G2L["66"] = Instance.new("TextButton", G2L["4"]);
@@ -722,7 +722,7 @@ G2L["67"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.L.UICorner
 G2L["68"] = Instance.new("UICorner", G2L["66"]);
-G2L["68"]["CornerRadius"] = UDim.new(0, 4);
+G2L["68"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Z
 G2L["69"] = Instance.new("TextButton", G2L["4"]);
@@ -743,7 +743,7 @@ G2L["6a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Z.UICorner
 G2L["6b"] = Instance.new("UICorner", G2L["69"]);
-G2L["6b"]["CornerRadius"] = UDim.new(0, 4);
+G2L["6b"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.X
 G2L["6c"] = Instance.new("TextButton", G2L["4"]);
@@ -764,7 +764,7 @@ G2L["6d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.X.UICorner
 G2L["6e"] = Instance.new("UICorner", G2L["6c"]);
-G2L["6e"]["CornerRadius"] = UDim.new(0, 4);
+G2L["6e"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.C
 G2L["6f"] = Instance.new("TextButton", G2L["4"]);
@@ -785,7 +785,7 @@ G2L["70"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.C.UICorner
 G2L["71"] = Instance.new("UICorner", G2L["6f"]);
-G2L["71"]["CornerRadius"] = UDim.new(0, 4);
+G2L["71"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.V
 G2L["72"] = Instance.new("TextButton", G2L["4"]);
@@ -806,7 +806,7 @@ G2L["73"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.V.UICorner
 G2L["74"] = Instance.new("UICorner", G2L["72"]);
-G2L["74"]["CornerRadius"] = UDim.new(0, 4);
+G2L["74"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.B
 G2L["75"] = Instance.new("TextButton", G2L["4"]);
@@ -827,7 +827,7 @@ G2L["76"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.B.UICorner
 G2L["77"] = Instance.new("UICorner", G2L["75"]);
-G2L["77"]["CornerRadius"] = UDim.new(0, 4);
+G2L["77"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.N
 G2L["78"] = Instance.new("TextButton", G2L["4"]);
@@ -848,7 +848,7 @@ G2L["79"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.N.UICorner
 G2L["7a"] = Instance.new("UICorner", G2L["78"]);
-G2L["7a"]["CornerRadius"] = UDim.new(0, 4);
+G2L["7a"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.M
 G2L["7b"] = Instance.new("TextButton", G2L["4"]);
@@ -869,7 +869,7 @@ G2L["7c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.M.UICorner
 G2L["7d"] = Instance.new("UICorner", G2L["7b"]);
-G2L["7d"]["CornerRadius"] = UDim.new(0, 4);
+G2L["7d"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Period
 G2L["7e"] = Instance.new("TextButton", G2L["4"]);
@@ -890,7 +890,7 @@ G2L["7f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Period.UICorner
 G2L["80"] = Instance.new("UICorner", G2L["7e"]);
-G2L["80"]["CornerRadius"] = UDim.new(0, 4);
+G2L["80"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Comma
 G2L["81"] = Instance.new("TextButton", G2L["4"]);
@@ -911,7 +911,7 @@ G2L["82"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Comma.UICorner
 G2L["83"] = Instance.new("UICorner", G2L["81"]);
-G2L["83"]["CornerRadius"] = UDim.new(0, 4);
+G2L["83"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.RightShift
 G2L["84"] = Instance.new("TextButton", G2L["4"]);
@@ -932,7 +932,7 @@ G2L["85"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.RightShift.UICorner
 G2L["86"] = Instance.new("UICorner", G2L["84"]);
-G2L["86"]["CornerRadius"] = UDim.new(0, 4);
+G2L["86"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Slash
 G2L["87"] = Instance.new("TextButton", G2L["4"]);
@@ -953,7 +953,7 @@ G2L["88"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Slash.UICorner
 G2L["89"] = Instance.new("UICorner", G2L["87"]);
-G2L["89"]["CornerRadius"] = UDim.new(0, 4);
+G2L["89"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Enter
 G2L["8a"] = Instance.new("TextButton", G2L["4"]);
@@ -974,7 +974,7 @@ G2L["8b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Enter.UICorner
 G2L["8c"] = Instance.new("UICorner", G2L["8a"]);
-G2L["8c"]["CornerRadius"] = UDim.new(0, 4);
+G2L["8c"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-Qoute
 G2L["8d"] = Instance.new("TextButton", G2L["4"]);
@@ -995,7 +995,7 @@ G2L["8e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-Qoute.UICorner
 G2L["8f"] = Instance.new("UICorner", G2L["8d"]);
-G2L["8f"]["CornerRadius"] = UDim.new(0, 4);
+G2L["8f"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-BackSlash
 G2L["90"] = Instance.new("TextButton", G2L["4"]);
@@ -1016,7 +1016,7 @@ G2L["91"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-BackSlash.UICorner
 G2L["92"] = Instance.new("UICorner", G2L["90"]);
-G2L["92"]["CornerRadius"] = UDim.new(0, 4);
+G2L["92"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-RightBracket
 G2L["93"] = Instance.new("TextButton", G2L["4"]);
@@ -1037,7 +1037,7 @@ G2L["94"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-RightBracket.UICorner
 G2L["95"] = Instance.new("UICorner", G2L["93"]);
-G2L["95"]["CornerRadius"] = UDim.new(0, 4);
+G2L["95"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.-LeftBracket
 G2L["96"] = Instance.new("TextButton", G2L["4"]);
@@ -1058,7 +1058,7 @@ G2L["97"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.-LeftBracket.UICorner
 G2L["98"] = Instance.new("UICorner", G2L["96"]);
-G2L["98"]["CornerRadius"] = UDim.new(0, 4);
+G2L["98"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Tab
 G2L["99"] = Instance.new("TextButton", G2L["4"]);
@@ -1079,7 +1079,7 @@ G2L["9a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Tab.UICorner
 G2L["9b"] = Instance.new("UICorner", G2L["99"]);
-G2L["9b"]["CornerRadius"] = UDim.new(0, 4);
+G2L["9b"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.CapsLock
 G2L["9c"] = Instance.new("TextButton", G2L["4"]);
@@ -1101,7 +1101,7 @@ G2L["9d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.CapsLock.UICorner
 G2L["9e"] = Instance.new("UICorner", G2L["9c"]);
-G2L["9e"]["CornerRadius"] = UDim.new(0, 4);
+G2L["9e"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.LeftShift
 G2L["9f"] = Instance.new("TextButton", G2L["4"]);
@@ -1122,7 +1122,7 @@ G2L["a0"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.LeftShift.UICorner
 G2L["a1"] = Instance.new("UICorner", G2L["9f"]);
-G2L["a1"]["CornerRadius"] = UDim.new(0, 4);
+G2L["a1"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.LeftControl
 G2L["a2"] = Instance.new("TextButton", G2L["4"]);
@@ -1143,7 +1143,7 @@ G2L["a3"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.LeftControl.UICorner
 G2L["a4"] = Instance.new("UICorner", G2L["a2"]);
-G2L["a4"]["CornerRadius"] = UDim.new(0, 4);
+G2L["a4"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F12
 G2L["a5"] = Instance.new("TextButton", G2L["4"]);
@@ -1164,7 +1164,7 @@ G2L["a6"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F12.UICorner
 G2L["a7"] = Instance.new("UICorner", G2L["a5"]);
-G2L["a7"]["CornerRadius"] = UDim.new(0, 4);
+G2L["a7"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Delete
 G2L["a8"] = Instance.new("TextButton", G2L["4"]);
@@ -1185,7 +1185,7 @@ G2L["a9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Delete.UICorner
 G2L["aa"] = Instance.new("UICorner", G2L["a8"]);
-G2L["aa"]["CornerRadius"] = UDim.new(0, 4);
+G2L["aa"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.LeftAlt
 G2L["ab"] = Instance.new("TextButton", G2L["4"]);
@@ -1206,7 +1206,7 @@ G2L["ac"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.LeftAlt.UICorner
 G2L["ad"] = Instance.new("UICorner", G2L["ab"]);
-G2L["ad"]["CornerRadius"] = UDim.new(0, 4);
+G2L["ad"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Space
 G2L["ae"] = Instance.new("TextButton", G2L["4"]);
@@ -1227,7 +1227,7 @@ G2L["af"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Space.UICorner
 G2L["b0"] = Instance.new("UICorner", G2L["ae"]);
-G2L["b0"]["CornerRadius"] = UDim.new(0, 4);
+G2L["b0"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.RightAlt
 G2L["b1"] = Instance.new("TextButton", G2L["4"]);
@@ -1248,7 +1248,7 @@ G2L["b2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.RightAlt.UICorner
 G2L["b3"] = Instance.new("UICorner", G2L["b1"]);
-G2L["b3"]["CornerRadius"] = UDim.new(0, 4);
+G2L["b3"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.RightControl
 G2L["b4"] = Instance.new("TextButton", G2L["4"]);
@@ -1269,7 +1269,7 @@ G2L["b5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.RightControl.UICorner
 G2L["b6"] = Instance.new("UICorner", G2L["b4"]);
-G2L["b6"]["CornerRadius"] = UDim.new(0, 4);
+G2L["b6"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.PageUp
 G2L["b7"] = Instance.new("TextButton", G2L["4"]);
@@ -1290,7 +1290,7 @@ G2L["b8"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.PageUp.UICorner
 G2L["b9"] = Instance.new("UICorner", G2L["b7"]);
-G2L["b9"]["CornerRadius"] = UDim.new(0, 4);
+G2L["b9"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.PageDown
 G2L["ba"] = Instance.new("TextButton", G2L["4"]);
@@ -1311,7 +1311,7 @@ G2L["bb"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.PageDown.UICorner
 G2L["bc"] = Instance.new("UICorner", G2L["ba"]);
-G2L["bc"]["CornerRadius"] = UDim.new(0, 4);
+G2L["bc"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.End
 G2L["bd"] = Instance.new("TextButton", G2L["4"]);
@@ -1332,7 +1332,7 @@ G2L["be"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.End.UICorner
 G2L["bf"] = Instance.new("UICorner", G2L["bd"]);
-G2L["bf"]["CornerRadius"] = UDim.new(0, 4);
+G2L["bf"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Home
 G2L["c0"] = Instance.new("TextButton", G2L["4"]);
@@ -1353,7 +1353,7 @@ G2L["c1"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Home.UICorner
 G2L["c2"] = Instance.new("UICorner", G2L["c0"]);
-G2L["c2"]["CornerRadius"] = UDim.new(0, 4);
+G2L["c2"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.Escape
 G2L["c3"] = Instance.new("TextButton", G2L["4"]);
@@ -1374,7 +1374,7 @@ G2L["c4"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.Escape.UICorner
 G2L["c5"] = Instance.new("UICorner", G2L["c3"]);
-G2L["c5"]["CornerRadius"] = UDim.new(0, 4);
+G2L["c5"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F1
 G2L["c6"] = Instance.new("TextButton", G2L["4"]);
@@ -1395,7 +1395,7 @@ G2L["c7"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F1.UICorner
 G2L["c8"] = Instance.new("UICorner", G2L["c6"]);
-G2L["c8"]["CornerRadius"] = UDim.new(0, 4);
+G2L["c8"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F2
 G2L["c9"] = Instance.new("TextButton", G2L["4"]);
@@ -1416,7 +1416,7 @@ G2L["ca"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F2.UICorner
 G2L["cb"] = Instance.new("UICorner", G2L["c9"]);
-G2L["cb"]["CornerRadius"] = UDim.new(0, 4);
+G2L["cb"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F3
 G2L["cc"] = Instance.new("TextButton", G2L["4"]);
@@ -1437,7 +1437,7 @@ G2L["cd"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F3.UICorner
 G2L["ce"] = Instance.new("UICorner", G2L["cc"]);
-G2L["ce"]["CornerRadius"] = UDim.new(0, 4);
+G2L["ce"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F4
 G2L["cf"] = Instance.new("TextButton", G2L["4"]);
@@ -1458,7 +1458,7 @@ G2L["d0"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F4.UICorner
 G2L["d1"] = Instance.new("UICorner", G2L["cf"]);
-G2L["d1"]["CornerRadius"] = UDim.new(0, 4);
+G2L["d1"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F5
 G2L["d2"] = Instance.new("TextButton", G2L["4"]);
@@ -1479,7 +1479,7 @@ G2L["d3"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F5.UICorner
 G2L["d4"] = Instance.new("UICorner", G2L["d2"]);
-G2L["d4"]["CornerRadius"] = UDim.new(0, 4);
+G2L["d4"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F6
 G2L["d5"] = Instance.new("TextButton", G2L["4"]);
@@ -1500,7 +1500,7 @@ G2L["d6"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F6.UICorner
 G2L["d7"] = Instance.new("UICorner", G2L["d5"]);
-G2L["d7"]["CornerRadius"] = UDim.new(0, 4);
+G2L["d7"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F7
 G2L["d8"] = Instance.new("TextButton", G2L["4"]);
@@ -1521,7 +1521,7 @@ G2L["d9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F7.UICorner
 G2L["da"] = Instance.new("UICorner", G2L["d8"]);
-G2L["da"]["CornerRadius"] = UDim.new(0, 4);
+G2L["da"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F8
 G2L["db"] = Instance.new("TextButton", G2L["4"]);
@@ -1542,7 +1542,7 @@ G2L["dc"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F8.UICorner
 G2L["dd"] = Instance.new("UICorner", G2L["db"]);
-G2L["dd"]["CornerRadius"] = UDim.new(0, 4);
+G2L["dd"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F9
 G2L["de"] = Instance.new("TextButton", G2L["4"]);
@@ -1563,7 +1563,7 @@ G2L["df"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F9.UICorner
 G2L["e0"] = Instance.new("UICorner", G2L["de"]);
-G2L["e0"]["CornerRadius"] = UDim.new(0, 4);
+G2L["e0"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F10
 G2L["e1"] = Instance.new("TextButton", G2L["4"]);
@@ -1584,7 +1584,7 @@ G2L["e2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F10.UICorner
 G2L["e3"] = Instance.new("UICorner", G2L["e1"]);
-G2L["e3"]["CornerRadius"] = UDim.new(0, 4);
+G2L["e3"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.F11
 G2L["e4"] = Instance.new("TextButton", G2L["4"]);
@@ -1605,7 +1605,7 @@ G2L["e5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.F11.UICorner
 G2L["e6"] = Instance.new("UICorner", G2L["e4"]);
-G2L["e6"]["CornerRadius"] = UDim.new(0, 4);
+G2L["e6"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.RGBHandler
 G2L["e7"] = Instance.new("LocalScript", G2L["4"]);
@@ -1631,7 +1631,7 @@ G2L["e9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Pipe.UICorner
 G2L["ea"] = Instance.new("UICorner", G2L["e8"]);
-G2L["ea"]["CornerRadius"] = UDim.new(0, 4);
+G2L["ea"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Tilde
 G2L["eb"] = Instance.new("TextButton", G2L["4"]);
@@ -1653,7 +1653,7 @@ G2L["ec"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Tilde.UICorner
 G2L["ed"] = Instance.new("UICorner", G2L["eb"]);
-G2L["ed"]["CornerRadius"] = UDim.new(0, 4);
+G2L["ed"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Exclamation
 G2L["ee"] = Instance.new("TextButton", G2L["4"]);
@@ -1675,7 +1675,7 @@ G2L["ef"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Exclamation.UICorner
 G2L["f0"] = Instance.new("UICorner", G2L["ee"]);
-G2L["f0"]["CornerRadius"] = UDim.new(0, 4);
+G2L["f0"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._At
 G2L["f1"] = Instance.new("TextButton", G2L["4"]);
@@ -1697,7 +1697,7 @@ G2L["f2"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._At.UICorner
 G2L["f3"] = Instance.new("UICorner", G2L["f1"]);
-G2L["f3"]["CornerRadius"] = UDim.new(0, 4);
+G2L["f3"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Hash
 G2L["f4"] = Instance.new("TextButton", G2L["4"]);
@@ -1719,7 +1719,7 @@ G2L["f5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Hash.UICorner
 G2L["f6"] = Instance.new("UICorner", G2L["f4"]);
-G2L["f6"]["CornerRadius"] = UDim.new(0, 4);
+G2L["f6"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Dollar
 G2L["f7"] = Instance.new("TextButton", G2L["4"]);
@@ -1741,7 +1741,7 @@ G2L["f8"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Dollar.UICorner
 G2L["f9"] = Instance.new("UICorner", G2L["f7"]);
-G2L["f9"]["CornerRadius"] = UDim.new(0, 4);
+G2L["f9"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Percent
 G2L["fa"] = Instance.new("TextButton", G2L["4"]);
@@ -1763,7 +1763,7 @@ G2L["fb"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Percent.UICorner
 G2L["fc"] = Instance.new("UICorner", G2L["fa"]);
-G2L["fc"]["CornerRadius"] = UDim.new(0, 4);
+G2L["fc"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Caret
 G2L["fd"] = Instance.new("TextButton", G2L["4"]);
@@ -1786,7 +1786,7 @@ G2L["fe"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Caret.UICorner
 G2L["ff"] = Instance.new("UICorner", G2L["fd"]);
-G2L["ff"]["CornerRadius"] = UDim.new(0, 4);
+G2L["ff"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Ampersand
 G2L["100"] = Instance.new("TextButton", G2L["4"]);
@@ -1808,7 +1808,7 @@ G2L["101"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Ampersand.UICorner
 G2L["102"] = Instance.new("UICorner", G2L["100"]);
-G2L["102"]["CornerRadius"] = UDim.new(0, 4);
+G2L["102"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Asterisk
 G2L["103"] = Instance.new("TextButton", G2L["4"]);
@@ -1830,7 +1830,7 @@ G2L["104"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Asterisk.UICorner
 G2L["105"] = Instance.new("UICorner", G2L["103"]);
-G2L["105"]["CornerRadius"] = UDim.new(0, 4);
+G2L["105"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._LeftParenthesis
 G2L["106"] = Instance.new("TextButton", G2L["4"]);
@@ -1852,7 +1852,7 @@ G2L["107"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._LeftParenthesis.UICorner
 G2L["108"] = Instance.new("UICorner", G2L["106"]);
-G2L["108"]["CornerRadius"] = UDim.new(0, 4);
+G2L["108"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._RightParenthesis
 G2L["109"] = Instance.new("TextButton", G2L["4"]);
@@ -1874,7 +1874,7 @@ G2L["10a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._RightParenthesis.UICorner
 G2L["10b"] = Instance.new("UICorner", G2L["109"]);
-G2L["10b"]["CornerRadius"] = UDim.new(0, 4);
+G2L["10b"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Underscore
 G2L["10c"] = Instance.new("TextButton", G2L["4"]);
@@ -1896,7 +1896,7 @@ G2L["10d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Underscore.UICorner
 G2L["10e"] = Instance.new("UICorner", G2L["10c"]);
-G2L["10e"]["CornerRadius"] = UDim.new(0, 4);
+G2L["10e"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Plus
 G2L["10f"] = Instance.new("TextButton", G2L["4"]);
@@ -1918,7 +1918,7 @@ G2L["110"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Plus.UICorner
 G2L["111"] = Instance.new("UICorner", G2L["10f"]);
-G2L["111"]["CornerRadius"] = UDim.new(0, 4);
+G2L["111"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._RightCurly
 G2L["112"] = Instance.new("TextButton", G2L["4"]);
@@ -1940,7 +1940,7 @@ G2L["113"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._RightCurly.UICorner
 G2L["114"] = Instance.new("UICorner", G2L["112"]);
-G2L["114"]["CornerRadius"] = UDim.new(0, 4);
+G2L["114"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._LeftCurly
 G2L["115"] = Instance.new("TextButton", G2L["4"]);
@@ -1962,7 +1962,7 @@ G2L["116"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._LeftCurly.UICorner
 G2L["117"] = Instance.new("UICorner", G2L["115"]);
-G2L["117"]["CornerRadius"] = UDim.new(0, 4);
+G2L["117"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._QuotedDouble
 G2L["118"] = Instance.new("TextButton", G2L["4"]);
@@ -1984,7 +1984,7 @@ G2L["119"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._QuotedDouble.UICorner
 G2L["11a"] = Instance.new("UICorner", G2L["118"]);
-G2L["11a"]["CornerRadius"] = UDim.new(0, 4);
+G2L["11a"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Colon
 G2L["11b"] = Instance.new("TextButton", G2L["4"]);
@@ -2006,7 +2006,7 @@ G2L["11c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Colon.UICorner
 G2L["11d"] = Instance.new("UICorner", G2L["11b"]);
-G2L["11d"]["CornerRadius"] = UDim.new(0, 4);
+G2L["11d"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._Question
 G2L["11e"] = Instance.new("TextButton", G2L["4"]);
@@ -2028,7 +2028,7 @@ G2L["11f"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._Question.UICorner
 G2L["120"] = Instance.new("UICorner", G2L["11e"]);
-G2L["120"]["CornerRadius"] = UDim.new(0, 4);
+G2L["120"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._GreaterThan
 G2L["121"] = Instance.new("TextButton", G2L["4"]);
@@ -2050,7 +2050,7 @@ G2L["122"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._GreaterThan.UICorner
 G2L["123"] = Instance.new("UICorner", G2L["121"]);
-G2L["123"]["CornerRadius"] = UDim.new(0, 4);
+G2L["123"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background._LessThan
 G2L["124"] = Instance.new("TextButton", G2L["4"]);
@@ -2072,11 +2072,11 @@ G2L["125"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background._LessThan.UICorner
 G2L["126"] = Instance.new("UICorner", G2L["124"]);
-G2L["126"]["CornerRadius"] = UDim.new(0, 4);
+G2L["126"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.UICorner
 G2L["127"] = Instance.new("UICorner", G2L["4"]);
-G2L["127"]["CornerRadius"] = UDim.new(0, 4);
+G2L["127"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.Background.D
 G2L["128"] = Instance.new("TextButton", G2L["4"]);
@@ -2097,11 +2097,11 @@ G2L["129"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.Background.D.UICorner
 G2L["12a"] = Instance.new("UICorner", G2L["128"]);
-G2L["12a"]["CornerRadius"] = UDim.new(0, 4);
+G2L["12a"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.UICorner
 G2L["12b"] = Instance.new("UICorner", G2L["2"]);
-G2L["12b"]["CornerRadius"] = UDim.new(0, 4);
+G2L["12b"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.ToggleRGB
 G2L["12c"] = Instance.new("TextButton", G2L["2"]);
@@ -2113,7 +2113,16 @@ G2L["12c"]["Size"] = UDim2.new(0, 14, 0, 14);
 G2L["12c"]["Name"] = [[ToggleRGB]];
 G2L["12c"]["Text"] = [[]];
 G2L["12c"]["Position"] = UDim2.new(0.9649999737739563, 0, 0.9300000071525574, 0);
-G2L["12c"]["Visible"] = false
+
+-- StarterGui.KilobyteV3.Main.ToggleRGB.UICorner
+G2L["12d"] = Instance.new("UICorner", G2L["12c"]);
+G2L["12d"]["CornerRadius"] = UDim.new(0, 4);
+
+-- StarterGui.KilobyteV3.Main.ToggleRGB.UIStroke
+G2L["12e"] = Instance.new("UIStroke", G2L["12c"]);
+G2L["12e"]["Color"] = Color3.fromRGB(255, 255, 255);
+G2L["12e"]["Thickness"] = 0.8999999761581421;
+G2L["12e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 -- StarterGui.KilobyteV3.Main.tesy
 G2L["12f"] = Instance.new("TextButton", G2L["2"]);
@@ -2143,7 +2152,7 @@ G2L["136"]["Name"] = [[Drag]];
 
 -- StarterGui.KilobyteV3.Main.UICorner
 G2L["137"] = Instance.new("UICorner", G2L["2"]);
-G2L["137"]["CornerRadius"] = UDim.new(0, 4);
+G2L["137"]["CornerRadius"] = UDim.new(0, 5);
 
 -- StarterGui.KilobyteV3.Main.ButtonHandler
 G2L["138"] = Instance.new("LocalScript", G2L["2"]);
@@ -2287,7 +2296,7 @@ G2L["147"]["TextSize"] = 18;
 G2L["147"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["147"]["Size"] = UDim2.new(0, 285, 0, 24);
 G2L["147"]["Active"] = true;
-G2L["147"]["Text"] = [[Delta Keyboard - Settings Floating Key]];
+G2L["147"]["Text"] = "Kilobyte keyboard [V3? - Setting floating key"
 G2L["147"]["Name"] = [[Title]];
 G2L["147"]["BackgroundTransparency"] = 1;
 G2L["147"]["Position"] = UDim2.new(-0.0035211266949772835, 0, 0.02054794505238533, 0);
@@ -2387,7 +2396,7 @@ G2L["155"]["Name"] = [[Shifting]];
 -- StarterGui.KilobyteV3.FloatingIcon
 G2L["156"] = Instance.new("ImageButton", G2L["1"]);
 G2L["156"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30);
-G2L["156"]["Image"] = "http://www.roblox.com/asset/?id=114265663904736"
+G2L["156"]["Image"] = [[rbxassetid://13501536441]];
 G2L["156"]["Size"] = UDim2.new(0, 40, 0, 40);
 G2L["156"]["Name"] = [[FloatingIcon]];
 G2L["156"]["Visible"] = false;
@@ -2395,7 +2404,7 @@ G2L["156"]["Position"] = UDim2.new(0.015649452805519104, 0, 0.03064066171646118,
 
 -- StarterGui.KilobyteV3.FloatingIcon.UICorner
 G2L["157"] = Instance.new("UICorner", G2L["156"]);
-G2L["157"]["CornerRadius"] = UDim.new(0, 4);
+G2L["157"]["CornerRadius"] = UDim.new(0, 12);
 
 -- StarterGui.KilobyteV3.FloatingIcon.UIStroke
 G2L["158"] = Instance.new("UIStroke", G2L["156"]);
@@ -2676,10 +2685,10 @@ local function C_138()
 				tw:Play()
 				cooldown = true
 				tw.Completed:Wait()
-				script.Parent.ToggleRGB.Visible = false
+				script.Parent.ToggleRGB.Visible = true
 				script.Parent.Settings.Visible = true
 				script.Parent.Background.Visible = true
-				script.Parent.ToggleShift.Visible = false
+				script.Parent.ToggleShift.Visible = true
 				cooldown = false
 			end
 		end
@@ -2740,7 +2749,7 @@ local function C_159()
 end;
 task.spawn(C_159);
 
-local SF = Font.new(
+local SetFont = Font.new(
 	"rbxasset://fonts/families/Ubuntu.json",
 	Enum.FontWeight.Regular,
 	Enum.FontStyle.Normal
@@ -2749,7 +2758,7 @@ local SF = Font.new(
 for _, ui in pairs(G2L) do
 	if typeof(ui) == "Instance" then
 		if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
-			ui.FontFace = SF
+			ui.FontFace = SetFont
 			ui.TextScaled = true
 		end
 	end
