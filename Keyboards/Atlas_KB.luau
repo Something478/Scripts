@@ -2768,6 +2768,10 @@ for _, ui in ipairs(root:GetDescendants()) do
 	if ui:IsA("UIStroke") then
 		ui.Transparency = 0.625
 	end
+
+	if ui:IsA("UICorner") then
+		ui.CornerRadius = UDim.new(0, 4)
+	end
 end
 
 return G2L["1"], require;
