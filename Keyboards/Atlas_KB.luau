@@ -2758,19 +2758,15 @@ for _, ui in ipairs(root:GetDescendants()) do
 	if ui:IsA("GuiObject") then
 		ui.BackgroundTransparency = 0.625
 	end
-
 	if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
 		ui.TextTransparency = 0.625
 	end
-
 	if ui:IsA("ImageLabel") or ui:IsA("ImageButton") then
 		ui.ImageTransparency = 0.625
 	end
-
 	if ui:IsA("UIStroke") then
 		ui.Transparency = 0.625
 	end
-
 	if ui:IsA("UICorner") then
 		ui.CornerRadius = UDim.new(0, 4)
 	end
