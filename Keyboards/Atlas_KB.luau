@@ -2415,6 +2415,13 @@ G2L["158"]["Color"] = Color3.fromRGB(158, 0, 255);
 G2L["158"]["Thickness"] = 1.2999999523162842;
 G2L["158"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
+-- StarterGui.AtlasKeyboard.FloatingIcon.UIGradient
+G2L["157"] = Instance.new("UIGradient", G2L["156"])
+G2L["157"].Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(158, 0, 255)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(158, 0, 255))
+}
+
 -- StarterGui.AtlasKeyboard.FloatingIcon.LocalScript
 G2L["159"] = Instance.new("LocalScript", G2L["156"]);
 
