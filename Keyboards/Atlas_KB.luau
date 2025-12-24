@@ -2760,20 +2760,31 @@ end;
 task.spawn(C_159);
 
 local root = G2L["1"]
-
 for _, ui in ipairs(root:GetDescendants()) do
 	if ui:IsA("GuiObject") then
-		ui.BackgroundTransparency = 0.625
+		if ui.BackgroundTransparency ~= 1 then
+			ui.BackgroundTransparency = 0.5
+		end
 	end
+
 	if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
-		ui.TextTransparency = 0.625
+		if ui.TextTransparency ~= 1 then
+			ui.TextTransparency = 0.5
+		end
 	end
+
 	if ui:IsA("ImageLabel") or ui:IsA("ImageButton") then
-		ui.ImageTransparency = 0.625
+		if ui.ImageTransparency ~= 1 then
+			ui.ImageTransparency = 0.5
+		end
 	end
+
 	if ui:IsA("UIStroke") then
-		ui.Transparency = 0.625
+		if ui.Transparency ~= 1 then
+			ui.Transparency = 0.5
+		end
 	end
+
 	if ui:IsA("UICorner") then
 		ui.CornerRadius = UDim.new(0, 4)
 	end
