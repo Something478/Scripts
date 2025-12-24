@@ -2761,28 +2761,22 @@ task.spawn(C_159);
 
 local root = G2L["1"]
 for _, ui in ipairs(root:GetDescendants()) do
-	if ui:IsA("GuiObject") then
-		if ui.BackgroundTransparency ~= 1 then
-			ui.BackgroundTransparency = 0.5
-		end
+	if ui:IsA("GuiObject") and ui.BackgroundTransparency ~= 1 then
+		ui.BackgroundTransparency = 0.625
 	end
 
-	if ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox") then
-		if ui.TextTransparency ~= 1 then
-			ui.TextTransparency = 0.5
-		end
+	if (ui:IsA("TextLabel") or ui:IsA("TextButton") or ui:IsA("TextBox"))
+		and ui.TextTransparency ~= 1 then
+		ui.TextTransparency = 0.625
 	end
 
-	if ui:IsA("ImageLabel") or ui:IsA("ImageButton") then
-		if ui.ImageTransparency ~= 1 then
-			ui.ImageTransparency = 0.5
-		end
+	if (ui:IsA("ImageLabel") or ui:IsA("ImageButton"))
+		and ui.ImageTransparency ~= 1 then
+		ui.ImageTransparency = 0.625
 	end
 
-	if ui:IsA("UIStroke") then
-		if ui.Transparency ~= 1 then
-			ui.Transparency = 0.5
-		end
+	if ui:IsA("UIStroke") and ui.Transparency ~= 1 then
+		ui.Transparency = 0.625
 	end
 
 	if ui:IsA("UICorner") then
