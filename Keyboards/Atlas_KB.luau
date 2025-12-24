@@ -2752,6 +2752,8 @@ local function C_159()
 end;
 task.spawn(C_159);
 
+local root = G2L["1"]
+
 for _, ui in ipairs(root:GetDescendants()) do
 	if ui:IsA("GuiObject") then
 		ui.BackgroundTransparency = 0.625
